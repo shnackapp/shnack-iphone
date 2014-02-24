@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6935AD1618ADF5DB007CF28F /* ObjectWithNameAndID.m in Sources */ = {isa = PBXBuildFile; fileRef = 6935AD1518ADF5DB007CF28F /* ObjectWithNameAndID.m */; };
-		6935AD1918AEA350007CF28F /* StadiumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6935AD1818AEA350007CF28F /* StadiumCell.m */; };
 		69400FAF18BBC48400238826 /* VendorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FAE18BBC48400238826 /* VendorCell.m */; };
-		69400FB218BBE65A00238826 /* ShnackMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB118BBE65A00238826 /* ShnackMenuViewController.m */; };
 		69400FB518BBE68000238826 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB418BBE68000238826 /* Item.m */; };
 		69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */; };
 		69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */; };
+		69400FBF18BBEBC400238826 /* ObjectWithNameAndID.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FBE18BBEBC400238826 /* ObjectWithNameAndID.m */; };
+		69400FC218BBECBF00238826 /* StadiumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FC118BBECBF00238826 /* StadiumCell.m */; };
+		69400FC518BBED0600238826 /* ShnackMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FC418BBED0600238826 /* ShnackMenuViewController.m */; };
 		69715B1B18AD39560039D061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B1A18AD39560039D061 /* Foundation.framework */; };
 		69715B1D18AD39560039D061 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B1C18AD39560039D061 /* CoreGraphics.framework */; };
 		69715B1F18AD39560039D061 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B1E18AD39560039D061 /* UIKit.framework */; };
@@ -46,20 +46,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6935AD1418ADF5DB007CF28F /* ObjectWithNameAndID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectWithNameAndID.h; path = ../ObjectWithNameAndID.h; sourceTree = "<group>"; };
-		6935AD1518ADF5DB007CF28F /* ObjectWithNameAndID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObjectWithNameAndID.m; path = ../ObjectWithNameAndID.m; sourceTree = "<group>"; };
-		6935AD1718AEA350007CF28F /* StadiumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StadiumCell.h; path = ../StadiumCell.h; sourceTree = "<group>"; };
-		6935AD1818AEA350007CF28F /* StadiumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StadiumCell.m; path = ../StadiumCell.m; sourceTree = "<group>"; };
 		69400FAD18BBC48300238826 /* VendorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorCell.h; sourceTree = "<group>"; };
 		69400FAE18BBC48400238826 /* VendorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorCell.m; sourceTree = "<group>"; };
-		69400FB018BBE64600238826 /* ShnackMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShnackMenuViewController.h; sourceTree = "<group>"; };
-		69400FB118BBE65A00238826 /* ShnackMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShnackMenuViewController.m; sourceTree = "<group>"; };
 		69400FB318BBE68000238826 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		69400FB418BBE68000238826 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		69400FB718BBE6C000238826 /* ShnackOrderTotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShnackOrderTotalCell.h; sourceTree = "<group>"; };
 		69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShnackOrderTotalCell.m; sourceTree = "<group>"; };
 		69400FB918BBE6C000238826 /* ShnackOrderItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShnackOrderItemCell.h; sourceTree = "<group>"; };
 		69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShnackOrderItemCell.m; sourceTree = "<group>"; };
+		69400FBD18BBEBC400238826 /* ObjectWithNameAndID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWithNameAndID.h; sourceTree = "<group>"; };
+		69400FBE18BBEBC400238826 /* ObjectWithNameAndID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectWithNameAndID.m; sourceTree = "<group>"; };
+		69400FC018BBECBF00238826 /* StadiumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StadiumCell.h; sourceTree = "<group>"; };
+		69400FC118BBECBF00238826 /* StadiumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StadiumCell.m; sourceTree = "<group>"; };
+		69400FC318BBED0600238826 /* ShnackMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShnackMenuViewController.h; path = Mobile/ShnackMenuViewController.h; sourceTree = "<group>"; };
+		69400FC418BBED0600238826 /* ShnackMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShnackMenuViewController.m; path = Mobile/ShnackMenuViewController.m; sourceTree = "<group>"; };
 		69715B1718AD39560039D061 /* Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69715B1A18AD39560039D061 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		69715B1C18AD39560039D061 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -116,11 +116,11 @@
 		6935AD1A18AEA36B007CF28F /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				69400FBD18BBEBC400238826 /* ObjectWithNameAndID.h */,
+				69400FBE18BBEBC400238826 /* ObjectWithNameAndID.m */,
 				69400FB618BBE69A00238826 /* Table Cells */,
 				69400FB318BBE68000238826 /* Item.h */,
 				69400FB418BBE68000238826 /* Item.m */,
-				6935AD1418ADF5DB007CF28F /* ObjectWithNameAndID.h */,
-				6935AD1518ADF5DB007CF28F /* ObjectWithNameAndID.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -128,8 +128,8 @@
 		6935AD1B18AEA38A007CF28F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				69400FB118BBE65A00238826 /* ShnackMenuViewController.m */,
-				69400FB018BBE64600238826 /* ShnackMenuViewController.h */,
+				69400FC318BBED0600238826 /* ShnackMenuViewController.h */,
+				69400FC418BBED0600238826 /* ShnackMenuViewController.m */,
 				69715B3418AD39560039D061 /* StadiumViewController.h */,
 				69715B3518AD39560039D061 /* StadiumViewController.m */,
 				69715B3718AD39560039D061 /* VendorViewController.h */,
@@ -142,14 +142,14 @@
 		69400FB618BBE69A00238826 /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
+				69400FC018BBECBF00238826 /* StadiumCell.h */,
+				69400FC118BBECBF00238826 /* StadiumCell.m */,
 				69400FB718BBE6C000238826 /* ShnackOrderTotalCell.h */,
 				69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */,
 				69400FB918BBE6C000238826 /* ShnackOrderItemCell.h */,
 				69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */,
 				69400FAD18BBC48300238826 /* VendorCell.h */,
 				69400FAE18BBC48400238826 /* VendorCell.m */,
-				6935AD1818AEA350007CF28F /* StadiumCell.m */,
-				6935AD1718AEA350007CF28F /* StadiumCell.h */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -330,16 +330,16 @@
 			files = (
 				69715B3918AD39560039D061 /* VendorViewController.m in Sources */,
 				69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */,
-				69400FB218BBE65A00238826 /* ShnackMenuViewController.m in Sources */,
 				69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */,
-				6935AD1618ADF5DB007CF28F /* ObjectWithNameAndID.m in Sources */,
 				69400FAF18BBC48400238826 /* VendorCell.m in Sources */,
 				69715B3618AD39560039D061 /* StadiumViewController.m in Sources */,
 				69715B2D18AD39560039D061 /* AppDelegate.m in Sources */,
+				69400FC218BBECBF00238826 /* StadiumCell.m in Sources */,
+				69400FBF18BBEBC400238826 /* ObjectWithNameAndID.m in Sources */,
 				69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */,
 				69400FB518BBE68000238826 /* Item.m in Sources */,
 				69715B3318AD39560039D061 /* Mobile.xcdatamodeld in Sources */,
-				6935AD1918AEA350007CF28F /* StadiumCell.m in Sources */,
+				69400FC518BBED0600238826 /* ShnackMenuViewController.m in Sources */,
 				69715B2918AD39560039D061 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
