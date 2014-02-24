@@ -8,20 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-#import <CoreData/CoreData.h>
+//#import <CoreData/CoreData.h>
 
-@interface StadiumViewController : UITableViewController <NSFetchedResultsControllerDelegate>
-
-
+@interface StadiumViewController : UITableViewController <  UITableViewDelegate, UITableViewDataSource >
+//
+//not used but keep for now
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+//////////
 
-//IBOutlet UITableView *mainTable;
-@property (nonatomic, retain) NSMutableArray *stadia;
+//@property (strong, nonatomic) UITableView *mytableView;
 
-@property (strong, nonatomic) IBOutlet UIPickerView *stadiumPicker;
-@property (retain, nonatomic) NSMutableData *receivedData;
-@property (retain, nonatomic) NSData *registerDeviceResponse;
+@property (nonatomic, strong) NSMutableArray *stadia;
+@property (nonatomic, retain) NSMutableData *responseData;
 
--(IBAction)registerDevice:(id)sender;
+//@property (retain, nonatomic) NSData *registerDeviceResponse;
+//-(IBAction)registerDevice:(id)sender;
 @end

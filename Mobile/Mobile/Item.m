@@ -1,0 +1,38 @@
+//
+//  Item.m
+//  shnack-shnack
+//
+//  Created by Anshul Jain on 2/22/14.
+//  Copyright (c) 2014 Shnack. All rights reserved.
+//
+
+#import "Item.h"
+
+@implementation Item
+
+-(id)initWithName:(NSString *)name andPrice:(int)price
+{
+    self = [super init];
+    if(self) {
+        //Initialize
+        self.name = name;
+        self.price = price;
+        self.count = 0;
+        
+    }
+    return self;
+}
+
+-(id)copyWithZone:(NSZone *)zone
+{
+    id copy = [[[self class] alloc] init];
+    
+    if(copy)
+    {
+        [copy setName:[self.name copyWithZone:zone]];
+        [copy setPrice:self.price];
+    }
+    return copy;
+}
+
+@end

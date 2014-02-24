@@ -1,0 +1,19 @@
+//
+//  ShnackOrderItemCell.h
+//  shnack-shnack
+//
+//  Created by Anshul Jain on 2/22/14.
+//  Copyright (c) 2014 Shnack. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ShnackOrderItemCell : UITableViewCell
+
+@property (nonatomic, retain) IBOutlet UILabel *name;
+@property (nonatomic, retain) IBOutlet UILabel *price;
+@property (nonatomic, retain) IBOutlet UILabel *count;
+@property (nonatomic, retain) IBOutlet UIButton *plusButton;
+@property (nonatomic, retain) IBOutlet UIButton *minusButton;
+
+@end

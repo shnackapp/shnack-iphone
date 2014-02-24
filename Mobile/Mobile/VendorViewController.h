@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VendorViewController : UIViewController
+@interface VendorViewController :  UITableViewController <  UITableViewDelegate, UITableViewDataSource >
 
 @property (strong, nonatomic) id vendorItem;
-
 @property (weak, nonatomic) IBOutlet UILabel *vendorDescriptionLabel;
+
+@property (nonatomic, strong) NSMutableArray *vendors;
+@property (nonatomic, retain) NSMutableData *responseData;
+
 @end
+

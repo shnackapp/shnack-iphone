@@ -11,29 +11,38 @@
 #import "VendorViewController.h"
 #import "StadiumCell.h"
 
-
-
 @interface StadiumViewController ()
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
-@property (nonatomic, strong) NSMutableData *responseData;
-
 @end
 
 @implementation StadiumViewController
-@synthesize responseData = _responseData;
 
+//NSMutableArray * myArray;
+int myCount;
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-}
-
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
+//
+//
+//
+//- (void)awakeFromNib
+//{
+//    [super awakeFromNib];
+//}
 - (void)viewDidLoad
 {
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
     [super viewDidLoad];
     NSLog(@"viewdidload");//
     self.responseData = [NSMutableData data];//
-    
+    //NSLog(@"response data is %@",self.responseData);
+
     NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/index"];
     NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
     
@@ -43,11 +52,11 @@
     [request setValue:api_key forHTTPHeaderField:@"Authorization"];
     
     [[NSURLConnection alloc] initWithRequest:request delegate:self];//
-	// Do any additional setup after loading the view, typically from a nib.
-    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    //[_mytableView registerClass: [StadiumCell class] forCellReuseIdentifier:@"StadiumCell"];
+    
 
-   // UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    //self.navigationItem.rightBarButtonItem = addButton;
+    
 }
 //////////////
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -58,7 +67,6 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     NSLog(@"didReceiveData");
     [self.responseData appendData:data];
-    //NSLog(@"data: %@", self.responseData);
     
 }
 
@@ -80,24 +88,18 @@
     {
         int id_ = [[stadium objectForKey:@"id"] integerValue];
         NSString *name = [stadium valueForKey:@"name"];
-        ObjectWithNameAndID *aStadium=[ObjectWithNameAndID   alloc];
+        ObjectWithNameAndID *aStadium = [[ObjectWithNameAndID alloc] initWithID:id_ name:name];
         aStadium.object_id=id_;
         aStadium.name=name;
-       // NSLog(@"id is %d", aStadium.object_id);
-       // NSLog(@"name is %@", aStadium.name);
-
-        NSLog(@"adding %d and %@ to stadia array", aStadium.object_id,aStadium.name);
         [self.stadia addObject: aStadium];
-        NSLog(@"aStadium instance %@", aStadium);
-
-        NSLog(@"stadia array contains %@", self.stadia[0]);
     }
-   // NSLog(@"what's in self.stadia: %@",[self.stadia objectAtIndex:0]);
+    myCount = [self.stadia count];
+    [self.tableView reloadData];
+    }
 
-       // NSLog(@"name is %@", self.stadia);
-}
 
 - (void)viewDidUnload {
+
     [super viewDidUnload];
 }
 
@@ -107,64 +109,30 @@
 }
 
 
-- (void)insertNewObject:(id)sender
-{
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-         // Replace this implementation with code to handle the error appropriately.
-         // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        abort();
-    }
-}
-
 #pragma mark - Table View
+
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    //NSLog(@" number of rows is %@",self.stadia);
+
+    NSLog(@" number of rows is %lu",(unsigned long) myCount);
     return [self.stadia count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"StadiumCell";
-
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-//    
-//    if (!cell) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-//    }
-//    
-//    cell.textLabel.text = [self.stadia[0] objectAtIndex:[indexPath row]];
-//    NSLog(@"Cell is %@", [self.stadia[0] objectAtIndex:indexPath.row]);
-//    return cell;
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"StadiumCell" forIndexPath:indexPath];
-    
-//    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-//	cell.textLabel.text = [[self.stadia objectAtIndex:indexPath.row] objectForKey:@"id"];
-//    cell.detailTextLabel.text = [[self.stadia objectAtIndex:indexPath.row] objectForKey:@"name"];
-
-    
     StadiumCell *cell = (StadiumCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    cell.stadiumName.text = [self.stadia[0] name];
-    
-    
+
+    cell.stadiumName.text = [self.stadia[indexPath.row] name];
+    NSLog(@"I have just added a stadium cell");
     return cell;
 
 }
@@ -197,14 +165,14 @@
 //    return NO;
 //}
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([[segue identifier] isEqualToString:@"showVendor"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setVendorItem:object];
-    }
-}
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if ([[segue identifier] isEqualToString:@"showVendor"]) {
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+//        [[segue destinationViewController] setVendorItem:object];
+//    }
+//}
 
 #pragma mark - Fetched results controller
 //
@@ -305,10 +273,10 @@
 }
  */
 
-//- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
-//{
-//    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
-//}
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    //NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    //cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+}
 
 @end
