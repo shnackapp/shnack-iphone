@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StadiumViewController.h"
 
 @interface VendorViewController :  UITableViewController <  UITableViewDelegate, UITableViewDataSource >
 
 @property (strong, nonatomic) id vendorItem;
+@property (strong, nonatomic) StadiumViewController *vc2;
+@property ( nonatomic) int stadium_id;
+
+
+
 @property (weak, nonatomic) IBOutlet UILabel *vendorDescriptionLabel;
 
 @property (nonatomic, strong) NSMutableArray *vendors;

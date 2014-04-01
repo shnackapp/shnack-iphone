@@ -33,6 +33,8 @@
 		69715B4D18AD39570039D061 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69715B4B18AD39570039D061 /* InfoPlist.strings */; };
 		69715B4F18AD39570039D061 /* MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B4E18AD39570039D061 /* MobileTests.m */; };
 		69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */; };
+		69E0F09318BC5977008C1543 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E0F09218BC5977008C1543 /* logo.png */; };
+		69E0F09718BC60D1008C1543 /* ViewVendorSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E0F09618BC60D1008C1543 /* ViewVendorSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,9 @@
 		69715B4E18AD39570039D061 /* MobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileTests.m; sourceTree = "<group>"; };
 		69715B5818AD3CB30039D061 /* NSConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSConnectionDelegate.h; sourceTree = "<group>"; };
 		69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSConnectionDelegate.m; sourceTree = "<group>"; };
+		69E0F09218BC5977008C1543 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		69E0F09518BC60D1008C1543 /* ViewVendorSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewVendorSegue.h; sourceTree = "<group>"; };
+		69E0F09618BC60D1008C1543 /* ViewVendorSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewVendorSegue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +159,14 @@
 			name = "Table Cells";
 			sourceTree = "<group>";
 		};
+		69400FC818BC52E400238826 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				69E0F09218BC5977008C1543 /* logo.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		69715B0E18AD39560039D061 = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +201,8 @@
 		69715B2218AD39560039D061 /* Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				69E0F09418BC6058008C1543 /* Segues */,
+				69400FC818BC52E400238826 /* Images */,
 				6935AD1B18AEA38A007CF28F /* Controllers */,
 				6935AD1A18AEA36B007CF28F /* Objects */,
 				69715B2B18AD39560039D061 /* AppDelegate.h */,
@@ -229,6 +244,15 @@
 				69715B4B18AD39570039D061 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69E0F09418BC6058008C1543 /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				69E0F09518BC60D1008C1543 /* ViewVendorSegue.h */,
+				69E0F09618BC60D1008C1543 /* ViewVendorSegue.m */,
+			);
+			name = Segues;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +299,7 @@
 		69715B0F18AD39560039D061 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = shnack;
 				TargetAttributes = {
 					69715B3F18AD39570039D061 = {
@@ -307,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E0F09318BC5977008C1543 /* logo.png in Resources */,
 				69715B3B18AD39560039D061 /* Images.xcassets in Resources */,
 				69715B2718AD39560039D061 /* InfoPlist.strings in Resources */,
 				69715B3018AD39560039D061 /* Main.storyboard in Resources */,
@@ -330,6 +355,7 @@
 			files = (
 				69715B3918AD39560039D061 /* VendorViewController.m in Sources */,
 				69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */,
+				69E0F09718BC60D1008C1543 /* ViewVendorSegue.m in Sources */,
 				69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */,
 				69400FAF18BBC48400238826 /* VendorCell.m in Sources */,
 				69715B3618AD39560039D061 /* StadiumViewController.m in Sources */,
@@ -394,7 +420,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -433,7 +458,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -491,7 +515,6 @@
 		69715B5618AD39570039D061 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mobile.app/Mobile";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -514,7 +537,6 @@
 		69715B5718AD39570039D061 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Mobile.app/Mobile";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

@@ -43,7 +43,8 @@ int myCount;
     self.responseData = [NSMutableData data];//
     //NSLog(@"response data is %@",self.responseData);
 
-    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/index"];
+    
+    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_stadia"];
     NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
@@ -89,8 +90,8 @@ int myCount;
         int id_ = [[stadium objectForKey:@"id"] integerValue];
         NSString *name = [stadium valueForKey:@"name"];
         ObjectWithNameAndID *aStadium = [[ObjectWithNameAndID alloc] initWithID:id_ name:name];
-        aStadium.object_id=id_;
-        aStadium.name=name;
+        //aStadium.object_id=id_;
+        //aStadium.name=name;
         [self.stadia addObject: aStadium];
     }
     myCount = [self.stadia count];
@@ -132,6 +133,7 @@ int myCount;
     StadiumCell *cell = (StadiumCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
     cell.stadiumName.text = [self.stadia[indexPath.row] name];
+    //cell.stadiumID.id = [self.stadia[indexPath.row] object_id];
     NSLog(@"I have just added a stadium cell");
     return cell;
 

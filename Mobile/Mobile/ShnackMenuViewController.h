@@ -11,6 +11,8 @@
 @interface ShnackMenuViewController : UITableViewController
 
 @property (nonatomic, retain) NSMutableArray *menu;
+@property (nonatomic, retain) NSMutableData *responseData;
+
 
 -(IBAction)increaseCountByOne:(id)sender;
 -(IBAction)decreaseCountByOne:(id)sender;

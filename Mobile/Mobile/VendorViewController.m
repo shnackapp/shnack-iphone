@@ -7,6 +7,8 @@
 //
 
 #import "VendorViewController.h"
+#import "StadiumViewController.h"
+
 #import "ObjectWithNameAndID.h"
 #import "VendorCell.h"
 
@@ -47,16 +49,26 @@ int myCount;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
-    
+    _vc2 = [[StadiumViewController alloc] init];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         [super viewDidLoad];
         NSLog(@"viewdidload");//
         self.responseData = [NSMutableData data];//
         //NSLog(@"response data is %@",self.responseData);
-        
-        NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_vendors_for_stadium"];
+    NSInteger row = [self.tableView indexPathForSelectedRow].row;
+    NSLog(@"This is row num %ld",(long)row);
+    
+    for (int i=0; i<myCount;i++)
+    {
+        //NSLog(@"\nVendor ID: %d \nVendor Name: %@", [_vc2.stadia[row] object_id],[_vc2.stadia[row] name]);
+    }
+    
+    
+    
+        NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_vendor_for_location/%@",_vc2.stadia[row]];
         NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
+    
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
         [request setHTTPMethod:@"GET"];
@@ -97,8 +109,8 @@ int myCount;
         int id_ = [[vendor objectForKey:@"id"] integerValue];
         NSString *name = [vendor valueForKey:@"name"];
         ObjectWithNameAndID *aVendor = [[ObjectWithNameAndID alloc] initWithID:id_ name:name];
-        aVendor.object_id=id_;
-        aVendor.name=name;
+        //aVendor.object_id=id_;
+        //aVendor.name=name;
         [self.vendors addObject: aVendor];
     }
     myCount = [self.vendors count];
@@ -113,16 +125,13 @@ int myCount;
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
-    
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
     NSLog(@" number of rows is %lu",(unsigned long) myCount);
     return [self.vendors count];
-    //return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
