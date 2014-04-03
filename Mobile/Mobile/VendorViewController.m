@@ -49,7 +49,6 @@ int myCount;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
-    _vc2 = [[StadiumViewController alloc] init];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         [super viewDidLoad];
@@ -61,12 +60,11 @@ int myCount;
     
     for (int i=0; i<myCount;i++)
     {
-        //NSLog(@"\nVendor ID: %d \nVendor Name: %@", [_vc2.stadia[row] object_id],[_vc2.stadia[row] name]);
+        //NSLog(@"\nVendor ID: %d \nVendor Name: %@", [stadia[i] object_id],[stadia[i] name]);
     }
     
-    
-    
-        NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_vendor_for_location/%@",_vc2.stadia[row]];
+
+        NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_vendor_for_location?object_id=%ld",row];
         NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
     
         
@@ -78,26 +76,26 @@ int myCount;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSLog(@"didReceiveResponse");
+    //NSLog(@"didReceiveResponse");
     [self.responseData setLength:0];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSLog(@"didReceiveData");
+    //NSLog(@"didReceiveData");
     [self.responseData appendData:data];
     
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError");
-    NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
+    //NSLog(@"didFailWithError");
+    //NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
 }
 
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"connectionDidFinishLoading");
-    NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
+    //NSLog(@"connectionDidFinishLoading");
+    //NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
     NSError *myError = nil;
 
     
@@ -130,7 +128,7 @@ int myCount;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    NSLog(@" number of rows is %lu",(unsigned long) myCount);
+    //NSLog(@" number of rows is %lu",(unsigned long) myCount);
     return [self.vendors count];
 }
 

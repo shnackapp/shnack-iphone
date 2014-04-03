@@ -10,6 +10,7 @@
 #import "ObjectWithNameAndID.h"
 #import "VendorViewController.h"
 #import "StadiumCell.h"
+#import "AppDelegate.h"
 
 @interface StadiumViewController ()
 @end
@@ -133,9 +134,17 @@ int myCount;
     StadiumCell *cell = (StadiumCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
 
     cell.stadiumName.text = [self.stadia[indexPath.row] name];
-    //cell.stadiumID.id = [self.stadia[indexPath.row] object_id];
-    NSLog(@"I have just added a stadium cell");
+    //cell.stadiumID = [self.stadia[indexPath.row] object_id];
+    NSLog(@"I have just added a stadium cell %@ %d",[self.stadia[indexPath.row] name],[self.stadia[indexPath.row] object_id]);
+    
     return cell;
+
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"------->row selected %ld", (long)indexPath.row);
+    AppDelegate *ad;
+    ad.currentStadium = indexPath.row;
 
 }
 
