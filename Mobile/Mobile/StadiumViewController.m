@@ -40,7 +40,7 @@ int myCount;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [super viewDidLoad];
-    NSLog(@"viewdidload");//
+    //NSLog(@"viewdidload");//
     self.responseData = [NSMutableData data];//
     //NSLog(@"response data is %@",self.responseData);
 
@@ -62,25 +62,25 @@ int myCount;
 }
 //////////////
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSLog(@"didReceiveResponse");
+    //NSLog(@"didReceiveResponse");
     [self.responseData setLength:0];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSLog(@"didReceiveData");
+    //NSLog(@"didReceiveData");
     [self.responseData appendData:data];
     
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError");
-    NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
+   // NSLog(@"didFailWithError");
+    //NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"connectionDidFinishLoading");
-    NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
+    //NSLog(@"connectionDidFinishLoading");
+    //NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
     NSError *myError = nil;
     
     NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
@@ -94,7 +94,9 @@ int myCount;
         //aStadium.object_id=id_;
         //aStadium.name=name;
         [self.stadia addObject: aStadium];
+        
     }
+    globalArray= self.stadia;
     myCount = [self.stadia count];
     [self.tableView reloadData];
     }
@@ -124,7 +126,7 @@ int myCount;
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
-    NSLog(@" number of rows is %lu",(unsigned long) myCount);
+    //NSLog(@" number of rows is %lu",(unsigned long) myCount);
     return [self.stadia count];
 }
 
@@ -135,7 +137,7 @@ int myCount;
 
     cell.stadiumName.text = [self.stadia[indexPath.row] name];
     //cell.stadiumID = [self.stadia[indexPath.row] object_id];
-    NSLog(@"I have just added a stadium cell %@ %d",[self.stadia[indexPath.row] name],[self.stadia[indexPath.row] object_id]);
+    //NSLog(@"I have just added a stadium cell %@ %d",[self.stadia[indexPath.row] name],[self.stadia[indexPath.row] object_id]);
     
     return cell;
 
@@ -143,8 +145,9 @@ int myCount;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"------->row selected %ld", (long)indexPath.row);
-    AppDelegate *ad;
-    ad.currentStadium = indexPath.row;
+    selectedRow = indexPath.row;
+    //AppDelegate *ad;
+    //ad.currentStadium = indexPath.row;
 
 }
 

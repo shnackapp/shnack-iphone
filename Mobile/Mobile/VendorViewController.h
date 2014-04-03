@@ -11,6 +11,8 @@
 
 @interface VendorViewController :  UITableViewController <  UITableViewDelegate, UITableViewDataSource >
 
+extern NSMutableArray *globalArray;
+extern NSInteger selectedRow;
 @property (strong, nonatomic) id vendorItem;
 @property ( nonatomic) int stadium_id;
 

@@ -9,10 +9,16 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
+#import "ObjectWithNameAndID.h"
 
+NSMutableArray *globalArray;
+NSInteger selectedRow;
 int main(int argc, char * argv[])
 {
+    
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        
+        
     }
 }
