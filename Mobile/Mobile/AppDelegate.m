@@ -20,7 +20,6 @@
 {
     // Override point for customization after application launch.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
-    StadiumViewController *controller = (StadiumViewController *)navigationController.topViewController;
     //controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }

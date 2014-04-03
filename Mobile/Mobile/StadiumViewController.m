@@ -96,7 +96,7 @@ int myCount;
         [self.stadia addObject: aStadium];
         
     }
-    globalArray= self.stadia;
+    globalArrayStadia= self.stadia;
     myCount = [self.stadia count];
     [self.tableView reloadData];
     }
@@ -145,7 +145,7 @@ int myCount;
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"------->row selected %ld", (long)indexPath.row);
-    selectedRow = indexPath.row;
+    selectedStadiumRow = indexPath.row;
     //AppDelegate *ad;
     //ad.currentStadium = indexPath.row;
 

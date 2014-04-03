@@ -10,6 +10,8 @@
 #import "Item.h"
 #import "ShnackOrderItemCell.h"
 #import "ShnackOrderTotalCell.h"
+#import "ObjectWithNameAndID.h"
+
 
 @interface ShnackMenuViewController ()
 
@@ -35,41 +37,32 @@ int myCount;
     // self.clearsSelectionOnViewWillAppear = NO;
     self.menu = [[NSMutableArray alloc] initWithCapacity:20];
     
-    Item *item = [[Item alloc] initWithName:@"Hot Dog" andPrice:700];
-    [self.menu addObject:item];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [super viewDidLoad];
+    NSLog(@"viewdidload");//
+    self.responseData = [NSMutableData data];//
 
     
-    item = [[Item alloc] initWithName:@"Coke" andPrice:500];
-    [self.menu addObject:item];
-    item = [[Item alloc] initWithName:@"Beer" andPrice:700];
-    [self.menu addObject:item];
+    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_menu_for_vendor?object_id=%d",
+                     [globalArrayVendor[selectedVendorRow] object_id]];
+    NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
     
-//    self.tableView.delegate = self;
-//    self.tableView.dataSource = self;
-//    [super viewDidLoad];
-//    NSLog(@"viewdidload");//
-//    self.responseData = [NSMutableData data];//
-//    //NSLog(@"response data is %@",self.responseData);
-//    
-//    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_menu_for_vendor"];
-//    NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
-//    
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
-//    [request setHTTPMethod:@"GET"];
-//    
-//    [request setValue:api_key forHTTPHeaderField:@"Authorization"];
-//    
-//    [[NSURLConnection alloc] initWithRequest:request delegate:self];//
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
+    [request setHTTPMethod:@"GET"];
+    
+    [request setValue:api_key forHTTPHeaderField:@"Authorization"];
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];//
     
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSLog(@"didReceiveResponse");
+    //NSLog(@"didReceiveResponse");
     [self.responseData setLength:0];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    NSLog(@"didReceiveData");
+    //NSLog(@"didReceiveData");
     [self.responseData appendData:data];
     
 }
@@ -79,30 +72,31 @@ int myCount;
     NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
 }
 
-//- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-//{
-//    NSLog(@"connectionDidFinishLoading");
-//    NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
-//    NSError *myError = nil;
-//    
-//    NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
-//    self.menu = [[NSMutableArray alloc] initWithCapacity:[res count]];
-//    for(NSDictionary *item in res)
-//    {
-//        int price = [[item objectForKey:@"price"] integerValue];
-//        NSString *name = [item valueForKey:@"name"];
-//        Item *item = [[Item alloc] initWithName:name andPrice:price];
-//        NSLog(@"\nMenu : %@", self.menu);
-//        [self.menu addObject: item];
-//    }
-//    myCount = [self.menu count];
-////    for (int i=0; i<myCount;i++)
-////    {
-////        NSLog(@"\nMenu : %@", [self.menu[i] name]);
-////    }
-////    
-//    [self.tableView reloadData];
-//}
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    NSLog(@"connectionDidFinishLoading");
+    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
+    NSError *myError = nil;
+    
+    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+    NSLog(@"my JSON: %@",res);
+    self.menu = [[NSMutableArray alloc] initWithCapacity:[res count]];
+    for(NSDictionary *item in res)
+    {
+        int price = [[item objectForKey:@"price"] integerValue];
+        NSString *name = [item valueForKey:@"name"];
+        Item *item = [[Item alloc] initWithName:name andPrice:price];
+        NSLog(@"\nMenu : %@", self.menu);
+        [self.menu addObject: item];
+    }
+    myCount = [self.menu count];
+    for (int i=0; i<myCount;i++)
+    {
+        NSLog(@"\nMenu : %@", [self.menu[i] name]);
+    }
+    
+    [self.tableView reloadData];
+}
 
 
 - (void)didReceiveMemoryWarning

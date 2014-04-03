@@ -13,8 +13,8 @@
 @interface StadiumViewController : UITableViewController <  UITableViewDelegate, UITableViewDataSource >
 //
 //not used but keep for now
-extern NSMutableArray *globalArray;
-extern NSInteger selectedRow;
+extern NSMutableArray *globalArrayStadia;
+extern NSInteger selectedStadiumRow,selectedVendorRow;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 //////////
