@@ -10,6 +10,8 @@
 
 #import "AppDelegate.h"
 
+UINavigationController *navigationController;
+
 int main(int argc, char * argv[])
 {
     @autoreleasepool {
