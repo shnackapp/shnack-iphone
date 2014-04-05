@@ -45,7 +45,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"stadiumViewController"]]
+            /*[self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"stadiumViewController"]]
+                                                         animated:YES];*/
+            
+            /// use the uinavigationcontroller from our storyboard
+            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"stadiumViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;

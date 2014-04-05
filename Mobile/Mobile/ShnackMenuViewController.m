@@ -61,6 +61,15 @@ int myCount;
 //    
 //    [[NSURLConnection alloc] initWithRequest:request delegate:self];//
     
+    
+    
+    /*Add these 4 lines at the bottom of any view controller's viewDidLoad
+     if you want the user to be able to swipe from the edge to reveal the side menu
+     from within that view.*/
+    self.view.multipleTouchEnabled = NO;
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
+    panGestureRecognizer.delegate = self;
+    [self.view addGestureRecognizer:panGestureRecognizer];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {

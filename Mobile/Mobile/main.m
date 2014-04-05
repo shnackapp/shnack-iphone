@@ -14,7 +14,19 @@ UINavigationController *navigationController;
 
 int main(int argc, char * argv[])
 {
+    int retVal = -1;
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        @try {
+            retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+        }
+        @catch (NSException* exception) {
+            NSLog(@"Uncaught exception: %@", exception.description);
+            NSLog(@"Stack trace: %@", [exception callStackSymbols]);
+        }
     }
+    return retVal;
+    
+    //@autoreleasepool {
+    //    return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    //}
 }

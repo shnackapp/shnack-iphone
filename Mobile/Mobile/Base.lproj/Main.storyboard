@@ -7,6 +7,7 @@
         <!--Navigation Controller - Test-->
         <scene sceneID="cUi-kZ-frf">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="contentViewController" id="rS3-R9-Ivy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Test" id="ohL-KF-i4M"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yXu-0R-QUA">
@@ -16,7 +17,6 @@
                         <segue destination="CBI-oF-OcY" kind="relationship" relationship="rootViewController" id="htr-Et-3iK"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-621" y="64"/>
         </scene>
@@ -107,7 +107,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="459" y="64"/>
+            <point key="canvasLocation" x="393" y="64"/>
         </scene>
         <!--Shnack Menu View Controller - Menu-->
         <scene sceneID="0Tf-nJ-BJH">
