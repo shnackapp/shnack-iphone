@@ -9,24 +9,16 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
+#import "ObjectWithNameAndID.h"
 
-UINavigationController *navigationController;
-
+NSMutableArray *globalArrayStadia;
+NSMutableArray *globalArrayVendor;
+NSInteger selectedStadiumRow;
+NSInteger selectedVendorRow;
 int main(int argc, char * argv[])
 {
-    int retVal = -1;
-    @autoreleasepool {
-        @try {
-            retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-        }
-        @catch (NSException* exception) {
-            NSLog(@"Uncaught exception: %@", exception.description);
-            NSLog(@"Stack trace: %@", [exception callStackSymbols]);
-        }
-    }
-    return retVal;
     
-    //@autoreleasepool {
-    //    return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-    //}
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+    }
 }

@@ -53,19 +53,13 @@ int myCount;
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
         [super viewDidLoad];
-        NSLog(@"viewdidload");//
+        //NSLog(@"viewdidload");//
         self.responseData = [NSMutableData data];//
         //NSLog(@"response data is %@",self.responseData);
-    NSInteger row = [self.tableView indexPathForSelectedRow].row;
-    NSLog(@"This is row num %ld",(long)row);
+    //NSLog(@"This is row num %ld",(long)row);
     
-    for (int i=0; i<myCount;i++)
-    {
-        //NSLog(@"\nVendor ID: %d \nVendor Name: %@", [stadia[i] object_id],[stadia[i] name]);
-    }
-    
-
-        NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_vendor_for_location?object_id=%ld",row];
+        NSString *url =
+    [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_vendor_for_location?object_id=%d",[globalArrayStadia[selectedStadiumRow] object_id]];
         NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
     
         
@@ -81,6 +75,15 @@ int myCount;
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
     panGestureRecognizer.delegate = self;
     [self.view addGestureRecognizer:panGestureRecognizer];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"------->row selected %ld", (long)indexPath.row);
+    selectedVendorRow = indexPath.row;
+    //AppDelegate *ad;
+    //ad.currentStadium = indexPath.row;
+    
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -106,7 +109,6 @@ int myCount;
     //NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
     NSError *myError = nil;
 
-    
     NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
     self.vendors = [[NSMutableArray alloc] initWithCapacity:[res count]];
 
@@ -119,6 +121,7 @@ int myCount;
         //aVendor.name=name;
         [self.vendors addObject: aVendor];
     }
+    globalArrayVendor = self.vendors;
     myCount = [self.vendors count];
     for (int i=0; i<myCount;i++)
     {
