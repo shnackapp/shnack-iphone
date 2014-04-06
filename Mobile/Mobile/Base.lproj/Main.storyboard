@@ -201,11 +201,11 @@
                                     <outlet property="total" destination="5PH-H1-LiU" id="Eai-nR-pnw"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlaceOrder" id="4VH-mC-26c">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PlaceOrder" id="4VH-mC-26c">
                                 <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4VH-mC-26c" id="iDD-cy-dFM">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Place your Order" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXP-hg-xFc">
@@ -218,6 +218,9 @@
                                     </subviews>
                                     <color key="backgroundColor" red="0.60066565689999996" green="0.043437299169999999" blue="0.12662702310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="QOl-ii-gUe" kind="push" id="gfa-ZP-6G7"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -237,6 +240,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o8e-T1-Pvr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1327" y="64"/>
+        </scene>
+        <!--Payment View Controller - Payment Info-->
+        <scene sceneID="K72-X7-X5z">
+            <objects>
+                <viewController id="QOl-ii-gUe" customClass="PaymentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KUp-4t-BGj"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xj3-FO-Uxk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BeT-1j-mOA">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Payment Info" id="j0Q-MH-asr">
+                        <barButtonItem key="backBarButtonItem" title="Menu" id="YQC-7m-6PB"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tbd-CN-M8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="61"/>
         </scene>
         <!--Vendor View Controller - Vendor-->
         <scene sceneID="Cn3-H9-jdl">
