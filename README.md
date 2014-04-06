@@ -1,8 +1,12 @@
 #Shnack iPhone App
 
-## Features
-
-+ Fill this area with features to implement
+## Todo's
++ Integrate Stripe
++ Push notification services
++ Side menu layout/total application overall design
++ Logging in - with Facebook
++ Categories (for menu item descriptions / organizing menu items)
++ UX (continuity with the website!!)
 
 ## Proposed Features & Ideas
 
