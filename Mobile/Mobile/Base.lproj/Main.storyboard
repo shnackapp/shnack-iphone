@@ -7,7 +7,6 @@
         <!--Navigation Controller - Test-->
         <scene sceneID="cUi-kZ-frf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="contentViewController" id="rS3-R9-Ivy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Test" id="ohL-KF-i4M"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yXu-0R-QUA">
@@ -17,6 +16,7 @@
                         <segue destination="CBI-oF-OcY" kind="relationship" relationship="rootViewController" id="htr-Et-3iK"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-621" y="64"/>
         </scene>
@@ -324,7 +324,6 @@
         <!--Root View Controller-->
         <scene sceneID="4k5-Yr-6DN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4tL-jl-9zg" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="rootController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="I9B-53-buQ" customClass="DEMORootViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0po-nL-keI"/>
@@ -336,13 +335,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4tL-jl-9zg" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1193" y="74"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="ji8-Ze-pcY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9vj-pb-5r8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController restorationIdentifier="leftMenuViewController" storyboardIdentifier="leftMenuViewController" id="5Ws-em-a2H" customClass="DEMOLeftMenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nAw-IK-ejg"/>
@@ -354,6 +353,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9vj-pb-5r8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-621" y="-661"/>
         </scene>
