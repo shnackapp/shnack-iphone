@@ -36,6 +36,4 @@
 - (IBAction)presentLeftMenuViewController:(id)sender;
 - (IBAction)presentRightMenuViewController:(id)sender;
 
-- (void)panGestureRecognized:(UIPanGestureRecognizer *)recognizer;
-
 @end

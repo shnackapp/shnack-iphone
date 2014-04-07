@@ -56,9 +56,4 @@
     [self.sideMenuViewController presentRightMenuViewController];
 }
 
-- (void)panGestureRecognized:(UIPanGestureRecognizer *)recognizer
-{
-    [self.sideMenuViewController __panGestureRecognized:recognizer];
-}
-
 @end
