@@ -79,6 +79,7 @@
 		69F95D1F18F200B30011F5DB /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F95CFC18F200B30011F5DB /* textfield.png */; };
 		69F95D2018F200B30011F5DB /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F95CFD18F200B30011F5DB /* textfield@2x.png */; };
 		69F95D2318F201FD0011F5DB /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95D2218F201FD0011F5DB /* PaymentViewController.m */; };
+		69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95D2618F2184B0011F5DB /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -203,6 +204,8 @@
 		69F95CFD18F200B30011F5DB /* textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield@2x.png"; sourceTree = "<group>"; };
 		69F95D2118F201FD0011F5DB /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentViewController.h; path = Mobile/PaymentViewController.h; sourceTree = "<group>"; };
 		69F95D2218F201FD0011F5DB /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentViewController.m; path = Mobile/PaymentViewController.m; sourceTree = "<group>"; };
+		69F95D2518F2184B0011F5DB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		69F95D2618F2184B0011F5DB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +312,7 @@
 		69715B0E18AD39560039D061 = {
 			isa = PBXGroup;
 			children = (
+				69F95D2418F2184B0011F5DB /* MBProgressHUD */,
 				69F95CC618F200B30011F5DB /* Stripe */,
 				69715B2218AD39560039D061 /* Mobile */,
 				69715B4818AD39570039D061 /* MobileTests */,
@@ -486,6 +490,15 @@
 			path = Cards;
 			sourceTree = "<group>";
 		};
+		69F95D2418F2184B0011F5DB /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				69F95D2518F2184B0011F5DB /* MBProgressHUD.h */,
+				69F95D2618F2184B0011F5DB /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -612,6 +625,7 @@
 				69E0F09718BC60D1008C1543 /* ViewVendorSegue.m in Sources */,
 				69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */,
 				42E9611218ED494100E5A182 /* DEMORootViewController.m in Sources */,
+				69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */,
 				69F95D0518F200B30011F5DB /* PKCardCVC.m in Sources */,
 				69400FAF18BBC48400238826 /* VendorCell.m in Sources */,
 				69F95D0718F200B30011F5DB /* PKCardNumber.m in Sources */,
