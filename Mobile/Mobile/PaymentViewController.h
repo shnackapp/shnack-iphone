@@ -11,5 +11,6 @@
 
 @interface PaymentViewController : UIViewController <STPViewDelegate>
 @property STPView* stripeView;
+@property UIBarButtonItem *saveButton;
 
 @end

@@ -228,6 +228,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Menu" id="ygf-G1-brP">
+                        <barButtonItem key="backBarButtonItem" title="Vendors" id="chN-xS-i5p"/>
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="7mh-mH-R2d">
                             <connections>
                                 <action selector="presentRightMenuViewController:" destination="VTd-wa-bl7" id="amI-Cx-J9l"/>
@@ -256,7 +257,14 @@
                     </view>
                     <navigationItem key="navigationItem" title="Payment Info" id="j0Q-MH-asr">
                         <barButtonItem key="backBarButtonItem" title="Menu" id="YQC-7m-6PB"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" id="59r-ki-Pgm">
+                            <connections>
+                                <action selector="save:" destination="QOl-ii-gUe" id="7bi-V1-Q4r"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbd-CN-M8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -296,7 +304,7 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Vendors" id="cra-N8-TIN">
-                        <barButtonItem key="backBarButtonItem" title="Back to Stadiums" id="THZ-pt-uDL"/>
+                        <barButtonItem key="backBarButtonItem" title="Stadiums" id="THZ-pt-uDL"/>
                         <barButtonItem key="rightBarButtonItem" title="Menu" id="iw6-9V-b0W">
                             <connections>
                                 <action selector="presentRightMenuViewController:" destination="Ah7-4n-0Wa" id="M1z-a4-lY1"/>
