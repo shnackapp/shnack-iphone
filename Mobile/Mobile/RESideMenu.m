@@ -97,8 +97,8 @@
     _contentViewShadowRadius = 8.0f;
     _contentViewInLandscapeOffsetCenterX = 30.f;
     _contentViewInPortraitOffsetCenterX  = 30.f;
-    _contentViewScaleValue = 0.7f;
-    //_contentViewScaleValue = 1.0f;
+    //_contentViewScaleValue = 0.7f;
+    _contentViewScaleValue = 1.0f;
 }
 
 #pragma mark -
@@ -129,6 +129,7 @@
 
 - (void)hideMenuViewController
 {
+    NSLog(@"--->>> HIDING");
     [self __hideMenuViewControllerAnimated:YES];
 }
 
@@ -480,7 +481,7 @@
        if (self.interactivePopGestureRecognizerEnabled && [self.contentViewController isKindOfClass:[UINavigationController class]]) {
            UINavigationController *navigationController = (UINavigationController *)self.contentViewController;
            if (navigationController.viewControllers.count > 1 && navigationController.interactivePopGestureRecognizer.enabled) {
-               return NO;
+               //return NO;
            }
        }
     );

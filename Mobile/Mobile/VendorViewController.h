@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "StadiumViewController.h"
-#import "RESideMenu.h"
 
 @interface VendorViewController :  UITableViewController <  UITableViewDelegate, UITableViewDataSource >
 

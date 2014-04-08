@@ -31,11 +31,6 @@
 @interface RESideMenu : UIViewController <UIGestureRecognizerDelegate>
 
 
-
-- (void)__panGestureRecognized:(UIPanGestureRecognizer *)recognizer;
-
-
-
 @property (strong, readwrite, nonatomic) UIViewController *contentViewController;
 @property (strong, readwrite, nonatomic) UIViewController *leftMenuViewController;
 @property (strong, readwrite, nonatomic) UIViewController *rightMenuViewController;

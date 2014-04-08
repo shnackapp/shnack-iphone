@@ -10,7 +10,7 @@
 
 //#import <CoreData/CoreData.h>
 
-@interface StadiumViewController : UITableViewController <  UITableViewDelegate, UITableViewDataSource >
+@interface StadiumViewController    : UITableViewController <  UITableViewDelegate, UITableViewDataSource >
 //
 //not used but keep for now
 extern NSMutableArray *globalArrayStadia;
