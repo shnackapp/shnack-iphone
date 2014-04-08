@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42E9610F18ED494100E5A182 /* DEMOFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610618ED494100E5A182 /* DEMOFirstViewController.m */; };
+		42E9611018ED494100E5A182 /* DEMOLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610818ED494100E5A182 /* DEMOLeftMenuViewController.m */; };
+		42E9611118ED494100E5A182 /* DEMORightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610A18ED494100E5A182 /* DEMORightMenuViewController.m */; };
+		42E9611218ED494100E5A182 /* DEMORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610C18ED494100E5A182 /* DEMORootViewController.m */; };
+		42E9611318ED494100E5A182 /* DEMOSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610E18ED494100E5A182 /* DEMOSecondViewController.m */; };
+		42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611518F14B2000E5A182 /* RECommonFunctions.m */; };
+		42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611718F14B2000E5A182 /* RESideMenu.m */; };
+		42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */; };
 		69400FAF18BBC48400238826 /* VendorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FAE18BBC48400238826 /* VendorCell.m */; };
 		69400FB518BBE68000238826 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB418BBE68000238826 /* Item.m */; };
 		69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */; };
@@ -48,6 +56,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42E9610518ED494100E5A182 /* DEMOFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMOFirstViewController.h; path = Mobile/DEMOFirstViewController.h; sourceTree = "<group>"; };
+		42E9610618ED494100E5A182 /* DEMOFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEMOFirstViewController.m; path = Mobile/DEMOFirstViewController.m; sourceTree = "<group>"; };
+		42E9610718ED494100E5A182 /* DEMOLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMOLeftMenuViewController.h; path = Mobile/DEMOLeftMenuViewController.h; sourceTree = "<group>"; };
+		42E9610818ED494100E5A182 /* DEMOLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEMOLeftMenuViewController.m; path = Mobile/DEMOLeftMenuViewController.m; sourceTree = "<group>"; };
+		42E9610918ED494100E5A182 /* DEMORightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMORightMenuViewController.h; path = Mobile/DEMORightMenuViewController.h; sourceTree = "<group>"; };
+		42E9610A18ED494100E5A182 /* DEMORightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEMORightMenuViewController.m; path = Mobile/DEMORightMenuViewController.m; sourceTree = "<group>"; };
+		42E9610B18ED494100E5A182 /* DEMORootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMORootViewController.h; path = Mobile/DEMORootViewController.h; sourceTree = "<group>"; };
+		42E9610C18ED494100E5A182 /* DEMORootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEMORootViewController.m; path = Mobile/DEMORootViewController.m; sourceTree = "<group>"; };
+		42E9610D18ED494100E5A182 /* DEMOSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMOSecondViewController.h; path = Mobile/DEMOSecondViewController.h; sourceTree = "<group>"; };
+		42E9610E18ED494100E5A182 /* DEMOSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEMOSecondViewController.m; path = Mobile/DEMOSecondViewController.m; sourceTree = "<group>"; };
+		42E9611418F14B2000E5A182 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RECommonFunctions.h; path = Mobile/RECommonFunctions.h; sourceTree = SOURCE_ROOT; };
+		42E9611518F14B2000E5A182 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RECommonFunctions.m; path = Mobile/RECommonFunctions.m; sourceTree = SOURCE_ROOT; };
+		42E9611618F14B2000E5A182 /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RESideMenu.h; path = Mobile/RESideMenu.h; sourceTree = SOURCE_ROOT; };
+		42E9611718F14B2000E5A182 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESideMenu.m; path = Mobile/RESideMenu.m; sourceTree = SOURCE_ROOT; };
+		42E9611818F14B2000E5A182 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+RESideMenu.h"; path = "Mobile/UIViewController+RESideMenu.h"; sourceTree = SOURCE_ROOT; };
+		42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RESideMenu.m"; path = "Mobile/UIViewController+RESideMenu.m"; sourceTree = SOURCE_ROOT; };
 		69400FAD18BBC48300238826 /* VendorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorCell.h; sourceTree = "<group>"; };
 		69400FAE18BBC48400238826 /* VendorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorCell.m; sourceTree = "<group>"; };
 		69400FB318BBE68000238826 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -118,6 +142,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42E960EF18ED319F00E5A182 /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				42E9611418F14B2000E5A182 /* RECommonFunctions.h */,
+				42E9611518F14B2000E5A182 /* RECommonFunctions.m */,
+				42E9611618F14B2000E5A182 /* RESideMenu.h */,
+				42E9611718F14B2000E5A182 /* RESideMenu.m */,
+				42E9611818F14B2000E5A182 /* UIViewController+RESideMenu.h */,
+				42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */,
+			);
+			name = RESideMenu;
+			path = ../../../RESideMenu/RESideMenu;
+			sourceTree = "<group>";
+		};
 		6935AD1A18AEA36B007CF28F /* Objects */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +171,16 @@
 		6935AD1B18AEA38A007CF28F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				42E9610518ED494100E5A182 /* DEMOFirstViewController.h */,
+				42E9610618ED494100E5A182 /* DEMOFirstViewController.m */,
+				42E9610718ED494100E5A182 /* DEMOLeftMenuViewController.h */,
+				42E9610818ED494100E5A182 /* DEMOLeftMenuViewController.m */,
+				42E9610918ED494100E5A182 /* DEMORightMenuViewController.h */,
+				42E9610A18ED494100E5A182 /* DEMORightMenuViewController.m */,
+				42E9610B18ED494100E5A182 /* DEMORootViewController.h */,
+				42E9610C18ED494100E5A182 /* DEMORootViewController.m */,
+				42E9610D18ED494100E5A182 /* DEMOSecondViewController.h */,
+				42E9610E18ED494100E5A182 /* DEMOSecondViewController.m */,
 				69400FC318BBED0600238826 /* ShnackMenuViewController.h */,
 				69400FC418BBED0600238826 /* ShnackMenuViewController.m */,
 				69715B3418AD39560039D061 /* StadiumViewController.h */,
@@ -201,6 +249,7 @@
 		69715B2218AD39560039D061 /* Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				42E960EF18ED319F00E5A182 /* RESideMenu */,
 				69E0F09418BC6058008C1543 /* Segues */,
 				69400FC818BC52E400238826 /* Images */,
 				6935AD1B18AEA38A007CF28F /* Controllers */,
@@ -357,16 +406,24 @@
 				69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */,
 				69E0F09718BC60D1008C1543 /* ViewVendorSegue.m in Sources */,
 				69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */,
+				42E9611218ED494100E5A182 /* DEMORootViewController.m in Sources */,
 				69400FAF18BBC48400238826 /* VendorCell.m in Sources */,
+				42E9610F18ED494100E5A182 /* DEMOFirstViewController.m in Sources */,
 				69715B3618AD39560039D061 /* StadiumViewController.m in Sources */,
 				69715B2D18AD39560039D061 /* AppDelegate.m in Sources */,
 				69400FC218BBECBF00238826 /* StadiumCell.m in Sources */,
 				69400FBF18BBEBC400238826 /* ObjectWithNameAndID.m in Sources */,
+				42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */,
 				69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */,
+				42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */,
 				69400FB518BBE68000238826 /* Item.m in Sources */,
 				69715B3318AD39560039D061 /* Mobile.xcdatamodeld in Sources */,
+				42E9611118ED494100E5A182 /* DEMORightMenuViewController.m in Sources */,
+				42E9611318ED494100E5A182 /* DEMOSecondViewController.m in Sources */,
 				69400FC518BBED0600238826 /* ShnackMenuViewController.m in Sources */,
 				69715B2918AD39560039D061 /* main.m in Sources */,
+				42E9611018ED494100E5A182 /* DEMOLeftMenuViewController.m in Sources */,
+				42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

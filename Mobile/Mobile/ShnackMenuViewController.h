@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ShnackMenuViewController : UITableViewController
+extern NSMutableArray *globalArrayVendor;
+extern NSInteger selectedStadiumRow, selectedVendorRow;
 
 @property (nonatomic, retain) NSMutableArray *menu;
 @property (nonatomic, retain) NSMutableData *responseData;
