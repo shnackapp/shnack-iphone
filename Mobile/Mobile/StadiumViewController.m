@@ -8,18 +8,19 @@
 
 #import "StadiumViewController.h"
 #import "ObjectWithNameAndID.h"
-#import "VendorViewController.h"
 #import "StadiumCell.h"
 #import "AppDelegate.h"
 #import "RESideMenu.h"
+#import "POPDCell.h"
 
-@interface StadiumViewController ()
+@interface StadiumViewController () <POPDDelegate>
 @end
 
 @implementation StadiumViewController
 
+NSIndexPath *reloadingCategoryIndexPath;
+
 //NSMutableArray * myArray;
-int myCount;
 
 //- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 //{
@@ -38,7 +39,7 @@ int myCount;
 //}
 - (void)viewDidLoad
 {
-    self.tableView.delegate = self;
+    self.delegate = self;
     self.tableView.dataSource = self;
     [super viewDidLoad];
     //NSLog(@"viewdidload");//
@@ -46,7 +47,7 @@ int myCount;
     //NSLog(@"response data is %@",self.responseData);
 
     
-    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_stadia"];
+    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_locations"];
     NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
@@ -80,27 +81,73 @@ int myCount;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    //NSLog(@"connectionDidFinishLoading");
-    //NSLog(@"Succeeded! Received %d bytes of data",[self.responseData length]);
+
+    NSString *url = [[[connection currentRequest] URL] lastPathComponent];
     NSError *myError = nil;
     
-    NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
-    self.stadia = [[NSMutableArray alloc] initWithCapacity:[res count]];
     
-    for(NSDictionary *stadium in res)
-    {
-        int id_ = [[stadium objectForKey:@"id"] integerValue];
-        NSString *name = [stadium valueForKey:@"name"];
-        ObjectWithNameAndID *aStadium = [[ObjectWithNameAndID alloc] initWithID:id_ name:name];
-        //aStadium.object_id=id_;
-        //aStadium.name=name;
-        [self.stadia addObject: aStadium];
+    if ([url compare:@"get_locations"] == NSOrderedSame) {
+        NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+        self.locations = [[NSMutableArray alloc] initWithCapacity:[res count]];
         
+        
+        NSLog(@"%@", [res description]);
+        
+        NSMutableArray *menu = [[NSMutableArray alloc] initWithCapacity:[res count]];
+        for(NSDictionary *stadium in res)
+        {
+            int id_ = [[stadium objectForKey:@"id"] integerValue];
+            NSString *name = [stadium valueForKey:@"name"];
+            BOOL hasChildren = [[stadium valueForKey:@"has_children"] boolValue];
+            
+            ObjectWithNameAndID *aStadium = [[ObjectWithNameAndID alloc] initWithID:id_ name:name];
+            
+            NSDictionary *section;
+            if (hasChildren) {
+                section = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    name, POPDHeader,
+                                    [[NSArray alloc] init], POPDSubSection,
+                                    nil];
+                [self.locations addObject:aStadium];
+            } else {
+                section = [NSDictionary dictionaryWithObjectsAndKeys:
+                                        name, POPDHeader,
+                                        nil, POPDSubSection,
+                                        nil];
+                [self.locations addObject: [NSArray arrayWithObjects:aStadium,nil]];
+            }
+            [menu addObject:section];
+        }
+        
+        globalArrayLocations = self.locations;
+        [self setMenuSections:menu];
     }
-    globalArrayStadia= self.stadia;
-    myCount = [self.stadia count];
-    [self.tableView reloadData];
+    else {
+        NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+        NSMutableArray *vendors = [[NSMutableArray alloc] initWithCapacity:[res count]];
+        [vendors addObject:[self.locations objectAtIndex:reloadingCategoryIndexPath.section]];
+        
+        NSLog(@"%@", [res description]);
+        
+        NSMutableArray *sectionChildren = [[NSMutableArray alloc] initWithCapacity:[res count]+1];
+        for(NSDictionary *stadium in res)
+        {
+            int id_ = [[stadium objectForKey:@"id"] integerValue];
+            NSString *name = [stadium valueForKey:@"name"];
+            
+            ObjectWithNameAndID *aStadium = [[ObjectWithNameAndID alloc] initWithID:id_ name:name];
+            [vendors addObject: aStadium];
+
+            [sectionChildren addObject:name];
+        }
+        [self.locations replaceObjectAtIndex:reloadingCategoryIndexPath.section withObject:vendors];
+
+        [self setMenuSectionChildren:sectionChildren atSection:reloadingCategoryIndexPath.section];
+
+        POPDCell *cell = (POPDCell *)[self.tableView cellForRowAtIndexPath:reloadingCategoryIndexPath];
+        [cell.indicator stopAnimating];
     }
+}
 
 
 - (void)viewDidUnload {
@@ -117,40 +164,35 @@ int myCount;
 #pragma mark - Table View
 
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-
-    //NSLog(@" number of rows is %lu",(unsigned long) myCount);
-    return [self.stadia count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"StadiumCell";
-    StadiumCell *cell = (StadiumCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
-    cell.stadiumName.text = [self.stadia[indexPath.row] name];
-    //cell.stadiumID = [self.stadia[indexPath.row] object_id];
-    //NSLog(@"I have just added a stadium cell %@ %d",[self.stadia[indexPath.row] name],[self.stadia[indexPath.row] object_id]);
-    
-    return cell;
-
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)didSelectCategoryRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"------->row selected %ld", (long)indexPath.row);
-    selectedStadiumRow = indexPath.row;
-    //AppDelegate *ad;
-    //ad.currentStadium = indexPath.row;
-
+    
+    if (![[self.locations objectAtIndex:indexPath.section] isKindOfClass:[NSArray class]]) {
+        reloadingCategoryIndexPath = indexPath;
+        
+        POPDCell *cell = (POPDCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        [cell.indicator startAnimating];
+        
+        NSString *url =
+        [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_vendor_for_location?object_id=%d",[globalArrayLocations[indexPath.section] object_id]];
+        NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
+        
+        
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
+        [request setHTTPMethod:@"GET"];
+        [request setValue:api_key forHTTPHeaderField:@"Authorization"];
+        [[NSURLConnection alloc] initWithRequest:request delegate:self];
+        
+        //selectedStadiumRow = indexPath.row;
+    }
 }
+
+- (void)didSelectLeafRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    selectedIndexPath = indexPath;
+}
+
 
 //- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 //{

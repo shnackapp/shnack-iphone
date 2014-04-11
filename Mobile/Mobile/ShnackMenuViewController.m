@@ -40,15 +40,15 @@ int myCount;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [super viewDidLoad];
-    NSLog(@"viewdidload");//
-    self.responseData = [NSMutableData data];//
-
     
+    //self.navigationItem.title = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] name];
+
+    self.responseData = [NSMutableData data];
     NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_menu_for_vendor?object_id=%d",
-                     [globalArrayVendor[selectedVendorRow] object_id]];
+                     [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] object_id]];
     NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"GET"];
     
     [request setValue:api_key forHTTPHeaderField:@"Authorization"];

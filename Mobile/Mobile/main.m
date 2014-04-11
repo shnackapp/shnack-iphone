@@ -11,10 +11,8 @@
 #import "AppDelegate.h"
 #import "ObjectWithNameAndID.h"
 
-NSMutableArray *globalArrayStadia;
-NSMutableArray *globalArrayVendor;
-NSInteger selectedStadiumRow;
-NSInteger selectedVendorRow;
+NSMutableArray *globalArrayLocations;
+NSIndexPath *selectedIndexPath;
 int main(int argc, char * argv[])
 {
     
