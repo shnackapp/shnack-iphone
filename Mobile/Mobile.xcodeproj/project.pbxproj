@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		429B5F3F18F7A51B005D1A3C /* POPDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 429B5F2F18F7A51B005D1A3C /* POPDCell.m */; };
-		429B5F4718F7A51B005D1A3C /* POPDSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 429B5F3C18F7A51B005D1A3C /* POPDSampleViewController.m */; };
 		429B5F4818F7A51B005D1A3C /* POPDTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 429B5F3E18F7A51B005D1A3C /* POPDTable.m */; };
 		42E9610F18ED494100E5A182 /* DEMOFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610618ED494100E5A182 /* DEMOFirstViewController.m */; };
 		42E9611018ED494100E5A182 /* DEMOLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610818ED494100E5A182 /* DEMOLeftMenuViewController.m */; };
@@ -97,8 +96,6 @@
 /* Begin PBXFileReference section */
 		429B5F2E18F7A51B005D1A3C /* POPDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDCell.h; sourceTree = "<group>"; };
 		429B5F2F18F7A51B005D1A3C /* POPDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDCell.m; sourceTree = "<group>"; };
-		429B5F3B18F7A51B005D1A3C /* POPDSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDSampleViewController.h; sourceTree = "<group>"; };
-		429B5F3C18F7A51B005D1A3C /* POPDSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDSampleViewController.m; sourceTree = "<group>"; };
 		429B5F3D18F7A51B005D1A3C /* POPDTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDTable.h; sourceTree = "<group>"; };
 		429B5F3E18F7A51B005D1A3C /* POPDTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDTable.m; sourceTree = "<group>"; };
 		42E9610518ED494100E5A182 /* DEMOFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMOFirstViewController.h; path = Mobile/DEMOFirstViewController.h; sourceTree = "<group>"; };
@@ -243,8 +240,6 @@
 		429B5F3118F7A51B005D1A3C /* popdowntable */ = {
 			isa = PBXGroup;
 			children = (
-				429B5F3B18F7A51B005D1A3C /* POPDSampleViewController.h */,
-				429B5F3C18F7A51B005D1A3C /* POPDSampleViewController.m */,
 				429B5F3D18F7A51B005D1A3C /* POPDTable.h */,
 				429B5F3E18F7A51B005D1A3C /* POPDTable.m */,
 			);
@@ -658,7 +653,6 @@
 				69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */,
 				69F95CFE18F200B30011F5DB /* STPCard.m in Sources */,
 				429B5F4818F7A51B005D1A3C /* POPDTable.m in Sources */,
-				429B5F4718F7A51B005D1A3C /* POPDSampleViewController.m in Sources */,
 				42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */,
 				69F95D0918F200B30011F5DB /* PKTextField.m in Sources */,
 				69400FB518BBE68000238826 /* Item.m in Sources */,
