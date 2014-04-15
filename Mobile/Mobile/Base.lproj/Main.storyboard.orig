@@ -20,10 +20,10 @@
             </objects>
             <point key="canvasLocation" x="-621" y="64"/>
         </scene>
-        <!--Cover Page View Controller - Welcome-->
+        <!--View Controller - Welcome-->
         <scene sceneID="MEb-ml-9sG">
             <objects>
-                <viewController title="Welcome" id="CBI-oF-OcY" customClass="CoverPageViewController" sceneMemberID="viewController">
+                <viewController title="Welcome" id="CBI-oF-OcY" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QWR-8v-bQQ"/>
                         <viewControllerLayoutGuide type="bottom" id="A7b-dL-yAi"/>
@@ -103,6 +103,58 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ow-pS-psp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="380" y="801"/>
+        </scene>
+        <!--Stadium View Controller - Stadium-->
+        <scene sceneID="VgW-fR-Quf">
+            <objects>
+                <tableViewController storyboardIdentifier="stadiumViewController" title="Stadium" id="pGg-6v-bdr" customClass="StadiumViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mLL-gJ-YKr">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleAspectFit" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="StadiumCell" id="m0d-ak-lc9" customClass="StadiumCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m0d-ak-lc9" id="Jdv-Ni-ayy">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gO-he-hLx">
+                                            <rect key="frame" x="20" y="11" width="267" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.80000007152557373" green="0.21568629145622253" blue="0.074509806931018829" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="stadiumName" destination="4gO-he-hLx" id="bIn-UA-RZE"/>
+                                    <segue destination="Ah7-4n-0Wa" kind="custom" id="EDr-Xb-YXY"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Location" id="tQt-TN-PWz">
+                        <barButtonItem key="backBarButtonItem" title="Tutorial" id="pkM-YX-loB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="fAK-f7-5rE">
+                            <connections>
+                                <action selector="presentRightMenuViewController:" destination="pGg-6v-bdr" id="bh3-gP-PCC"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="393" y="64"/>
         </scene>
         <!--Shnack Menu View Controller - Menu-->
         <scene sceneID="0Tf-nJ-BJH">
@@ -235,7 +287,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o8e-T1-Pvr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1547" y="74"/>
+            <point key="canvasLocation" x="1327" y="64"/>
         </scene>
         <!--Payment View Controller - Payment Info-->
         <scene sceneID="K72-X7-X5z">
@@ -263,7 +315,55 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbd-CN-M8x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1974" y="71"/>
+            <point key="canvasLocation" x="1754" y="61"/>
+        </scene>
+        <!--Vendor View Controller - Vendor-->
+        <scene sceneID="Cn3-H9-jdl">
+            <objects>
+                <viewController title="Vendor" id="Ah7-4n-0Wa" customClass="VendorViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YeR-Dw-6aw">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="VendorCell" id="fOz-sm-2rh" customClass="VendorCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fOz-sm-2rh" id="ZA7-WC-2Zt">
+                                    <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O54-C5-QID">
+                                            <rect key="frame" x="13" y="11" width="274" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.78431379795074463" green="0.18431372940540314" blue="0.078431375324726105" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="vendorName" destination="O54-C5-QID" id="Ht0-De-iWL"/>
+                                    <segue destination="VTd-wa-bl7" kind="push" id="pGu-va-kDy"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Vendors" id="cra-N8-TIN">
+                        <barButtonItem key="backBarButtonItem" title="Stadiums" id="THZ-pt-uDL"/>
+                        <barButtonItem key="rightBarButtonItem" title="Menu" id="iw6-9V-b0W">
+                            <connections>
+                                <action selector="presentRightMenuViewController:" destination="Ah7-4n-0Wa" id="M1z-a4-lY1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="black" translucent="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="902" y="64"/>
         </scene>
         <!--First View Controller - Home Controller-->
         <scene sceneID="Phk-Za-zIO">
@@ -316,14 +416,14 @@
                     <navigationItem key="navigationItem" id="UTP-ew-zWq">
                         <barButtonItem key="rightBarButtonItem" title="Got It!" id="2Xb-Rc-IFr">
                             <connections>
-                                <segue destination="cYq-T3-qxs" kind="push" id="em4-XB-IV6"/>
+                                <segue destination="pGg-6v-bdr" kind="push" id="crH-MR-Wmh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6cb-rw-Fls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="427" y="61"/>
+            <point key="canvasLocation" x="371" y="-692"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="4k5-Yr-6DN">
@@ -379,6 +479,8 @@
             </objects>
             <point key="canvasLocation" x="-621" y="801"/>
         </scene>
+<<<<<<< HEAD
+=======
         <!--Locations View Controller - Locations-->
         <scene sceneID="yk2-KB-Ahd">
             <objects>
@@ -532,13 +634,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IU9-Pv-UQw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="981" y="64"/>
+            <point key="canvasLocation" x="405" y="64"/>
         </scene>
+>>>>>>> 29bba3dbaabe17f642ec8a7142163081333c9859
     </scenes>
     <resources>
         <image name="Balloon" width="320" height="568"/>
-        <image name="caratClosed" width="5" height="5"/>
-        <image name="caratOpened" width="5" height="5"/>
         <image name="logo.png" width="336" height="343"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -546,7 +647,4 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="3zg-Ej-wz2"/>
-    </inferredMetricsTieBreakers>
 </document>

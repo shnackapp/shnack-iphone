@@ -16,6 +16,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
@@ -28,6 +29,8 @@
 {
     
     [super viewDidLoad];
+    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     _pageTitles = @[ @"Discover Places to Eat", @"Pay From Your Seat", @"Notified When Food is Ready"];
     _pageImages = @[@"logo.png", @"logo.png", @"logo.png"];    // Create page view controller
@@ -116,6 +119,10 @@
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {
     return 0;
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 @end

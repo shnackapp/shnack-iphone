@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "StadiumViewController.h"
+#import "LocationsViewController.h"
 
 @implementation AppDelegate
 

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		429B5F3F18F7A51B005D1A3C /* POPDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 429B5F2F18F7A51B005D1A3C /* POPDCell.m */; };
 		42E9610F18ED494100E5A182 /* DEMOFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610618ED494100E5A182 /* DEMOFirstViewController.m */; };
 		42E9611018ED494100E5A182 /* DEMOLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610818ED494100E5A182 /* DEMOLeftMenuViewController.m */; };
 		42E9611118ED494100E5A182 /* DEMORightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610A18ED494100E5A182 /* DEMORightMenuViewController.m */; };
@@ -35,7 +34,12 @@
 		69715B2D18AD39560039D061 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B2C18AD39560039D061 /* AppDelegate.m */; };
 		69715B3018AD39560039D061 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69715B2E18AD39560039D061 /* Main.storyboard */; };
 		69715B3318AD39560039D061 /* Mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69715B3118AD39560039D061 /* Mobile.xcdatamodeld */; };
+<<<<<<< HEAD
+		69715B3618AD39560039D061 /* StadiumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B3518AD39560039D061 /* StadiumViewController.m */; };
+		69715B3918AD39560039D061 /* VendorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B3818AD39560039D061 /* VendorViewController.m */; };
+=======
 		69715B3618AD39560039D061 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B3518AD39560039D061 /* LocationsViewController.m */; };
+>>>>>>> 29bba3dbaabe17f642ec8a7142163081333c9859
 		69715B3B18AD39560039D061 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69715B3A18AD39560039D061 /* Images.xcassets */; };
 		69715B4218AD39570039D061 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B4118AD39570039D061 /* XCTest.framework */; };
 		69715B4318AD39570039D061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B1A18AD39560039D061 /* Foundation.framework */; };
@@ -44,8 +48,6 @@
 		69715B4D18AD39570039D061 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69715B4B18AD39570039D061 /* InfoPlist.strings */; };
 		69715B4F18AD39570039D061 /* MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B4E18AD39570039D061 /* MobileTests.m */; };
 		69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */; };
-		6977B4B718FD044E00A51871 /* POPDTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 6977B4B618FD044E00A51871 /* POPDTable.m */; };
-		6977B4BA18FD148C00A51871 /* CoverPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6977B4B918FD148C00A51871 /* CoverPageViewController.m */; };
 		69E0F09318BC5977008C1543 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E0F09218BC5977008C1543 /* logo.png */; };
 		69E0F09718BC60D1008C1543 /* ViewVendorSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E0F09618BC60D1008C1543 /* ViewVendorSegue.m */; };
 		69F95CFE18F200B30011F5DB /* STPCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CC818F200B30011F5DB /* STPCard.m */; };
@@ -98,8 +100,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		429B5F2E18F7A51B005D1A3C /* POPDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDCell.h; sourceTree = "<group>"; };
-		429B5F2F18F7A51B005D1A3C /* POPDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDCell.m; sourceTree = "<group>"; };
 		42E9610518ED494100E5A182 /* DEMOFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMOFirstViewController.h; path = Mobile/DEMOFirstViewController.h; sourceTree = "<group>"; };
 		42E9610618ED494100E5A182 /* DEMOFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEMOFirstViewController.m; path = Mobile/DEMOFirstViewController.m; sourceTree = "<group>"; };
 		42E9610718ED494100E5A182 /* DEMOLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMOLeftMenuViewController.h; path = Mobile/DEMOLeftMenuViewController.h; sourceTree = "<group>"; };
@@ -148,8 +148,15 @@
 		69715B2C18AD39560039D061 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		69715B2F18AD39560039D061 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69715B3218AD39560039D061 /* Mobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mobile.xcdatamodel; sourceTree = "<group>"; };
+<<<<<<< HEAD
+		69715B3418AD39560039D061 /* StadiumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = StadiumViewController.h; path = Mobile/StadiumViewController.h; sourceTree = "<group>"; };
+		69715B3518AD39560039D061 /* StadiumViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = StadiumViewController.m; path = Mobile/StadiumViewController.m; sourceTree = "<group>"; };
+		69715B3718AD39560039D061 /* VendorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = VendorViewController.h; path = Mobile/VendorViewController.h; sourceTree = "<group>"; };
+		69715B3818AD39560039D061 /* VendorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = VendorViewController.m; path = Mobile/VendorViewController.m; sourceTree = "<group>"; };
+=======
 		69715B3418AD39560039D061 /* LocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocationsViewController.h; path = Mobile/LocationsViewController.h; sourceTree = "<group>"; };
 		69715B3518AD39560039D061 /* LocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocationsViewController.m; path = Mobile/LocationsViewController.m; sourceTree = "<group>"; };
+>>>>>>> 29bba3dbaabe17f642ec8a7142163081333c9859
 		69715B3A18AD39560039D061 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		69715B4018AD39570039D061 /* MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69715B4118AD39570039D061 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -158,10 +165,6 @@
 		69715B4E18AD39570039D061 /* MobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileTests.m; sourceTree = "<group>"; };
 		69715B5818AD3CB30039D061 /* NSConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSConnectionDelegate.h; sourceTree = "<group>"; };
 		69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSConnectionDelegate.m; sourceTree = "<group>"; };
-		6977B4B518FD044E00A51871 /* POPDTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDTable.h; sourceTree = "<group>"; };
-		6977B4B618FD044E00A51871 /* POPDTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDTable.m; sourceTree = "<group>"; };
-		6977B4B818FD148C00A51871 /* CoverPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverPageViewController.h; sourceTree = "<group>"; };
-		6977B4B918FD148C00A51871 /* CoverPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverPageViewController.m; sourceTree = "<group>"; };
 		69E0F09218BC5977008C1543 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		69E0F09518BC60D1008C1543 /* ViewVendorSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewVendorSegue.h; sourceTree = "<group>"; };
 		69E0F09618BC60D1008C1543 /* ViewVendorSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewVendorSegue.m; sourceTree = "<group>"; };
@@ -248,15 +251,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		429B5F3118F7A51B005D1A3C /* popdowntable */ = {
-			isa = PBXGroup;
-			children = (
-				6977B4B518FD044E00A51871 /* POPDTable.h */,
-				6977B4B618FD044E00A51871 /* POPDTable.m */,
-			);
-			path = popdowntable;
-			sourceTree = "<group>";
-		};
 		42E960EF18ED319F00E5A182 /* RESideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,10 +298,15 @@
 				42E9610E18ED494100E5A182 /* DEMOSecondViewController.m */,
 				69400FC318BBED0600238826 /* ShnackMenuViewController.h */,
 				69400FC418BBED0600238826 /* ShnackMenuViewController.m */,
+<<<<<<< HEAD
+				69715B3418AD39560039D061 /* StadiumViewController.h */,
+				69715B3518AD39560039D061 /* StadiumViewController.m */,
+				69715B3718AD39560039D061 /* VendorViewController.h */,
+				69715B3818AD39560039D061 /* VendorViewController.m */,
+=======
 				69715B3418AD39560039D061 /* LocationsViewController.h */,
 				69715B3518AD39560039D061 /* LocationsViewController.m */,
-				6977B4B818FD148C00A51871 /* CoverPageViewController.h */,
-				6977B4B918FD148C00A51871 /* CoverPageViewController.m */,
+>>>>>>> 29bba3dbaabe17f642ec8a7142163081333c9859
 			);
 			name = Controllers;
 			path = ..;
@@ -316,8 +315,6 @@
 		69400FB618BBE69A00238826 /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
-				429B5F2E18F7A51B005D1A3C /* POPDCell.h */,
-				429B5F2F18F7A51B005D1A3C /* POPDCell.m */,
 				69400FC018BBECBF00238826 /* StadiumCell.h */,
 				69400FC118BBECBF00238826 /* StadiumCell.m */,
 				69400FB718BBE6C000238826 /* ShnackOrderTotalCell.h */,
@@ -375,7 +372,6 @@
 		69715B2218AD39560039D061 /* Mobile */ = {
 			isa = PBXGroup;
 			children = (
-				429B5F3118F7A51B005D1A3C /* popdowntable */,
 				42E960EF18ED319F00E5A182 /* RESideMenu */,
 				69E0F09418BC6058008C1543 /* Segues */,
 				69400FC818BC52E400238826 /* Images */,
@@ -650,10 +646,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69715B3918AD39560039D061 /* VendorViewController.m in Sources */,
 				69F95D0A18F200B30011F5DB /* PKUSAddressZip.m in Sources */,
 				69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */,
 				69F95D0818F200B30011F5DB /* PKComponent.m in Sources */,
-				6977B4BA18FD148C00A51871 /* CoverPageViewController.m in Sources */,
 				69E0F09718BC60D1008C1543 /* ViewVendorSegue.m in Sources */,
 				69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */,
 				42E9611218ED494100E5A182 /* DEMORootViewController.m in Sources */,
@@ -672,7 +668,6 @@
 				69400FBF18BBEBC400238826 /* ObjectWithNameAndID.m in Sources */,
 				42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */,
 				69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */,
-				6977B4B718FD044E00A51871 /* POPDTable.m in Sources */,
 				69F95CFE18F200B30011F5DB /* STPCard.m in Sources */,
 				42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */,
 				69F95D0918F200B30011F5DB /* PKTextField.m in Sources */,
@@ -685,7 +680,6 @@
 				69400FC518BBED0600238826 /* ShnackMenuViewController.m in Sources */,
 				69F95D0B18F200B30011F5DB /* PKView.m in Sources */,
 				69715B2918AD39560039D061 /* main.m in Sources */,
-				429B5F3F18F7A51B005D1A3C /* POPDCell.m in Sources */,
 				69F95D0618F200B30011F5DB /* PKCardExpiry.m in Sources */,
 				691E66DE18F3DAD900F67683 /* InitialViewController.m in Sources */,
 				69F95CFF18F200B30011F5DB /* STPToken.m in Sources */,

@@ -49,7 +49,7 @@
                                                          animated:YES];*/
             
             /// use the uinavigationcontroller from our storyboard
-            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"stadiumViewController"]]
+            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;

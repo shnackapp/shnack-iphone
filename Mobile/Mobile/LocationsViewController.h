@@ -7,21 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "POPDTable.h"
 
 //#import <CoreData/CoreData.h>
 
-@interface StadiumViewController    : UITableViewController <  UITableViewDelegate, UITableViewDataSource >
+@interface LocationsViewController  : POPDTable < UITableViewDataSource >
 //
 //not used but keep for now
-extern NSMutableArray *globalArrayStadia;
-extern NSInteger selectedStadiumRow,selectedVendorRow;
+extern NSMutableArray *globalArrayLocations;
+extern NSInteger selectedIndexPath;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 //////////
 
 //@property (strong, nonatomic) UITableView *mytableView;
 
-@property (nonatomic, strong) NSMutableArray *stadia;
+@property (nonatomic, strong) NSMutableArray *locations;
 @property (nonatomic, retain) NSMutableData *responseData;
 
 //@property (retain, nonatomic) NSData *registerDeviceResponse;

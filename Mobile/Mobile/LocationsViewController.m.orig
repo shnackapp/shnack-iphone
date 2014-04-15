@@ -6,17 +6,21 @@
 //  Copyright (c) 2014 shnack. All rights reserved.
 //
 
-#import "StadiumViewController.h"
+#import "LocationsViewController.h"
 #import "ObjectWithNameAndID.h"
 #import "VendorViewController.h"
 #import "StadiumCell.h"
 #import "AppDelegate.h"
 #import "RESideMenu.h"
 
+<<<<<<< HEAD:Mobile/Mobile/StadiumViewController.m
 @interface StadiumViewController ()
+=======
+@interface LocationsViewController () <POPDDelegate>
+>>>>>>> 29bba3dbaabe17f642ec8a7142163081333c9859:Mobile/Mobile/LocationsViewController.m
 @end
 
-@implementation StadiumViewController
+@implementation LocationsViewController
 
 //NSMutableArray * myArray;
 int myCount;
