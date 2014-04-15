@@ -91,7 +91,7 @@
 {
     NSLog(@"Received token %@", token.tokenId);
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://127.0.0.1:3000/charges/"]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://127.0.0.1:3000/api/process_stripe_info"]];
     request.HTTPMethod = @"POST";
     
     NSString *body     = [NSString stringWithFormat:@"stripeToken=%@", token.tokenId];

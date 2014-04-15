@@ -15,6 +15,9 @@
 		42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611518F14B2000E5A182 /* RECommonFunctions.m */; };
 		42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611718F14B2000E5A182 /* RESideMenu.m */; };
 		42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */; };
+		691E66DB18F3D5C200F67683 /* TutorialContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691E66DA18F3D5C200F67683 /* TutorialContentViewController.m */; };
+		691E66DE18F3DAD900F67683 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691E66DD18F3DAD900F67683 /* InitialViewController.m */; };
+		691E66E018F3E2FB00F67683 /* paperplane.svg in Resources */ = {isa = PBXBuildFile; fileRef = 691E66DF18F3E2FB00F67683 /* paperplane.svg */; };
 		69400FAF18BBC48400238826 /* VendorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FAE18BBC48400238826 /* VendorCell.m */; };
 		69400FB518BBE68000238826 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB418BBE68000238826 /* Item.m */; };
 		69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */; };
@@ -109,6 +112,11 @@
 		42E9611718F14B2000E5A182 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESideMenu.m; path = Mobile/RESideMenu.m; sourceTree = SOURCE_ROOT; };
 		42E9611818F14B2000E5A182 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+RESideMenu.h"; path = "Mobile/UIViewController+RESideMenu.h"; sourceTree = SOURCE_ROOT; };
 		42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RESideMenu.m"; path = "Mobile/UIViewController+RESideMenu.m"; sourceTree = SOURCE_ROOT; };
+		691E66D918F3D5C200F67683 /* TutorialContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialContentViewController.h; path = Mobile/TutorialContentViewController.h; sourceTree = "<group>"; };
+		691E66DA18F3D5C200F67683 /* TutorialContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialContentViewController.m; path = Mobile/TutorialContentViewController.m; sourceTree = "<group>"; };
+		691E66DC18F3DAD900F67683 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = Mobile/InitialViewController.h; sourceTree = "<group>"; };
+		691E66DD18F3DAD900F67683 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialViewController.m; path = Mobile/InitialViewController.m; sourceTree = "<group>"; };
+		691E66DF18F3E2FB00F67683 /* paperplane.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = paperplane.svg; sourceTree = "<group>"; };
 		69400FAD18BBC48300238826 /* VendorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorCell.h; sourceTree = "<group>"; };
 		69400FAE18BBC48400238826 /* VendorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorCell.m; sourceTree = "<group>"; };
 		69400FB318BBE68000238826 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -263,6 +271,10 @@
 		6935AD1B18AEA38A007CF28F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				691E66DC18F3DAD900F67683 /* InitialViewController.h */,
+				691E66DD18F3DAD900F67683 /* InitialViewController.m */,
+				691E66D918F3D5C200F67683 /* TutorialContentViewController.h */,
+				691E66DA18F3D5C200F67683 /* TutorialContentViewController.m */,
 				69F95D2118F201FD0011F5DB /* PaymentViewController.h */,
 				69F95D2218F201FD0011F5DB /* PaymentViewController.m */,
 				42E9610518ED494100E5A182 /* DEMOFirstViewController.h */,
@@ -304,6 +316,7 @@
 		69400FC818BC52E400238826 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				691E66DF18F3E2FB00F67683 /* paperplane.svg */,
 				69E0F09218BC5977008C1543 /* logo.png */,
 			);
 			name = Images;
@@ -585,6 +598,7 @@
 				69F95D1518F200B30011F5DB /* discover@2x.png in Resources */,
 				69F95D1918F200B30011F5DB /* mastercard@2x.png in Resources */,
 				69F95D1718F200B30011F5DB /* jcb@2x.png in Resources */,
+				691E66E018F3E2FB00F67683 /* paperplane.svg in Resources */,
 				69F95D1818F200B30011F5DB /* mastercard.png in Resources */,
 				69F95D1D18F200B30011F5DB /* visa@2x.png in Resources */,
 				69F95D1618F200B30011F5DB /* jcb.png in Resources */,
@@ -632,6 +646,7 @@
 				42E9610F18ED494100E5A182 /* DEMOFirstViewController.m in Sources */,
 				69715B3618AD39560039D061 /* StadiumViewController.m in Sources */,
 				69715B2D18AD39560039D061 /* AppDelegate.m in Sources */,
+				691E66DB18F3D5C200F67683 /* TutorialContentViewController.m in Sources */,
 				69F95D2318F201FD0011F5DB /* PaymentViewController.m in Sources */,
 				69F95D0318F200B30011F5DB /* PKAddressZip.m in Sources */,
 				69400FC218BBECBF00238826 /* StadiumCell.m in Sources */,
@@ -652,6 +667,7 @@
 				69F95D0B18F200B30011F5DB /* PKView.m in Sources */,
 				69715B2918AD39560039D061 /* main.m in Sources */,
 				69F95D0618F200B30011F5DB /* PKCardExpiry.m in Sources */,
+				691E66DE18F3DAD900F67683 /* InitialViewController.m in Sources */,
 				69F95CFF18F200B30011F5DB /* STPToken.m in Sources */,
 				42E9611018ED494100E5A182 /* DEMOLeftMenuViewController.m in Sources */,
 				69F95D0218F200B30011F5DB /* StripeError.m in Sources */,

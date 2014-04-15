@@ -46,7 +46,7 @@ int myCount;
     //NSLog(@"response data is %@",self.responseData);
 
     
-    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_stadia"];
+    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_location"];
     NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
