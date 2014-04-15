@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		429B5F3F18F7A51B005D1A3C /* POPDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 429B5F2F18F7A51B005D1A3C /* POPDCell.m */; };
-		42E9610F18ED494100E5A182 /* DEMOFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610618ED494100E5A182 /* DEMOFirstViewController.m */; };
-		42E9611018ED494100E5A182 /* DEMOLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610818ED494100E5A182 /* DEMOLeftMenuViewController.m */; };
-		42E9611118ED494100E5A182 /* DEMORightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610A18ED494100E5A182 /* DEMORightMenuViewController.m */; };
-		42E9611218ED494100E5A182 /* DEMORootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610C18ED494100E5A182 /* DEMORootViewController.m */; };
-		42E9611318ED494100E5A182 /* DEMOSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610E18ED494100E5A182 /* DEMOSecondViewController.m */; };
+		42E9611018ED494100E5A182 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610818ED494100E5A182 /* LeftMenuViewController.m */; };
+		42E9611118ED494100E5A182 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610A18ED494100E5A182 /* RightMenuViewController.m */; };
+		42E9611218ED494100E5A182 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610C18ED494100E5A182 /* RootViewController.m */; };
+		42E9611318ED494100E5A182 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610E18ED494100E5A182 /* SecondViewController.m */; };
 		42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611518F14B2000E5A182 /* RECommonFunctions.m */; };
 		42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611718F14B2000E5A182 /* RESideMenu.m */; };
 		42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */; };
@@ -100,16 +99,14 @@
 /* Begin PBXFileReference section */
 		429B5F2E18F7A51B005D1A3C /* POPDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDCell.h; sourceTree = "<group>"; };
 		429B5F2F18F7A51B005D1A3C /* POPDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDCell.m; sourceTree = "<group>"; };
-		42E9610518ED494100E5A182 /* DEMOFirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMOFirstViewController.h; path = Mobile/DEMOFirstViewController.h; sourceTree = "<group>"; };
-		42E9610618ED494100E5A182 /* DEMOFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEMOFirstViewController.m; path = Mobile/DEMOFirstViewController.m; sourceTree = "<group>"; };
-		42E9610718ED494100E5A182 /* DEMOLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMOLeftMenuViewController.h; path = Mobile/DEMOLeftMenuViewController.h; sourceTree = "<group>"; };
-		42E9610818ED494100E5A182 /* DEMOLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEMOLeftMenuViewController.m; path = Mobile/DEMOLeftMenuViewController.m; sourceTree = "<group>"; };
-		42E9610918ED494100E5A182 /* DEMORightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMORightMenuViewController.h; path = Mobile/DEMORightMenuViewController.h; sourceTree = "<group>"; };
-		42E9610A18ED494100E5A182 /* DEMORightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEMORightMenuViewController.m; path = Mobile/DEMORightMenuViewController.m; sourceTree = "<group>"; };
-		42E9610B18ED494100E5A182 /* DEMORootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMORootViewController.h; path = Mobile/DEMORootViewController.h; sourceTree = "<group>"; };
-		42E9610C18ED494100E5A182 /* DEMORootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEMORootViewController.m; path = Mobile/DEMORootViewController.m; sourceTree = "<group>"; };
-		42E9610D18ED494100E5A182 /* DEMOSecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DEMOSecondViewController.h; path = Mobile/DEMOSecondViewController.h; sourceTree = "<group>"; };
-		42E9610E18ED494100E5A182 /* DEMOSecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DEMOSecondViewController.m; path = Mobile/DEMOSecondViewController.m; sourceTree = "<group>"; };
+		42E9610718ED494100E5A182 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuViewController.h; path = Mobile/LeftMenuViewController.h; sourceTree = "<group>"; };
+		42E9610818ED494100E5A182 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuViewController.m; path = Mobile/LeftMenuViewController.m; sourceTree = "<group>"; };
+		42E9610918ED494100E5A182 /* RightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RightMenuViewController.h; path = Mobile/RightMenuViewController.h; sourceTree = "<group>"; };
+		42E9610A18ED494100E5A182 /* RightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RightMenuViewController.m; path = Mobile/RightMenuViewController.m; sourceTree = "<group>"; };
+		42E9610B18ED494100E5A182 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Mobile/RootViewController.h; sourceTree = "<group>"; };
+		42E9610C18ED494100E5A182 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = Mobile/RootViewController.m; sourceTree = "<group>"; };
+		42E9610D18ED494100E5A182 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = Mobile/SecondViewController.h; sourceTree = "<group>"; };
+		42E9610E18ED494100E5A182 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = Mobile/SecondViewController.m; sourceTree = "<group>"; };
 		42E9611418F14B2000E5A182 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RECommonFunctions.h; path = Mobile/RECommonFunctions.h; sourceTree = SOURCE_ROOT; };
 		42E9611518F14B2000E5A182 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RECommonFunctions.m; path = Mobile/RECommonFunctions.m; sourceTree = SOURCE_ROOT; };
 		42E9611618F14B2000E5A182 /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RESideMenu.h; path = Mobile/RESideMenu.h; sourceTree = SOURCE_ROOT; };
@@ -248,6 +245,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42459A7218FD210900C5728B /* Side Menu Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				42E9610718ED494100E5A182 /* LeftMenuViewController.h */,
+				42E9610818ED494100E5A182 /* LeftMenuViewController.m */,
+				42E9610918ED494100E5A182 /* RightMenuViewController.h */,
+				42E9610A18ED494100E5A182 /* RightMenuViewController.m */,
+				42E9610B18ED494100E5A182 /* RootViewController.h */,
+				42E9610C18ED494100E5A182 /* RootViewController.m */,
+				42E9610D18ED494100E5A182 /* SecondViewController.h */,
+				42E9610E18ED494100E5A182 /* SecondViewController.m */,
+			);
+			name = "Side Menu Controllers";
+			sourceTree = "<group>";
+		};
+		42459A7318FD212700C5728B /* Scrolling Tutorial Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				691E66DC18F3DAD900F67683 /* InitialViewController.h */,
+				691E66DD18F3DAD900F67683 /* InitialViewController.m */,
+				691E66D918F3D5C200F67683 /* TutorialContentViewController.h */,
+				691E66DA18F3D5C200F67683 /* TutorialContentViewController.m */,
+			);
+			name = "Scrolling Tutorial Controllers";
+			sourceTree = "<group>";
+		};
 		429B5F3118F7A51B005D1A3C /* popdowntable */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,22 +309,10 @@
 		6935AD1B18AEA38A007CF28F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				691E66DC18F3DAD900F67683 /* InitialViewController.h */,
-				691E66DD18F3DAD900F67683 /* InitialViewController.m */,
-				691E66D918F3D5C200F67683 /* TutorialContentViewController.h */,
-				691E66DA18F3D5C200F67683 /* TutorialContentViewController.m */,
+				42459A7318FD212700C5728B /* Scrolling Tutorial Controllers */,
+				42459A7218FD210900C5728B /* Side Menu Controllers */,
 				69F95D2118F201FD0011F5DB /* PaymentViewController.h */,
 				69F95D2218F201FD0011F5DB /* PaymentViewController.m */,
-				42E9610518ED494100E5A182 /* DEMOFirstViewController.h */,
-				42E9610618ED494100E5A182 /* DEMOFirstViewController.m */,
-				42E9610718ED494100E5A182 /* DEMOLeftMenuViewController.h */,
-				42E9610818ED494100E5A182 /* DEMOLeftMenuViewController.m */,
-				42E9610918ED494100E5A182 /* DEMORightMenuViewController.h */,
-				42E9610A18ED494100E5A182 /* DEMORightMenuViewController.m */,
-				42E9610B18ED494100E5A182 /* DEMORootViewController.h */,
-				42E9610C18ED494100E5A182 /* DEMORootViewController.m */,
-				42E9610D18ED494100E5A182 /* DEMOSecondViewController.h */,
-				42E9610E18ED494100E5A182 /* DEMOSecondViewController.m */,
 				69400FC318BBED0600238826 /* ShnackMenuViewController.h */,
 				69400FC418BBED0600238826 /* ShnackMenuViewController.m */,
 				69715B3418AD39560039D061 /* LocationsViewController.h */,
@@ -656,12 +667,11 @@
 				6977B4BA18FD148C00A51871 /* CoverPageViewController.m in Sources */,
 				69E0F09718BC60D1008C1543 /* ViewVendorSegue.m in Sources */,
 				69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */,
-				42E9611218ED494100E5A182 /* DEMORootViewController.m in Sources */,
+				42E9611218ED494100E5A182 /* RootViewController.m in Sources */,
 				69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */,
 				69F95D0518F200B30011F5DB /* PKCardCVC.m in Sources */,
 				69400FAF18BBC48400238826 /* VendorCell.m in Sources */,
 				69F95D0718F200B30011F5DB /* PKCardNumber.m in Sources */,
-				42E9610F18ED494100E5A182 /* DEMOFirstViewController.m in Sources */,
 				69715B3618AD39560039D061 /* LocationsViewController.m in Sources */,
 				69715B2D18AD39560039D061 /* AppDelegate.m in Sources */,
 				691E66DB18F3D5C200F67683 /* TutorialContentViewController.m in Sources */,
@@ -678,8 +688,8 @@
 				69F95D0918F200B30011F5DB /* PKTextField.m in Sources */,
 				69400FB518BBE68000238826 /* Item.m in Sources */,
 				69715B3318AD39560039D061 /* Mobile.xcdatamodeld in Sources */,
-				42E9611118ED494100E5A182 /* DEMORightMenuViewController.m in Sources */,
-				42E9611318ED494100E5A182 /* DEMOSecondViewController.m in Sources */,
+				42E9611118ED494100E5A182 /* RightMenuViewController.m in Sources */,
+				42E9611318ED494100E5A182 /* SecondViewController.m in Sources */,
 				69F95D0118F200B30011F5DB /* Stripe.m in Sources */,
 				69F95D0418F200B30011F5DB /* PKCard.m in Sources */,
 				69400FC518BBED0600238826 /* ShnackMenuViewController.m in Sources */,
@@ -689,7 +699,7 @@
 				69F95D0618F200B30011F5DB /* PKCardExpiry.m in Sources */,
 				691E66DE18F3DAD900F67683 /* InitialViewController.m in Sources */,
 				69F95CFF18F200B30011F5DB /* STPToken.m in Sources */,
-				42E9611018ED494100E5A182 /* DEMOLeftMenuViewController.m in Sources */,
+				42E9611018ED494100E5A182 /* LeftMenuViewController.m in Sources */,
 				69F95D0218F200B30011F5DB /* StripeError.m in Sources */,
 				42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */,
 			);

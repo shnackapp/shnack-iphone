@@ -46,8 +46,10 @@ NSIndexPath *reloadingCategoryIndexPath;
     self.responseData = [NSMutableData data];//
     //NSLog(@"response data is %@",self.responseData);
     
-    self.navigationController.navigationItem.hidesBackButton = YES;
-
+    //[self.navigationItem setLeftBarButtonItem:[[UIBarButtonItem alloc] initWithCustomView:[UIView new]]];
+    //[self.navigationItem setLeftBarButtonItem:nil];
+    self.navigationItem.hidesBackButton = YES;
+    
     NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_locations"];
     NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
     

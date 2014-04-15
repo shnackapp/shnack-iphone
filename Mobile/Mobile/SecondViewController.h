@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "RESideMenu.h"
 
-@interface DEMOSecondViewController : UIViewController
+@interface SecondViewController : UIViewController
 
 - (IBAction)pushViewController:(id)sender;
 

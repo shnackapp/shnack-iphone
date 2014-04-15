@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Roman Efimov. All rights reserved.
 //
 
-#import "DEMOSecondViewController.h"
+#import "SecondViewController.h"
 
-@interface DEMOSecondViewController ()
+@interface SecondViewController ()
 
 @end
 
-@implementation DEMOSecondViewController
+@implementation SecondViewController
 
 - (IBAction)pushViewController:(id)sender
 {

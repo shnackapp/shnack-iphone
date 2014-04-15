@@ -1,29 +1,28 @@
 //
-//  DEMORightMenuViewController.m
+//  DEMOLeftMenuViewController.m
 //  RESideMenuStoryboards
 //
-//  Created by Roman Efimov on 2/11/14.
-//  Copyright (c) 2014 Roman Efimov. All rights reserved.
+//  Created by Roman Efimov on 10/9/13.
+//  Copyright (c) 2013 Roman Efimov. All rights reserved.
 //
 
-#import "DEMORightMenuViewController.h"
-#import "DEMOFirstViewController.h"
-#import "DEMOSecondViewController.h"
-#import "DEMOLeftMenuViewController.h"
+#import "LeftMenuViewController.h"
+#import "SecondViewController.h"
+#import "UIViewController+RESideMenu.h"
 
-@interface DEMORightMenuViewController ()
+@interface LeftMenuViewController ()
 
 @property (strong, readwrite, nonatomic) UITableView *tableView;
 
 @end
 
-@implementation DEMORightMenuViewController
+@implementation LeftMenuViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 2) / 2.0f, self.view.frame.size.width, 54 * 2) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -32,6 +31,7 @@
         tableView.backgroundView = nil;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.bounces = NO;
+        tableView.scrollsToTop = NO;
         tableView;
     });
     [self.view addSubview:self.tableView];
@@ -45,11 +45,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0:
-            /*[self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"stadiumViewController"]]
-                                                         animated:YES];*/
-            
-            /// use the uinavigationcontroller from our storyboard
-            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
+            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"firstViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
@@ -78,7 +74,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 2;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,9 +92,10 @@
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
-    NSArray *titles = @[@"Test 1", @"Test 2"];
+    NSArray *titles = @[@"Home", @"Calendar", @"Profile", @"Settings", @"Log Out"];
+    NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
     cell.textLabel.text = titles[indexPath.row];
-    cell.textLabel.textAlignment = NSTextAlignmentRight;
+    cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
     
     return cell;
 }

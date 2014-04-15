@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 Roman Efimov. All rights reserved.
 //
 
-#import "DEMORootViewController.h"
+#import "RootViewController.h"
 //#import "DEMOLeftMenuViewController.h"
 
-@interface DEMORootViewController ()
+@interface RootViewController ()
 
 @end
 
-@implementation DEMORootViewController
+@implementation RootViewController
 
 - (void)awakeFromNib
 {
