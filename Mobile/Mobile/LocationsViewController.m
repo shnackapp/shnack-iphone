@@ -6,17 +6,17 @@
 //  Copyright (c) 2014 shnack. All rights reserved.
 //
 
-#import "StadiumViewController.h"
+#import "LocationsViewController.h"
 #import "ObjectWithNameAndID.h"
 #import "StadiumCell.h"
 #import "AppDelegate.h"
 #import "RESideMenu.h"
 #import "POPDCell.h"
 
-@interface StadiumViewController () <POPDDelegate>
+@interface LocationsViewController () <POPDDelegate>
 @end
 
-@implementation StadiumViewController
+@implementation LocationsViewController
 
 NSIndexPath *reloadingCategoryIndexPath;
 

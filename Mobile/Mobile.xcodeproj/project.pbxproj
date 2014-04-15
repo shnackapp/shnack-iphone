@@ -33,7 +33,7 @@
 		69715B2D18AD39560039D061 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B2C18AD39560039D061 /* AppDelegate.m */; };
 		69715B3018AD39560039D061 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69715B2E18AD39560039D061 /* Main.storyboard */; };
 		69715B3318AD39560039D061 /* Mobile.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69715B3118AD39560039D061 /* Mobile.xcdatamodeld */; };
-		69715B3618AD39560039D061 /* StadiumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B3518AD39560039D061 /* StadiumViewController.m */; };
+		69715B3618AD39560039D061 /* LocationsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B3518AD39560039D061 /* LocationsViewController.m */; };
 		69715B3B18AD39560039D061 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 69715B3A18AD39560039D061 /* Images.xcassets */; };
 		69715B4218AD39570039D061 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B4118AD39570039D061 /* XCTest.framework */; };
 		69715B4318AD39570039D061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B1A18AD39560039D061 /* Foundation.framework */; };
@@ -141,8 +141,8 @@
 		69715B2C18AD39560039D061 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		69715B2F18AD39560039D061 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		69715B3218AD39560039D061 /* Mobile.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Mobile.xcdatamodel; sourceTree = "<group>"; };
-		69715B3418AD39560039D061 /* StadiumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = StadiumViewController.h; path = Mobile/StadiumViewController.h; sourceTree = "<group>"; };
-		69715B3518AD39560039D061 /* StadiumViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = StadiumViewController.m; path = Mobile/StadiumViewController.m; sourceTree = "<group>"; };
+		69715B3418AD39560039D061 /* LocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocationsViewController.h; path = Mobile/LocationsViewController.h; sourceTree = "<group>"; };
+		69715B3518AD39560039D061 /* LocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocationsViewController.m; path = Mobile/LocationsViewController.m; sourceTree = "<group>"; };
 		69715B3A18AD39560039D061 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		69715B4018AD39570039D061 /* MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69715B4118AD39570039D061 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -289,8 +289,8 @@
 				42E9610E18ED494100E5A182 /* DEMOSecondViewController.m */,
 				69400FC318BBED0600238826 /* ShnackMenuViewController.h */,
 				69400FC418BBED0600238826 /* ShnackMenuViewController.m */,
-				69715B3418AD39560039D061 /* StadiumViewController.h */,
-				69715B3518AD39560039D061 /* StadiumViewController.m */,
+				69715B3418AD39560039D061 /* LocationsViewController.h */,
+				69715B3518AD39560039D061 /* LocationsViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -642,7 +642,7 @@
 				69400FAF18BBC48400238826 /* VendorCell.m in Sources */,
 				69F95D0718F200B30011F5DB /* PKCardNumber.m in Sources */,
 				42E9610F18ED494100E5A182 /* DEMOFirstViewController.m in Sources */,
-				69715B3618AD39560039D061 /* StadiumViewController.m in Sources */,
+				69715B3618AD39560039D061 /* LocationsViewController.m in Sources */,
 				69715B2D18AD39560039D061 /* AppDelegate.m in Sources */,
 				69F95D2318F201FD0011F5DB /* PaymentViewController.m in Sources */,
 				69F95D0318F200B30011F5DB /* PKAddressZip.m in Sources */,

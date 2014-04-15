@@ -11,7 +11,7 @@
 
 //#import <CoreData/CoreData.h>
 
-@interface StadiumViewController  : POPDTable < UITableViewDataSource >
+@interface LocationsViewController  : POPDTable < UITableViewDataSource >
 //
 //not used but keep for now
 extern NSMutableArray *globalArrayLocations;
