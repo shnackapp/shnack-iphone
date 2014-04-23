@@ -12,7 +12,7 @@
 		42E0470719061DC200890447 /* ShnackMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0470619061DC200890447 /* ShnackMenuViewController.m */; };
 		42E0470A1906607400890447 /* ShnackOrderCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E047091906607400890447 /* ShnackOrderCategoryCell.m */; };
 		42E0470D190741F500890447 /* ShnackMyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0470C190741F500890447 /* ShnackMyOrderViewController.m */; };
-		42E0471319076BFB00890447 /* POPDTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0471219076BFB00890447 /* POPDTableView.m */; };
+		42E04719190813A800890447 /* POPDTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E04718190813A800890447 /* POPDTableView.m */; };
 		42E9611018ED494100E5A182 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610818ED494100E5A182 /* LeftMenuViewController.m */; };
 		42E9611118ED494100E5A182 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610A18ED494100E5A182 /* RightMenuViewController.m */; };
 		42E9611218ED494100E5A182 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610C18ED494100E5A182 /* RootViewController.m */; };
@@ -109,8 +109,8 @@
 		42E047091906607400890447 /* ShnackOrderCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShnackOrderCategoryCell.m; sourceTree = "<group>"; };
 		42E0470B190741F500890447 /* ShnackMyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShnackMyOrderViewController.h; path = Mobile/ShnackMyOrderViewController.h; sourceTree = "<group>"; };
 		42E0470C190741F500890447 /* ShnackMyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShnackMyOrderViewController.m; path = Mobile/ShnackMyOrderViewController.m; sourceTree = "<group>"; };
-		42E0471119076BFB00890447 /* POPDTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POPDTableView.h; path = "../../../Mobile_(section_headers)/Mobile/popdowntable/POPDTableView.h"; sourceTree = "<group>"; };
-		42E0471219076BFB00890447 /* POPDTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POPDTableView.m; path = "../../../Mobile_(section_headers)/Mobile/popdowntable/POPDTableView.m"; sourceTree = "<group>"; };
+		42E04717190813A800890447 /* POPDTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDTableView.h; sourceTree = "<group>"; };
+		42E04718190813A800890447 /* POPDTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDTableView.m; sourceTree = "<group>"; };
 		42E9610718ED494100E5A182 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuViewController.h; path = Mobile/LeftMenuViewController.h; sourceTree = "<group>"; };
 		42E9610818ED494100E5A182 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuViewController.m; path = Mobile/LeftMenuViewController.m; sourceTree = "<group>"; };
 		42E9610918ED494100E5A182 /* RightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RightMenuViewController.h; path = Mobile/RightMenuViewController.h; sourceTree = "<group>"; };
@@ -283,12 +283,12 @@
 		429B5F3118F7A51B005D1A3C /* popdowntable */ = {
 			isa = PBXGroup;
 			children = (
+				42E04717190813A800890447 /* POPDTableView.h */,
+				42E04718190813A800890447 /* POPDTableView.m */,
 				6977B4B518FD044E00A51871 /* POPDTableViewController.h */,
 				6977B4B618FD044E00A51871 /* POPDTableViewController.m */,
 				429B5F2E18F7A51B005D1A3C /* POPDCell.h */,
 				429B5F2F18F7A51B005D1A3C /* POPDCell.m */,
-				42E0471119076BFB00890447 /* POPDTableView.h */,
-				42E0471219076BFB00890447 /* POPDTableView.m */,
 			);
 			path = popdowntable;
 			sourceTree = "<group>";
@@ -715,7 +715,7 @@
 				69F95D0A18F200B30011F5DB /* PKUSAddressZip.m in Sources */,
 				69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */,
 				69F95D0818F200B30011F5DB /* PKComponent.m in Sources */,
-				42E0471319076BFB00890447 /* POPDTableView.m in Sources */,
+				42E04719190813A800890447 /* POPDTableView.m in Sources */,
 				6977B4BA18FD148C00A51871 /* CoverPageViewController.m in Sources */,
 				69E0F09718BC60D1008C1543 /* ViewVendorSegue.m in Sources */,
 				69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */,
