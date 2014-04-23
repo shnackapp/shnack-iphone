@@ -8,7 +8,6 @@
 
 #import "LocationsViewController.h"
 #import "ObjectWithNameAndID.h"
-#import "StadiumCell.h"
 #import "AppDelegate.h"
 #import "RESideMenu.h"
 #import "POPDCell.h"
@@ -58,6 +57,7 @@ NSIndexPath *reloadingCategoryIndexPath;
     
     [request setValue:api_key forHTTPHeaderField:@"Authorization"];
     
+    [self setLoading:YES];
     [[NSURLConnection alloc] initWithRequest:request delegate:self];//
     
     //[_mytableView registerClass: [StadiumCell class] forCellReuseIdentifier:@"StadiumCell"];
@@ -108,13 +108,13 @@ NSIndexPath *reloadingCategoryIndexPath;
             NSDictionary *section;
             if (hasChildren) {
                 section = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    name, POPDHeader,
+                                    name, POPDCategoryTitle,
                                     [[NSArray alloc] init], POPDSubSection,
                                     nil];
                 [self.locations addObject:aStadium];
             } else {
                 section = [NSDictionary dictionaryWithObjectsAndKeys:
-                                        name, POPDHeader,
+                                        name, POPDCategoryTitle,
                                         nil, POPDSubSection,
                                         nil];
                 [self.locations addObject: [NSArray arrayWithObjects:aStadium,nil]];
@@ -124,6 +124,7 @@ NSIndexPath *reloadingCategoryIndexPath;
         
         globalArrayLocations = self.locations;
         [self setMenuSections:menu];
+        [self setLoading:NO];
     }
     else {
         NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
@@ -166,7 +167,6 @@ NSIndexPath *reloadingCategoryIndexPath;
 
 #pragma mark - Table View
 
-
 - (void)didSelectCategoryRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"------->row selected %ld", (long)indexPath.row);
@@ -193,6 +193,7 @@ NSIndexPath *reloadingCategoryIndexPath;
 
 - (void)didSelectLeafRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"SELECTED LEAF ROW!@@!!");
     selectedIndexPath = indexPath;
 }
 

@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "POPDTable.h"
+#import "POPDTableViewController.h"
 
 //#import <CoreData/CoreData.h>
 
-@interface LocationsViewController  : POPDTable < UITableViewDataSource >
+@interface LocationsViewController  : POPDTableViewController < UITableViewDataSource >
 //
 //not used but keep for now
 extern NSMutableArray *globalArrayLocations;

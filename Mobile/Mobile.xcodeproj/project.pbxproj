@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		429B5F3F18F7A51B005D1A3C /* POPDCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 429B5F2F18F7A51B005D1A3C /* POPDCell.m */; };
+		42BD1E8F19008D5200FC57E5 /* FooterCheckoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42BD1E8E19008D5200FC57E5 /* FooterCheckoutCell.xib */; };
+		42E0470719061DC200890447 /* ShnackMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0470619061DC200890447 /* ShnackMenuViewController.m */; };
+		42E0470A1906607400890447 /* ShnackOrderCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E047091906607400890447 /* ShnackOrderCategoryCell.m */; };
+		42E0470D190741F500890447 /* ShnackMyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0470C190741F500890447 /* ShnackMyOrderViewController.m */; };
+		42E0471319076BFB00890447 /* POPDTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E0471219076BFB00890447 /* POPDTableView.m */; };
 		42E9611018ED494100E5A182 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610818ED494100E5A182 /* LeftMenuViewController.m */; };
 		42E9611118ED494100E5A182 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610A18ED494100E5A182 /* RightMenuViewController.m */; };
 		42E9611218ED494100E5A182 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610C18ED494100E5A182 /* RootViewController.m */; };
@@ -18,13 +23,10 @@
 		691E66DB18F3D5C200F67683 /* TutorialContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691E66DA18F3D5C200F67683 /* TutorialContentViewController.m */; };
 		691E66DE18F3DAD900F67683 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691E66DD18F3DAD900F67683 /* InitialViewController.m */; };
 		691E66E018F3E2FB00F67683 /* paperplane.svg in Resources */ = {isa = PBXBuildFile; fileRef = 691E66DF18F3E2FB00F67683 /* paperplane.svg */; };
-		69400FAF18BBC48400238826 /* VendorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FAE18BBC48400238826 /* VendorCell.m */; };
 		69400FB518BBE68000238826 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB418BBE68000238826 /* Item.m */; };
 		69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */; };
 		69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */; };
 		69400FBF18BBEBC400238826 /* ObjectWithNameAndID.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FBE18BBEBC400238826 /* ObjectWithNameAndID.m */; };
-		69400FC218BBECBF00238826 /* StadiumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FC118BBECBF00238826 /* StadiumCell.m */; };
-		69400FC518BBED0600238826 /* ShnackMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FC418BBED0600238826 /* ShnackMenuViewController.m */; };
 		69715B1B18AD39560039D061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B1A18AD39560039D061 /* Foundation.framework */; };
 		69715B1D18AD39560039D061 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B1C18AD39560039D061 /* CoreGraphics.framework */; };
 		69715B1F18AD39560039D061 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B1E18AD39560039D061 /* UIKit.framework */; };
@@ -43,7 +45,7 @@
 		69715B4D18AD39570039D061 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69715B4B18AD39570039D061 /* InfoPlist.strings */; };
 		69715B4F18AD39570039D061 /* MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B4E18AD39570039D061 /* MobileTests.m */; };
 		69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */; };
-		6977B4B718FD044E00A51871 /* POPDTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 6977B4B618FD044E00A51871 /* POPDTable.m */; };
+		6977B4B718FD044E00A51871 /* POPDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6977B4B618FD044E00A51871 /* POPDTableViewController.m */; };
 		6977B4BA18FD148C00A51871 /* CoverPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6977B4B918FD148C00A51871 /* CoverPageViewController.m */; };
 		69E0F09318BC5977008C1543 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E0F09218BC5977008C1543 /* logo.png */; };
 		69E0F09718BC60D1008C1543 /* ViewVendorSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E0F09618BC60D1008C1543 /* ViewVendorSegue.m */; };
@@ -84,6 +86,7 @@
 		69F95D2018F200B30011F5DB /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F95CFD18F200B30011F5DB /* textfield@2x.png */; };
 		69F95D2318F201FD0011F5DB /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95D2218F201FD0011F5DB /* PaymentViewController.m */; };
 		69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95D2618F2184B0011F5DB /* MBProgressHUD.m */; };
+		9ADDB24B4FC34CB3A0697D78 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B69DE850A17F4205B7683335 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,8 +100,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		429B5F2E18F7A51B005D1A3C /* POPDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDCell.h; sourceTree = "<group>"; };
-		429B5F2F18F7A51B005D1A3C /* POPDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDCell.m; sourceTree = "<group>"; };
+		429B5F2E18F7A51B005D1A3C /* POPDCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POPDCell.h; path = ../POPDCell.h; sourceTree = "<group>"; };
+		429B5F2F18F7A51B005D1A3C /* POPDCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POPDCell.m; path = ../POPDCell.m; sourceTree = "<group>"; };
+		42BD1E8E19008D5200FC57E5 /* FooterCheckoutCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterCheckoutCell.xib; sourceTree = "<group>"; };
+		42E0470519061DC200890447 /* ShnackMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShnackMenuViewController.h; path = Mobile/ShnackMenuViewController.h; sourceTree = "<group>"; };
+		42E0470619061DC200890447 /* ShnackMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShnackMenuViewController.m; path = Mobile/ShnackMenuViewController.m; sourceTree = "<group>"; };
+		42E047081906607400890447 /* ShnackOrderCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShnackOrderCategoryCell.h; sourceTree = "<group>"; };
+		42E047091906607400890447 /* ShnackOrderCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShnackOrderCategoryCell.m; sourceTree = "<group>"; };
+		42E0470B190741F500890447 /* ShnackMyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShnackMyOrderViewController.h; path = Mobile/ShnackMyOrderViewController.h; sourceTree = "<group>"; };
+		42E0470C190741F500890447 /* ShnackMyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShnackMyOrderViewController.m; path = Mobile/ShnackMyOrderViewController.m; sourceTree = "<group>"; };
+		42E0471119076BFB00890447 /* POPDTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = POPDTableView.h; path = "../../../Mobile_(section_headers)/Mobile/popdowntable/POPDTableView.h"; sourceTree = "<group>"; };
+		42E0471219076BFB00890447 /* POPDTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = POPDTableView.m; path = "../../../Mobile_(section_headers)/Mobile/popdowntable/POPDTableView.m"; sourceTree = "<group>"; };
 		42E9610718ED494100E5A182 /* LeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftMenuViewController.h; path = Mobile/LeftMenuViewController.h; sourceTree = "<group>"; };
 		42E9610818ED494100E5A182 /* LeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftMenuViewController.m; path = Mobile/LeftMenuViewController.m; sourceTree = "<group>"; };
 		42E9610918ED494100E5A182 /* RightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RightMenuViewController.h; path = Mobile/RightMenuViewController.h; sourceTree = "<group>"; };
@@ -118,8 +130,6 @@
 		691E66DC18F3DAD900F67683 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = Mobile/InitialViewController.h; sourceTree = "<group>"; };
 		691E66DD18F3DAD900F67683 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialViewController.m; path = Mobile/InitialViewController.m; sourceTree = "<group>"; };
 		691E66DF18F3E2FB00F67683 /* paperplane.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = paperplane.svg; sourceTree = "<group>"; };
-		69400FAD18BBC48300238826 /* VendorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VendorCell.h; sourceTree = "<group>"; };
-		69400FAE18BBC48400238826 /* VendorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VendorCell.m; sourceTree = "<group>"; };
 		69400FB318BBE68000238826 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		69400FB418BBE68000238826 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		69400FB718BBE6C000238826 /* ShnackOrderTotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShnackOrderTotalCell.h; sourceTree = "<group>"; };
@@ -128,10 +138,6 @@
 		69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShnackOrderItemCell.m; sourceTree = "<group>"; };
 		69400FBD18BBEBC400238826 /* ObjectWithNameAndID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWithNameAndID.h; sourceTree = "<group>"; };
 		69400FBE18BBEBC400238826 /* ObjectWithNameAndID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectWithNameAndID.m; sourceTree = "<group>"; };
-		69400FC018BBECBF00238826 /* StadiumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StadiumCell.h; sourceTree = "<group>"; };
-		69400FC118BBECBF00238826 /* StadiumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StadiumCell.m; sourceTree = "<group>"; };
-		69400FC318BBED0600238826 /* ShnackMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShnackMenuViewController.h; path = Mobile/ShnackMenuViewController.h; sourceTree = "<group>"; };
-		69400FC418BBED0600238826 /* ShnackMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShnackMenuViewController.m; path = Mobile/ShnackMenuViewController.m; sourceTree = "<group>"; };
 		69715B1718AD39560039D061 /* Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69715B1A18AD39560039D061 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		69715B1C18AD39560039D061 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -155,8 +161,8 @@
 		69715B4E18AD39570039D061 /* MobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileTests.m; sourceTree = "<group>"; };
 		69715B5818AD3CB30039D061 /* NSConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSConnectionDelegate.h; sourceTree = "<group>"; };
 		69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSConnectionDelegate.m; sourceTree = "<group>"; };
-		6977B4B518FD044E00A51871 /* POPDTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDTable.h; sourceTree = "<group>"; };
-		6977B4B618FD044E00A51871 /* POPDTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDTable.m; sourceTree = "<group>"; };
+		6977B4B518FD044E00A51871 /* POPDTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDTableViewController.h; sourceTree = "<group>"; };
+		6977B4B618FD044E00A51871 /* POPDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDTableViewController.m; sourceTree = "<group>"; };
 		6977B4B818FD148C00A51871 /* CoverPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverPageViewController.h; sourceTree = "<group>"; };
 		6977B4B918FD148C00A51871 /* CoverPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverPageViewController.m; sourceTree = "<group>"; };
 		69E0F09218BC5977008C1543 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -217,6 +223,8 @@
 		69F95D2218F201FD0011F5DB /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentViewController.m; path = Mobile/PaymentViewController.m; sourceTree = "<group>"; };
 		69F95D2518F2184B0011F5DB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		69F95D2618F2184B0011F5DB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		6A546BF48A1243308E94883D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		B69DE850A17F4205B7683335 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +236,7 @@
 				69715B2118AD39560039D061 /* CoreData.framework in Frameworks */,
 				69715B1F18AD39560039D061 /* UIKit.framework in Frameworks */,
 				69715B1B18AD39560039D061 /* Foundation.framework in Frameworks */,
+				9ADDB24B4FC34CB3A0697D78 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,8 +283,12 @@
 		429B5F3118F7A51B005D1A3C /* popdowntable */ = {
 			isa = PBXGroup;
 			children = (
-				6977B4B518FD044E00A51871 /* POPDTable.h */,
-				6977B4B618FD044E00A51871 /* POPDTable.m */,
+				6977B4B518FD044E00A51871 /* POPDTableViewController.h */,
+				6977B4B618FD044E00A51871 /* POPDTableViewController.m */,
+				429B5F2E18F7A51B005D1A3C /* POPDCell.h */,
+				429B5F2F18F7A51B005D1A3C /* POPDCell.m */,
+				42E0471119076BFB00890447 /* POPDTableView.h */,
+				42E0471219076BFB00890447 /* POPDTableView.m */,
 			);
 			path = popdowntable;
 			sourceTree = "<group>";
@@ -297,9 +310,9 @@
 		6935AD1A18AEA36B007CF28F /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				69400FB618BBE69A00238826 /* Table Cells */,
 				69400FBD18BBEBC400238826 /* ObjectWithNameAndID.h */,
 				69400FBE18BBEBC400238826 /* ObjectWithNameAndID.m */,
-				69400FB618BBE69A00238826 /* Table Cells */,
 				69400FB318BBE68000238826 /* Item.h */,
 				69400FB418BBE68000238826 /* Item.m */,
 			);
@@ -313,12 +326,14 @@
 				42459A7218FD210900C5728B /* Side Menu Controllers */,
 				69F95D2118F201FD0011F5DB /* PaymentViewController.h */,
 				69F95D2218F201FD0011F5DB /* PaymentViewController.m */,
-				69400FC318BBED0600238826 /* ShnackMenuViewController.h */,
-				69400FC418BBED0600238826 /* ShnackMenuViewController.m */,
+				42E0470519061DC200890447 /* ShnackMenuViewController.h */,
+				42E0470619061DC200890447 /* ShnackMenuViewController.m */,
 				69715B3418AD39560039D061 /* LocationsViewController.h */,
 				69715B3518AD39560039D061 /* LocationsViewController.m */,
 				6977B4B818FD148C00A51871 /* CoverPageViewController.h */,
 				6977B4B918FD148C00A51871 /* CoverPageViewController.m */,
+				42E0470B190741F500890447 /* ShnackMyOrderViewController.h */,
+				42E0470C190741F500890447 /* ShnackMyOrderViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -327,16 +342,13 @@
 		69400FB618BBE69A00238826 /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
-				429B5F2E18F7A51B005D1A3C /* POPDCell.h */,
-				429B5F2F18F7A51B005D1A3C /* POPDCell.m */,
-				69400FC018BBECBF00238826 /* StadiumCell.h */,
-				69400FC118BBECBF00238826 /* StadiumCell.m */,
+				42BD1E8E19008D5200FC57E5 /* FooterCheckoutCell.xib */,
 				69400FB718BBE6C000238826 /* ShnackOrderTotalCell.h */,
 				69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */,
 				69400FB918BBE6C000238826 /* ShnackOrderItemCell.h */,
 				69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */,
-				69400FAD18BBC48300238826 /* VendorCell.h */,
-				69400FAE18BBC48400238826 /* VendorCell.m */,
+				42E047081906607400890447 /* ShnackOrderCategoryCell.h */,
+				42E047091906607400890447 /* ShnackOrderCategoryCell.m */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -359,6 +371,7 @@
 				69715B4818AD39570039D061 /* MobileTests */,
 				69715B1918AD39560039D061 /* Frameworks */,
 				69715B1818AD39560039D061 /* Products */,
+				6A546BF48A1243308E94883D /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -379,6 +392,7 @@
 				69715B1E18AD39560039D061 /* UIKit.framework */,
 				69715B2018AD39560039D061 /* CoreData.framework */,
 				69715B4118AD39570039D061 /* XCTest.framework */,
+				B69DE850A17F4205B7683335 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -548,9 +562,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69715B5218AD39570039D061 /* Build configuration list for PBXNativeTarget "Mobile" */;
 			buildPhases = (
+				E2F25D2FB90D42F9B8BEDE2D /* Check Pods Manifest.lock */,
 				69715B1318AD39560039D061 /* Sources */,
 				69715B1418AD39560039D061 /* Frameworks */,
 				69715B1518AD39560039D061 /* Resources */,
+				BB99DFCEDCBE42E98ADC92DD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -619,6 +635,7 @@
 			files = (
 				69F95D0F18F200B30011F5DB /* cvc-amex@2x.png in Resources */,
 				69F95D1F18F200B30011F5DB /* textfield.png in Resources */,
+				42BD1E8F19008D5200FC57E5 /* FooterCheckoutCell.xib in Resources */,
 				69F95D1E18F200B30011F5DB /* gradient@2x.png in Resources */,
 				69F95D1118F200B30011F5DB /* cvc@2x.png in Resources */,
 				69F95D0E18F200B30011F5DB /* cvc-amex.png in Resources */,
@@ -656,33 +673,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		BB99DFCEDCBE42E98ADC92DD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E2F25D2FB90D42F9B8BEDE2D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		69715B1318AD39560039D061 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E0470D190741F500890447 /* ShnackMyOrderViewController.m in Sources */,
 				69F95D0A18F200B30011F5DB /* PKUSAddressZip.m in Sources */,
 				69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */,
 				69F95D0818F200B30011F5DB /* PKComponent.m in Sources */,
+				42E0471319076BFB00890447 /* POPDTableView.m in Sources */,
 				6977B4BA18FD148C00A51871 /* CoverPageViewController.m in Sources */,
 				69E0F09718BC60D1008C1543 /* ViewVendorSegue.m in Sources */,
 				69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */,
 				42E9611218ED494100E5A182 /* RootViewController.m in Sources */,
 				69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */,
 				69F95D0518F200B30011F5DB /* PKCardCVC.m in Sources */,
-				69400FAF18BBC48400238826 /* VendorCell.m in Sources */,
 				69F95D0718F200B30011F5DB /* PKCardNumber.m in Sources */,
 				69715B3618AD39560039D061 /* LocationsViewController.m in Sources */,
 				69715B2D18AD39560039D061 /* AppDelegate.m in Sources */,
 				691E66DB18F3D5C200F67683 /* TutorialContentViewController.m in Sources */,
 				69F95D2318F201FD0011F5DB /* PaymentViewController.m in Sources */,
 				69F95D0318F200B30011F5DB /* PKAddressZip.m in Sources */,
-				69400FC218BBECBF00238826 /* StadiumCell.m in Sources */,
 				69F95D0018F200B30011F5DB /* STPView.m in Sources */,
+				42E0470719061DC200890447 /* ShnackMenuViewController.m in Sources */,
 				69400FBF18BBEBC400238826 /* ObjectWithNameAndID.m in Sources */,
 				42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */,
+				42E0470A1906607400890447 /* ShnackOrderCategoryCell.m in Sources */,
 				69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */,
-				6977B4B718FD044E00A51871 /* POPDTable.m in Sources */,
+				6977B4B718FD044E00A51871 /* POPDTableViewController.m in Sources */,
 				69F95CFE18F200B30011F5DB /* STPCard.m in Sources */,
 				42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */,
 				69F95D0918F200B30011F5DB /* PKTextField.m in Sources */,
@@ -692,7 +744,6 @@
 				42E9611318ED494100E5A182 /* SecondViewController.m in Sources */,
 				69F95D0118F200B30011F5DB /* Stripe.m in Sources */,
 				69F95D0418F200B30011F5DB /* PKCard.m in Sources */,
-				69400FC518BBED0600238826 /* ShnackMenuViewController.m in Sources */,
 				69F95D0B18F200B30011F5DB /* PKView.m in Sources */,
 				69715B2918AD39560039D061 /* main.m in Sources */,
 				429B5F3F18F7A51B005D1A3C /* POPDCell.m in Sources */,
@@ -823,6 +874,7 @@
 		};
 		69715B5318AD39570039D061 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A546BF48A1243308E94883D /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -836,6 +888,7 @@
 		};
 		69715B5418AD39570039D061 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A546BF48A1243308E94883D /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

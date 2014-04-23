@@ -1,12 +1,12 @@
 //
-//  ShnackMenuViewController2.m
+//  ShnackMyOrderViewController.m
 //  Mobile
 //
-//  Created by Jake Staahl on 4/21/14.
+//  Created by Jake Staahl on 4/22/14.
 //  Copyright (c) 2014 shnack. All rights reserved.
 //
 
-#import "ShnackMenuViewController.h"
+#import "ShnackMyOrderViewController.h"
 #import "Item.h"
 #import "ShnackOrderItemCell.h"
 #import "ShnackOrderTotalCell.h"
@@ -15,16 +15,16 @@
 #import "POPDCell.h"
 #import "ShnackOrderCategoryCell.h"
 
-@interface ShnackMenuViewController ()  <POPDDelegate>
-@property (nonatomic) NSInteger vendorID;
+@interface ShnackMyOrderViewController ()  <POPDDelegate>
+
 @end
-NSInteger myCount;
 
-@implementation ShnackMenuViewController
+@implementation ShnackMyOrderViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+
+- (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
     }
@@ -34,94 +34,46 @@ NSInteger myCount;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.delegate = self;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    //self.tableView.delegate = self;
-    self.tableView.popDownDelegate = self;
-    //self.tableView.dataSource = self;
+    self.tableView.dataSource = self;
     
-    [[BButton appearance] setButtonCornerRadius:[NSNumber numberWithFloat:0.0f]];
-    [self.checkoutButton setStyle:BButtonStyleBootstrapV3];
-    [self.checkoutButton setType:BButtonTypeDanger];
     
-    self.vendorID = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] object_id];
-    self.responseData = [NSMutableData data];
-    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_menu_for_vendor?object_id=%d",
-                     self.vendorID];
-    NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
+    /*
+    NSMutableArray *tableData = [[NSMutableArray alloc] initWithCapacity:[globalOpenOrder count]];
+    for (NSDictionary *openOrderSection in globalOpenOrder )
+        NSDictionary *section = [NSDictionary dictionaryWithObjectsAndKeys:
+                             categoryName, POPDCategoryTitle,
+                             tableSection, POPDSubSection,
+                             nil];
+        [tableData addObject:section];
+     */
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-    [request setHTTPMethod:@"GET"];
     
-    [request setValue:api_key forHTTPHeaderField:@"Authorization"];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     // important! set whether the user should be able to swipe from the right to reveal the side menu
     self.sideMenuViewController.panGestureEnabled = YES;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    [self.responseData setLength:0];
+
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [self.responseData appendData:data];
+
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError");
-    NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
+
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"connectionDidFinishLoading");
-    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
-    NSError *myError = nil;
-    
-    
-    NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
-    NSLog(@"my JSON: %@",res);
-    NSMutableArray *tableData = [[NSMutableArray alloc] initWithCapacity:[res count]];
-    self.menu = [[NSMutableArray alloc] initWithCapacity:[res count]];
-    for(NSDictionary *category in res) {
-        NSArray *items = [category objectForKey:@"items"];
-        NSString *categoryName = [category objectForKey:@"name"];
-        NSMutableArray *menuCategory = [[NSMutableArray alloc] initWithCapacity:[items count]];
-        NSMutableArray *tableSection = [[NSMutableArray alloc] initWithCapacity:[items count]];
-        [menuCategory addObject:categoryName];
-        for(NSDictionary *item in items)
-        {
-            NSInteger price = [[item objectForKey:@"price"] integerValue];
-            NSString *name = [item valueForKey:@"name"];
-            Item *item = [[Item alloc] initWithName:name andPrice:price];
-            NSLog(@"\nMenu : %@", self.menu);
-            [menuCategory addObject:item];
-            [tableSection addObject:name];
-        }
-        myCount = [self.menu count];
-        for (NSInteger i=0; i<myCount;i++)
-        {
-            //NSLog(@"\nMenu : %@", [self.menu[i] name]);
-        }
-        
-        
-        
-        NSDictionary *section = [NSDictionary dictionaryWithObjectsAndKeys:
-                       categoryName, POPDCategoryTitle,
-                       tableSection, POPDSubSection,
-                       nil];
-
-        [tableData addObject:section];
-        [self.menu addObject:menuCategory];
-    }
-    
-    
-    
-    
-    [self.tableView setMenuSections:tableData];
-    [self.tableView reloadData];
+   
 }
 
 
@@ -137,7 +89,7 @@ NSInteger myCount;
 -(void) willDisplayLeafSubCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     // Configure the cell...
     ShnackOrderItemCell *itemCell = (ShnackOrderItemCell *)cell;
-    Item *item = self.menu[indexPath.section][indexPath.row];
+    Item *item = globalOpenOrderMenu[indexPath.section][indexPath.row];
     
     itemCell.name.text = item.name;
     itemCell.price.text = [NSString stringWithFormat:@"$%d.%02d", item.price/100, item.price%100];
@@ -164,14 +116,14 @@ NSInteger myCount;
         categoryCell.count.hidden = NO;
         categoryCell.count.text = [NSString stringWithFormat:@"%ld", (long)categoryCount];
     }
-    categoryCell.labelText.text = self.menu[indexPath.section][0];
+    categoryCell.labelText.text = globalOpenOrderMenu[indexPath.section][0];
 }
 
 
 -(NSInteger)calculateOrderTotal
 {
     NSInteger total = 0;
-    for (NSArray *category in self.menu) {
+    for (NSArray *category in globalOpenOrderMenu) {
         for (NSInteger i = 1; i < [category count]; i++) {
             total += ((Item *)category[i]).price * ((Item *)category[i]).count;
         }
@@ -182,36 +134,21 @@ NSInteger myCount;
 
 -(NSInteger)calculateCategoryCount:(NSInteger)section {
     NSInteger count = 0;
-    NSInteger numItems = [((NSArray *)self.menu[section]) count];
+    NSInteger numItems = [((NSArray *)globalOpenOrderMenu[section]) count];
     for (NSInteger i = 1; i < numItems; i++) {
-        count += ((Item *)self.menu[section][i]).count;
+        count += ((Item *)globalOpenOrderMenu[section][i]).count;
     }
     return count;
 }
 
 -(IBAction)increaseCountByOne:(id)sender
 {
-    if (globalOpenOrderMenu != self.menu) {
-        globalOpenOrderMenu = self.menu;
-    }
-    if (globalOpenOrderVendorID != self.vendorID) {
-        globalOpenOrder = [[NSMutableDictionary alloc] init];
-    }
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
     
-    Item *item = self.menu[indexPath.section][indexPath.row];
+    Item *item = globalOpenOrderMenu[indexPath.section][indexPath.row];
     item.count++;
-    
-    NSNumber *sectionNumber = [NSNumber numberWithInt:indexPath.section];
-    NSMutableDictionary *openOrderSection = [globalOpenOrder objectForKey:sectionNumber];
-    if (openOrderSection == nil) {
-        openOrderSection = [[NSMutableDictionary alloc] init];
-        [globalOpenOrder setObject:openOrderSection forKey:sectionNumber];
-    }
-    NSNumber *sectionRow = [NSNumber numberWithInt:indexPath.row];
-    [globalOpenOrder setObject:item forKey:sectionRow];
     
     NSInteger total = [self calculateOrderTotal];
     self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%ld.%02ld", total/100, total%100];
@@ -225,14 +162,14 @@ NSInteger myCount;
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
     
-    Item *item = self.menu[indexPath.section][indexPath.row];
+    Item *item = globalOpenOrderMenu[indexPath.section][indexPath.row];
     if(item.count > 0)
     {
         item.count--;
     }
     
     NSInteger total = [self calculateOrderTotal];
-    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
+    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%ld.%02ld", total/100, total%100];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
 }

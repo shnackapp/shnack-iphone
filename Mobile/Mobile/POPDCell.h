@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *labelText;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+@property (strong, nonatomic) NSIndexPath *indexPath;
+@property (nonatomic) BOOL isOpen;
 
 
 
