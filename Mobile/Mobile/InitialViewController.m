@@ -30,7 +30,7 @@
     
     [super viewDidLoad];
     
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+
     
     _pageTitles = @[ @"Discover Places to Eat", @"Pay From Your Seat", @"Notified When Food is Ready"];
     _pageImages = @[@"logo.png", @"logo.png", @"logo.png"];    // Create page view controller
@@ -46,6 +46,7 @@
     
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
+    [self.view sendSubviewToBack:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
     
 }
@@ -119,10 +120,6 @@
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {
     return 0;
-}
-
--(void) viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 @end
