@@ -29,6 +29,9 @@
     [super viewDidLoad];
     
     self.backgroundImageView.image = [UIImage imageNamed:self.imageFile];
+    
+    self.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.titleLabel.numberOfLines = 0;
     self.titleLabel.text = self.titleText;
 }
 - (void)didReceiveMemoryWarning

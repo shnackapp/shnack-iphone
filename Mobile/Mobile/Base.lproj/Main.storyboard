@@ -40,17 +40,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="2AX-Tn-QE7">
-                                <rect key="frame" x="69" y="99" width="169" height="169"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfb-wN-mw3">
-                                <rect key="frame" x="43" y="290" width="235" height="159"/>
+                                <rect key="frame" x="43" y="281" width="235" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjm-Jz-0et">
+                                <rect key="frame" x="40" y="124" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -58,7 +58,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Got It!" id="PJh-w5-dHc"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="backgroundImageView" destination="2AX-Tn-QE7" id="E5e-KS-zXH"/>
+                        <outlet property="backgroundImageView" destination="mjm-Jz-0et" id="rdb-Ra-yVy"/>
                         <outlet property="titleLabel" destination="yfb-wN-mw3" id="LcR-YZ-yCy"/>
                     </connections>
                 </viewController>
@@ -468,7 +468,7 @@
                         <viewControllerLayoutGuide type="top" id="prm-Io-jft"/>
                         <viewControllerLayoutGuide type="bottom" id="eTo-Rt-Qug"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="jvg-H1-shn">
+                    <view key="view" opaque="NO" alpha="0.84999999999999987" contentMode="scaleToFill" id="jvg-H1-shn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -509,8 +509,13 @@
                                     <segue destination="dBn-Du-6gN" kind="modal" id="S7u-Z3-JJC"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="enL-4g-QH4">
+                                <rect key="frame" x="0.0" y="68" width="320" height="500"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="UTP-ew-zWq"/>
                 </viewController>
@@ -744,7 +749,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="3zg-Ej-wz2"/>
-        <segue reference="mFH-qb-I8g"/>
-        <segue reference="ROu-fs-W7M"/>
+        <segue reference="Ast-MA-06N"/>
+        <segue reference="AkH-ul-gsy"/>
     </inferredMetricsTieBreakers>
 </document>

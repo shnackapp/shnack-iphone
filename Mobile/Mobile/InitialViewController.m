@@ -32,8 +32,8 @@
     
 
     
-    _pageTitles = @[ @"Discover Places to Eat", @"Pay From Your Seat", @"Notified When Food is Ready"];
-    _pageImages = @[@"logo.png", @"logo.png", @"logo.png"];    // Create page view controller
+    _pageTitles = @[ @"From your seat, view the menus of vendors. Pay and place your order.", @"Sit back, relax, and enjoy the experience.", @"When your order is ready, a notification will be sent. Pick up and enjoy."];
+    _pageImages = @[@"Walkthrough1.png", @"Walkthrough2.png", @"Walkthrough3.png"];    // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
     
