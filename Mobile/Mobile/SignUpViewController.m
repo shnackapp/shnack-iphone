@@ -113,6 +113,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //self.emailLabel.font = [UIFont fontWithName:@"Damion" size:15];
     self.passwordConfirm.delegate = self;
     self.password.delegate = self;
     self.email.delegate = self;

@@ -30,6 +30,10 @@
     
     [super viewDidLoad];
     
+    self.signUp.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
+    self.orderNow.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
+    self.Login.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
+    
     
     
     _pageTitles = @[ @"From your seat, view the menus of vendors. Pay and place your order.", @"Sit back, relax, and enjoy the experience.", @"When your order is ready, a notification will be sent. Pick up and enjoy."];
@@ -108,7 +112,7 @@
     TutorialContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TutorialContentViewController"];
     pageContentViewController.imageFile = self.pageImages[index];
     pageContentViewController.TopText = self.TopTitles[index];
-    pageContentViewController.titleText = self.pageTitles[index];
+    pageContentViewController.blurbText = self.pageTitles[index];
     pageContentViewController.pageIndex = index;
     
     return pageContentViewController;

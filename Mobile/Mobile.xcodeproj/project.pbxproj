@@ -59,6 +59,9 @@
 		69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */; };
 		6977B4B718FD044E00A51871 /* POPDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6977B4B618FD044E00A51871 /* POPDTableViewController.m */; };
 		6977B4BA18FD148C00A51871 /* CoverPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6977B4B918FD148C00A51871 /* CoverPageViewController.m */; };
+		6999CD541908BC04009BD628 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6999CD531908BC04009BD628 /* libPods.a */; };
+		6999CD561908E37F009BD628 /* Damion-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6999CD551908E37F009BD628 /* Damion-Regular.ttf */; };
+		6999CD581908E398009BD628 /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */; };
 		69E0F09318BC5977008C1543 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E0F09218BC5977008C1543 /* logo.png */; };
 		69E0F09718BC60D1008C1543 /* ViewVendorSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 69E0F09618BC60D1008C1543 /* ViewVendorSegue.m */; };
 		69F95CFE18F200B30011F5DB /* STPCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CC818F200B30011F5DB /* STPCard.m */; };
@@ -98,7 +101,6 @@
 		69F95D2018F200B30011F5DB /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F95CFD18F200B30011F5DB /* textfield@2x.png */; };
 		69F95D2318F201FD0011F5DB /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95D2218F201FD0011F5DB /* PaymentViewController.m */; };
 		69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95D2618F2184B0011F5DB /* MBProgressHUD.m */; };
-		9ADDB24B4FC34CB3A0697D78 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B69DE850A17F4205B7683335 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +110,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 69715B1618AD39560039D061;
 			remoteInfo = Mobile;
+		};
+		6999CD4E1908BBB2009BD628 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6999CD491908BBB2009BD628 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 787ECEEE32884BB6ABD21D8C;
+			remoteInfo = Pods;
+		};
+		6999CD501908BBB2009BD628 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6999CD491908BBB2009BD628 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B2EF13E34A7A4279B2173FAA;
+			remoteInfo = "Pods-BButton";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -191,6 +207,36 @@
 		6977B4B618FD044E00A51871 /* POPDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDTableViewController.m; sourceTree = "<group>"; };
 		6977B4B818FD148C00A51871 /* CoverPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoverPageViewController.h; sourceTree = "<group>"; };
 		6977B4B918FD148C00A51871 /* CoverPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoverPageViewController.m; sourceTree = "<group>"; };
+		6999CD2A1908BBB2009BD628 /* BButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		6999CD2B1908BBB2009BD628 /* BButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
+		6999CD2C1908BBB2009BD628 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		6999CD2D1908BBB2009BD628 /* NSString+FontAwesome.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FontAwesome.m"; sourceTree = "<group>"; };
+		6999CD2E1908BBB2009BD628 /* UIColor+BButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
+		6999CD2F1908BBB2009BD628 /* UIColor+BButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+BButton.m"; sourceTree = "<group>"; };
+		6999CD311908BBB2009BD628 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		6999CD321908BBB2009BD628 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		6999CD331908BBB2009BD628 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		6999CD361908BBB2009BD628 /* BButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		6999CD371908BBB2009BD628 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		6999CD381908BBB2009BD628 /* UIColor+BButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
+		6999CD3B1908BBB2009BD628 /* BButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
+		6999CD3C1908BBB2009BD628 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
+		6999CD3D1908BBB2009BD628 /* UIColor+BButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+BButton.h"; sourceTree = "<group>"; };
+		6999CD3E1908BBB2009BD628 /* Manifest.lock */ = {isa = PBXFileReference; lastKnownFileType = text; path = Manifest.lock; sourceTree = "<group>"; };
+		6999CD3F1908BBB2009BD628 /* Pods-acknowledgements.markdown */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Pods-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6999CD401908BBB2009BD628 /* Pods-acknowledgements.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pods-acknowledgements.plist"; sourceTree = "<group>"; };
+		6999CD411908BBB2009BD628 /* Pods-BButton-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Pods-BButton-dummy.m"; sourceTree = "<group>"; };
+		6999CD421908BBB2009BD628 /* Pods-BButton-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-BButton-prefix.pch"; sourceTree = "<group>"; };
+		6999CD431908BBB2009BD628 /* Pods-BButton-Private.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-BButton-Private.xcconfig"; sourceTree = "<group>"; };
+		6999CD441908BBB2009BD628 /* Pods-BButton.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Pods-BButton.xcconfig"; sourceTree = "<group>"; };
+		6999CD451908BBB2009BD628 /* Pods-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Pods-dummy.m"; sourceTree = "<group>"; };
+		6999CD461908BBB2009BD628 /* Pods-environment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
+		6999CD471908BBB2009BD628 /* Pods-resources.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "Pods-resources.sh"; sourceTree = "<group>"; };
+		6999CD481908BBB2009BD628 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Pods.xcconfig; sourceTree = "<group>"; };
+		6999CD491908BBB2009BD628 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = Pods.xcodeproj; sourceTree = "<group>"; };
+		6999CD531908BC04009BD628 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = ../../add/libPods.a; sourceTree = "<group>"; };
+		6999CD551908E37F009BD628 /* Damion-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Damion-Regular.ttf"; sourceTree = "<group>"; };
+		6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
 		69E0F09218BC5977008C1543 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		69E0F09518BC60D1008C1543 /* ViewVendorSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewVendorSegue.h; sourceTree = "<group>"; };
 		69E0F09618BC60D1008C1543 /* ViewVendorSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewVendorSegue.m; sourceTree = "<group>"; };
@@ -250,7 +296,6 @@
 		69F95D2518F2184B0011F5DB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		69F95D2618F2184B0011F5DB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6A546BF48A1243308E94883D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		B69DE850A17F4205B7683335 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,11 +303,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6999CD541908BC04009BD628 /* libPods.a in Frameworks */,
 				69715B1D18AD39560039D061 /* CoreGraphics.framework in Frameworks */,
 				69715B2118AD39560039D061 /* CoreData.framework in Frameworks */,
 				69715B1F18AD39560039D061 /* UIKit.framework in Frameworks */,
 				69715B1B18AD39560039D061 /* Foundation.framework in Frameworks */,
-				9ADDB24B4FC34CB3A0697D78 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,12 +503,13 @@
 		69715B1918AD39560039D061 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6999CD531908BC04009BD628 /* libPods.a */,
+				6999CD261908BBB2009BD628 /* Pods */,
 				69715B1A18AD39560039D061 /* Foundation.framework */,
 				69715B1C18AD39560039D061 /* CoreGraphics.framework */,
 				69715B1E18AD39560039D061 /* UIKit.framework */,
 				69715B2018AD39560039D061 /* CoreData.framework */,
 				69715B4118AD39570039D061 /* XCTest.framework */,
-				B69DE850A17F4205B7683335 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -497,6 +543,8 @@
 		69715B2318AD39560039D061 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */,
+				6999CD551908E37F009BD628 /* Damion-Regular.ttf */,
 				69715B2418AD39560039D061 /* Mobile-Info.plist */,
 				69715B2518AD39560039D061 /* InfoPlist.strings */,
 				69715B2818AD39560039D061 /* main.m */,
@@ -521,6 +569,113 @@
 				69715B4B18AD39570039D061 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6999CD261908BBB2009BD628 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6999CD271908BBB2009BD628 /* BButton */,
+				6999CD341908BBB2009BD628 /* BuildHeaders */,
+				6999CD391908BBB2009BD628 /* Headers */,
+				6999CD3E1908BBB2009BD628 /* Manifest.lock */,
+				6999CD3F1908BBB2009BD628 /* Pods-acknowledgements.markdown */,
+				6999CD401908BBB2009BD628 /* Pods-acknowledgements.plist */,
+				6999CD411908BBB2009BD628 /* Pods-BButton-dummy.m */,
+				6999CD421908BBB2009BD628 /* Pods-BButton-prefix.pch */,
+				6999CD431908BBB2009BD628 /* Pods-BButton-Private.xcconfig */,
+				6999CD441908BBB2009BD628 /* Pods-BButton.xcconfig */,
+				6999CD451908BBB2009BD628 /* Pods-dummy.m */,
+				6999CD461908BBB2009BD628 /* Pods-environment.h */,
+				6999CD471908BBB2009BD628 /* Pods-resources.sh */,
+				6999CD481908BBB2009BD628 /* Pods.xcconfig */,
+				6999CD491908BBB2009BD628 /* Pods.xcodeproj */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6999CD271908BBB2009BD628 /* BButton */ = {
+			isa = PBXGroup;
+			children = (
+				6999CD281908BBB2009BD628 /* BButton */,
+				6999CD321908BBB2009BD628 /* LICENSE.txt */,
+				6999CD331908BBB2009BD628 /* README.md */,
+			);
+			path = BButton;
+			sourceTree = "<group>";
+		};
+		6999CD281908BBB2009BD628 /* BButton */ = {
+			isa = PBXGroup;
+			children = (
+				6999CD291908BBB2009BD628 /* Classes */,
+				6999CD301908BBB2009BD628 /* resources */,
+			);
+			path = BButton;
+			sourceTree = "<group>";
+		};
+		6999CD291908BBB2009BD628 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				6999CD2A1908BBB2009BD628 /* BButton.h */,
+				6999CD2B1908BBB2009BD628 /* BButton.m */,
+				6999CD2C1908BBB2009BD628 /* NSString+FontAwesome.h */,
+				6999CD2D1908BBB2009BD628 /* NSString+FontAwesome.m */,
+				6999CD2E1908BBB2009BD628 /* UIColor+BButton.h */,
+				6999CD2F1908BBB2009BD628 /* UIColor+BButton.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		6999CD301908BBB2009BD628 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				6999CD311908BBB2009BD628 /* FontAwesome.ttf */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		6999CD341908BBB2009BD628 /* BuildHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				6999CD351908BBB2009BD628 /* BButton */,
+			);
+			path = BuildHeaders;
+			sourceTree = "<group>";
+		};
+		6999CD351908BBB2009BD628 /* BButton */ = {
+			isa = PBXGroup;
+			children = (
+				6999CD361908BBB2009BD628 /* BButton.h */,
+				6999CD371908BBB2009BD628 /* NSString+FontAwesome.h */,
+				6999CD381908BBB2009BD628 /* UIColor+BButton.h */,
+			);
+			path = BButton;
+			sourceTree = "<group>";
+		};
+		6999CD391908BBB2009BD628 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				6999CD3A1908BBB2009BD628 /* BButton */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		6999CD3A1908BBB2009BD628 /* BButton */ = {
+			isa = PBXGroup;
+			children = (
+				6999CD3B1908BBB2009BD628 /* BButton.h */,
+				6999CD3C1908BBB2009BD628 /* NSString+FontAwesome.h */,
+				6999CD3D1908BBB2009BD628 /* UIColor+BButton.h */,
+			);
+			path = BButton;
+			sourceTree = "<group>";
+		};
+		6999CD4A1908BBB2009BD628 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6999CD4F1908BBB2009BD628 /* libPods.a */,
+				6999CD511908BBB2009BD628 /* libPods-BButton.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		69E0F09418BC6058008C1543 /* Segues */ = {
@@ -680,6 +835,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = shnack;
 				TargetAttributes = {
+					69715B1618AD39560039D061 = {
+						DevelopmentTeam = S662BFT23R;
+					};
 					69715B3F18AD39570039D061 = {
 						TestTargetID = 69715B1618AD39560039D061;
 					};
@@ -696,6 +854,12 @@
 			mainGroup = 69715B0E18AD39560039D061;
 			productRefGroup = 69715B1818AD39560039D061 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6999CD4A1908BBB2009BD628 /* Products */;
+					ProjectRef = 6999CD491908BBB2009BD628 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				69715B1618AD39560039D061 /* Mobile */,
@@ -704,6 +868,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		6999CD4F1908BBB2009BD628 /* libPods.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libPods.a;
+			remoteRef = 6999CD4E1908BBB2009BD628 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6999CD511908BBB2009BD628 /* libPods-BButton.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-BButton.a";
+			remoteRef = 6999CD501908BBB2009BD628 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		69715B1518AD39560039D061 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -711,6 +892,7 @@
 			files = (
 				69F95D0F18F200B30011F5DB /* cvc-amex@2x.png in Resources */,
 				69F95D1F18F200B30011F5DB /* textfield.png in Resources */,
+				6999CD581908E398009BD628 /* PoiretOne-Regular.ttf in Resources */,
 				42BD1E8F19008D5200FC57E5 /* FooterCheckoutCell.xib in Resources */,
 				6963E22F1908481800C6885A /* Contents.json in Resources */,
 				6963E2301908481800C6885A /* Walkthrough1.png in Resources */,
@@ -730,6 +912,7 @@
 				69F95D1B18F200B30011F5DB /* placeholder@2x.png in Resources */,
 				6963E2321908481800C6885A /* Walkthrough2.png in Resources */,
 				6963E2331908481800C6885A /* Contents.json in Resources */,
+				6999CD561908E37F009BD628 /* Damion-Regular.ttf in Resources */,
 				69F95D1A18F200B30011F5DB /* placeholder.png in Resources */,
 				6963E2311908481800C6885A /* Contents.json in Resources */,
 				6963E22E1908481800C6885A /* StartBarBackground2X.png in Resources */,
@@ -966,10 +1149,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobile/Mobile-Prefix.pch";
 				INFOPLIST_FILE = "Mobile/Mobile-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/spencerneste/Desktop/add,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -980,10 +1170,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobile/Mobile-Prefix.pch";
 				INFOPLIST_FILE = "Mobile/Mobile-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/spencerneste/Desktop/add,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

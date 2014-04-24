@@ -47,9 +47,9 @@ NSInteger myCount;
     
     self.vendorID = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] object_id];
     self.responseData = [NSMutableData data];
-    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_menu_for_vendor?object_id=%d",
+    NSString *url = [NSString stringWithFormat:@"http://nvc.shnackapp.com/api/get_menu_for_vendor?object_id=%d",
                      self.vendorID];
-    NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
+    NSString *api_key = [NSString stringWithFormat:@"Token token=\"d157b1e177b7ba1e4547a0d6e11aa627\""];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"GET"];

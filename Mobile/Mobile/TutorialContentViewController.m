@@ -30,10 +30,14 @@
     
     self.iconImageView.image = [UIImage imageNamed:self.imageFile];
     
-    self.titleLabel.lineBreakMode = UILineBreakModeWordWrap;
-    self.titleLabel.numberOfLines = 0;
-    self.titleLabel.text = self.titleText;
+    self.blurbLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.blurbLabel.numberOfLines = 0;
+    self.blurbLabel.text = self.blurbText;
+    self.blurbLabel.font = [UIFont fontWithName:@"Poiret One" size:18];
+
     self.TopLabel.text = self.TopText;
+    self.TopLabel.font = [UIFont fontWithName:@"Damion" size:40];
+
 }
 - (void)didReceiveMemoryWarning
 {
