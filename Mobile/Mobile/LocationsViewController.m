@@ -58,7 +58,7 @@ NSIndexPath *reloadingCategoryIndexPath;
     [request setValue:api_key forHTTPHeaderField:@"Authorization"];
     
     [self setLoading:YES];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];//
+    [[NSURLConnection alloc] initWithRequest:request delegate:self];
     
     //[_mytableView registerClass: [StadiumCell class] forCellReuseIdentifier:@"StadiumCell"];
     
@@ -194,7 +194,7 @@ NSIndexPath *reloadingCategoryIndexPath;
 - (void)didSelectLeafRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"SELECTED LEAF ROW!@@!!");
-    selectedIndexPath = indexPath;
+    selectedIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
 }
 
 

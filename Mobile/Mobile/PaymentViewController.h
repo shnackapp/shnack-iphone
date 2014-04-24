@@ -10,7 +10,7 @@
 #import "STPView.h"
 
 @interface PaymentViewController : UIViewController <STPViewDelegate>
-@property STPView* stripeView;
+@property (weak, nonatomic) IBOutlet STPView *stripeView;
 @property UIBarButtonItem *saveButton;
 
 @end

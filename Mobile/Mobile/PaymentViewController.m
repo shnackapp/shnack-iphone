@@ -8,6 +8,7 @@
 
 #import "PaymentViewController.h"
 #import "MBProgressHUD.h"
+#import "RESideMenu.h"
 
 
 @interface PaymentViewController ()
@@ -28,23 +29,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    /*
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+     */
     
-    self.stripeView = [[STPView alloc] initWithFrame:CGRectMake(15,20,290,55)
-                                              andKey:@"pk_test_AUn823FKTadliNg29onudWm0"];
+    [self.stripeView setKey:@"pk_test_AUn823FKTadliNg29onudWm0"];
     self.stripeView.delegate = self;
     self.saveButton = self.navigationItem.rightBarButtonItem;
-    [self.view addSubview:self.stripeView];
-    
-    /*Add these 4 lines at the bottom of any view controller's viewDidLoad
-     if you want the user to be able to swipe from the edge to reveal the side menu
-     from within that view.*/
-    self.view.multipleTouchEnabled = NO;
-    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
-    panGestureRecognizer.delegate = self;
-    [self.view addGestureRecognizer:panGestureRecognizer];
+
+    // important! set whether the user should be able to swipe from the right to reveal the side menu
+    self.sideMenuViewController.panGestureEnabled = YES;
 }
 
 

@@ -10,11 +10,13 @@
 
 #import "AppDelegate.h"
 
-NSMutableArray *globalArrayLocations;
-NSIndexPath *selectedIndexPath;
-NSMutableArray *globalOpenOrderMenu;
-NSMutableDictionary *globalOpenOrder;
-NSInteger globalOpenOrderVendorID;
+NSMutableArray *globalArrayLocations = nil;
+NSIndexPath *selectedIndexPath = nil;
+NSMutableArray *globalOpenOrderMenu = nil;
+NSInteger globalOpenOrderVendorID = -1;
+NSInteger globalCurrentVendorID = -1;
+NSString *globalOpenOrderVendorName = nil;
+NSString *globalCurrentVendorName = nil;
 
 int main(int argc, char * argv[])
 {

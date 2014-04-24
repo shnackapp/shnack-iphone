@@ -76,7 +76,7 @@
     [self setMenuSections:self.sections];
     self.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    self.startingScrollY = -64;
+    self.startingScrollY = 0;
     self.startingScrollIsSet = YES;
 
 }

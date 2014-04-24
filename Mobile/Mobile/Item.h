@@ -15,6 +15,7 @@
 @property (nonatomic) int count; //Quantity Ordered Count -- see bottom
 
 -(id)initWithName:(NSString *)name andPrice:(int)price;
+-(id)initWithName:(NSString *)name andCount:(int)count;
 
 
 @end

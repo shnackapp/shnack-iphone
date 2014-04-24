@@ -13,13 +13,16 @@
 extern NSMutableArray *globalArrayLocations;
 extern NSIndexPath *selectedIndexPath;
 extern NSMutableArray *globalOpenOrderMenu;
-extern NSMutableDictionary *globalOpenOrder;
 extern NSInteger globalOpenOrderVendorID;
+extern NSInteger globalCurrentVendorID;
+extern NSString *globalOpenOrderVendorName;
+extern NSString *globalCurrentVendorName;
 
 @property (nonatomic, retain) NSMutableArray *menu;
 @property (nonatomic, retain) NSMutableData *responseData;
 @property (weak, nonatomic) IBOutlet POPDTableView *tableView;
 @property (weak, nonatomic) IBOutlet BButton *checkoutButton;
+@property (weak, nonatomic) IBOutlet UILabel *vendorName;
 
 
 -(IBAction)increaseCountByOne:(id)sender;

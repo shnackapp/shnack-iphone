@@ -10,6 +10,8 @@
 #import "SecondViewController.h"
 #import "LeftMenuViewController.h"
 
+#define NUMBER_OF_ITEMS 4
+
 @interface RightMenuViewController ()
 
 @property (strong, readwrite, nonatomic) UITableView *tableView;
@@ -22,7 +24,7 @@
 {
     [super viewDidLoad];
     self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 2) / 2.0f, self.view.frame.size.width, 54 * 2) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * NUMBER_OF_ITEMS) / 2.0f, self.view.frame.size.width, 54 * NUMBER_OF_ITEMS) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -43,7 +45,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
-        case 0:
+        case 0: {
             /*[self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"stadiumViewController"]]
                                                          animated:YES];*/
             
@@ -52,13 +54,25 @@
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        case 1:
+        }
+        case 1: {
+            UINavigationController *navController = [[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]];
+            [navController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"menuViewController"] animated:NO];
+            [navController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"myOrderViewController"] animated:NO];
+            [self.sideMenuViewController setContentViewController:navController
+                                                         animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+            break;
+        }/*
+        case 2: {
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"secondViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        default:
+        }*/
+        default: {
             break;
+        }
     }
 }
 
@@ -77,7 +91,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 2;
+    return NUMBER_OF_ITEMS;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,7 +109,7 @@
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
-    NSArray *titles = @[@"Test 1", @"Test 2"];
+    NSArray *titles = @[@"Locations", @"Current Order", @"Past Orders", @"Payment Info"];
     cell.textLabel.text = titles[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentRight;
     

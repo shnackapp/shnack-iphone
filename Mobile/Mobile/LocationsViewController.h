@@ -15,7 +15,9 @@
 //
 //not used but keep for now
 extern NSMutableArray *globalArrayLocations;
-extern NSInteger selectedIndexPath;
+extern NSIndexPath *selectedIndexPath;
+extern NSString *globalCurrentVendorName;
+
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 //////////
