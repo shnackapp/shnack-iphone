@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "POPDCell.h"
 
-@interface ShnackOrderItemCell : UITableViewCell
+@interface ShnackOrderItemCell : POPDCell
 
 @property (nonatomic, retain) IBOutlet UILabel *name;
 @property (nonatomic, retain) IBOutlet UILabel *price;

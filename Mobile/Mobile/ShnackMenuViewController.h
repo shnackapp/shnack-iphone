@@ -1,19 +1,25 @@
 //
-//  ShnackMenuViewController.h
-//  shnack-shnack
+//  ShnackMenuViewController2.h
+//  Mobile
 //
-//  Created by Anshul Jain on 2/22/14.
-//  Copyright (c) 2014 Shnack. All rights reserved.
+//  Created by Jake Staahl on 4/21/14.
+//  Copyright (c) 2014 shnack. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "POPDTableView.h"
+#import "BButton.h"
 
-@interface ShnackMenuViewController : UITableViewController
-extern NSMutableArray *globalArrayVendor;
-extern NSInteger selectedStadiumRow, selectedVendorRow;
+@interface ShnackMenuViewController : UIViewController
+extern NSMutableArray *globalArrayLocations;
+extern NSIndexPath *selectedIndexPath;
+extern NSMutableArray *globalOpenOrderMenu;
+extern NSMutableDictionary *globalOpenOrder;
+extern NSInteger globalOpenOrderVendorID;
 
 @property (nonatomic, retain) NSMutableArray *menu;
 @property (nonatomic, retain) NSMutableData *responseData;
+@property (weak, nonatomic) IBOutlet POPDTableView *tableView;
+@property (weak, nonatomic) IBOutlet BButton *checkoutButton;
 
 
 -(IBAction)increaseCountByOne:(id)sender;

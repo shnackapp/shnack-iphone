@@ -9,15 +9,15 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
-#import "ObjectWithNameAndID.h"
 
-NSMutableArray *globalArrayStadia;
-NSMutableArray *globalArrayVendor;
-NSInteger selectedStadiumRow;
-NSInteger selectedVendorRow;
+NSMutableArray *globalArrayLocations;
+NSIndexPath *selectedIndexPath;
+NSMutableArray *globalOpenOrderMenu;
+NSMutableDictionary *globalOpenOrder;
+NSInteger globalOpenOrderVendorID;
+
 int main(int argc, char * argv[])
 {
-    
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
