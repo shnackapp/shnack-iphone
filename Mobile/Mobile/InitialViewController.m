@@ -30,9 +30,14 @@
     
     [super viewDidLoad];
     
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.signUp.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
+    self.orderNow.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
+    self.Login.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
     
-    _pageTitles = @[ @"Discover Places to Eat", @"Pay From Your Seat", @"Notified When Food is Ready"];
+    
+    
+    _pageTitles = @[ @"From your seat, view the menus of vendors. Pay and place your order.", @"Sit back, relax, and enjoy the experience.", @"When your order is ready, a notification will be sent. Pick up and enjoy."];
+     _TopTitles = @[ @"Order", @"Relax", @"Pick Up"];
     _pageImages = @[@"logo.png", @"logo.png", @"logo.png"];    // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
@@ -46,6 +51,7 @@
     
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
+    [self.view sendSubviewToBack:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
     
 }
@@ -57,15 +63,15 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark - Page View Controller Data Source
 
@@ -105,7 +111,8 @@
     // Create a new view controller and pass suitable data.
     TutorialContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TutorialContentViewController"];
     pageContentViewController.imageFile = self.pageImages[index];
-    pageContentViewController.titleText = self.pageTitles[index];
+    pageContentViewController.TopText = self.TopTitles[index];
+    pageContentViewController.blurbText = self.pageTitles[index];
     pageContentViewController.pageIndex = index;
     
     return pageContentViewController;
@@ -119,10 +126,6 @@
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
 {
     return 0;
-}
-
--(void) viewWillAppear:(BOOL)animated {
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
 }
 
 @end

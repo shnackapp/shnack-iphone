@@ -1,4 +1,6 @@
 #import <UIKit/UIKit.h>
+#import "POPDCell.h"
+
 #ifndef MB_STRONG
 #if __has_feature(objc_arc)
 #define MB_STRONG strong
@@ -17,10 +19,9 @@
 #endif
 #endif
 
-#import "POPDCell.h"
 
-static NSString *POPDCategoryTitle = @"menuSectionHeader";
-static NSString *POPDSubSection = @"menuSubSection";
+static NSString *POPDCategoryTitleTV = @"menuSectionHeader";
+static NSString *POPDSubSectionTV = @"menuSubSection";
 
 
 @protocol POPDDelegate <NSObject>

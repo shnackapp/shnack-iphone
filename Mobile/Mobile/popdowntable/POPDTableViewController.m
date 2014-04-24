@@ -7,7 +7,6 @@
 //
 
 #import "POPDTableViewController.h"
-#import "POPDCell.h"
 
 /*
 #define TABLECOLOR [UIColor colorWithRed:62.0/255.0 green:76.0/255.0 blue:87.0/255.0 alpha:1.0]

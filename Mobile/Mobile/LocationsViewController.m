@@ -38,6 +38,15 @@ NSIndexPath *reloadingCategoryIndexPath;
 //}
 - (void)viewDidLoad
 {
+//    self.logoB = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [self.logoB setFrame:CGRectMake(0.0f, 0.0f, 25.0f, 40.0f)];
+//   // [self.logoB addTarget:self action:@selector(buttonEN:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.logoB setImage:[UIImage imageNamed:@"logoSmall.png"] forState:UIControlStateNormal];
+////    
+//     //[self.logo setImage:[[UIImage imageNamed:@"logoSmall.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] forState:UIControlStateNormal];
+//     self.logo = [[UIBarButtonItem alloc] initWithCustomView:self.logoB];
+//    self.navigationItem.rightBarButtonItem = self.logo;
+//    
     self.delegate = self;
     self.tableView.dataSource = self;
     [super viewDidLoad];
@@ -49,8 +58,8 @@ NSIndexPath *reloadingCategoryIndexPath;
     //[self.navigationItem setLeftBarButtonItem:nil];
     self.navigationItem.hidesBackButton = YES;
     
-    NSString *url = [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_locations"];
-    NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
+    NSString *url = [NSString stringWithFormat:@"http://nvc.shnackapp.com/api/get_locations"];
+    NSString *api_key = [NSString stringWithFormat:@"Token token=\"d157b1e177b7ba1e4547a0d6e11aa627\""];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
     [request setHTTPMethod:@"GET"];
@@ -178,8 +187,8 @@ NSIndexPath *reloadingCategoryIndexPath;
         [cell.indicator startAnimating];
         
         NSString *url =
-        [NSString stringWithFormat:@"http://127.0.0.1:3000/api/get_vendor_for_location?object_id=%d",[globalArrayLocations[indexPath.section] object_id]];
-        NSString *api_key = [NSString stringWithFormat:@"Token token=\"b2c70bb5d8d2bb35b6b4fcfbc9043d6a\""];
+        [NSString stringWithFormat:@"http://nvc.shnackapp.com/api/get_vendor_for_location?object_id=%d",[globalArrayLocations[indexPath.section] object_id]];
+        NSString *api_key = [NSString stringWithFormat:@"Token token=\"d157b1e177b7ba1e4547a0d6e11aa627\""];
         
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//

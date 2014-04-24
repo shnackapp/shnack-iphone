@@ -11,9 +11,16 @@
 
 
 @interface InitialViewController : UIViewController <UIPageViewControllerDataSource>
-- (IBAction)startWalkthrough:(id)sender;
 @property (strong, nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) NSArray *pageTitles;
 @property (strong, nonatomic) NSArray *pageImages;
+@property (strong, nonatomic) NSArray *TopTitles;
+
+@property (strong, nonatomic) IBOutlet UIButton *signUp;
+@property (strong, nonatomic) IBOutlet UIButton *orderNow;
+@property (strong, nonatomic) IBOutlet UIButton *Login;
+
+
 
 @end
+

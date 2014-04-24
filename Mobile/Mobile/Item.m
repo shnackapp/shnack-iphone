@@ -23,19 +23,6 @@
     return self;
 }
 
--(id)initWithName:(NSString *)name andCount:(int)count
-{
-    self = [super init];
-    if(self) {
-        //Initialize
-        self.name = name;
-        self.price = 0;
-        self.count = count;
-        
-    }
-    return self;
-}
-
 -(id)copyWithZone:(NSZone *)zone
 {
     id copy = [[[self class] alloc] init];
@@ -46,6 +33,18 @@
         [copy setPrice:self.price];
     }
     return copy;
+}
+-(id)initWithName:(NSString *)name andCount:(int)count
+{
+        self = [super init];
+        if(self) {
+                //Initialize
+                self.name = name;
+                self.price = 0;
+                self.count = count;
+        
+            }
+        return self;
 }
 
 @end

@@ -40,6 +40,13 @@
 			<false/>
 		</dict>
 	</dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>PoiretOne-Regular.ttf</string>
+		<string>Damion-Regular.ttf</string>
+	</array>
+	<key></key>
+	<string></string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

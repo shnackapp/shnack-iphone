@@ -18,6 +18,8 @@ NSInteger globalCurrentVendorID = -1;
 NSString *globalOpenOrderVendorName = nil;
 NSString *globalCurrentVendorName = nil;
 
+
+
 int main(int argc, char * argv[])
 {
     @autoreleasepool {

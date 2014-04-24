@@ -7,7 +7,6 @@
 //
 
 #import "POPDTableView.h"
-#import "POPDCell.h"
 
 /*
  #define TABLECOLOR [UIColor colorWithRed:62.0/255.0 green:76.0/255.0 blue:87.0/255.0 alpha:1.0]
@@ -117,8 +116,8 @@
     
     for (NSDictionary *sec in menuSections) {
         
-        NSString *header = [sec objectForKey:POPDCategoryTitle];
-        NSArray *subSection = [sec objectForKey:POPDSubSection];
+        NSString *header = [sec objectForKey:POPDCategoryTitleTV];
+        NSArray *subSection = [sec objectForKey:POPDSubSectionTV];
         
         NSMutableArray *section;
         section = [NSMutableArray new];
@@ -142,8 +141,8 @@
 - (void)setMenuSections:(NSArray *)menuSections withAllSectionsOpen:(BOOL)open {
     for (NSDictionary *sec in menuSections) {
         
-        NSString *header = [sec objectForKey:POPDCategoryTitle];
-        NSArray *subSection = [sec objectForKey:POPDSubSection];
+        NSString *header = [sec objectForKey:POPDCategoryTitleTV];
+        NSArray *subSection = [sec objectForKey:POPDSubSectionTV];
         
         NSMutableArray *section;
         section = [NSMutableArray new];
@@ -165,8 +164,8 @@
 }
 
 - (void)setMenuSection:(NSDictionary *)menuSection atSection:(NSInteger)sectionIndex {
-    NSString *header = [menuSection objectForKey:POPDCategoryTitle];
-    NSArray *subSection = [menuSection objectForKey:POPDSubSection];
+    NSString *header = [menuSection objectForKey:POPDCategoryTitleTV];
+    NSArray *subSection = [menuSection objectForKey:POPDSubSectionTV];
     
     NSMutableArray *section;
     section = [NSMutableArray new];
@@ -185,8 +184,8 @@
 }
 
 - (void)setMenuSection:(NSDictionary *)menuSection atSection:(NSInteger)sectionIndex withSectionOpen:(BOOL)open {
-    NSString *header = [menuSection objectForKey:POPDCategoryTitle];
-    NSArray *subSection = [menuSection objectForKey:POPDSubSection];
+    NSString *header = [menuSection objectForKey:POPDCategoryTitleTV];
+    NSArray *subSection = [menuSection objectForKey:POPDSubSectionTV];
     
     NSMutableArray *section;
     section = [NSMutableArray new];

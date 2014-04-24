@@ -11,6 +11,7 @@
 #import "RESideMenu.h"
 
 
+
 @interface PaymentViewController ()
 
 @end
@@ -38,10 +39,10 @@
     [self.stripeView setKey:@"pk_test_AUn823FKTadliNg29onudWm0"];
     self.stripeView.delegate = self;
     self.saveButton = self.navigationItem.rightBarButtonItem;
-
+    
     // important! set whether the user should be able to swipe from the right to reveal the side menu
-    self.sideMenuViewController.panGestureEnabled = YES;
-}
+       self.sideMenuViewController.panGestureEnabled = YES;
+    }
 
 
 - (void)didReceiveMemoryWarning

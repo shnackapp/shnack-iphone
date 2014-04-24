@@ -11,7 +11,6 @@
 #import "LeftMenuViewController.h"
 
 #define NUMBER_OF_ITEMS 4
-
 @interface RightMenuViewController ()
 
 @property (strong, readwrite, nonatomic) UITableView *tableView;
@@ -22,6 +21,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * NUMBER_OF_ITEMS) / 2.0f, self.view.frame.size.width, 54 * NUMBER_OF_ITEMS) style:UITableViewStylePlain];
@@ -45,7 +45,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
-        case 0: {
+            case 0: {
             /*[self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"stadiumViewController"]]
                                                          animated:YES];*/
             
@@ -54,24 +54,21 @@
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        }
-        case 1: {
+            }
+            case 1: {
             UINavigationController *navController = [[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]];
-            [navController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"menuViewController"] animated:NO];
-            [navController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"myOrderViewController"] animated:NO];
-            [self.sideMenuViewController setContentViewController:navController
+                [navController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"menuViewController"] animated:NO];
+                [navController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"myOrderViewController"] animated:NO];
+                [self.sideMenuViewController setContentViewController:navController animated:YES];
+                [self.sideMenuViewController hideMenuViewController];
+                break;
+                    }/*
+                case 2: {[self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"secondViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-        }/*
-        case 2: {
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"secondViewController"]]
-                                                         animated:YES];
-            [self.sideMenuViewController hideMenuViewController];
-            break;
-        }*/
-        default: {
-            break;
+                      }*/
+        default: { break;
         }
     }
 }

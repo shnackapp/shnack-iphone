@@ -15,9 +15,6 @@
 //
 //not used but keep for now
 extern NSMutableArray *globalArrayLocations;
-extern NSIndexPath *selectedIndexPath;
-extern NSString *globalCurrentVendorName;
-
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 //////////
@@ -25,7 +22,14 @@ extern NSString *globalCurrentVendorName;
 //@property (strong, nonatomic) UITableView *mytableView;
 
 @property (nonatomic, strong) NSMutableArray *locations;
+//@property (nonatomic, strong) IBOutlet UIBarButtonItem *logo;
+//@property (nonatomic, strong) IBOutlet UIButton *logoB;
+
+
 @property (nonatomic, retain) NSMutableData *responseData;
+extern NSIndexPath *selectedIndexPath;
+extern NSString *globalCurrentVendorName;
+
 
 //@property (retain, nonatomic) NSData *registerDeviceResponse;
 //-(IBAction)registerDevice:(id)sender;

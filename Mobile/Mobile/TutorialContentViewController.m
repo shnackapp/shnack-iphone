@@ -28,8 +28,16 @@
 {
     [super viewDidLoad];
     
-    self.backgroundImageView.image = [UIImage imageNamed:self.imageFile];
-    self.titleLabel.text = self.titleText;
+    self.iconImageView.image = [UIImage imageNamed:self.imageFile];
+    
+    self.blurbLabel.lineBreakMode = UILineBreakModeWordWrap;
+    self.blurbLabel.numberOfLines = 0;
+    self.blurbLabel.text = self.blurbText;
+    self.blurbLabel.font = [UIFont fontWithName:@"Poiret One" size:18];
+
+    self.TopLabel.text = self.TopText;
+    self.TopLabel.font = [UIFont fontWithName:@"Damion" size:40];
+
 }
 - (void)didReceiveMemoryWarning
 {
@@ -38,14 +46,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
