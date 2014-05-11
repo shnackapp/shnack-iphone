@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "POPDTableViewController.h"
+#import "MainPageViewController.h"
 
 //#import <CoreData/CoreData.h>
 
@@ -23,12 +24,12 @@ extern NSMutableArray *globalArrayLocations;
 
 @property (nonatomic, strong) NSMutableArray *locations;
 //@property (nonatomic, strong) IBOutlet UIBarButtonItem *logo;
-//@property (nonatomic, strong) IBOutlet UIButton *logoB;
 
 
 @property (nonatomic, retain) NSMutableData *responseData;
 extern NSIndexPath *selectedIndexPath;
 extern NSString *globalCurrentVendorName;
+extern MainPageViewController *mainPages;
 
 
 //@property (retain, nonatomic) NSData *registerDeviceResponse;

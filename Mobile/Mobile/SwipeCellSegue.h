@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewVendorSegue : UIStoryboardSegue
+@interface SwipeCellSegue : UIStoryboardSegue
 
 @end

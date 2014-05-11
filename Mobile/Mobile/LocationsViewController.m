@@ -204,6 +204,12 @@ NSIndexPath *reloadingCategoryIndexPath;
 {
     NSLog(@"SELECTED LEAF ROW!@@!!");
     selectedIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+    //move the page view controller to next page..
+    
+    UIViewController * nextViewController = [mainPages.dataSource pageViewController:mainPages viewControllerAfterViewController:self];
+
+    [mainPages setViewControllers:@[nextViewController] direction: UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+//    
 }
 
 

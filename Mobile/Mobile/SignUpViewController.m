@@ -55,6 +55,7 @@
             //self.password.hidden = NO;
            // self.passwordLabel.hidden = NO;
             self.invalidEmail.hidden = YES;
+            self.validEmailCheck.hidden = NO;
             NSLog(@"------->Email is Valid");
         }
 
@@ -65,6 +66,7 @@
 
         //self.passwordConfirm.hidden = NO;
         //self.passwordConfirmLabel.hidden = NO;
+        self.passwordMatchCheck.hidden = NO;
 
     }
 
@@ -91,6 +93,7 @@
         {
             self.passwordMatch = true;
             self.passwordMismatch.hidden = YES;
+            self.passwordConfirmCheck.hidden = NO;
 
             NSLog(@"------->Passwords match");
 
@@ -122,6 +125,10 @@
     self.passwordMismatch.hidden = YES;
     self.invalidEmail.hidden = YES;
     
+    self.emailLabel.font = [UIFont fontWithName:@"Damion" size:23];
+    self.passwordLabel.font = [UIFont fontWithName:@"Damion" size:23];self.passwordConfirmLabel.font = [UIFont fontWithName:@"Damion" size:23];
+    self.titleLabel.font = [UIFont fontWithName:@"Damion" size:30];
+
 //    self.password.hidden = YES;
 //    self.passwordLabel.hidden = YES;
 //

@@ -73,6 +73,7 @@
     [self.headerView addSubview:self.headerButton];
     
     self.headerView.hidden = YES;
+
     
 /////////////////////////////////////////////////////////////
     
@@ -85,6 +86,8 @@
     [self setMenuSections:self.sections];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
+
+
 
 - (void)setLoading:(BOOL)loading {
     self.isLoading = loading;
@@ -401,6 +404,7 @@
         self.sectionIsOpening = NO;
     }
 }
+
 
 - (BOOL)sectionIsLeaf:(NSUInteger) section {
     if ([[self.sectionsArray objectAtIndex:section] count] == 1) {

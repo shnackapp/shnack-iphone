@@ -21,5 +21,21 @@
 @property (nonatomic) BOOL validPassword;
 @property (nonatomic) BOOL validPhone;
 
+@property (nonatomic) IBOutlet UILabel *loginEmailLabel;
+@property (nonatomic) IBOutlet UILabel *loginPasswordLabel;
+@property (nonatomic) IBOutlet UILabel *loginPhoneLabel;
+@property (nonatomic) IBOutlet UILabel *loginTitleLabel;
+
+
+
+
+@property (nonatomic) IBOutlet UIImageView
+*EmailCheck;
+
+@property (nonatomic) IBOutlet UIImageView *passwordCheck;
+
+@property (nonatomic) IBOutlet UIImageView
+*PhoneCheck;
+
 
 @end

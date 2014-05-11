@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
+#import "MainPageViewController.h"
+
 
 NSMutableArray *globalArrayLocations = nil;
 NSIndexPath *selectedIndexPath = nil;
@@ -17,6 +19,7 @@ NSInteger globalOpenOrderVendorID = -1;
 NSInteger globalCurrentVendorID = -1;
 NSString *globalOpenOrderVendorName = nil;
 NSString *globalCurrentVendorName = nil;
+MainPageViewController *mainPages = nil;
 
 
 

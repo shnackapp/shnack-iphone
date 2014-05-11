@@ -20,11 +20,20 @@
 
 @property (retain, nonatomic) IBOutlet UIButton *startOrdering;
 
+@property (nonatomic) IBOutlet UILabel *titleLabel;
+
 @property (nonatomic) BOOL validEmail;
 @property (nonatomic) BOOL passwordMatch;
 
+
+
 @property (nonatomic) IBOutlet UILabel *passwordMismatch;
+@property (nonatomic) IBOutlet UIImageView *passwordMatchCheck;
+@property (nonatomic) IBOutlet UIImageView *passwordConfirmCheck;
+
 @property (nonatomic) IBOutlet UILabel *invalidEmail;
+@property (nonatomic) IBOutlet UIImageView *validEmailCheck;
+
 
 
 

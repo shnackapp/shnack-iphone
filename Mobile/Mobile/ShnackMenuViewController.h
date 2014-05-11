@@ -17,6 +17,7 @@ extern NSInteger globalOpenOrderVendorID;
 extern NSInteger globalCurrentVendorID;
 extern NSString *globalOpenOrderVendorName;
 extern NSString *globalCurrentVendorName;
+extern UIPageViewController *mainPages;
 
 @property (nonatomic, retain) NSMutableArray *menu;
 @property (nonatomic, retain) NSMutableData *responseData;

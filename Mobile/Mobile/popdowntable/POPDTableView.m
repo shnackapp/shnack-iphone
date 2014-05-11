@@ -8,6 +8,7 @@
 
 #import "POPDTableView.h"
 
+
 /*
  #define TABLECOLOR [UIColor colorWithRed:62.0/255.0 green:76.0/255.0 blue:87.0/255.0 alpha:1.0]
  #define SUBCELL [UIColor colorWithRed:52.0/255.0 green:64.0/255.0 blue:73.0/255.0 alpha:1.0]
@@ -48,6 +49,9 @@
     self.sectionIsOpening = NO;
     
     static NSString *cellIdentifier = @"POPDOpenedCategoryCell";
+    
+    
+    
     self.headerCell = [self dequeueReusableCellWithIdentifier:cellIdentifier];
     //self.headerHeight = self.headerCell.frame.size.height;
     //NSLog(@"header height: %f", self.headerHeight);
@@ -80,6 +84,21 @@
 
 }
 
+//- (void)swipeCell:(JZSwipeCell*)cell triggeredSwipeWithType:(JZSwipeType)swipeType
+//
+//{
+//    if (swipeType != JZSwipeTypeNone)
+//    {
+//        NSIndexPath *indexPath = [self indexPathForCell:cell];
+//        
+//        //[self.sourceViewController presentViewController:self.destinationViewController animated:YES completion:nil];
+//        //[tableData removeObjectAtIndex:indexPath.row];
+//        //[self deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        
+//        // add conditional statement for swipeType
+//    }
+//}
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -88,6 +107,8 @@
     }
     return self;
 }
+
+
 
 -(id)initWithCoder:(NSCoder*)coder {
     self = [super initWithCoder:coder];

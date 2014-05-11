@@ -34,9 +34,15 @@
     self.blurbLabel.numberOfLines = 0;
     self.blurbLabel.text = self.blurbText;
     self.blurbLabel.font = [UIFont fontWithName:@"Poiret One" size:18];
-
     self.TopLabel.text = self.TopText;
     self.TopLabel.font = [UIFont fontWithName:@"Damion" size:40];
+    
+    self.swipeLabel.text = self.swipeLabelText;
+    self.swipeLabel.font = [UIFont fontWithName: @"Damion" size:18];
+    
+    self.brandLabel.text = self.brandLabelText;
+    self.brandLabel.font = [UIFont fontWithName: @"Poiret One" size:20];
+    
 
 }
 - (void)didReceiveMemoryWarning
@@ -44,6 +50,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
  #pragma mark - Navigation

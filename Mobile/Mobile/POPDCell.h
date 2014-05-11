@@ -7,13 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "JZSwipeCell.h"
 
-@interface POPDCell : UITableViewCell
+
+
+@interface POPDCell :  UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *labelText;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (strong, nonatomic) NSIndexPath *indexPath;
 @property (nonatomic) BOOL isOpen;
+
+
 
 
 

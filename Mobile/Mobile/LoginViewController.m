@@ -44,6 +44,7 @@
         else
         {
             self.validEmail = true;
+            self.EmailCheck.hidden = NO;
         }
     }
     else if (theTextField == self.password)
@@ -51,11 +52,13 @@
         [self.phone becomeFirstResponder];
         self.Login.hidden=YES;
         self.validPassword = true;
+        self.passwordCheck.hidden = NO;
     }
     else if (theTextField == self.phone)
     {
         [theTextField resignFirstResponder];
         self.validPhone = true;
+        self.PhoneCheck.hidden = NO;
 
     }
         //store password to db for future logins////////////////////////////
@@ -85,6 +88,14 @@
     self.validPassword = false;
     self.validPhone = false;
     self.validEmail = false;
+    
+    self.loginEmailLabel.font = [UIFont fontWithName:@"Damion" size:23];
+    self.loginPasswordLabel.font = [UIFont fontWithName:@"Damion" size:23];
+    self.loginPhoneLabel.font = [UIFont fontWithName:@"Damion" size:23];
+    self.loginTitleLabel.font = [UIFont fontWithName:@"Damion" size:30];
+    
+
+
 
     
     self.Login.hidden=YES;

@@ -44,15 +44,17 @@ NSInteger myCount;
     [[BButton appearance] setButtonCornerRadius:[NSNumber numberWithFloat:0.0f]];
     [self.checkoutButton setStyle:BButtonStyleBootstrapV3];
     [self.checkoutButton setType:BButtonTypeDanger];
-    
+}
+
+-(void)viewDidAppear:(BOOL)animated {
     if (selectedIndexPath == nil) {
         self.checkoutButton.enabled = NO;
     } else {
         self.checkoutButton.enabled = YES;
         
         globalCurrentVendorID = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] object_id];
-                globalCurrentVendorName = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] name];
-                self.vendorName.text = globalCurrentVendorName;
+        globalCurrentVendorName = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] name];
+        self.vendorName.text = globalCurrentVendorName;
         
         if (globalCurrentVendorID != globalOpenOrderVendorID) {
             self.responseData = [NSMutableData data];
@@ -62,31 +64,31 @@ NSInteger myCount;
             [request setHTTPMethod:@"GET"];
             [request setValue:api_key forHTTPHeaderField:@"Authorization"];
             [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    } else {
+        } else {
             self.menu = globalOpenOrderMenu;
             NSMutableArray *tableData = [[NSMutableArray alloc] init];
             for (NSInteger i = 0; i < [self.menu count]; i++)
             {
-            NSArray *category = self.menu[i];
-            Item *categoryItem = category[0];
-            NSString *categoryName = categoryItem.name;
-            NSMutableArray *tableSection = [[NSMutableArray alloc] init];
-            for (NSInteger j = 1; j < [category count]; j++)
-            {
-            Item *item = category[j];
-            [tableSection addObject:item.name];
-            }
-            NSDictionary *section = [NSDictionary dictionaryWithObjectsAndKeys:categoryName,POPDCategoryTitleTV,tableSection, POPDSubSectionTV,nil];
-            [tableData addObject:section];
+                NSArray *category = self.menu[i];
+                Item *categoryItem = category[0];
+                NSString *categoryName = categoryItem.name;
+                NSMutableArray *tableSection = [[NSMutableArray alloc] init];
+                for (NSInteger j = 1; j < [category count]; j++)
+                {
+                    Item *item = category[j];
+                    [tableSection addObject:item.name];
+                }
+                NSDictionary *section = [NSDictionary dictionaryWithObjectsAndKeys:categoryName,POPDCategoryTitleTV,tableSection, POPDSubSectionTV,nil];
+                [tableData addObject:section];
             }
             [self.tableView setMenuSections:tableData];
-                        
-            }
-                NSInteger total = [self calculateOrderTotal];
-                self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
-            }
+            
+        }
+        NSInteger total = [self calculateOrderTotal];
+        self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
+    }
     
-        
+    
     
     
     // important! set whether the user should be able to swipe from the right to reveal the side menu
@@ -98,7 +100,9 @@ NSInteger myCount;
         [self.tableView reloadData];
         NSInteger total = [self calculateOrderTotal];
         self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
-    }
+    
+    
+}
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     [self.responseData setLength:0];

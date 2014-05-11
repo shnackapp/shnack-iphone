@@ -16,9 +16,19 @@
 @property (strong, nonatomic) NSArray *pageImages;
 @property (strong, nonatomic) NSArray *TopTitles;
 
+@property (strong, nonatomic) NSArray *swipeUp;
+@property (strong, nonatomic) NSArray *swipeUpLogo;
+@property (strong, nonatomic) NSArray *swipeUpBlurb;
+
+
+
+
 @property (strong, nonatomic) IBOutlet UIButton *signUp;
 @property (strong, nonatomic) IBOutlet UIButton *orderNow;
 @property (strong, nonatomic) IBOutlet UIButton *Login;
+@property (strong, nonatomic) IBOutlet UIImageView *topBar;
+
+
 
 
 
