@@ -68,6 +68,10 @@
 		6999CD561908E37F009BD628 /* Damion-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6999CD551908E37F009BD628 /* Damion-Regular.ttf */; };
 		6999CD581908E398009BD628 /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */; };
 		69E0F09318BC5977008C1543 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E0F09218BC5977008C1543 /* logo.png */; };
+		69F3199819368DC400C501D5 /* LoginContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F3199719368DC400C501D5 /* LoginContainerViewController.m */; };
+		69F3199C1936A3BB00C501D5 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F3199B1936A3BB00C501D5 /* navBar.png */; };
+		69F3199F1936B78E00C501D5 /* CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F3199E1936B78E00C501D5 /* CustomSegue.m */; };
+		69F319A21936B8F300C501D5 /* CustomUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F319A11936B8F300C501D5 /* CustomUnwindSegue.m */; };
 		69F95CFE18F200B30011F5DB /* STPCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CC818F200B30011F5DB /* STPCard.m */; };
 		69F95CFF18F200B30011F5DB /* STPToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CCA18F200B30011F5DB /* STPToken.m */; };
 		69F95D0018F200B30011F5DB /* STPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CCC18F200B30011F5DB /* STPView.m */; };
@@ -247,6 +251,13 @@
 		6999CD551908E37F009BD628 /* Damion-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Damion-Regular.ttf"; sourceTree = "<group>"; };
 		6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
 		69E0F09218BC5977008C1543 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		69F3199619368DC400C501D5 /* LoginContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginContainerViewController.h; path = Mobile/LoginContainerViewController.h; sourceTree = "<group>"; };
+		69F3199719368DC400C501D5 /* LoginContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginContainerViewController.m; path = Mobile/LoginContainerViewController.m; sourceTree = "<group>"; };
+		69F3199B1936A3BB00C501D5 /* navBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar.png; sourceTree = "<group>"; };
+		69F3199D1936B78E00C501D5 /* CustomSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSegue.h; sourceTree = "<group>"; };
+		69F3199E1936B78E00C501D5 /* CustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegue.m; sourceTree = "<group>"; };
+		69F319A01936B8F300C501D5 /* CustomUnwindSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomUnwindSegue.h; sourceTree = "<group>"; };
+		69F319A11936B8F300C501D5 /* CustomUnwindSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomUnwindSegue.m; sourceTree = "<group>"; };
 		69F95CC718F200B30011F5DB /* STPCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPCard.h; sourceTree = "<group>"; };
 		69F95CC818F200B30011F5DB /* STPCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPCard.m; sourceTree = "<group>"; };
 		69F95CC918F200B30011F5DB /* STPToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPToken.h; sourceTree = "<group>"; };
@@ -350,6 +361,8 @@
 		42459A7318FD212700C5728B /* Scrolling Tutorial Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				69F3199619368DC400C501D5 /* LoginContainerViewController.h */,
+				69F3199719368DC400C501D5 /* LoginContainerViewController.m */,
 				6963E21C1908472800C6885A /* LoginViewController.h */,
 				6963E21D1908472800C6885A /* LoginViewController.m */,
 				6963E219190846FA00C6885A /* SignUpViewController.h */,
@@ -447,6 +460,7 @@
 		69400FC818BC52E400238826 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				69F3199B1936A3BB00C501D5 /* navBar.png */,
 				690AE028190D76EC0053461B /* Check_mark .png */,
 				691E66DF18F3E2FB00F67683 /* paperplane.svg */,
 				69E0F09218BC5977008C1543 /* logo.png */,
@@ -701,6 +715,10 @@
 		69E0F09418BC6058008C1543 /* Segues */ = {
 			isa = PBXGroup;
 			children = (
+				69F3199D1936B78E00C501D5 /* CustomSegue.h */,
+				69F3199E1936B78E00C501D5 /* CustomSegue.m */,
+				69F319A01936B8F300C501D5 /* CustomUnwindSegue.h */,
+				69F319A11936B8F300C501D5 /* CustomUnwindSegue.m */,
 			);
 			name = Segues;
 			sourceTree = "<group>";
@@ -948,6 +966,7 @@
 				69F95D1C18F200B30011F5DB /* visa.png in Resources */,
 				698B41B519098E4A00B532C2 /* logoSmall.png in Resources */,
 				6963E23619085F2700C6885A /* stadium.jpeg in Resources */,
+				69F3199C1936A3BB00C501D5 /* navBar.png in Resources */,
 				69715B3B18AD39560039D061 /* Images.xcassets in Resources */,
 				69715B2718AD39560039D061 /* InfoPlist.strings in Resources */,
 				69715B3018AD39560039D061 /* Main.storyboard in Resources */,
@@ -1019,6 +1038,7 @@
 				69F95D2318F201FD0011F5DB /* PaymentViewController.m in Sources */,
 				69F95D0318F200B30011F5DB /* PKAddressZip.m in Sources */,
 				69F95D0018F200B30011F5DB /* STPView.m in Sources */,
+				69F3199819368DC400C501D5 /* LoginContainerViewController.m in Sources */,
 				42E0470719061DC200890447 /* ShnackMenuViewController.m in Sources */,
 				69400FBF18BBEBC400238826 /* ObjectWithNameAndID.m in Sources */,
 				6963E21E1908472800C6885A /* LoginViewController.m in Sources */,
@@ -1029,6 +1049,7 @@
 				69393754191F13E00061839C /* MainPageViewController.m in Sources */,
 				6963E21B190846FA00C6885A /* SignUpViewController.m in Sources */,
 				69F95CFE18F200B30011F5DB /* STPCard.m in Sources */,
+				69F319A21936B8F300C501D5 /* CustomUnwindSegue.m in Sources */,
 				42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */,
 				69F95D0918F200B30011F5DB /* PKTextField.m in Sources */,
 				69400FB518BBE68000238826 /* Item.m in Sources */,
@@ -1046,6 +1067,7 @@
 				42E9611018ED494100E5A182 /* LeftMenuViewController.m in Sources */,
 				69F95D0218F200B30011F5DB /* StripeError.m in Sources */,
 				42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */,
+				69F3199F1936B78E00C501D5 /* CustomSegue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

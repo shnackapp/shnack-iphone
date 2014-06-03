@@ -12,13 +12,17 @@
 
 @interface InitialViewController : UIViewController <UIPageViewControllerDataSource>
 @property (strong, nonatomic) UIPageViewController *pageViewController;
+
 @property (strong, nonatomic) NSArray *pageTitles;
+
 @property (strong, nonatomic) NSArray *pageImages;
 @property (strong, nonatomic) NSArray *TopTitles;
 
-@property (strong, nonatomic) NSArray *swipeUp;
-@property (strong, nonatomic) NSArray *swipeUpLogo;
-@property (strong, nonatomic) NSArray *swipeUpBlurb;
+@property (strong, nonatomic) NSArray *swipe;
+@property (strong, nonatomic) NSArray *swipeLogo;
+@property (strong, nonatomic) NSArray *swipeBlurb;
+
+@property UIPageControl *dots;
 
 
 

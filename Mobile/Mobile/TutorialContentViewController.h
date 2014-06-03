@@ -18,9 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *brandLabel;
 
 
-
-
-
 @property NSUInteger pageIndex;
 @property NSString *blurbText;
 @property NSString *imageFile;

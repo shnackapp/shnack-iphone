@@ -21,13 +21,15 @@
     if (self) {
         // Custom initialization
     }
+
     return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
+  
+    NSLog(@"view did load page view controller");
+ 
     self.iconImageView.image = [UIImage imageNamed:self.imageFile];
     
     self.blurbLabel.lineBreakMode = UILineBreakModeWordWrap;

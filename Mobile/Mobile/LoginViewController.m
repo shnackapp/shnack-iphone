@@ -23,11 +23,10 @@
     return self;
 }
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+
     if (theTextField == self.email)
     {
         [self.password becomeFirstResponder];
-        self.Login.hidden=YES;
-        
         NSString *email = self.email.text;
         BOOL stricterFilter = YES;
         NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
@@ -47,24 +46,11 @@
             self.EmailCheck.hidden = NO;
         }
     }
-    else if (theTextField == self.password)
+   
+    if(self.validEmail && self.validPassword)
     {
-        [self.phone becomeFirstResponder];
-        self.Login.hidden=YES;
-        self.validPassword = true;
-        self.passwordCheck.hidden = NO;
-    }
-    else if (theTextField == self.phone)
-    {
-        [theTextField resignFirstResponder];
-        self.validPhone = true;
-        self.PhoneCheck.hidden = NO;
-
-    }
-        //store password to db for future logins////////////////////////////
-    if(self.validEmail && self.validPassword && self.validPhone)
-    {//unhide
-        self.Login.hidden = NO;
+    
+    //activate done button
     }
 
     return YES;
@@ -80,25 +66,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //[self.email becomeFirstResponder];
+    
     // Do any additional setup after loading the view.
-    self.phone.delegate = self;
     self.email.delegate = self;
     self.password.delegate = self;
     
+    [self.email setBorderStyle:UITextBorderStyleNone];
+    [self.password setBorderStyle:UITextBorderStyleNone];
+
+    self.EmailCheck.hidden = YES;
+    
     self.validPassword = false;
-    self.validPhone = false;
     self.validEmail = false;
     
-    self.loginEmailLabel.font = [UIFont fontWithName:@"Damion" size:23];
-    self.loginPasswordLabel.font = [UIFont fontWithName:@"Damion" size:23];
-    self.loginPhoneLabel.font = [UIFont fontWithName:@"Damion" size:23];
-    self.loginTitleLabel.font = [UIFont fontWithName:@"Damion" size:30];
+    self.loginEmailLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
+    self.loginPasswordLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
     
-
-
-
-    
-    self.Login.hidden=YES;
 }
 
 - (void)didReceiveMemoryWarning
