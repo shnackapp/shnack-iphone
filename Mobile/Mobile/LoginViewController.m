@@ -43,7 +43,6 @@
         else
         {
             self.validEmail = true;
-            self.EmailCheck.hidden = NO;
         }
     }
    
@@ -67,7 +66,7 @@
 {
     [super viewDidLoad];
     
-    //[self.email becomeFirstResponder];
+    [self.email becomeFirstResponder];
     
     // Do any additional setup after loading the view.
     self.email.delegate = self;
@@ -76,7 +75,6 @@
     [self.email setBorderStyle:UITextBorderStyleNone];
     [self.password setBorderStyle:UITextBorderStyleNone];
 
-    self.EmailCheck.hidden = YES;
     
     self.validPassword = false;
     self.validEmail = false;
@@ -90,6 +88,25 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)textViewShouldReturn:(UITextField *)textField
+{
+    if (textField == self.email)
+    {
+    [self.password becomeFirstResponder];
+    NSString * email_address = self.email.text;
+    NSLog(@"%@",email_address);
+
+    }
+    
+    if(textField == self.password)
+    {
+    [self.password resignFirstResponder];
+    NSString * password = self.password.text;
+    NSLog(@"%@",password);
+    }
+    
 }
 
 /*

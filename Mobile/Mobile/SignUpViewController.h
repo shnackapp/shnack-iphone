@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface SignUpViewController : UIViewController <UITextFieldDelegate>
+
+
 @property (retain, nonatomic) IBOutlet UITextField *email;
 @property (nonatomic) IBOutlet UILabel *emailLabel;
 

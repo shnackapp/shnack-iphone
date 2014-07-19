@@ -19,6 +19,17 @@
     return self;
 }
 
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    }
+
+-(void)layoutSubviews
+{
+    
+    self.backgroundColor = [UIColor darkGrayColor];
+}
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

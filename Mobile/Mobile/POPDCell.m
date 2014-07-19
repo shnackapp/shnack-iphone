@@ -17,7 +17,8 @@
 //                                          [UIColor whiteColor],
 //                                          [UIColor whiteColor],
 //                                          [UIColor whiteColor]);
-//    
+//
+   // self.backgroundColor = [UIColor darkGrayColor];
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code

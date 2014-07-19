@@ -15,17 +15,12 @@
 @property (retain, nonatomic) IBOutlet UITextField *password;
 
 
+
 @property (nonatomic) BOOL validEmail;
 @property (nonatomic) BOOL validPassword;
 
 @property (nonatomic) IBOutlet UILabel *loginEmailLabel;
 @property (nonatomic) IBOutlet UILabel *loginPasswordLabel;
-
-
-@property (nonatomic) IBOutlet UIImageView
-*EmailCheck;
-
-@property (nonatomic) IBOutlet UIImageView *passwordCheck;
 
 
 @end

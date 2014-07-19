@@ -12,5 +12,7 @@
 @interface PaymentViewController : UIViewController <STPViewDelegate>
 @property UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet STPView *stripeView;
+extern int *globalCurrentOrderAmount;
+-(void)loadReceipt:(NSString*)info;
 
 @end

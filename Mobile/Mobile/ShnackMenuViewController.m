@@ -14,6 +14,7 @@
 #import "RESideMenu.h"
 #import "POPDCell.h"
 #import "ShnackOrderCategoryCell.h"
+#import "NSObject_Constants.h"
 
 @interface ShnackMenuViewController ()  <POPDDelegate>
 @property (nonatomic) NSInteger vendorID;
@@ -56,10 +57,11 @@ NSInteger myCount;
         globalCurrentVendorName = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] name];
         self.vendorName.text = globalCurrentVendorName;
         
+
         if (globalCurrentVendorID != globalOpenOrderVendorID) {
             self.responseData = [NSMutableData data];
-            NSString *url = [NSString stringWithFormat:@"http://nvc.shnackapp.com/api/get_menu_for_vendor?object_id=%d", globalCurrentVendorID];
-            NSString *api_key = [NSString stringWithFormat:@"Token token=\"d157b1e177b7ba1e4547a0d6e11aa627\""];
+            NSString *url = [NSString stringWithFormat:@"%@/get_menu_for_vendor?object_id=%d", BASE_URL,globalCurrentVendorID];
+            NSString *api_key = [NSString stringWithFormat:API_KEY];
             NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
             [request setHTTPMethod:@"GET"];
             [request setValue:api_key forHTTPHeaderField:@"Authorization"];
@@ -82,14 +84,17 @@ NSInteger myCount;
                 [tableData addObject:section];
             }
             [self.tableView setMenuSections:tableData];
-            
+            NSLog(@"11111111111");
+
         }
+        
         NSInteger total = [self calculateOrderTotal];
         self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
     }
     
     
-    
+    NSLog(@"2222222222");
+
     
     // important! set whether the user should be able to swipe from the right to reveal the side menu
     self.sideMenuViewController.panGestureEnabled = YES;
@@ -101,7 +106,8 @@ NSInteger myCount;
         NSInteger total = [self calculateOrderTotal];
         self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
     
-    
+    NSLog(@"555555555");
+
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -123,7 +129,8 @@ NSInteger myCount;
     NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
     NSError *myError = nil;
     
-    
+    NSLog(@"33333333");
+
     NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
     NSLog(@"my JSON: %@",res);
     NSMutableArray *tableData = [[NSMutableArray alloc] initWithCapacity:[res count]];
@@ -155,10 +162,11 @@ NSInteger myCount;
     }
     
     
-    
+
     
     [self.tableView setMenuSections:tableData];
     [self.tableView reloadData];
+
 }
 
 
@@ -259,55 +267,7 @@ NSInteger myCount;
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
 
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
- {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }
- else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
 
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
- {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
- {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a story board-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- 
- */
 
 @end

@@ -17,6 +17,7 @@ extern NSInteger globalOpenOrderVendorID;
 extern NSInteger globalCurrentVendorID;
 extern NSString *globalOpenOrderVendorName;
 extern NSString *globalCurrentVendorName;
+extern int *globalCurrentOrderAmount;
 
 @property (strong, nonatomic) IBOutlet POPDTableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *vendorName;

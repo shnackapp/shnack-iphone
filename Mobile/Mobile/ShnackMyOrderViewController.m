@@ -68,9 +68,13 @@
                [self.tableView setMenuSections:tableData withAllSectionsOpen:YES];
             }
         NSInteger total = [self calculateOrderTotal];
+    NSLog(@"------->%li",(long)total);
         self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
+    globalCurrentOrderAmount = (long)total;
+    NSLog(@"This is the ammount being charged on the card @%i",globalCurrentOrderAmount);
     // important! set whether the user should be able to swipe from the right to reveal the side menu
     self.sideMenuViewController.panGestureEnabled = YES;
+    
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {

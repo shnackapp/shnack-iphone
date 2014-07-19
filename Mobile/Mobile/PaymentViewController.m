@@ -9,6 +9,8 @@
 #import "PaymentViewController.h"
 #import "MBProgressHUD.h"
 #import "RESideMenu.h"
+#import "NSObject_Constants.h"
+#import "LocationsViewController.h"
 
 
 
@@ -39,10 +41,13 @@
     [self.stripeView setKey:@"pk_test_AUn823FKTadliNg29onudWm0"];
     self.stripeView.delegate = self;
     self.saveButton = self.navigationItem.rightBarButtonItem;
+    self.saveButton.enabled = NO;
     
     // important! set whether the user should be able to swipe from the right to reveal the side menu
        self.sideMenuViewController.panGestureEnabled = YES;
     }
+
+
 
 
 - (void)didReceiveMemoryWarning
@@ -66,12 +71,49 @@
         } else {
             // Send off token to your server
             [self handleToken:token];
+            
+            
         }
     }];}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        NSLog(@"user pressed Button Indexed 0");
+        // Any action can be performed here
+    }
+    else
+    {
+        NSLog(@"user pressed Button Indexed 1");
+        // Any action can be performed here
+    }
+}
+
+-(void)loadReceipt:(NSString *)info
+{
+    UIView *receiptView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 200)];
+    receiptView.backgroundColor = [UIColor lightGrayColor];
+    
+    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Thank You", @"Thank You")
+                                                      message:@"Thank you for your order. A receipt has been emailed to you!"
+                                                     delegate:nil
+                                            cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                                            otherButtonTitles:nil];
+    [message show];
+    
+    
+    
+    UINavigationController * navigationController = self.navigationController;
+    [navigationController popToRootViewControllerAnimated:NO];
+}
 
 - (void)stripeView:(STPView *)view withCard:(PKCard *)card isValid:(BOOL)valid
 {
     self.saveButton.enabled = valid;
+   
+    
 }
 
 - (void)handleError:(NSError *)error
@@ -87,12 +129,19 @@
 - (void)handleToken:(STPToken *)token
 {
     NSLog(@"Received token %@", token.tokenId);
+    NSString *url = [NSString stringWithFormat:@"%@/process_stripe_info",BASE_URL];
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://127.0.0.1:3000/api/process_stripe_info"]];
-    request.HTTPMethod = @"POST";
     
-    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@", token.tokenId];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:API_KEY forHTTPHeaderField:@"Authorization"];
+
+    
+    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@&amount=%i", token.tokenId,globalCurrentOrderAmount];
     request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSLog(@"this is the url %@",url);
+    NSLog(@"this is the body %@",body);
     
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
@@ -102,6 +151,7 @@
                                if (error) {
                                    // Handle error
                                }
+                               [self loadReceipt:@"Hello"];
                            }];
 }
 

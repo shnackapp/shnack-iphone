@@ -64,6 +64,7 @@
 		69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */; };
 		6977B4B718FD044E00A51871 /* POPDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6977B4B618FD044E00A51871 /* POPDTableViewController.m */; };
 		698B41B519098E4A00B532C2 /* logoSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 698B41B419098E4A00B532C2 /* logoSmall.png */; };
+		69924C0519790B0B0024E683 /* Screen Shot 2014-06-27 at 4.18.55 PM.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69924C0419790B0B0024E683 /* Screen Shot 2014-06-27 at 4.18.55 PM.jpg */; };
 		6999CD541908BC04009BD628 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6999CD531908BC04009BD628 /* libPods.a */; };
 		6999CD561908E37F009BD628 /* Damion-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6999CD551908E37F009BD628 /* Damion-Regular.ttf */; };
 		6999CD581908E398009BD628 /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */; };
@@ -72,6 +73,7 @@
 		69F3199C1936A3BB00C501D5 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F3199B1936A3BB00C501D5 /* navBar.png */; };
 		69F3199F1936B78E00C501D5 /* CustomSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F3199E1936B78E00C501D5 /* CustomSegue.m */; };
 		69F319A21936B8F300C501D5 /* CustomUnwindSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F319A11936B8F300C501D5 /* CustomUnwindSegue.m */; };
+		69F73C261973BAAF00361426 /* SignUpContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F73C251973BAAF00361426 /* SignUpContainerViewController.m */; };
 		69F95CFE18F200B30011F5DB /* STPCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CC818F200B30011F5DB /* STPCard.m */; };
 		69F95CFF18F200B30011F5DB /* STPToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CCA18F200B30011F5DB /* STPToken.m */; };
 		69F95D0018F200B30011F5DB /* STPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CCC18F200B30011F5DB /* STPView.m */; };
@@ -220,6 +222,7 @@
 		6977B4B518FD044E00A51871 /* POPDTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDTableViewController.h; sourceTree = "<group>"; };
 		6977B4B618FD044E00A51871 /* POPDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDTableViewController.m; sourceTree = "<group>"; };
 		698B41B419098E4A00B532C2 /* logoSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoSmall.png; path = Images.xcassets/logoSmall.png; sourceTree = "<group>"; };
+		69924C0419790B0B0024E683 /* Screen Shot 2014-06-27 at 4.18.55 PM.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Screen Shot 2014-06-27 at 4.18.55 PM.jpg"; sourceTree = "<group>"; };
 		6999CD2A1908BBB2009BD628 /* BButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
 		6999CD2B1908BBB2009BD628 /* BButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BButton.m; sourceTree = "<group>"; };
 		6999CD2C1908BBB2009BD628 /* NSString+FontAwesome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+FontAwesome.h"; sourceTree = "<group>"; };
@@ -258,6 +261,9 @@
 		69F3199E1936B78E00C501D5 /* CustomSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSegue.m; sourceTree = "<group>"; };
 		69F319A01936B8F300C501D5 /* CustomUnwindSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomUnwindSegue.h; sourceTree = "<group>"; };
 		69F319A11936B8F300C501D5 /* CustomUnwindSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomUnwindSegue.m; sourceTree = "<group>"; };
+		69F73C2119739B3300361426 /* NSObject_Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Constants.h; sourceTree = "<group>"; };
+		69F73C241973BAAF00361426 /* SignUpContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpContainerViewController.h; sourceTree = "<group>"; };
+		69F73C251973BAAF00361426 /* SignUpContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpContainerViewController.m; sourceTree = "<group>"; };
 		69F95CC718F200B30011F5DB /* STPCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPCard.h; sourceTree = "<group>"; };
 		69F95CC818F200B30011F5DB /* STPCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPCard.m; sourceTree = "<group>"; };
 		69F95CC918F200B30011F5DB /* STPToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPToken.h; sourceTree = "<group>"; };
@@ -367,6 +373,8 @@
 				6963E21D1908472800C6885A /* LoginViewController.m */,
 				6963E219190846FA00C6885A /* SignUpViewController.h */,
 				6963E21A190846FA00C6885A /* SignUpViewController.m */,
+				69F73C241973BAAF00361426 /* SignUpContainerViewController.h */,
+				69F73C251973BAAF00361426 /* SignUpContainerViewController.m */,
 				691E66DC18F3DAD900F67683 /* InitialViewController.h */,
 				691E66DD18F3DAD900F67683 /* InitialViewController.m */,
 				6960ABCA191B21CE001DAF8E /* upArrow.png */,
@@ -555,8 +563,10 @@
 				6935AD1B18AEA38A007CF28F /* Controllers */,
 				6935AD1A18AEA36B007CF28F /* Objects */,
 				69715B2B18AD39560039D061 /* AppDelegate.h */,
+				69F73C2119739B3300361426 /* NSObject_Constants.h */,
 				69715B2C18AD39560039D061 /* AppDelegate.m */,
 				69715B2E18AD39560039D061 /* Main.storyboard */,
+				69924C0419790B0B0024E683 /* Screen Shot 2014-06-27 at 4.18.55 PM.jpg */,
 				6963E23519085F2700C6885A /* stadium.jpeg */,
 				69715B5818AD3CB30039D061 /* NSConnectionDelegate.h */,
 				69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */,
@@ -956,6 +966,7 @@
 				69F95D1A18F200B30011F5DB /* placeholder.png in Resources */,
 				6963E2311908481800C6885A /* Contents.json in Resources */,
 				6963E22E1908481800C6885A /* StartBarBackground2X.png in Resources */,
+				69924C0519790B0B0024E683 /* Screen Shot 2014-06-27 at 4.18.55 PM.jpg in Resources */,
 				69F95D1218F200B30011F5DB /* diners.png in Resources */,
 				69E0F09318BC5977008C1543 /* logo.png in Resources */,
 				69F95D1018F200B30011F5DB /* cvc.png in Resources */,
@@ -1032,6 +1043,7 @@
 				69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */,
 				69F95D0518F200B30011F5DB /* PKCardCVC.m in Sources */,
 				69F95D0718F200B30011F5DB /* PKCardNumber.m in Sources */,
+				69F73C261973BAAF00361426 /* SignUpContainerViewController.m in Sources */,
 				69715B3618AD39560039D061 /* LocationsViewController.m in Sources */,
 				69715B2D18AD39560039D061 /* AppDelegate.m in Sources */,
 				691E66DB18F3D5C200F67683 /* TutorialContentViewController.m in Sources */,

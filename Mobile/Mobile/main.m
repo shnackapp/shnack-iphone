@@ -20,6 +20,7 @@ NSInteger globalCurrentVendorID = -1;
 NSString *globalOpenOrderVendorName = nil;
 NSString *globalCurrentVendorName = nil;
 MainPageViewController *mainPages = nil;
+int *globalCurrentOrderAmount = 0;
 
 
 
