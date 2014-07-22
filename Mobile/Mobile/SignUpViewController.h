@@ -8,33 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SignUpViewController : UIViewController <UITextFieldDelegate>
+@interface SignUpViewController : UIViewController
+
+@property (nonatomic) IBOutlet UIButton *cancelButton;
+@property (nonatomic) IBOutlet UIButton *doneButton;
+@property (nonatomic) IBOutlet UILabel *signUpTitle;
+@property (nonatomic) IBOutlet UIButton *forgotPassword;
 
 
-@property (retain, nonatomic) IBOutlet UITextField *email;
-@property (nonatomic) IBOutlet UILabel *emailLabel;
-
-@property (retain, nonatomic) IBOutlet UITextField *password;
-@property (nonatomic) IBOutlet UILabel *passwordLabel;
-
-@property (retain, nonatomic) IBOutlet UITextField *passwordConfirm;
-@property (nonatomic) IBOutlet UILabel *passwordConfirmLabel;
-
-@property (retain, nonatomic) IBOutlet UIButton *startOrdering;
-
-@property (nonatomic) IBOutlet UILabel *titleLabel;
-
-@property (nonatomic) BOOL validEmail;
-@property (nonatomic) BOOL passwordMatch;
+-(IBAction)home;//this fixes keyboard issue on clear
 
 
 
-@property (nonatomic) IBOutlet UILabel *passwordMismatch;
-@property (nonatomic) IBOutlet UIImageView *passwordMatchCheck;
-@property (nonatomic) IBOutlet UIImageView *passwordConfirmCheck;
 
-@property (nonatomic) IBOutlet UILabel *invalidEmail;
-@property (nonatomic) IBOutlet UIImageView *validEmailCheck;
+
 
 
 

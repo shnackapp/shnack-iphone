@@ -104,7 +104,7 @@
     [message show];
     
     
-    
+    //change this ,just tmporary for testing
     UINavigationController * navigationController = self.navigationController;
     [navigationController popToRootViewControllerAnimated:NO];
 }

@@ -19,6 +19,9 @@ NSInteger globalOpenOrderVendorID = -1;
 NSInteger globalCurrentVendorID = -1;
 NSString *globalOpenOrderVendorName = nil;
 NSString *globalCurrentVendorName = nil;
+NSMutableArray *globalUserInfo = nil;
+NSMutableArray *globalCurrentUser = nil;
+
 MainPageViewController *mainPages = nil;
 int *globalCurrentOrderAmount = 0;
 

@@ -7,6 +7,10 @@
 //
 
 #import "LoginViewController.h"
+#import "LoginContainerViewController.h"
+
+#import "NSObject_Constants.h"
+#import "MBProgressHUD.h"
 
 @interface LoginViewController ()
 
@@ -22,36 +26,94 @@
     }
     return self;
 }
+//validations
+-(BOOL)isValidEmail:(NSString *)email
+{
+    BOOL stricterFilter = YES;
+    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+    NSString *laxString = @".+@([A-Za-z0-9]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    if(![emailTest evaluateWithObject:email])
+    {
+        
+        self.email.text = @"";
+        NSLog(@"------->Email is invalid");
+        
+        return NO;
+    }
+    else
+    {
+        [self.email resignFirstResponder];
+        [self.password becomeFirstResponder];
+        NSLog(@"------->Email is Valid");
+        return YES;
+    }
+}
+
+-(BOOL)isValidPassword:(NSString *)password
+{
+    if (password.length < 7) return NO;
+    else
+    {
+        [self.email resignFirstResponder];
+        [self.password resignFirstResponder];
+        return YES;
+    }
+}
+
+//
+
 - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
 
     if (theTextField == self.email)
     {
-        [self.password becomeFirstResponder];
         NSString *email = self.email.text;
-        BOOL stricterFilter = YES;
-        NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
-        NSString *laxString = @".+@([A-Za-z0-9]+\\.)+[A-Za-z]{2}[A-Za-z]*";
-        NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
-        NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
-        
-        if(![emailTest evaluateWithObject:email])
+        NSLog(@"Email: %@",email);
+        self.valid_email = [self isValidEmail:email];
+        if (!self.valid_email)
         {
-            
+            self.emailLabel.textColor = [UIColor redColor];
             self.email.text = @"";
-            self.validEmail = false;
+        }
+        else self.emailLabel.textColor = [UIColor blackColor];
+    }
+    if(theTextField == self.password)
+    {
+        NSString *password = self.password.text;
+        NSLog(@"Password: %@",password);
+        self.valid_password = [self isValidPassword:password];
+        if (!self.valid_password)
+        {
+            self.passwordLabel.textColor = [UIColor redColor];
+            self.password.text = @"";
         }
         else
         {
-            self.validEmail = true;
+            self.passwordLabel.textColor = [UIColor blackColor];
+            LoginContainerViewController  *loginViewController = (LoginContainerViewController *) self.parentViewController;
+            //[loginViewController submit];
+        
         }
+        
     }
-   
-    if(self.validEmail && self.validPassword)
+    if(self.valid_email && self.valid_password)
     {
-    
-    //activate done button
+        LoginContainerViewController  *loginViewController = (LoginContainerViewController *) self.parentViewController;
+        NSLog(@" parent class%@", loginViewController.class);
+        loginViewController.doneButton.enabled = YES;
+        //add action to done button!
+        //[loginViewController.doneButton addTarget:self action: @selector(submit) forControlEvents:UIControlEventTouchUpInside];
+        
+        NSMutableArray *login_credentials = [[NSMutableArray alloc] init];
+        //currentUser = [[NSMutableArray alloc] init];
+        [login_credentials addObject:self.email.text];
+        [login_credentials addObject:self.password.text];
+        globalCurrentUser = login_credentials;
+        
+        
+        
     }
-
     return YES;
 }
 
@@ -66,7 +128,7 @@
 {
     [super viewDidLoad];
     
-    [self.email becomeFirstResponder];
+    //[self.email becomeFirstResponder];
     
     // Do any additional setup after loading the view.
     self.email.delegate = self;
@@ -74,10 +136,6 @@
     
     [self.email setBorderStyle:UITextBorderStyleNone];
     [self.password setBorderStyle:UITextBorderStyleNone];
-
-    
-    self.validPassword = false;
-    self.validEmail = false;
     
     self.loginEmailLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
     self.loginPasswordLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
@@ -90,24 +148,7 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)textViewShouldReturn:(UITextField *)textField
-{
-    if (textField == self.email)
-    {
-    [self.password becomeFirstResponder];
-    NSString * email_address = self.email.text;
-    NSLog(@"%@",email_address);
 
-    }
-    
-    if(textField == self.password)
-    {
-    [self.password resignFirstResponder];
-    NSString * password = self.password.text;
-    NSLog(@"%@",password);
-    }
-    
-}
 
 /*
 #pragma mark - Navigation

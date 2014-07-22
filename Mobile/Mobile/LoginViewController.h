@@ -12,15 +12,22 @@
 
 @interface LoginViewController : UITableViewController <UITextFieldDelegate>
 @property (retain, nonatomic) IBOutlet UITextField *email;
+@property (nonatomic) IBOutlet UILabel *emailLabel;
+@property (nonatomic) IBOutlet UILabel *passwordLabel;
+
 @property (retain, nonatomic) IBOutlet UITextField *password;
 
+extern NSMutableArray *globalCurrentUser;
 
-
-@property (nonatomic) BOOL validEmail;
-@property (nonatomic) BOOL validPassword;
+@property (nonatomic) BOOL successful_login;
+@property (nonatomic) BOOL does_exist;
+@property (nonatomic) BOOL valid_email;
+@property (nonatomic) BOOL valid_password;
 
 @property (nonatomic) IBOutlet UILabel *loginEmailLabel;
 @property (nonatomic) IBOutlet UILabel *loginPasswordLabel;
+
+@property (retain, nonatomic) NSData *receivedData;
 
 
 @end
