@@ -7,8 +7,11 @@
 //
 
 #import "SignUpViewController.h"
-#import "CustomUnwindSegue.h"
+
+#import "SignUpContainerViewController.h"
 #import "InitialViewController.h"
+#import <QuartzCore/QuartzCore.h>
+
 
 @interface SignUpViewController ()
 
@@ -35,30 +38,40 @@
 {
     [super viewDidLoad];
     
-    //[self.doneButton addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
-    
     self.cancelButton.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:16];
-    self.doneButton.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:16];
+    self.nextButton.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:16];
     self.signUpTitle.font = [UIFont fontWithName:@"Poiret One" size:26];
     
-    self.forgotPassword.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:16];
+    SignUpContainerViewController *signUpContainerViewController
+    = (SignUpContainerViewController *)  self.childViewControllers[0];
+    NSLog(@"container class %@",signUpContainerViewController.class);
+    
+    self.error_messages.hidden = YES;
+    self.error_1.hidden = YES;
+    self.error_2.hidden = YES;
+    self.error_3.hidden = YES;
+    self.error_title.hidden = YES;
+    
+
+
+    
+    //make container round.....
+    //signUpContainerViewController.tableView.layer.cornerRadius = 10;
 
     
 }
 
--(IBAction)home
+-(IBAction)next
 {
-    NSLog(@"clikced cancel");
-
-    [self performSegueWithIdentifier:@"Unwind" sender:self];
-
-    
+    SignUpContainerViewController *signUpContainer = (SignUpContainerViewController *) self.childViewControllers[0];
+    [signUpContainer gatherAndCheckForm];
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 /*

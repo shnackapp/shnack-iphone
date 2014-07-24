@@ -8,6 +8,9 @@
 
 #import "SignUpContainerViewController.h"
 #import "SignUpViewController.h"
+#import "SignUpProfileViewController.h"
+#import "SignUpNavController.h"
+#import <QuartzCore/QuartzCore.h>
 #import "NSObject_Constants.h"
 #import "MBProgressHUD.h"
 
@@ -28,49 +31,29 @@
 
 - (void)viewDidLoad
 {
-    
-    NSLog(@"IN container");
     [super viewDidLoad];
     
-    //[NSThread sleepForTimeInterval:.5];
-    //[self.email becomeFirstResponder];
-    self.nameLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
     self.emailLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
     self.phoneLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
     self.passwordLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
-    
-    
-    self.name.delegate = self;
+
     self.email.delegate = self;
     self.phone.delegate = self;
     self.password.delegate = self;
+    
+    
 
     // Do any additional setup after loading the view.
-    [self.name setBorderStyle:UITextBorderStyleNone];
     [self.email setBorderStyle:UITextBorderStyleNone];
     [self.password setBorderStyle:UITextBorderStyleNone];
     [self.phone setBorderStyle:UITextBorderStyleNone];
-
-}
-
--(IBAction)submit:(UIButton *)sender
-    {
-        
-
-    }
-
--(BOOL)isValidName:(NSString *)name
-{
-    if ([name isEqualToString:@""])
-    {
-        return NO;
-    }
-    else
-    {
-        [self.email becomeFirstResponder];
-        return YES;
-    }
     
+    SignUpViewController  *signUpViewController = (SignUpViewController *) self.parentViewController;
+
+    
+    //[signUpViewController.nextButton addTarget:self action:@selector(gatherAndCheckForm) forControlEvents:UIControlEventTouchUpInside];
+
+
 }
 
 -(BOOL)isValidEmail:(NSString *)email
@@ -82,18 +65,12 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     if(![emailTest evaluateWithObject:email])
     {
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error") message:NSLocalizedString(@"Invalid Email\n please retype", @"Invalid Email \n please retype") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-//        [alert show];
-        self.email.text = @"";
-        NSLog(@"------->Email is invalid");
-        
         return NO;
     }
     else
     {
         [self.email resignFirstResponder];
         [self.phone becomeFirstResponder];
-        NSLog(@"------->Email is Valid");
         return YES;
     }
 }
@@ -101,7 +78,10 @@
 
 -(BOOL)isValidPhone:(NSString *)phone
 {
-    if (phone.length != 14) return NO;
+    if (phone.length != 14)
+    {
+        return NO;
+    }
     else
     {
         [self.email resignFirstResponder];
@@ -112,7 +92,10 @@
 
 -(BOOL)isValidPassword:(NSString *)password
 {
-    if (password.length < 7) return NO;
+    if (password.length < 7)
+    {
+        return NO;
+    }
     else
     {
     [self.phone resignFirstResponder];
@@ -120,6 +103,8 @@
     return YES;
     }
 }
+
+
 
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
@@ -130,109 +115,133 @@
 
 
 
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+-(BOOL)gatherAndCheckForm
+{
+    NSLog(@"gathering info");
+    SignUpViewController  *signUpViewController = (SignUpViewController *) self.parentViewController;
+
+    self.valid_email = [self isValidEmail:self.email.text];
+    self.valid_phone = [self isValidPhone:self.phone.text];
+    self.valid_password = [self isValidPassword:self.password.text];
     
-    if (theTextField == self.name)
+    
+    if(self.valid_email && self.valid_phone && self.valid_password)
     {
-        NSString *name = self.name.text;
-        NSLog(@"Name: %@", name);
-        self.valid_name = [self isValidName:name];
-        if(!self.valid_name)
-        {
-            self.emailLabel.textColor = [UIColor redColor];
-        }
-        else self.emailLabel.textColor = [UIColor blackColor];
+        NSLog(@"storing info in distionary");
+        SignUpNavController *signUpNav = [(SignUpNavController *) self navigationController];
+        [signUpNav.user_info setObject:self.email.text forKey:@"email"];
+        [signUpNav.user_info setObject:self.phone.text forKey:@"phone_number"];
+        [signUpNav.user_info setObject:self.password.text forKey:@"password"];
+        NSLog(@"here is my info %@,%@,%@",signUpNav.user_info.allValues[0],signUpNav.user_info.allValues[1],signUpNav.user_info.allValues[2]);
+    
+        [self.parentViewController performSegueWithIdentifier:@"next" sender:self];
 
+        
+        return YES;
     }
-    if (theTextField == self.email)
+    else
     {
-    NSString *email = self.email.text;
-    NSLog(@"Email: %@",email);
-     self.valid_email = [self isValidEmail:email];
-        if (!self.valid_email)
+    [self.view endEditing:YES];//dismiss keyboard
+        
+        if(!self.valid_email)
         {
+            
+            signUpViewController.error_messages.hidden = NO;
+            signUpViewController.error_title.hidden = NO;
+            signUpViewController.error_title.text = @"Error";
+            signUpViewController.error_1.hidden = NO;
+            signUpViewController.error_1.text = @"Email incorrect!";
+            signUpViewController.error_1.textColor = [UIColor redColor];
             self.emailLabel.textColor = [UIColor redColor];
-            self.email.text = @"";
+            
         }
-        else self.emailLabel.textColor = [UIColor blackColor];
-    }
-    if(theTextField == self.phone)
-    {
-    NSString *phone = self.phone.text;
-    NSLog(@"Phone: %@",phone);
-    self.valid_phone = [self isValidPhone:phone];
-        if (!self.valid_phone)
+        if(!self.valid_phone)
         {
+            signUpViewController.error_messages.hidden = NO;
+            signUpViewController.error_title.hidden = NO;
+            signUpViewController.error_title.text = @"Error";
+            signUpViewController.error_2.hidden = NO;
+            signUpViewController.error_2.text = @"Phone incorrect!";
+            signUpViewController.error_2.textColor = [UIColor redColor];
             self.phoneLabel.textColor = [UIColor redColor];
-            self.phone.text = @"";
+            
+            
         }
-        else self.phoneLabel.textColor = [UIColor blackColor];
+        if(!self.valid_password)
+        {
+            
+            signUpViewController.error_messages.hidden = NO;
+            signUpViewController.error_title.hidden = NO;
+            signUpViewController.error_title.text = @"Error";
+            signUpViewController.error_3.hidden = NO;
+            signUpViewController.error_3.text = @"Password at least 7 characters!";
+            signUpViewController.error_3.textColor = [UIColor redColor];
+            self.passwordLabel.textColor = [UIColor redColor];
+            
+        }
 
+    return NO;
     }
+
+    
+}
+
+
+-(BOOL)checkForContent:(UITextField *)theTextField
+{
+    SignUpViewController  *signUpViewController = (SignUpViewController *) self.parentViewController;
+
+    //if all fields are not empty show next button
+    if (![self.email.text  isEqual: @""] && ![self.phone.text  isEqual: @""]
+        && ![self.password.text  isEqual: @""])
+    {
+        signUpViewController.nextButton.enabled = YES;
+        return YES;
+        
+    }
+    else
+    {
+        signUpViewController.nextButton.enabled = NO;
+        
+    }
+    return NO;
+
+}
+
+// toggle next button ! finally works
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.is_filled = [self checkForContent:textField];
+    [textField addTarget:self action:@selector(checkForContent:) forControlEvents:UIControlEventEditingChanged];
+    if(self.valid_email) self.emailLabel.textColor = [UIColor blackColor];
+    if(self.valid_phone) self.phoneLabel.textColor = [UIColor blackColor];
+    if(self.valid_password) self.passwordLabel.textColor = [UIColor blackColor];
+    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)theTextField
+{
+    
+    self.is_filled = [self checkForContent:theTextField];
+
+    
+}
+//enable check on done button on keybaord
+-(BOOL) textFieldShouldReturn:(UITextField *)theTextField
+{
+    self.is_filled = [self checkForContent:theTextField];
+
     if(theTextField == self.password)
     {
-    NSString *password = self.password.text;
-    NSLog(@"Password: %@",password);
-    self.valid_password = [self isValidPassword:password];
-        if (!self.valid_password)
-        {
-            self.passwordLabel.textColor = [UIColor redColor];
-            self.password.text = @"";
-        }
-        else self.passwordLabel.textColor = [UIColor blackColor];
-
-    }
+        self.is_valid = [self gatherAndCheckForm];
     
-    if (self.valid_email && self.valid_phone && self.valid_password)
-    {
-        SignUpViewController  *signUpViewController = (SignUpViewController *) self.parentViewController;
-        NSLog(@" parent class%@", signUpViewController.class);
-        signUpViewController.doneButton.enabled = YES;
-        
-        NSMutableArray *user_info =  [[NSMutableArray alloc] init];
-        [user_info addObject:self.name.text];
-        [user_info addObject:self.email.text];
-        [user_info addObject:self.phone.text];
-        [user_info addObject:self.password.text];
-        globalUserInfo = user_info;
-        
-        NSLog(@"here is my info %@,%@,%@,%@",globalUserInfo[0],globalUserInfo[1],globalUserInfo[2],globalUserInfo[3]);
-
-        [self createUserWithInfo:self.name.text andEmail:self.email.text andPhone:self.phone.text andPassword:self.password.text];
     }
     return YES;
 }
 
--(void)createUserWithInfo:(NSString *)name andEmail:(NSString *)email andPhone:(NSString *)phone andPassword:(NSString *)password;
-{
-    NSString *url = [NSString stringWithFormat:@"%@/create",BASE_URL];
-
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:API_KEY forHTTPHeaderField:@"Authorization"];
-    //[request setValue:@"application/html" forHTTPHeaderField:@"Content-Type"];
-
-    NSString *body    = [NSString stringWithFormat:@"name=%@&email=%@&phone=%@&password=%@", globalUserInfo[0],globalUserInfo[1],globalUserInfo[2],globalUserInfo[3]];
-
-    request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
-    
-    NSLog(@"this is the url %@",url);
-    NSLog(@"this is the body %@",body);
-    
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               [MBProgressHUD hideHUDForView:self.view animated:YES];
-                               
-                               if (error) {
-                                   // Handle error
-                               }
-                           }];
-   
-}
 
 // Restrict phone textField to format 123-456-7890
-- (BOOL)textField:(UITextField *)textField
+- (BOOL)textField:(UITextField *) textField
 shouldChangeCharactersInRange:(NSRange)range
 replacementString:(NSString *)string {
     if (textField==self.phone){
@@ -283,23 +292,22 @@ replacementString:(NSString *)string {
 
 
 
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

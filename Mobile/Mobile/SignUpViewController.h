@@ -11,12 +11,17 @@
 @interface SignUpViewController : UIViewController
 
 @property (nonatomic) IBOutlet UIButton *cancelButton;
-@property (nonatomic) IBOutlet UIButton *doneButton;
+@property (nonatomic) IBOutlet UIButton *nextButton;
 @property (nonatomic) IBOutlet UILabel *signUpTitle;
-@property (nonatomic) IBOutlet UIButton *forgotPassword;
 
+@property (nonatomic) IBOutlet UITextView *error_messages;
+-(IBAction)next;
 
--(IBAction)home;//this fixes keyboard issue on clear
+@property (nonatomic) IBOutlet UILabel *error_1;
+@property (nonatomic) IBOutlet UILabel *error_2;
+@property (nonatomic) IBOutlet UILabel *error_3;
+@property (nonatomic) IBOutlet UILabel *error_title;
+
 
 
 
