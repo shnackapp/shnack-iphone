@@ -16,17 +16,33 @@
 #import "ShnackOrderCategoryCell.h"
 
 @interface ShnackMyOrderViewController ()  <POPDDelegate>
+<<<<<<< HEAD
 @property (strong, nonatomic) NSMutableArray *selectedItems;
+=======
+
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 @end
 
 @implementation ShnackMyOrderViewController
 
 
+<<<<<<< HEAD
+=======
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+<<<<<<< HEAD
     self.tableView.popDownDelegate = self;
         self.tableView.dataSource = self.tableView;
     
@@ -75,6 +91,30 @@
     // important! set whether the user should be able to swipe from the right to reveal the side menu
     self.sideMenuViewController.panGestureEnabled = YES;
     
+=======
+    self.delegate = self;
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    self.tableView.dataSource = self;
+    
+    
+    /*
+    NSMutableArray *tableData = [[NSMutableArray alloc] initWithCapacity:[globalOpenOrder count]];
+    for (NSDictionary *openOrderSection in globalOpenOrder )
+        NSDictionary *section = [NSDictionary dictionaryWithObjectsAndKeys:
+                             categoryName, POPDCategoryTitle,
+                             tableSection, POPDSubSection,
+                             nil];
+        [tableData addObject:section];
+     */
+    
+    
+    
+    // important! set whether the user should be able to swipe from the right to reveal the side menu
+    self.sideMenuViewController.panGestureEnabled = YES;
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -107,7 +147,11 @@
 -(void) willDisplayLeafSubCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     // Configure the cell...
     ShnackOrderItemCell *itemCell = (ShnackOrderItemCell *)cell;
+<<<<<<< HEAD
     Item *item = self.selectedItems[indexPath.section][indexPath.row];
+=======
+    Item *item = globalOpenOrderMenu[indexPath.section][indexPath.row];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     
     itemCell.name.text = item.name;
     itemCell.price.text = [NSString stringWithFormat:@"$%d.%02d", item.price/100, item.price%100];
@@ -115,7 +159,10 @@
     
     [itemCell.plusButton addTarget:self action:@selector(increaseCountByOne:) forControlEvents:UIControlEventTouchDown];
     [itemCell.minusButton addTarget:self action:@selector(decreaseCountByOne:) forControlEvents:UIControlEventTouchDown];
+<<<<<<< HEAD
     itemCell.selectionStyle = UITableViewCellSelectionStyleNone;
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 }
 
 -(void) willDisplayClosedCategoryCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath {
@@ -127,7 +174,11 @@
 }
 
 -(void) willDisplayCategoryCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+<<<<<<< HEAD
     NSInteger categoryCount = ((Item *)self.selectedItems[indexPath.section][0]).count;
+=======
+    NSInteger categoryCount = [self calculateCategoryCount:indexPath.section];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     ShnackOrderCategoryCell *categoryCell = (ShnackOrderCategoryCell *)cell;
     if (categoryCount == 0) {
         categoryCell.count.hidden = YES;
@@ -135,14 +186,22 @@
         categoryCell.count.hidden = NO;
         categoryCell.count.text = [NSString stringWithFormat:@"%ld", (long)categoryCount];
     }
+<<<<<<< HEAD
     categoryCell.labelText.text = ((Item *)self.selectedItems[indexPath.section][0]).name;
+=======
+    categoryCell.labelText.text = globalOpenOrderMenu[indexPath.section][0];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 }
 
 
 -(NSInteger)calculateOrderTotal
 {
     NSInteger total = 0;
+<<<<<<< HEAD
     for (NSArray *category in self.selectedItems) {
+=======
+    for (NSArray *category in globalOpenOrderMenu) {
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
         for (NSInteger i = 1; i < [category count]; i++) {
             total += ((Item *)category[i]).price * ((Item *)category[i]).count;
         }
@@ -151,6 +210,18 @@
     return total;
 }
 
+<<<<<<< HEAD
+=======
+-(NSInteger)calculateCategoryCount:(NSInteger)section {
+    NSInteger count = 0;
+    NSInteger numItems = [((NSArray *)globalOpenOrderMenu[section]) count];
+    for (NSInteger i = 1; i < numItems; i++) {
+        count += ((Item *)globalOpenOrderMenu[section][i]).count;
+    }
+    return count;
+}
+
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 -(IBAction)increaseCountByOne:(id)sender
 {
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
@@ -158,12 +229,19 @@
     NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
     
     Item *item = globalOpenOrderMenu[indexPath.section][indexPath.row];
+<<<<<<< HEAD
     Item *categoryItem = self.selectedItems[indexPath.section][0];
     item.count++;
     categoryItem.count++;
     
     NSInteger total = [self calculateOrderTotal];
     self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
+=======
+    item.count++;
+    
+    NSInteger total = [self calculateOrderTotal];
+    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%ld.%02ld", total/100, total%100];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
@@ -174,16 +252,26 @@
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
     NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
     
+<<<<<<< HEAD
     Item *categoryItem = self.selectedItems[indexPath.section][0];
         Item *item = self.selectedItems[indexPath.section][indexPath.row];
     if(item.count > 0)
     {
         categoryItem.count--;
+=======
+    Item *item = globalOpenOrderMenu[indexPath.section][indexPath.row];
+    if(item.count > 0)
+    {
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
         item.count--;
     }
     
     NSInteger total = [self calculateOrderTotal];
+<<<<<<< HEAD
     self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
+=======
+    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%ld.%02ld", total/100, total%100];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
 }

@@ -8,10 +8,13 @@
 
 #import "PaymentViewController.h"
 #import "MBProgressHUD.h"
+<<<<<<< HEAD
 #import "RESideMenu.h"
 #import "NSObject_Constants.h"
 #import "LocationsViewController.h"
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 
 @interface PaymentViewController ()
@@ -32,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
     /*
     if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
@@ -48,6 +52,26 @@
     }
 
 
+=======
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
+    self.stripeView = [[STPView alloc] initWithFrame:CGRectMake(15,20,290,55)
+                                              andKey:@"pk_test_AUn823FKTadliNg29onudWm0"];
+    self.stripeView.delegate = self;
+    self.saveButton = self.navigationItem.rightBarButtonItem;
+    [self.view addSubview:self.stripeView];
+    
+    /*Add these 4 lines at the bottom of any view controller's viewDidLoad
+     if you want the user to be able to swipe from the edge to reveal the side menu
+     from within that view.*/
+    self.view.multipleTouchEnabled = NO;
+    UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panGestureRecognized:)];
+    panGestureRecognizer.delegate = self;
+    [self.view addGestureRecognizer:panGestureRecognizer];
+}
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 
 - (void)didReceiveMemoryWarning
@@ -71,6 +95,7 @@
         } else {
             // Send off token to your server
             [self handleToken:token];
+<<<<<<< HEAD
             
             
         }
@@ -114,6 +139,14 @@
     self.saveButton.enabled = valid;
    
     
+=======
+        }
+    }];}
+
+- (void)stripeView:(STPView *)view withCard:(PKCard *)card isValid:(BOOL)valid
+{
+    self.saveButton.enabled = valid;
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 }
 
 - (void)handleError:(NSError *)error
@@ -129,6 +162,7 @@
 - (void)handleToken:(STPToken *)token
 {
     NSLog(@"Received token %@", token.tokenId);
+<<<<<<< HEAD
     NSString *url = [NSString stringWithFormat:@"%@/process_stripe_info",BASE_URL];
     
     
@@ -143,6 +177,15 @@
     NSLog(@"this is the url %@",url);
     NSLog(@"this is the body %@",body);
     
+=======
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://127.0.0.1:3000/api/process_stripe_info"]];
+    request.HTTPMethod = @"POST";
+    
+    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@", token.tokenId];
+    request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
+    
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -151,7 +194,10 @@
                                if (error) {
                                    // Handle error
                                }
+<<<<<<< HEAD
                                [self loadReceipt:@"Hello"];
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
                            }];
 }
 

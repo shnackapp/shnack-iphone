@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+<<<<<<< HEAD
 //#import "JZSwipeCell.h"
 
 
 
 @interface POPDCell :  UITableViewCell
+=======
+
+@interface POPDCell : UITableViewCell
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 @property (strong, nonatomic) IBOutlet UILabel *labelText;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
@@ -22,6 +27,9 @@
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 @end

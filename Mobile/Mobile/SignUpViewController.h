@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+<<<<<<< HEAD
 @interface SignUpViewController : UIViewController
 
 @property (nonatomic) IBOutlet UIButton *cancelButton;
@@ -28,6 +29,25 @@
 
 
 
+=======
+@interface SignUpViewController : UIViewController <UITextFieldDelegate>
+@property (retain, nonatomic) IBOutlet UITextField *email;
+@property (nonatomic) IBOutlet UILabel *emailLabel;
+
+@property (retain, nonatomic) IBOutlet UITextField *password;
+@property (nonatomic) IBOutlet UILabel *passwordLabel;
+
+@property (retain, nonatomic) IBOutlet UITextField *passwordConfirm;
+@property (nonatomic) IBOutlet UILabel *passwordConfirmLabel;
+
+@property (retain, nonatomic) IBOutlet UIButton *startOrdering;
+
+@property (nonatomic) BOOL validEmail;
+@property (nonatomic) BOOL passwordMatch;
+
+@property (nonatomic) IBOutlet UILabel *passwordMismatch;
+@property (nonatomic) IBOutlet UILabel *invalidEmail;
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 
 

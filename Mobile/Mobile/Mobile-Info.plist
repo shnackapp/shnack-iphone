@@ -45,6 +45,7 @@
 			<false/>
 		</dict>
 	</dict>
+<<<<<<< HEAD
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
@@ -53,5 +54,20 @@
 	<string>en</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+=======
+	<key>UIAppFonts</key>
+	<array>
+		<string>PoiretOne-Regular.ttf</string>
+		<string>Damion-Regular.ttf</string>
+	</array>
+	<key></key>
+	<string></string>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 </dict>
 </plist>

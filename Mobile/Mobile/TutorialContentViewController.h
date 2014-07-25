@@ -14,19 +14,25 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *blurbLabel;
 @property (weak, nonatomic) IBOutlet UILabel *TopLabel;
+<<<<<<< HEAD
 @property (weak, nonatomic) IBOutlet UILabel *swipeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *brandLabel;
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 
 @property NSUInteger pageIndex;
 @property NSString *blurbText;
 @property NSString *imageFile;
 @property NSString *TopText;
+<<<<<<< HEAD
 @property NSString *swipeLabelText;
 @property NSString *brandLabelText;
 
 
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 
 @end

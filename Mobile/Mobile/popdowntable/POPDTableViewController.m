@@ -7,6 +7,10 @@
 //
 
 #import "POPDTableViewController.h"
+<<<<<<< HEAD
+=======
+#import "POPDCell.h"
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 /*
 #define TABLECOLOR [UIColor colorWithRed:62.0/255.0 green:76.0/255.0 blue:87.0/255.0 alpha:1.0]
@@ -73,7 +77,10 @@
     [self.headerView addSubview:self.headerButton];
     
     self.headerView.hidden = YES;
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     
 /////////////////////////////////////////////////////////////
     
@@ -87,8 +94,11 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 - (void)setLoading:(BOOL)loading {
     self.isLoading = loading;
     [self.tableView reloadData];
@@ -405,7 +415,10 @@
     }
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 - (BOOL)sectionIsLeaf:(NSUInteger) section {
     if ([[self.sectionsArray objectAtIndex:section] count] == 1) {
         return NO;

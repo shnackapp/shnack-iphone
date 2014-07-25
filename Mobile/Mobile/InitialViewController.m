@@ -29,22 +29,32 @@
 {
     
     [super viewDidLoad];
+<<<<<<< HEAD
     self.signUp.hidden = true;
     self.orderNow.hidden = true;
     self.Login.hidden = true;
     
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     
     self.signUp.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
     self.orderNow.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
     self.Login.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
     
     
+<<<<<<< HEAD
     _swipe = @[@"Swipe up",@"",@"",@""];
     _swipeBlurb = @[@"Shnack. You're Order Is Ready.",@"",@"",@""];
 
     _pageTitles = @[ @"",@"From your seat, view the menus of vendors. Pay and place your order.", @"Sit back, relax, and enjoy the experience.", @"When your order is ready, a notification will be sent. Pick up and enjoy."];
      _TopTitles = @[ @"Shnack",@"Order", @"Relax", @"Pick Up"];
     _pageImages = @[@"upArrow.png",@"logo.png", @"logo.png", @"logo.png"];    // Create page view controller
+=======
+    
+    _pageTitles = @[ @"From your seat, view the menus of vendors. Pay and place your order.", @"Sit back, relax, and enjoy the experience.", @"When your order is ready, a notification will be sent. Pick up and enjoy."];
+     _TopTitles = @[ @"Order", @"Relax", @"Pick Up"];
+    _pageImages = @[@"logo.png", @"logo.png", @"logo.png"];    // Create page view controller
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
     
@@ -55,7 +65,10 @@
     // Change the size of page view controller
     self.pageViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - 30);
     
+<<<<<<< HEAD
     
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
     [self.view sendSubviewToBack:_pageViewController.view];
@@ -63,6 +76,7 @@
     
 }
 
+<<<<<<< HEAD
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
 {
     return [self.pageTitles count];
@@ -73,6 +87,8 @@
     return 0;
 }
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -95,6 +111,7 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
     NSUInteger index = ((TutorialContentViewController*) viewController).pageIndex;
+<<<<<<< HEAD
     //[self.view addSubview:_dots];
 
 
@@ -142,12 +159,21 @@
     
 
 
+=======
+    
+    if ((index == 0) || (index == NSNotFound)) {
+        return nil;
+    }
+    
+    index--;
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     return [self viewControllerAtIndex:index];
 }
 
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
     NSUInteger index = ((TutorialContentViewController*) viewController).pageIndex;
+<<<<<<< HEAD
 
 
     if (index == NSNotFound) {
@@ -166,11 +192,23 @@
 //        return nil;
     }
 
+=======
+    
+    if (index == NSNotFound) {
+        return nil;
+    }
+    
+    index++;
+    if (index == [self.pageTitles count]) {
+        return nil;
+    }
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     return [self viewControllerAtIndex:index];
 }
 
 - (TutorialContentViewController *)viewControllerAtIndex:(NSUInteger)index
 {
+<<<<<<< HEAD
     _dots = [[UIPageControl alloc] init];
     _dots.contentVerticalAlignment = YES;
     _dots.transform = CGAffineTransformMakeRotation(M_PI_2);
@@ -198,20 +236,42 @@
         return nil;
     }
 
+=======
+    if (([self.pageTitles count] == 0) || (index >= [self.pageTitles count])) {
+        return nil;
+    }
+    
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     // Create a new view controller and pass suitable data.
     TutorialContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TutorialContentViewController"];
     pageContentViewController.imageFile = self.pageImages[index];
     pageContentViewController.TopText = self.TopTitles[index];
+<<<<<<< HEAD
     
     pageContentViewController.blurbText = self.pageTitles[index];
     pageContentViewController.swipeLabelText = self.swipe[index];
     pageContentViewController.brandLabelText = self.swipeBlurb[index];
    
+=======
+    pageContentViewController.blurbText = self.pageTitles[index];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     pageContentViewController.pageIndex = index;
     
     return pageContentViewController;
 }
 
+<<<<<<< HEAD
 
+=======
+- (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
+{
+    return [self.pageTitles count];
+}
+
+- (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController
+{
+    return 0;
+}
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 @end

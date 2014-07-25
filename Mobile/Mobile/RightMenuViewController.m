@@ -10,7 +10,10 @@
 #import "SecondViewController.h"
 #import "LeftMenuViewController.h"
 
+<<<<<<< HEAD:Mobile/Mobile/RightMenuViewController.m
 #define NUMBER_OF_ITEMS 4
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a:Mobile/Mobile/RightMenuViewController.m
 @interface RightMenuViewController ()
 
 @property (strong, readwrite, nonatomic) UITableView *tableView;
@@ -106,7 +109,11 @@
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
+<<<<<<< HEAD:Mobile/Mobile/RightMenuViewController.m
     NSArray *titles = @[@"Locations", @"Current Order", @"Past Orders", @"Payment Info"];
+=======
+    NSArray *titles = @[@"Current Order", @"Past Orders",@"Account Settings"];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a:Mobile/Mobile/RightMenuViewController.m
     cell.textLabel.text = titles[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentRight;
     

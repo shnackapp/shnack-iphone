@@ -21,21 +21,30 @@
     if (self) {
         // Custom initialization
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     return self;
 }
 
 - (void)viewDidLoad
 {
+<<<<<<< HEAD
   
     NSLog(@"view did load page view controller");
  
+=======
+    [super viewDidLoad];
+    
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     self.iconImageView.image = [UIImage imageNamed:self.imageFile];
     
     self.blurbLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.blurbLabel.numberOfLines = 0;
     self.blurbLabel.text = self.blurbText;
     self.blurbLabel.font = [UIFont fontWithName:@"Poiret One" size:18];
+<<<<<<< HEAD
     self.TopLabel.text = self.TopText;
     self.TopLabel.font = [UIFont fontWithName:@"Damion" size:40];
     
@@ -45,6 +54,11 @@
     self.brandLabel.text = self.brandLabelText;
     self.brandLabel.font = [UIFont fontWithName: @"Poiret One" size:20];
     
+=======
+
+    self.TopLabel.text = self.TopText;
+    self.TopLabel.font = [UIFont fontWithName:@"Damion" size:40];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 }
 - (void)didReceiveMemoryWarning
@@ -53,8 +67,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 /*
  #pragma mark - Navigation
  

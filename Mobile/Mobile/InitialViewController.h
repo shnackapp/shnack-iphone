@@ -12,6 +12,7 @@
 
 @interface InitialViewController : UIViewController <UIPageViewControllerDataSource>
 @property (strong, nonatomic) UIPageViewController *pageViewController;
+<<<<<<< HEAD
 
 @property (strong, nonatomic) NSArray *pageTitles;
 
@@ -33,6 +34,15 @@
 @property (strong, nonatomic) IBOutlet UIImageView *topBar;
 
 
+=======
+@property (strong, nonatomic) NSArray *pageTitles;
+@property (strong, nonatomic) NSArray *pageImages;
+@property (strong, nonatomic) NSArray *TopTitles;
+
+@property (strong, nonatomic) IBOutlet UIButton *signUp;
+@property (strong, nonatomic) IBOutlet UIButton *orderNow;
+@property (strong, nonatomic) IBOutlet UIButton *Login;
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 
 

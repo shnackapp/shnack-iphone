@@ -12,6 +12,7 @@
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
+<<<<<<< HEAD
 //    
 //    self.colorSet = SwipeCellColorSetMake([UIColor greenColor],
 //                                          [UIColor whiteColor],
@@ -19,6 +20,8 @@
 //                                          [UIColor whiteColor]);
 //
    // self.backgroundColor = [UIColor darkGrayColor];
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
@@ -26,5 +29,8 @@
     return self;
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 @end

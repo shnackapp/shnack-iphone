@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "AppDelegate.h"
+<<<<<<< HEAD
 #import "MainPageViewController.h"
 
 
@@ -27,6 +28,15 @@ int *globalCurrentOrderAmount = 0;
 
 
 
+=======
+
+NSMutableArray *globalArrayLocations;
+NSIndexPath *selectedIndexPath;
+NSMutableArray *globalOpenOrderMenu;
+NSMutableDictionary *globalOpenOrder;
+NSInteger globalOpenOrderVendorID;
+
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 int main(int argc, char * argv[])
 {
     @autoreleasepool {

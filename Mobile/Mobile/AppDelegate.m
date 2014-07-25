@@ -21,6 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UIPageControl *pageControl = [UIPageControl appearance];
+<<<<<<< HEAD
     pageControl.pageIndicatorTintColor = [UIColor blackColor];
     pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:153 green:0 blue:0 alpha:1.0];
     pageControl.backgroundColor = [UIColor lightGrayColor];
@@ -31,6 +32,11 @@
 
     
     
+=======
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageControl.backgroundColor = [UIColor whiteColor];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     // Override point for customization after application launch.
     //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     //StadiumViewController *controller = (StadiumViewController *)navigationController.topViewController;

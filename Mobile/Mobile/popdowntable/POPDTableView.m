@@ -7,7 +7,11 @@
 //
 
 #import "POPDTableView.h"
+<<<<<<< HEAD
 
+=======
+#import "POPDCell.h"
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 /*
  #define TABLECOLOR [UIColor colorWithRed:62.0/255.0 green:76.0/255.0 blue:87.0/255.0 alpha:1.0]
@@ -49,9 +53,12 @@
     self.sectionIsOpening = NO;
     
     static NSString *cellIdentifier = @"POPDOpenedCategoryCell";
+<<<<<<< HEAD
     
     
     
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     self.headerCell = [self dequeueReusableCellWithIdentifier:cellIdentifier];
     //self.headerHeight = self.headerCell.frame.size.height;
     //NSLog(@"header height: %f", self.headerHeight);
@@ -79,11 +86,16 @@
     [self setMenuSections:self.sections];
     self.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
+<<<<<<< HEAD
     self.startingScrollY = 0;
+=======
+    self.startingScrollY = -64;
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     self.startingScrollIsSet = YES;
 
 }
 
+<<<<<<< HEAD
 //- (void)swipeCell:(JZSwipeCell*)cell triggeredSwipeWithType:(JZSwipeType)swipeType
 //
 //{
@@ -99,6 +111,8 @@
 //    }
 //}
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -108,8 +122,11 @@
     return self;
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 -(id)initWithCoder:(NSCoder*)coder {
     self = [super initWithCoder:coder];
     if (self) {
@@ -137,8 +154,13 @@
     
     for (NSDictionary *sec in menuSections) {
         
+<<<<<<< HEAD
         NSString *header = [sec objectForKey:POPDCategoryTitleTV];
         NSArray *subSection = [sec objectForKey:POPDSubSectionTV];
+=======
+        NSString *header = [sec objectForKey:POPDCategoryTitle];
+        NSArray *subSection = [sec objectForKey:POPDSubSection];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
         
         NSMutableArray *section;
         section = [NSMutableArray new];
@@ -162,8 +184,13 @@
 - (void)setMenuSections:(NSArray *)menuSections withAllSectionsOpen:(BOOL)open {
     for (NSDictionary *sec in menuSections) {
         
+<<<<<<< HEAD
         NSString *header = [sec objectForKey:POPDCategoryTitleTV];
         NSArray *subSection = [sec objectForKey:POPDSubSectionTV];
+=======
+        NSString *header = [sec objectForKey:POPDCategoryTitle];
+        NSArray *subSection = [sec objectForKey:POPDSubSection];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
         
         NSMutableArray *section;
         section = [NSMutableArray new];
@@ -185,8 +212,13 @@
 }
 
 - (void)setMenuSection:(NSDictionary *)menuSection atSection:(NSInteger)sectionIndex {
+<<<<<<< HEAD
     NSString *header = [menuSection objectForKey:POPDCategoryTitleTV];
     NSArray *subSection = [menuSection objectForKey:POPDSubSectionTV];
+=======
+    NSString *header = [menuSection objectForKey:POPDCategoryTitle];
+    NSArray *subSection = [menuSection objectForKey:POPDSubSection];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     
     NSMutableArray *section;
     section = [NSMutableArray new];
@@ -205,8 +237,13 @@
 }
 
 - (void)setMenuSection:(NSDictionary *)menuSection atSection:(NSInteger)sectionIndex withSectionOpen:(BOOL)open {
+<<<<<<< HEAD
     NSString *header = [menuSection objectForKey:POPDCategoryTitleTV];
     NSArray *subSection = [menuSection objectForKey:POPDSubSectionTV];
+=======
+    NSString *header = [menuSection objectForKey:POPDCategoryTitle];
+    NSArray *subSection = [menuSection objectForKey:POPDSubSection];
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
     
     NSMutableArray *section;
     section = [NSMutableArray new];

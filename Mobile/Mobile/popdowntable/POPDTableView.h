@@ -1,6 +1,9 @@
 #import <UIKit/UIKit.h>
+<<<<<<< HEAD
 #import "POPDCell.h"
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 #ifndef MB_STRONG
 #if __has_feature(objc_arc)
 #define MB_STRONG strong
@@ -19,9 +22,16 @@
 #endif
 #endif
 
+<<<<<<< HEAD
 
 static NSString *POPDCategoryTitleTV = @"menuSectionHeader";
 static NSString *POPDSubSectionTV = @"menuSubSection";
+=======
+#import "POPDCell.h"
+
+static NSString *POPDCategoryTitle = @"menuSectionHeader";
+static NSString *POPDSubSection = @"menuSubSection";
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 
 
 @protocol POPDDelegate <NSObject>
@@ -41,8 +51,11 @@ static NSString *POPDSubSectionTV = @"menuSubSection";
 -(void) willDisplayClosedCategoryCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 -(void) willDisplayOpenedCategoryCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 -(void) willDisplayLeafSubCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+<<<<<<< HEAD
 //-(void)swipeCell:(JZSwipeCell*)cell triggeredSwipeWithType:(JZSwipeType)swipeType;
 
+=======
+>>>>>>> ae4b0d1c72f6836f8319d377ff50cf08c6ccc50a
 @end
 
 
