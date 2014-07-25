@@ -7,6 +7,7 @@
 //
 
 #import "SignUpProfileViewController.h"
+#import "ProfileContainerViewController.h"
 
 @interface SignUpProfileViewController ()
 
@@ -34,6 +35,14 @@
 
     // Do any additional setup after loading the view.
 }
+
+-(IBAction)next
+{
+    ProfileContainerViewController *profileContainer = (ProfileContainerViewController *) self.childViewControllers[0];
+    [profileContainer gatherInfo];
+}
+
+
 
 
 - (void)didReceiveMemoryWarning

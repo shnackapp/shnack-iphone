@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "STPView.h"
 
 @interface SignUpPaymentInfoViewController : UIViewController
+@property IBOutlet UIButton *saveButton;
+@property (weak, nonatomic) IBOutlet STPView *stripeView;
+extern int *globalCurrentOrderAmount;
 
-@property (nonatomic) IBOutlet UIButton *cancelButton;
-@property (nonatomic) IBOutlet UIButton *doneButton;
-@property (nonatomic) IBOutlet UILabel *signUpTitle;
+-(IBAction)done;
+-(void)createUserWithInfo:(NSString *)name andEmail:(NSString *)email andPhone:(NSString *)phone andPassword:(NSString *)password andStripeToken:(NSString *) token;
 
 @end

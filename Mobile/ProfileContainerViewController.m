@@ -44,48 +44,9 @@
     
     [profile.nextButton addTarget:self action:@selector(gatherInfo) forControlEvents:UIControlEventTouchUpInside];
 
-
-
     // Do any additional setup after loading the view.
 }
 
-- (BOOL) isAlphaNumeric
-{
-    NSCharacterSet *unwantedCharacters =
-    [[NSCharacterSet alphanumericCharacterSet] invertedSet];
-    
-    return ([self.first.text rangeOfCharacterFromSet:unwantedCharacters].location == NSNotFound) ? YES : NO;
-}
-
-
--(BOOL)isValidFirst:(NSString *)first
-{
-    //NSCharacterSet *unwantedCharacters =[[NSCharacterSet alphanumericCharacterSet] invertedSet];
-     if ([first isEqualToString:@""] )
-    {
-        
-        return NO;
-    }
-    else
-    {
-        return YES;
-    }
-    
-}
-
--(BOOL)isValidLast:(NSString *)last
-{
-    if ([last isEqualToString:@""] )
-    {
-        
-        return NO;
-    }
-    else
-    {
-        return YES;
-    }
-    
-}
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     //hides keyboard when another part of layout was touched
@@ -93,69 +54,55 @@
     [super touchesBegan:touches withEvent:event];
 }
 
--(BOOL)textFieldHelper:(UITextField *)theTextField
+-(void)textFieldDidBeginEditing:(UITextField *)textField
 {
-    if (theTextField == self.first)
-    {
-        NSString *first = self.first.text;
-        self.valid_first = [self isValidFirst:first];
-        if (!self.valid_first)
-        {
-            self.firstLabel.textColor = [UIColor redColor];
-            self.first.text = @"";
-        }
-        else
-        {
-            NSLog(@"first: %@ valid",first);
-            self.firstLabel.textColor = [UIColor blackColor];
-        }
-    }
-     if(theTextField == self.last)
-    {
-        NSString *last = self.last.text;
-        self.valid_last = [self isValidLast:last];
-        if (!self.valid_last)
-        {
-            self.lastLabel.textColor = [UIColor redColor];
-            self.last.text = @"";
-        }
-        else
-        {
-            NSLog(@"Last: %@ valid",last);
-            self.lastLabel.textColor = [UIColor blackColor];
-        }
-        
-    }
-   
-    
-    if (self.valid_first && self.valid_last)
-    {
-        SignUpProfileViewController  *signUpProfileViewController = [(SignUpProfileViewController *) self parentViewController];
-        NSLog(@"parent class%@", signUpProfileViewController.class);
-        signUpProfileViewController.nextButton.enabled = YES;
-        return YES;
-        
-    }
-    else return NO;
+    [textField addTarget:self action:@selector(checkForContent:) forControlEvents:UIControlEventEditingChanged];
+
 }
-
-
 
 - (void)textFieldDidEndEditing:(UITextField *)theTextField
 {
-    NSLog(@"text field");
-    [self textFieldHelper:theTextField];
+    self.is_filled = [self checkForContent:theTextField];
+}
+
+-(BOOL)checkForContent:(UITextField *)theTextField
+{
+    SignUpViewController  *signUpViewController = (SignUpViewController *) self.parentViewController;
+    
+    //if all fields are not empty show next button
+    int first_length = [self.first.text length];
+    int last_length = [self.last.text length];
+
+    if (first_length >= 2 && last_length >= 2)
+    {
+        signUpViewController.nextButton.enabled = YES;
+        return YES;
+    }
+    else
+    {
+        signUpViewController.nextButton.enabled = NO;
+        
+    }
+    return NO;
     
 }
 
+
 -(BOOL) textFieldShouldReturn:(UITextField *)theTextField
 {
-    self.is_valid = [self textFieldHelper:theTextField];
-    if(self.is_valid)
+    
+    if(theTextField == self.first)
     {
-        [self gatherInfo];
-        [self.parentViewController performSegueWithIdentifier:@"next" sender:self.parentViewController];
-
+        [self.first resignFirstResponder];
+        [self.last becomeFirstResponder];
+    }
+    if(theTextField == self.last)
+    {
+     self.is_filled = [self checkForContent:theTextField];
+    if (self.is_filled)
+    {
+    [self gatherInfo];
+    }
     }
     
     return YES;
@@ -166,9 +113,9 @@
     SignUpNavController *signUpNav = [(SignUpNavController *) self navigationController];
     [signUpNav.user_info setObject:self.first.text forKey:@"first"];
     [signUpNav.user_info setObject:self.last.text forKey:@"last"];
-    
     NSLog(@"here is my info %@,%@",signUpNav.user_info.allValues[3],signUpNav.user_info.allValues[4]);
-    
+    [self.parentViewController performSegueWithIdentifier:@"next" sender:self];
+
 }
 
 

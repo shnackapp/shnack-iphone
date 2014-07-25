@@ -33,6 +33,7 @@
 {
     [super viewDidLoad];
     
+    
     self.emailLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
     self.phoneLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
     self.passwordLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
@@ -41,19 +42,12 @@
     self.phone.delegate = self;
     self.password.delegate = self;
     
-    
-
     // Do any additional setup after loading the view.
     [self.email setBorderStyle:UITextBorderStyleNone];
     [self.password setBorderStyle:UITextBorderStyleNone];
     [self.phone setBorderStyle:UITextBorderStyleNone];
     
     SignUpViewController  *signUpViewController = (SignUpViewController *) self.parentViewController;
-
-    
-    //[signUpViewController.nextButton addTarget:self action:@selector(gatherAndCheckForm) forControlEvents:UIControlEventTouchUpInside];
-
-
 }
 
 -(BOOL)isValidEmail:(NSString *)email
@@ -118,6 +112,13 @@
 -(BOOL)gatherAndCheckForm
 {
     NSLog(@"gathering info");
+    
+    NSString *email_error = @"\u2022 Email incorrect.";
+    NSString *phone_error = @"\u2022 Phone number was not correct.";
+    NSString *password_error = @"\u2022 Password must be at least 6 characters.";
+    
+    
+    
     SignUpViewController  *signUpViewController = (SignUpViewController *) self.parentViewController;
 
     self.valid_email = [self isValidEmail:self.email.text];
@@ -127,7 +128,7 @@
     
     if(self.valid_email && self.valid_phone && self.valid_password)
     {
-        NSLog(@"storing info in distionary");
+        NSLog(@"storing info in dictionary");
         SignUpNavController *signUpNav = [(SignUpNavController *) self navigationController];
         [signUpNav.user_info setObject:self.email.text forKey:@"email"];
         [signUpNav.user_info setObject:self.phone.text forKey:@"phone_number"];
@@ -141,44 +142,38 @@
     }
     else
     {
+        
+        NSString *error_string = @"";
     [self.view endEditing:YES];//dismiss keyboard
         
         if(!self.valid_email)
         {
-            
-            signUpViewController.error_messages.hidden = NO;
-            signUpViewController.error_title.hidden = NO;
-            signUpViewController.error_title.text = @"Error";
-            signUpViewController.error_1.hidden = NO;
-            signUpViewController.error_1.text = @"Email incorrect!";
-            signUpViewController.error_1.textColor = [UIColor redColor];
             self.emailLabel.textColor = [UIColor redColor];
-            
+            if([error_string length] == 0) error_string =  email_error;
+            else error_string = [[error_string stringByAppendingString:@"\n"] stringByAppendingString:email_error];
         }
         if(!self.valid_phone)
         {
-            signUpViewController.error_messages.hidden = NO;
-            signUpViewController.error_title.hidden = NO;
-            signUpViewController.error_title.text = @"Error";
-            signUpViewController.error_2.hidden = NO;
-            signUpViewController.error_2.text = @"Phone incorrect!";
-            signUpViewController.error_2.textColor = [UIColor redColor];
+            
+            if([error_string length] == 0) error_string =  phone_error;
+            else error_string = [[error_string stringByAppendingString:@"\n"] stringByAppendingString:phone_error];
             self.phoneLabel.textColor = [UIColor redColor];
             
             
         }
         if(!self.valid_password)
         {
-            
-            signUpViewController.error_messages.hidden = NO;
-            signUpViewController.error_title.hidden = NO;
-            signUpViewController.error_title.text = @"Error";
-            signUpViewController.error_3.hidden = NO;
-            signUpViewController.error_3.text = @"Password at least 7 characters!";
-            signUpViewController.error_3.textColor = [UIColor redColor];
+            if([error_string length] == 0) error_string =  password_error;
+            else error_string = [[error_string stringByAppendingString:@"\n"] stringByAppendingString:password_error];
             self.passwordLabel.textColor = [UIColor redColor];
             
         }
+        signUpViewController.error_messages.hidden = NO;
+        signUpViewController.error_messages.text = error_string;
+        signUpViewController.error_messages.textColor = [UIColor redColor];
+        
+        
+
 
     return NO;
     }
@@ -197,7 +192,6 @@
     {
         signUpViewController.nextButton.enabled = YES;
         return YES;
-        
     }
     else
     {
@@ -230,6 +224,12 @@
 -(BOOL) textFieldShouldReturn:(UITextField *)theTextField
 {
     self.is_filled = [self checkForContent:theTextField];
+    
+    if(theTextField == self.email)
+    {
+        [self.email resignFirstResponder];
+        [self.phone becomeFirstResponder];
+    }
 
     if(theTextField == self.password)
     {

@@ -17,10 +17,7 @@
 @property (nonatomic) IBOutlet UITextView *error_messages;
 -(IBAction)next;
 
-@property (nonatomic) IBOutlet UILabel *error_1;
-@property (nonatomic) IBOutlet UILabel *error_2;
-@property (nonatomic) IBOutlet UILabel *error_3;
-@property (nonatomic) IBOutlet UILabel *error_title;
+
 
 
 

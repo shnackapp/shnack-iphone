@@ -36,7 +36,6 @@
 		695E27CA197E2A3200B0CA2D /* DismissSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 695E27C9197E2A3200B0CA2D /* DismissSegue.m */; };
 		695E27CD197E325700B0CA2D /* SignUpNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695E27CC197E325700B0CA2D /* SignUpNavController.m */; };
 		695E27D0197E3CBD00B0CA2D /* SignUpPaymentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695E27CF197E3CBD00B0CA2D /* SignUpPaymentInfoViewController.m */; };
-		695E27D3197E3CE800B0CA2D /* PaymentContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695E27D2197E3CE800B0CA2D /* PaymentContainerViewController.m */; };
 		6960ABCB191B21CE001DAF8E /* upArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6960ABCA191B21CE001DAF8E /* upArrow.png */; };
 		6963E21B190846FA00C6885A /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963E21A190846FA00C6885A /* SignUpViewController.m */; };
 		6963E21E1908472800C6885A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963E21D1908472800C6885A /* LoginViewController.m */; };
@@ -195,8 +194,6 @@
 		695E27CC197E325700B0CA2D /* SignUpNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpNavController.m; sourceTree = "<group>"; };
 		695E27CE197E3CBD00B0CA2D /* SignUpPaymentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpPaymentInfoViewController.h; sourceTree = "<group>"; };
 		695E27CF197E3CBD00B0CA2D /* SignUpPaymentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpPaymentInfoViewController.m; sourceTree = "<group>"; };
-		695E27D1197E3CE800B0CA2D /* PaymentContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentContainerViewController.h; sourceTree = "<group>"; };
-		695E27D2197E3CE800B0CA2D /* PaymentContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentContainerViewController.m; sourceTree = "<group>"; };
 		6960ABCA191B21CE001DAF8E /* upArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upArrow.png; path = Mobile/upArrow.png; sourceTree = "<group>"; };
 		6963E219190846FA00C6885A /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Mobile/SignUpViewController.h; sourceTree = "<group>"; };
 		6963E21A190846FA00C6885A /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = Mobile/SignUpViewController.m; sourceTree = "<group>"; };
@@ -500,8 +497,6 @@
 				695E27C5197E19A000B0CA2D /* ProfileContainerViewController.m */,
 				695E27CE197E3CBD00B0CA2D /* SignUpPaymentInfoViewController.h */,
 				695E27CF197E3CBD00B0CA2D /* SignUpPaymentInfoViewController.m */,
-				695E27D1197E3CE800B0CA2D /* PaymentContainerViewController.h */,
-				695E27D2197E3CE800B0CA2D /* PaymentContainerViewController.m */,
 			);
 			name = "Sign Up Navigation Controllers";
 			sourceTree = "<group>";
@@ -1067,7 +1062,6 @@
 				69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */,
 				69F95D0818F200B30011F5DB /* PKComponent.m in Sources */,
 				42E04719190813A800890447 /* POPDTableView.m in Sources */,
-				695E27D3197E3CE800B0CA2D /* PaymentContainerViewController.m in Sources */,
 				69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */,
 				42E9611218ED494100E5A182 /* RootViewController.m in Sources */,
 				69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */,

@@ -14,7 +14,7 @@
 @property (nonatomic) IBOutlet UIButton *nextButton;
 @property (nonatomic) IBOutlet UILabel *signUpTitle;
 
-
+-(IBAction)next;
 
 
 @end

@@ -47,18 +47,18 @@
     NSLog(@"container class %@",signUpContainerViewController.class);
     
     self.error_messages.hidden = YES;
-    self.error_1.hidden = YES;
-    self.error_2.hidden = YES;
-    self.error_3.hidden = YES;
-    self.error_title.hidden = YES;
     
-
 
     
     //make container round.....
     //signUpContainerViewController.tableView.layer.cornerRadius = 10;
 
     
+}
+//makes errors spaced out
+- (CGFloat)layoutManager:(NSLayoutManager *)layoutManager lineSpacingAfterGlyphAtIndex:(NSUInteger)glyphIndex withProposedLineFragmentRect:(CGRect)rect
+{
+    return 24; // For really wide spacing; pick your own value
 }
 
 -(IBAction)next
