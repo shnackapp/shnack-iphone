@@ -49,6 +49,7 @@
 		6963E2331908481800C6885A /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 6963E22A1908481800C6885A /* Contents.json */; };
 		6963E2341908481800C6885A /* Walkthrough3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6963E22B1908481800C6885A /* Walkthrough3.png */; };
 		6963E23619085F2700C6885A /* stadium.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 6963E23519085F2700C6885A /* stadium.jpeg */; };
+		696A45601983338F0080CB57 /* ReceiptViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 696A455F1983338F0080CB57 /* ReceiptViewController.m */; };
 		69715B1B18AD39560039D061 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B1A18AD39560039D061 /* Foundation.framework */; };
 		69715B1D18AD39560039D061 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B1C18AD39560039D061 /* CoreGraphics.framework */; };
 		69715B1F18AD39560039D061 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69715B1E18AD39560039D061 /* UIKit.framework */; };
@@ -112,7 +113,6 @@
 		69F95D1E18F200B30011F5DB /* gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F95CFB18F200B30011F5DB /* gradient@2x.png */; };
 		69F95D1F18F200B30011F5DB /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F95CFC18F200B30011F5DB /* textfield.png */; };
 		69F95D2018F200B30011F5DB /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F95CFD18F200B30011F5DB /* textfield@2x.png */; };
-		69F95D2318F201FD0011F5DB /* PaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95D2218F201FD0011F5DB /* PaymentViewController.m */; };
 		69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95D2618F2184B0011F5DB /* MBProgressHUD.m */; };
 /* End PBXBuildFile section */
 
@@ -209,6 +209,8 @@
 		6963E22A1908481800C6885A /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		6963E22B1908481800C6885A /* Walkthrough3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Walkthrough3.png; sourceTree = "<group>"; };
 		6963E23519085F2700C6885A /* stadium.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stadium.jpeg; sourceTree = "<group>"; };
+		696A455E1983338F0080CB57 /* ReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReceiptViewController.h; path = Mobile/ReceiptViewController.h; sourceTree = "<group>"; };
+		696A455F1983338F0080CB57 /* ReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReceiptViewController.m; path = Mobile/ReceiptViewController.m; sourceTree = "<group>"; };
 		69715B1718AD39560039D061 /* Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69715B1A18AD39560039D061 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		69715B1C18AD39560039D061 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -324,8 +326,6 @@
 		69F95CFB18F200B30011F5DB /* gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gradient@2x.png"; sourceTree = "<group>"; };
 		69F95CFC18F200B30011F5DB /* textfield.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield.png; sourceTree = "<group>"; };
 		69F95CFD18F200B30011F5DB /* textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield@2x.png"; sourceTree = "<group>"; };
-		69F95D2118F201FD0011F5DB /* PaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentViewController.h; path = Mobile/PaymentViewController.h; sourceTree = "<group>"; };
-		69F95D2218F201FD0011F5DB /* PaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentViewController.m; path = Mobile/PaymentViewController.m; sourceTree = "<group>"; };
 		69F95D2518F2184B0011F5DB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		69F95D2618F2184B0011F5DB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		6A546BF48A1243308E94883D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -435,14 +435,14 @@
 				6939374E191F13110061839C /* Main Pages */,
 				42459A7318FD212700C5728B /* Scrolling Tutorial Controllers */,
 				42459A7218FD210900C5728B /* Side Menu Controllers */,
-				69F95D2118F201FD0011F5DB /* PaymentViewController.h */,
-				69F95D2218F201FD0011F5DB /* PaymentViewController.m */,
-				42E0470519061DC200890447 /* ShnackMenuViewController.h */,
-				42E0470619061DC200890447 /* ShnackMenuViewController.m */,
 				69715B3418AD39560039D061 /* LocationsViewController.h */,
 				69715B3518AD39560039D061 /* LocationsViewController.m */,
+				42E0470519061DC200890447 /* ShnackMenuViewController.h */,
+				42E0470619061DC200890447 /* ShnackMenuViewController.m */,
 				42E0470B190741F500890447 /* ShnackMyOrderViewController.h */,
 				42E0470C190741F500890447 /* ShnackMyOrderViewController.m */,
+				696A455E1983338F0080CB57 /* ReceiptViewController.h */,
+				696A455F1983338F0080CB57 /* ReceiptViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -1073,13 +1073,13 @@
 				691E66DB18F3D5C200F67683 /* TutorialContentViewController.m in Sources */,
 				695E27C3197E195B00B0CA2D /* SignUpProfileViewController.m in Sources */,
 				695E27CD197E325700B0CA2D /* SignUpNavController.m in Sources */,
-				69F95D2318F201FD0011F5DB /* PaymentViewController.m in Sources */,
 				69F95D0318F200B30011F5DB /* PKAddressZip.m in Sources */,
 				69F95D0018F200B30011F5DB /* STPView.m in Sources */,
 				69F3199819368DC400C501D5 /* LoginContainerViewController.m in Sources */,
 				42E0470719061DC200890447 /* ShnackMenuViewController.m in Sources */,
 				69400FBF18BBEBC400238826 /* ObjectWithNameAndID.m in Sources */,
 				6963E21E1908472800C6885A /* LoginViewController.m in Sources */,
+				696A45601983338F0080CB57 /* ReceiptViewController.m in Sources */,
 				42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */,
 				42E0470A1906607400890447 /* ShnackOrderCategoryCell.m in Sources */,
 				69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */,

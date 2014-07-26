@@ -84,9 +84,6 @@
 
 -(void)loadReceipt:(NSString *)info
 {
-    UIView *receiptView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 150, 200)];
-    receiptView.backgroundColor = [UIColor lightGrayColor];
-    
     
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Thank You", @"Thank You")
                                                       message:@"Thank you for your order. A receipt has been emailed to you!"
@@ -154,15 +151,20 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if ([[segue identifier] isEqualToString:@"order"]) {
+        UINavigationController *nav = [[UINavigationController alloc] initWithNibName:@"contentViewController" bundle:nil];
+            }
+    
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

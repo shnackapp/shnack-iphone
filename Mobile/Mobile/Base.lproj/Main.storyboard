@@ -1104,7 +1104,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="MYx-nT-bzO" kind="push" id="Hyz-b4-ILe"/>
+                                    <segue destination="mJA-oI-v7Z" kind="push" id="QtB-UA-orm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1114,7 +1114,7 @@
                         <barButtonItem key="rightBarButtonItem" title="$0.00" id="TbG-we-n9f">
                             <connections>
                                 <action selector="presentRightMenuViewController:" destination="ND0-LZ-y5P" id="n4R-4b-Qdu"/>
-                                <segue destination="MYx-nT-bzO" kind="push" id="i0m-OS-zS4"/>
+                                <segue destination="mJA-oI-v7Z" kind="push" id="PEs-R5-UXt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -1128,40 +1128,24 @@
             </objects>
             <point key="canvasLocation" x="668" y="40"/>
         </scene>
-        <!--Payment View Controller - Payment-->
-        <scene sceneID="Osf-X0-g1A">
+        <!--Receipt View Controller - Receipt-->
+        <scene sceneID="8HI-By-lou">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="MYx-nT-bzO" customClass="PaymentViewController" sceneMemberID="viewController">
+                <viewController id="mJA-oI-v7Z" customClass="ReceiptViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="tzd-eD-tIs"/>
-                        <viewControllerLayoutGuide type="bottom" id="u7N-dY-ZYX"/>
+                        <viewControllerLayoutGuide type="top" id="Ham-qO-toA"/>
+                        <viewControllerLayoutGuide type="bottom" id="OPl-iV-8o7"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gQ2-pt-HcM">
+                    <view key="view" contentMode="scaleToFill" id="qtt-tN-RYo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u28-nJ-pc8" customClass="STPView">
-                                <rect key="frame" x="15" y="75" width="290" height="55"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Payment" id="h0z-lZ-x9v">
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="c1A-Z2-5kX">
-                            <connections>
-                                <action selector="save:" destination="MYx-nT-bzO" id="vJr-zW-QRs"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="stripeView" destination="u28-nJ-pc8" id="45g-zW-RFa"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Receipt" id="l8M-ML-cuH"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cii-rO-AsQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DHi-hY-jhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1110" y="40"/>
+            <point key="canvasLocation" x="1060" y="40"/>
         </scene>
         <!--Sign Up Container View Controller-->
         <scene sceneID="B1e-WO-5xQ">
@@ -1535,6 +1519,6 @@
         <segue reference="Dah-7x-nBw"/>
         <segue reference="R1H-bM-kbw"/>
         <segue reference="sqX-Ae-JYZ"/>
-        <segue reference="i0m-OS-zS4"/>
+        <segue reference="QtB-UA-orm"/>
     </inferredMetricsTieBreakers>
 </document>

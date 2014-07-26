@@ -29,10 +29,10 @@
 {
     
     [super viewDidLoad];
-    self.signUp.hidden = true;
-    self.orderNow.hidden = true;
-    self.Login.hidden = true;
-    
+//    self.signUp.hidden = true;
+//    self.orderNow.hidden = true;
+//    self.Login.hidden = true;
+//    
     
     self.signUp.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
     self.orderNow.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];

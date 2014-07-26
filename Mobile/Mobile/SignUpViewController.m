@@ -10,6 +10,7 @@
 
 #import "SignUpContainerViewController.h"
 #import "InitialViewController.h"
+#import "MBProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -64,6 +65,7 @@
 -(IBAction)next
 {
     SignUpContainerViewController *signUpContainer = (SignUpContainerViewController *) self.childViewControllers[0];
+
     [signUpContainer gatherAndCheckForm];
 }
 
