@@ -45,6 +45,7 @@ NSIndexPath *reloadingCategoryIndexPath;
     
     
     // important! set whether the user should be able to swipe from the right to reveal the side menu
+
     self.sideMenuViewController.panGestureEnabled = YES;
 }
 //////////////

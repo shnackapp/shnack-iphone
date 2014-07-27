@@ -234,7 +234,7 @@
                                                     <rect key="frame" x="97" y="9" width="163" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="5Fr-Pw-7sl" id="zUw-Hl-1yD"/>
                                                     </connections>
@@ -463,6 +463,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Hcn-6i-16Z"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sBK-FC-hCf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

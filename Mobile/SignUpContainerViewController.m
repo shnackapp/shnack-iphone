@@ -133,8 +133,6 @@
         [signUpNav.user_info setObject:self.email.text forKey:@"email"];
         [signUpNav.user_info setObject:self.phone.text forKey:@"phone_number"];
         [signUpNav.user_info setObject:self.password.text forKey:@"password"];
-        NSLog(@"email:  %@, phone number: %@, password: %@",signUpNav.user_info.allValues[0],signUpNav.user_info.allValues[1],signUpNav.user_info.allValues[2]);
-    
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         //check for existence on seerver......
         [NSThread sleepForTimeInterval:2.0f];

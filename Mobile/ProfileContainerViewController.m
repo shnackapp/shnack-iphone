@@ -113,7 +113,7 @@
     SignUpNavController *signUpNav = [(SignUpNavController *) self navigationController];
     [signUpNav.user_info setObject:self.first.text forKey:@"first"];
     [signUpNav.user_info setObject:self.last.text forKey:@"last"];
-    NSLog(@"first: %@, last: %@",signUpNav.user_info.allValues[3],signUpNav.user_info.allValues[4]);
+    NSLog(@"first: %@, last: %@",[signUpNav.user_info objectForKey:@"first"],[signUpNav.user_info objectForKey:@"last"]);
     [self.parentViewController performSegueWithIdentifier:@"next" sender:self];
 
 }
