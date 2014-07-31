@@ -143,45 +143,33 @@
     NSError *error = nil;
     
     _receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-    
-    if(error)
-    {
-        NSLog(@"@ERROR_RESPONSE%@", error);
-        
-    }
-    
+
     
     NSMutableDictionary *receivedJSON = [NSJSONSerialization JSONObjectWithData:_receivedData options:NSJSONReadingMutableContainers error:&error];
     NSLog(@"Received JSON is %@", receivedJSON);
     
     
-//    for(id key in receivedJSON) {
-//        
-//        
-//        NSString *value = [receivedJSON valueForKey:@"id"];
-//        NSLog(@"%@ : %@",key,value);
-//    }
-//
-    
-    if([receivedJSON objectForKey:@"card_error"])
-    {
-        
-        UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error")
-                                                          message:[error localizedDescription]
-                                                         delegate:nil
-                                                cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
-                                                otherButtonTitles:nil];
-        [message show];
-
-        
-    }
-    
     NSString *full_name = [[[nav.user_info objectForKey:@"first"] stringByAppendingString:@" "] stringByAppendingString:[nav.user_info objectForKey:@"last"]];
     
-    [nav.user_info setObject:[receivedJSON valueForKey:@"id"] forKey:@"id"];
+        //change this eventuslly, currently just checks if json is null but we want to check json for error code and display message based on code
+        if(!receivedJSON)
+        {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error")
+                                                              message:[error localizedDescription]
+                                                             delegate:nil
+                                                    cancelButtonTitle:NSLocalizedString(@"OK", @"OK")
+                                                    otherButtonTitles:nil];
+            [message show];
+
+        }
+        else
+        {
+        [nav.user_info setObject:[receivedJSON valueForKey:@"id"] forKey:@"id"];
+        [self createUserWithInfo:full_name andEmail:[nav.user_info objectForKey:@"email"] andPhone:[nav.user_info objectForKey:@"phone_number"] andPassword:[nav.user_info objectForKey:@"password"] andStripeCustomerID:[nav.user_info objectForKey:@"id"]];
+        [self performSegueWithIdentifier:@"order" sender:self];
+        }
     
-    [self createUserWithInfo:full_name andEmail:[nav.user_info objectForKey:@"email"] andPhone:[nav.user_info objectForKey:@"phone_number"] andPassword:[nav.user_info objectForKey:@"password"] andStripeCustomerID:[nav.user_info objectForKey:@"id"]];
-    [self performSegueWithIdentifier:@"order" sender:self];
+    
 }
 
 
@@ -211,6 +199,15 @@
                                                  }
                                          }];
     NSLog(@"CREATED USER WITH PAYMENT INFO");
+    //want to get back auth token here
+//    NSURLResponse *response = nil;
+//    NSError *error = nil;
+//    
+//    _receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+//
+//    NSMutableDictionary *receivedJSON = [NSJSONSerialization JSONObjectWithData:_receivedData options:NSJSONReadingMutableContainers error:&error];
+//    NSLog(@"Received JSON is %@", receivedJSON);
+//    
     
     }
 
