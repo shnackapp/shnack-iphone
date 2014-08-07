@@ -73,7 +73,6 @@ NSIndexPath *reloadingCategoryIndexPath;
         NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
         self.locations = [[NSMutableArray alloc] initWithCapacity:[res count]];
         
-        
         NSLog(@"%@", [res description]);
         
         NSMutableArray *menu = [[NSMutableArray alloc] initWithCapacity:[res count]];
