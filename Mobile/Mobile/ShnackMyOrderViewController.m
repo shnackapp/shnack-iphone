@@ -14,6 +14,10 @@
 #import "RESideMenu.h"
 #import "POPDCell.h"
 #import "ShnackOrderCategoryCell.h"
+#import "UIViewController+CWPopup.h"
+#import "CartPopViewController.h"
+
+
 
 @interface ShnackMyOrderViewController ()  <POPDDelegate>
 @property (strong, nonatomic) NSMutableArray *selectedItems;
@@ -21,14 +25,19 @@
 
 @implementation ShnackMyOrderViewController
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.delegate = self;
+    [self.view addGestureRecognizer:tapRecognizer];
+    self.useBlurForPopup = YES;
+    
     self.tableView.popDownDelegate = self;
         self.tableView.dataSource = self.tableView;
+    
     
         [[BButton appearance] setButtonCornerRadius:[NSNumber numberWithFloat:0.0f]];
         [self.checkoutButton setStyle:BButtonStyleBootstrapV3];
@@ -76,6 +85,26 @@
     self.sideMenuViewController.panGestureEnabled = YES;
     
 }
+
+-(IBAction)presentCart
+{
+    NSLog(@"I PRESSED IT!");
+        
+     CartPopViewController *cart = [[CartPopViewController alloc] initWithNibName:@"CartPopViewController" bundle:nil];
+    [self presentPopupViewController:cart animated:YES completion:nil];
+    
+}
+
+- (void)dismissPopup {
+    if (self.popupViewController != nil) {
+        [self dismissPopupViewControllerAnimated:YES completion:^{
+            NSLog(@"popup view dismissed");
+        }];
+    }
+}
+
+
+
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
 
@@ -231,6 +260,11 @@
  #pragma mark - Navigation
  
  // In a story board-based application, you will often want to do a little preparation before navigation
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return touch.view == self.view;
+}
+
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
  {
      

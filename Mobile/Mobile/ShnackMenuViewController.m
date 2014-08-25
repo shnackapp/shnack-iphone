@@ -15,6 +15,9 @@
 #import "POPDCell.h"
 #import "ShnackOrderCategoryCell.h"
 #import "NSObject_Constants.h"
+#import "UIViewController+CWPopup.h"
+#import "CartPopViewController.h"
+
 
 @interface ShnackMenuViewController ()  <POPDDelegate>
 @property (nonatomic) NSInteger vendorID;
@@ -34,6 +37,41 @@ NSInteger myCount;
 
 - (void)viewDidLoad
 {
+    
+    
+   
+    
+
+    
+    globalCurrentVendorName = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] name];
+    NSLog(@"top name %@",globalCurrentVendorName);
+    //self.navigationItem.title = globalCurrentVendorName;
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Dosis-Medium" size:22];;
+    
+    label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    label.textAlignment = NSTextAlignmentCenter;
+    // ^-Use UITextAlignmentCenter for older SDKs.
+    label.textColor = [UIColor whiteColor]; // change this color
+    self.navigationItem.titleView = label;
+    label.text = globalCurrentVendorName;
+    [label sizeToFit];
+    
+
+    
+    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
+    tapRecognizer.numberOfTapsRequired = 1;
+    tapRecognizer.delegate = self;
+    //[self.view addGestureRecognizer:tapRecognizer];
+    [self.tableView addGestureRecognizer:tapRecognizer];
+    
+    self.isCartShowing = NO;
+
+    
+    self.useBlurForPopup = YES;
+
     [super viewDidLoad];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -44,7 +82,8 @@ NSInteger myCount;
     
     [[BButton appearance] setButtonCornerRadius:[NSNumber numberWithFloat:0.0f]];
     [self.checkoutButton setStyle:BButtonStyleBootstrapV3];
-    [self.checkoutButton setType:BButtonTypeDanger];
+    [self.checkoutButton setType:BButtonTypeFacebook];
+    [self.checkoutButton addTarget:self action:@selector(presentCart) forControlEvents:UIControlEventTouchUpInside];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -54,9 +93,11 @@ NSInteger myCount;
         self.checkoutButton.enabled = YES;
         
         globalCurrentVendorID = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] object_id];
-        globalCurrentVendorName = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] name];
-        self.vendorName.text = globalCurrentVendorName;
-        
+//        globalCurrentVendorName = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] name];
+//        self.navigationController.navigationBar.topItem.title = globalCurrentVendorName;
+//       
+//        self.vendorName.text = globalCurrentVendorName;
+//        
 
         if (globalCurrentVendorID != globalOpenOrderVendorID) {
             self.responseData = [NSMutableData data];
@@ -93,7 +134,6 @@ NSInteger myCount;
     }
     
     
-    NSLog(@"2222222222");
 
     
     // important! set whether the user should be able to swipe from the right to reveal the side menu
@@ -160,9 +200,6 @@ NSInteger myCount;
         [tableData addObject:section];
         [self.menu addObject:menuCategory];
     }
-    
-    
-
     
     [self.tableView setMenuSections:tableData];
     [self.tableView reloadData];
@@ -242,10 +279,12 @@ NSInteger myCount;
     item.count++;
     categoryItem.count++;
     
+    if(self.isCartShowing == NO){
     NSInteger total = [self calculateOrderTotal];
     self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
 -(IBAction)decreaseCountByOne:(id)sender
 {
@@ -260,12 +299,57 @@ NSInteger myCount;
         categoryItem.count--;
         item.count--;
     }
-    
+    if(self.isCartShowing == NO){
     NSInteger total = [self calculateOrderTotal];
     self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+    }
 }
+
+-(IBAction)presentCart
+{
+    NSLog(@"I PRESSED IT!");
+    self.isCartShowing = YES;
+    
+    CartPopViewController *cart = [[CartPopViewController alloc] initWithNibName:@"CartPopViewController" bundle:nil];
+//    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
+//    tapRecognizer.numberOfTapsRequired = 1;
+    
+    [self presentPopupViewController:cart animated:YES completion:nil];
+    //tap tableview to dismiss
+    //tapRecognizer.delegate = self.tableView;
+    //[self.tableView addGestureRecognizer:tapRecognizer];
+    
+    
+
+    //this dismisses popup!!
+    //[((CartPopViewController *)self.popupViewController).closeCart addGestureRecognizer:tapRecognizer];
+    [((CartPopViewController *)self.popupViewController).closeCart addTarget:self action:@selector(dismissPopup) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.checkoutButton.enabled = NO;
+    
+}
+
+- (void)dismissPopup {
+    self.isCartShowing = NO;
+//    CartPopViewController *cart = [[CartPopViewController alloc] initWithNibName:@"CartPopViewController" bundle:nil];
+//    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
+//    tapRecognizer.numberOfTapsRequired = 1;
+//    tapRecognizer.delegate = self;
+    
+    if (self.popupViewController != nil) {
+        [self dismissPopupViewControllerAnimated:YES completion:^{
+            NSLog(@"popup view dismissed");
+        }];
+        self.checkoutButton.enabled = YES;
+    }
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    return touch.view == self.view;
+}
+
 
 
 

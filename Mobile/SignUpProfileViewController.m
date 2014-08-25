@@ -28,9 +28,28 @@
 {
     [super viewDidLoad];
     
-    self.cancelButton.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:16];
-    self.nextButton.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:16];
-    self.signUpTitle.font = [UIFont fontWithName:@"Poiret One" size:26];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Dosis-Medium" size:22];;
+    
+    label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    label.textAlignment = NSTextAlignmentCenter;
+    // ^-Use UITextAlignmentCenter for older SDKs.
+    label.textColor = [UIColor whiteColor]; // change this color
+    self.navigationItem.titleView = label;
+    label.text = NSLocalizedString(@"Profile", @"");
+    [label sizeToFit];
+    
+    
+    
+    self.cancelButton.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:16];
+    self.nextButton.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:16];
+    self.signUpTitle.font = [UIFont fontWithName:@"Dosis-Medium" size:26];
+    
+    self.nextButton.enabled = NO;
+    
+    self.container.layer.cornerRadius = 5.0f;
+
     
 
     // Do any additional setup after loading the view.

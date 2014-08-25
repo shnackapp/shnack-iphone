@@ -21,6 +21,9 @@
 @property (retain, nonatomic) IBOutlet UITextField *phone;
 @property (nonatomic) IBOutlet UILabel *phoneLabel;
 
+@property (retain, nonatomic) NSData *receivedData;
+
+
 
 
 

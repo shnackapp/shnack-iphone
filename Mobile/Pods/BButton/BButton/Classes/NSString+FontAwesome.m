@@ -36,7 +36,11 @@
 
 NSString * const kFontAwesomeFont = @"FontAwesome";
 
+
+
 @implementation NSString (FontAwesome)
+
+
 
 + (NSArray *)fa_allFontAwesomeStrings
 {
@@ -48,5 +52,12 @@ NSString * const kFontAwesomeFont = @"FontAwesome";
 {
     return [strings objectAtIndex:icon];
 }
+
+
++(NSString*)awesomeIcon:(FAIcon)index
+{
+    return [NSString stringWithFormat:@"%C", (unichar)index];
+}
+
 
 @end

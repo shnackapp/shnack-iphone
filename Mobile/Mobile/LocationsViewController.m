@@ -23,7 +23,28 @@ NSIndexPath *reloadingCategoryIndexPath;
 
 - (void)viewDidLoad
 {
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Dosis-Medium" size:22];;
+    
+    label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    label.textAlignment = NSTextAlignmentCenter;
+    // ^-Use UITextAlignmentCenter for older SDKs.
+    label.textColor = [UIColor whiteColor]; // change this color
+    self.navigationItem.titleView = label;
+    label.text = NSLocalizedString(@"Locations", @"");
+    [label sizeToFit];
+    
+    
+    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+	[infoButton addTarget:self action:@selector(infoButtonAction) forControlEvents:UIControlEventTouchUpInside];
+	UIBarButtonItem *modalButton = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+	[self.navigationItem setLeftBarButtonItem:modalButton animated:YES];
+	//[modalButton release];
+
     self.delegate = self;
     self.tableView.dataSource = self;
     [super viewDidLoad];
@@ -45,8 +66,15 @@ NSIndexPath *reloadingCategoryIndexPath;
     
     
     // important! set whether the user should be able to swipe from the right to reveal the side menu
+    
+    
 
     self.sideMenuViewController.panGestureEnabled = YES;
+}
+
+-(void)infoButtonAction
+{
+    NSLog(@" pressed the i");
 }
 //////////////
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -84,6 +112,7 @@ NSIndexPath *reloadingCategoryIndexPath;
             
             ObjectWithNameAndID *aStadium = [[ObjectWithNameAndID alloc] initWithID:id_ name:name];
             
+            
             NSDictionary *section;
             if (hasChildren) {
                 section = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -118,6 +147,7 @@ NSIndexPath *reloadingCategoryIndexPath;
             int id_ = [[stadium objectForKey:@"id"] integerValue];
             NSString *name = [stadium valueForKey:@"name"];
             
+                       
             ObjectWithNameAndID *aStadium = [[ObjectWithNameAndID alloc] initWithID:id_ name:name];
             [vendors addObject: aStadium];
 
@@ -191,5 +221,10 @@ NSIndexPath *reloadingCategoryIndexPath;
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
 }
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+        self.navigationItem.backBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+}
+
 
 @end

@@ -18,6 +18,7 @@
 -(IBAction)next;
 
 
+@property (weak, nonatomic) IBOutlet UIView *container;
 
 
 

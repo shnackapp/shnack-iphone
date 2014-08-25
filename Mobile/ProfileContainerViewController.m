@@ -30,12 +30,19 @@
 {
     [super viewDidLoad];
     
+    self.tableView.backgroundColor = [UIColor clearColor];
+    for (CALayer *subLayer in self.tableView.layer.sublayers)
+    {
+        subLayer.cornerRadius = 5.0f;
+        subLayer.masksToBounds = YES;
+    }
+    
     
     self.first.delegate = self;
     self.last.delegate = self;
 
-    self.firstLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
-    self.lastLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
+    self.firstLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
+    self.lastLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
     
     [self.first setBorderStyle:UITextBorderStyleNone];
     [self.last setBorderStyle:UITextBorderStyleNone];

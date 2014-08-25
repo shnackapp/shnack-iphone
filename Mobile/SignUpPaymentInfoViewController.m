@@ -32,12 +32,65 @@
 {
     [super viewDidLoad];
     
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont fontWithName:@"Dosis-Medium" size:22];;
+    
+    label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+    label.textAlignment = NSTextAlignmentCenter;
+    // ^-Use UITextAlignmentCenter for older SDKs.
+    label.textColor = [UIColor whiteColor]; // change this color
+    self.navigationItem.titleView = label;
+    label.text = NSLocalizedString(@"Payment", @"");
+    [label sizeToFit];
+    
+    self.cancelButton.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:16];
+    self.saveButton.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:16];
+    self.paymentTitle.font = [UIFont fontWithName:@"Dosis-Medium" size:26];
+    
     [self.stripeView setKey:PUBLISHABLE_TEST];
     self.stripeView.delegate = self;
     self.saveButton.enabled = NO;
     
     // important! set whether the user should be able to swipe from the right to reveal the side menu
     self.sideMenuViewController.panGestureEnabled = YES;
+    
+    [[BButton appearance] setButtonCornerRadius:[NSNumber numberWithFloat:5.0f]];
+    
+    [self.paypal setStyle:BButtonStyleBootstrapV3];
+    [self.paypal setType:BButtonTypeFacebook];
+    [self.paypal addTarget:self action:@selector(payWithPaypal) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.venmoTouch setStyle:BButtonStyleBootstrapV3];
+    [self.venmoTouch setType:BButtonTypeFacebook];
+    [self.venmoTouch addTarget:self action:@selector(payWithVenmo) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.skipButton setStyle:BButtonStyleBootstrapV3];
+    [self.skipButton setType:BButtonTypeDanger];
+    [self.skipButton addTarget:self action:@selector(payWithSkip) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    //hides keyboard when another part of layout was touched
+    [self.view endEditing:YES];
+    [super touchesBegan:touches withEvent:event];
+}
+
+
+-(BOOL)payWithPaypal
+{
+    return YES;
+    
+}
+-(BOOL)payWithVenmo
+{
+    return YES;
+    
+}
+-(void)payWithSkip
+{
+    
 }
 
 - (IBAction)save:(id)sender
@@ -126,18 +179,18 @@
     NSLog(@"this is the url %@",url);
     NSLog(@"this is the body %@",body);
     
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                               [MBProgressHUD hideHUDForView:self.view animated:YES];
-                               
-                               if (error) {
-                                   // Handle error
-                                   [self handleError:error];
-
-                               }
-
-                               }];
+//    [NSURLConnection sendAsynchronousRequest:request
+//                                       queue:[NSOperationQueue mainQueue]
+//                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+//                               [MBProgressHUD hideHUDForView:self.view animated:YES];
+//                               
+//                               if (error) {
+//                                   // Handle error
+//                                   [self handleError:error];
+//
+//                               }
+//
+//                               }];
     
     NSURLResponse *response = nil;
     NSError *error = nil;

@@ -25,6 +25,10 @@
 # define BASE_URL @"http://demo.shnackapp.com/api"
 #define PUBLISHABLE_TEST @"pk_test_AUn823FKTadliNg29onudWm0"
 
+//#define API_KEY @"Token token=\"0e77eae6ad12d7ba88c7c46cf2034d12\""
+//#define BASE_URL @"http://0.0.0.0:3000/api"
+
+
 
 //Access Token Staging
 //#define ACCESS_TOKEN @"a7a2080c5b517ec0dc57b712a7570e23"
@@ -32,5 +36,8 @@
 //#define BASE_URL @"http://0.0.0.0:3000/api"
 
 //#define API_KEY @"Token token=\"82ec0b7ac7b51a5c92f0d8bd579fef50\""
+
+#define PURPLE_COLOR [UIColor colorWithRed:0.45f green:0.30f blue:0.75f alpha:1.00f];
+
 
 

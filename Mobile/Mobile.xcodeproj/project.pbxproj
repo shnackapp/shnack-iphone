@@ -20,10 +20,19 @@
 		42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611518F14B2000E5A182 /* RECommonFunctions.m */; };
 		42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611718F14B2000E5A182 /* RESideMenu.m */; };
 		42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */; };
+		690AAB2919989C6300AF3794 /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */; };
+		690AAB2A19989C6300AF3794 /* Dosis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2319989C6300AF3794 /* Dosis-Medium.otf */; };
+		690AAB2B19989C6300AF3794 /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2419989C6300AF3794 /* Dosis-Regular.otf */; };
+		690AAB2C19989C6300AF3794 /* Dosis-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2519989C6300AF3794 /* Dosis-ExtraLight.otf */; };
+		690AAB2D19989C6300AF3794 /* Dosis-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2619989C6300AF3794 /* Dosis-Light.otf */; };
+		690AAB2E19989C6300AF3794 /* Dosis-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2719989C6300AF3794 /* Dosis-Bold.otf */; };
+		690AAB2F19989C6300AF3794 /* Dosis-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2819989C6300AF3794 /* Dosis-ExtraBold.otf */; };
 		690AE029190D76EC0053461B /* Check_mark .png in Resources */ = {isa = PBXBuildFile; fileRef = 690AE028190D76EC0053461B /* Check_mark .png */; };
 		691E66DB18F3D5C200F67683 /* TutorialContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691E66DA18F3D5C200F67683 /* TutorialContentViewController.m */; };
 		691E66DE18F3DAD900F67683 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691E66DD18F3DAD900F67683 /* InitialViewController.m */; };
 		691E66E018F3E2FB00F67683 /* paperplane.svg in Resources */ = {isa = PBXBuildFile; fileRef = 691E66DF18F3E2FB00F67683 /* paperplane.svg */; };
+		69242D0A1996858D0067DFA5 /* CartPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69242D081996858D0067DFA5 /* CartPopViewController.m */; };
+		69242D0B1996858D0067DFA5 /* CartPopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69242D091996858D0067DFA5 /* CartPopViewController.xib */; };
 		69393754191F13E00061839C /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69393753191F13E00061839C /* MainPageViewController.m */; };
 		69400FB518BBE68000238826 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB418BBE68000238826 /* Item.m */; };
 		69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */; };
@@ -74,6 +83,8 @@
 		6999CD541908BC04009BD628 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6999CD531908BC04009BD628 /* libPods.a */; };
 		6999CD561908E37F009BD628 /* Damion-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6999CD551908E37F009BD628 /* Damion-Regular.ttf */; };
 		6999CD581908E398009BD628 /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */; };
+		69D7537C1995D19900CAD378 /* red_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D7537B1995D19900CAD378 /* red_background.png */; };
+		69D753821995D8EF00CAD378 /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D753811995D8EF00CAD378 /* UIViewController+CWPopup.m */; };
 		69E0F09318BC5977008C1543 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E0F09218BC5977008C1543 /* logo.png */; };
 		69F3199819368DC400C501D5 /* LoginContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F3199719368DC400C501D5 /* LoginContainerViewController.m */; };
 		69F3199C1936A3BB00C501D5 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F3199B1936A3BB00C501D5 /* navBar.png */; };
@@ -166,12 +177,22 @@
 		42E9611718F14B2000E5A182 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESideMenu.m; path = Mobile/RESideMenu.m; sourceTree = SOURCE_ROOT; };
 		42E9611818F14B2000E5A182 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+RESideMenu.h"; path = "Mobile/UIViewController+RESideMenu.h"; sourceTree = SOURCE_ROOT; };
 		42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RESideMenu.m"; path = "Mobile/UIViewController+RESideMenu.m"; sourceTree = SOURCE_ROOT; };
+		690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.otf"; path = "../Dosis-SemiBold.otf"; sourceTree = "<group>"; };
+		690AAB2319989C6300AF3794 /* Dosis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Medium.otf"; path = "../Dosis-Medium.otf"; sourceTree = "<group>"; };
+		690AAB2419989C6300AF3794 /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.otf"; path = "../Dosis-Regular.otf"; sourceTree = "<group>"; };
+		690AAB2519989C6300AF3794 /* Dosis-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-ExtraLight.otf"; path = "../Dosis-ExtraLight.otf"; sourceTree = "<group>"; };
+		690AAB2619989C6300AF3794 /* Dosis-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Light.otf"; path = "../Dosis-Light.otf"; sourceTree = "<group>"; };
+		690AAB2719989C6300AF3794 /* Dosis-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Bold.otf"; path = "../Dosis-Bold.otf"; sourceTree = "<group>"; };
+		690AAB2819989C6300AF3794 /* Dosis-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-ExtraBold.otf"; path = "../Dosis-ExtraBold.otf"; sourceTree = "<group>"; };
 		690AE028190D76EC0053461B /* Check_mark .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check_mark .png"; sourceTree = "<group>"; };
 		691E66D918F3D5C200F67683 /* TutorialContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialContentViewController.h; path = Mobile/TutorialContentViewController.h; sourceTree = "<group>"; };
 		691E66DA18F3D5C200F67683 /* TutorialContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialContentViewController.m; path = Mobile/TutorialContentViewController.m; sourceTree = "<group>"; };
 		691E66DC18F3DAD900F67683 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = Mobile/InitialViewController.h; sourceTree = "<group>"; };
 		691E66DD18F3DAD900F67683 /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = InitialViewController.m; path = Mobile/InitialViewController.m; sourceTree = "<group>"; };
 		691E66DF18F3E2FB00F67683 /* paperplane.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = paperplane.svg; sourceTree = "<group>"; };
+		69242D071996858D0067DFA5 /* CartPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartPopViewController.h; sourceTree = "<group>"; };
+		69242D081996858D0067DFA5 /* CartPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartPopViewController.m; sourceTree = "<group>"; };
+		69242D091996858D0067DFA5 /* CartPopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartPopViewController.xib; sourceTree = "<group>"; };
 		69393752191F13E00061839C /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPageViewController.h; path = Mobile/MainPageViewController.h; sourceTree = "<group>"; };
 		69393753191F13E00061839C /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPageViewController.m; path = Mobile/MainPageViewController.m; sourceTree = "<group>"; };
 		69400FB318BBE68000238826 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -268,6 +289,9 @@
 		6999CD531908BC04009BD628 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = ../../add/libPods.a; sourceTree = "<group>"; };
 		6999CD551908E37F009BD628 /* Damion-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Damion-Regular.ttf"; sourceTree = "<group>"; };
 		6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
+		69D7537B1995D19900CAD378 /* red_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_background.png; sourceTree = "<group>"; };
+		69D753801995D8EF00CAD378 /* UIViewController+CWPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWPopup.h"; sourceTree = "<group>"; };
+		69D753811995D8EF00CAD378 /* UIViewController+CWPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWPopup.m"; sourceTree = "<group>"; };
 		69E0F09218BC5977008C1543 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		69F3199619368DC400C501D5 /* LoginContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginContainerViewController.h; path = Mobile/LoginContainerViewController.h; sourceTree = "<group>"; };
 		69F3199719368DC400C501D5 /* LoginContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoginContainerViewController.m; path = Mobile/LoginContainerViewController.m; sourceTree = "<group>"; };
@@ -443,6 +467,9 @@
 				42E0470C190741F500890447 /* ShnackMyOrderViewController.m */,
 				696A455E1983338F0080CB57 /* ReceiptViewController.h */,
 				696A455F1983338F0080CB57 /* ReceiptViewController.m */,
+				69242D071996858D0067DFA5 /* CartPopViewController.h */,
+				69242D081996858D0067DFA5 /* CartPopViewController.m */,
+				69242D091996858D0067DFA5 /* CartPopViewController.xib */,
 			);
 			name = Controllers;
 			path = ..;
@@ -590,6 +617,7 @@
 		69715B2218AD39560039D061 /* Mobile */ = {
 			isa = PBXGroup;
 			children = (
+				69D7537F1995D8EE00CAD378 /* CWPopup */,
 				695E27C7197E2A0600B0CA2D /* Segues */,
 				429B5F3118F7A51B005D1A3C /* popdowntable */,
 				42E960EF18ED319F00E5A182 /* RESideMenu */,
@@ -605,6 +633,7 @@
 				69715B5818AD3CB30039D061 /* NSConnectionDelegate.h */,
 				69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */,
 				6953817B191423E900DD91A2 /* app_logo.png */,
+				69D7537B1995D19900CAD378 /* red_background.png */,
 				69715B3A18AD39560039D061 /* Images.xcassets */,
 				6953817D191429AF00DD91A2 /* launch_image.png */,
 				698B41B419098E4A00B532C2 /* logoSmall.png */,
@@ -621,6 +650,13 @@
 		69715B2318AD39560039D061 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */,
+				690AAB2319989C6300AF3794 /* Dosis-Medium.otf */,
+				690AAB2419989C6300AF3794 /* Dosis-Regular.otf */,
+				690AAB2519989C6300AF3794 /* Dosis-ExtraLight.otf */,
+				690AAB2619989C6300AF3794 /* Dosis-Light.otf */,
+				690AAB2719989C6300AF3794 /* Dosis-Bold.otf */,
+				690AAB2819989C6300AF3794 /* Dosis-ExtraBold.otf */,
 				6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */,
 				6999CD551908E37F009BD628 /* Damion-Regular.ttf */,
 				69715B2418AD39560039D061 /* Mobile-Info.plist */,
@@ -754,6 +790,16 @@
 				6999CD511908BBB2009BD628 /* libPods-BButton.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		69D7537F1995D8EE00CAD378 /* CWPopup */ = {
+			isa = PBXGroup;
+			children = (
+				69D753801995D8EF00CAD378 /* UIViewController+CWPopup.h */,
+				69D753811995D8EF00CAD378 /* UIViewController+CWPopup.m */,
+			);
+			name = CWPopup;
+			path = ../CWPopup;
 			sourceTree = "<group>";
 		};
 		69F95CC618F200B30011F5DB /* Stripe */ = {
@@ -964,14 +1010,20 @@
 				69F95D1F18F200B30011F5DB /* textfield.png in Resources */,
 				6999CD581908E398009BD628 /* PoiretOne-Regular.ttf in Resources */,
 				42BD1E8F19008D5200FC57E5 /* FooterCheckoutCell.xib in Resources */,
+				690AAB2E19989C6300AF3794 /* Dosis-Bold.otf in Resources */,
 				6963E22F1908481800C6885A /* Contents.json in Resources */,
 				6963E2301908481800C6885A /* Walkthrough1.png in Resources */,
+				690AAB2B19989C6300AF3794 /* Dosis-Regular.otf in Resources */,
+				690AAB2D19989C6300AF3794 /* Dosis-Light.otf in Resources */,
 				69F95D1E18F200B30011F5DB /* gradient@2x.png in Resources */,
 				6963E22D1908481800C6885A /* StartBarBackground1X.png in Resources */,
 				69F95D1118F200B30011F5DB /* cvc@2x.png in Resources */,
 				69F95D0E18F200B30011F5DB /* cvc-amex.png in Resources */,
+				690AAB2A19989C6300AF3794 /* Dosis-Medium.otf in Resources */,
 				6953817E191429AF00DD91A2 /* launch_image.png in Resources */,
+				690AAB2C19989C6300AF3794 /* Dosis-ExtraLight.otf in Resources */,
 				69F95D1318F200B30011F5DB /* diners@2x.png in Resources */,
+				690AAB2F19989C6300AF3794 /* Dosis-ExtraBold.otf in Resources */,
 				69F95D1418F200B30011F5DB /* discover.png in Resources */,
 				6960ABCB191B21CE001DAF8E /* upArrow.png in Resources */,
 				69F95D1518F200B30011F5DB /* discover@2x.png in Resources */,
@@ -987,11 +1039,14 @@
 				6963E2331908481800C6885A /* Contents.json in Resources */,
 				6999CD561908E37F009BD628 /* Damion-Regular.ttf in Resources */,
 				69F95D1A18F200B30011F5DB /* placeholder.png in Resources */,
+				690AAB2919989C6300AF3794 /* Dosis-SemiBold.otf in Resources */,
 				6963E2311908481800C6885A /* Contents.json in Resources */,
+				69D7537C1995D19900CAD378 /* red_background.png in Resources */,
 				6963E22E1908481800C6885A /* StartBarBackground2X.png in Resources */,
 				69924C0519790B0B0024E683 /* Screen Shot 2014-06-27 at 4.18.55 PM.jpg in Resources */,
 				69F95D1218F200B30011F5DB /* diners.png in Resources */,
 				69E0F09318BC5977008C1543 /* logo.png in Resources */,
+				69242D0B1996858D0067DFA5 /* CartPopViewController.xib in Resources */,
 				69F95D1018F200B30011F5DB /* cvc.png in Resources */,
 				69F95D0D18F200B30011F5DB /* amex@2x.png in Resources */,
 				69F95D2018F200B30011F5DB /* textfield@2x.png in Resources */,
@@ -1083,8 +1138,10 @@
 				42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */,
 				42E0470A1906607400890447 /* ShnackOrderCategoryCell.m in Sources */,
 				69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */,
+				69D753821995D8EF00CAD378 /* UIViewController+CWPopup.m in Sources */,
 				6977B4B718FD044E00A51871 /* POPDTableViewController.m in Sources */,
 				69393754191F13E00061839C /* MainPageViewController.m in Sources */,
+				69242D0A1996858D0067DFA5 /* CartPopViewController.m in Sources */,
 				6963E21B190846FA00C6885A /* SignUpViewController.m in Sources */,
 				69F95CFE18F200B30011F5DB /* STPCard.m in Sources */,
 				42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */,

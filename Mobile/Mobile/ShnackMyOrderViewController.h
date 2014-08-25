@@ -22,6 +22,9 @@ extern int *globalCurrentOrderAmount;
 @property (strong, nonatomic) IBOutlet POPDTableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *vendorName;
 @property (weak, nonatomic) IBOutlet BButton *checkoutButton;
+-(IBAction)presentCart;
+
+
 
 
 @end

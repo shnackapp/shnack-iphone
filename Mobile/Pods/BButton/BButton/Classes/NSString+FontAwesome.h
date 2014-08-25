@@ -346,6 +346,13 @@ typedef NS_ENUM(NSUInteger, FAIcon) {
     FAIconShareSign
 };
 
+@interface NSString (AwesomeString)
+
+//creates a string with the font awesome character
++(NSString*)awesomeIcon:(FAIcon)index;
+
+@end
+
 @interface NSString (FontAwesome)
 
 /**

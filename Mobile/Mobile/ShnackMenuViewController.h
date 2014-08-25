@@ -24,6 +24,7 @@ extern UIPageViewController *mainPages;
 @property (weak, nonatomic) IBOutlet POPDTableView *tableView;
 @property (weak, nonatomic) IBOutlet BButton *checkoutButton;
 @property (weak, nonatomic) IBOutlet UILabel *vendorName;
+@property (nonatomic) BOOL isCartShowing;
 
 
 -(IBAction)increaseCountByOne:(id)sender;

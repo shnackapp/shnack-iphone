@@ -33,10 +33,9 @@
 {
     [super viewDidLoad];
     
-    
-    self.emailLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
-    self.phoneLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
-    self.passwordLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
+    self.emailLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
+    self.phoneLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
+    self.passwordLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
 
     self.email.delegate = self;
     self.phone.delegate = self;
@@ -48,6 +47,18 @@
     [self.phone setBorderStyle:UITextBorderStyleNone];
     
     SignUpViewController  *signUpViewController = (SignUpViewController *) self.parentViewController;
+    
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
+    for (CALayer *subLayer in self.tableView.layer.sublayers)
+    {
+        subLayer.cornerRadius = 5.0f;
+        subLayer.masksToBounds = YES;
+    }
+
+    
+      
+    
 }
 
 -(BOOL)isValidEmail:(NSString *)email
@@ -111,43 +122,64 @@
 
 -(BOOL)gatherAndCheckForm
 {
+    SignUpViewController  *signUpViewController = (SignUpViewController *) self.parentViewController;
     NSLog(@"gathering info");
     
     NSString *email_error = @"\u2022 Email incorrect.";
     NSString *phone_error = @"\u2022 Phone number was not correct.";
     NSString *password_error = @"\u2022 Password must be at least 6 characters.";
+    NSString *email_exists_error = @"\u2022 This email address is already in use.";
+    NSString *phone_exists_error = @"\u2022 This phone number is already in use.";
     
     
-    
-    SignUpViewController  *signUpViewController = (SignUpViewController *) self.parentViewController;
+    SignUpNavController * nav = (SignUpNavController *) self.navigationController;
 
     self.valid_email = [self isValidEmail:self.email.text];
     self.valid_phone = [self isValidPhone:self.phone.text];
     self.valid_password = [self isValidPassword:self.password.text];
-    
-    
-    if(self.valid_email && self.valid_phone && self.valid_password)
-    {
-        NSLog(@"storing info in dictionary");
-        SignUpNavController *signUpNav = [(SignUpNavController *) self navigationController];
-        [signUpNav.user_info setObject:self.email.text forKey:@"email"];
-        [signUpNav.user_info setObject:self.phone.text forKey:@"phone_number"];
-        [signUpNav.user_info setObject:self.password.text forKey:@"password"];
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        //check for existence on seerver......
-        [NSThread sleepForTimeInterval:2.0f];
+    NSString *temp_phone1 = [[NSString alloc] init];
 
-        [self.parentViewController performSegueWithIdentifier:@"next" sender:self];
+    if(self.valid_password)//first check if password is syntactically correct
+    {
+    if(self.valid_email && self.valid_phone)//then if correct and phone and email are syntactically correct, then check for uniqueness
+    {
 
         
-        return YES;
+    NSString *url = [NSString stringWithFormat:@"%@/unique_email_phone",BASE_URL];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:API_KEY forHTTPHeaderField:@"Authorization"];
+    
+    NSString *temp_phone = self.phone.text ;
+    NSUInteger len = [self.phone.text length];
+    NSLog(@"length %lu", (unsigned long)len);
+    if([temp_phone characterAtIndex:5] == '-' )//remove the first dash for storing in db
+    {
+        temp_phone1 = [temp_phone stringByReplacingCharactersInRange:
+                    NSMakeRange(5, 1) withString:@" "];
+        NSLog(@"Actual phone: %@ \ntemp_phone: %@",self.phone.text,temp_phone1);
+        
     }
-    else
+    
+
+    NSString *body     = [NSString stringWithFormat:@"email=%@&phone=%@", self.email.text,temp_phone1];
+    request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSLog(@"this is the url %@",url);
+    NSLog(@"this is the body %@",body);
+
+    NSURLResponse *response = nil;
+    NSError *error = nil;
+
+    self.receivedData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+        
+    }
+    else//invalid phone or email
     {
-        
+        //show errors for syntactically incorrect fields
         NSString *error_string = @"";
-    [self.view endEditing:YES];//dismiss keyboard
-        
+        [self.view endEditing:YES];//dismiss keyboard
         if(!self.valid_email)
         {
             self.emailLabel.textColor = [UIColor redColor];
@@ -163,26 +195,86 @@
             
             
         }
-        if(!self.valid_password)
+        signUpViewController.error_messages.hidden = NO;
+        signUpViewController.error_messages.text = error_string;
+        signUpViewController.error_messages.textColor = [UIColor redColor];
+        signUpViewController.error_messages.layer.cornerRadius = 5.0f;
+    }
+    }
+    else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error") message:NSLocalizedString(@"The password must be at least 6 characters.", @"There was an error. Please try again.") delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+        
+    }
+ if(self.receivedData != nil)
+ {
+    NSError *error = nil;
+
+    NSMutableDictionary *receivedJSON = [NSJSONSerialization JSONObjectWithData:_receivedData options:NSJSONReadingMutableContainers error:&error];
+    NSLog(@"Received JSON is %@", receivedJSON);
+    bool email_exists = false;
+    bool phone_exists  = false;
+    NSLog(@"email_exists %@",[receivedJSON valueForKey:@"email_exists"]);
+    NSLog(@"phone_exists %@",[receivedJSON valueForKey:@"phone_exists"]);
+    if( [[receivedJSON valueForKey:@"email_exists"] isEqualToString:@"true"])
+    {
+        NSLog(@"email already in use");
+        email_exists = true;
+    }
+    else email_exists = false;
+    if( [[receivedJSON valueForKey:@"phone_exists"] isEqualToString:@"true"])
+    {
+        NSLog(@"phone already in use");
+        phone_exists = true;
+    }
+    else phone_exists = false;
+    if(self.valid_email && self.valid_phone && self.valid_password && email_exists == false  && phone_exists == false)
+    {
+        NSLog(@"storing info in dictionary");
+        SignUpNavController *signUpNav = [(SignUpNavController *) self navigationController];
+        [signUpNav.user_info setObject:self.email.text forKey:@"email"];
+        [signUpNav.user_info setObject:temp_phone1 forKey:@"phone_number"];
+        [signUpNav.user_info setObject:self.password.text forKey:@"password"];
+        return YES;
+    }
+    else
+    {
+        //show  errors  from in use fields
+        NSString *error_string = @"";
+        [self.view endEditing:YES];//dismiss keyboard
+        if(email_exists == true)
         {
-            if([error_string length] == 0) error_string =  password_error;
-            else error_string = [[error_string stringByAppendingString:@"\n"] stringByAppendingString:password_error];
-            self.passwordLabel.textColor = [UIColor redColor];
+            if([error_string length] == 0) error_string =  email_exists_error;
+            else error_string = [[error_string stringByAppendingString:@"\n"] stringByAppendingString:email_exists_error];
+            self.emailLabel.textColor = [UIColor redColor];
+            
+        }
+        if(phone_exists == true)
+        {
+            if([error_string length] == 0) error_string =  phone_exists_error;
+            else error_string = [[error_string stringByAppendingString:@"\n"] stringByAppendingString:phone_exists_error];
+            self.phoneLabel.textColor = [UIColor redColor];
             
         }
         signUpViewController.error_messages.hidden = NO;
         signUpViewController.error_messages.text = error_string;
         signUpViewController.error_messages.textColor = [UIColor redColor];
-        
-        
-
-
-    return NO;
+        signUpViewController.error_messages.layer.cornerRadius = 5.0f;
+        return NO;
     }
-
+ }
+ else{
+//     NSLog(@"no connection");
+//     
+//     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error") message:NSLocalizedString(@"There was an error. Please try again.", @"There was an error. Please try again.") delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//     [alert show];
+//     
+//    // [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+     return NO;
+ }
+    
     
 }
-
 
 -(BOOL)checkForContent:(UITextField *)theTextField
 {
@@ -306,7 +398,6 @@ replacementString:(NSString *)string {
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
