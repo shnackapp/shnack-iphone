@@ -33,6 +33,7 @@
 		691E66E018F3E2FB00F67683 /* paperplane.svg in Resources */ = {isa = PBXBuildFile; fileRef = 691E66DF18F3E2FB00F67683 /* paperplane.svg */; };
 		69242D0A1996858D0067DFA5 /* CartPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69242D081996858D0067DFA5 /* CartPopViewController.m */; };
 		69242D0B1996858D0067DFA5 /* CartPopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69242D091996858D0067DFA5 /* CartPopViewController.xib */; };
+		6925E48F19B22F7D00943354 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6925E48E19B22F7D00943354 /* FacebookSDK.framework */; };
 		69393754191F13E00061839C /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69393753191F13E00061839C /* MainPageViewController.m */; };
 		69400FB518BBE68000238826 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB418BBE68000238826 /* Item.m */; };
 		69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */; };
@@ -193,6 +194,7 @@
 		69242D071996858D0067DFA5 /* CartPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartPopViewController.h; sourceTree = "<group>"; };
 		69242D081996858D0067DFA5 /* CartPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartPopViewController.m; sourceTree = "<group>"; };
 		69242D091996858D0067DFA5 /* CartPopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartPopViewController.xib; sourceTree = "<group>"; };
+		6925E48E19B22F7D00943354 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		69393752191F13E00061839C /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPageViewController.h; path = Mobile/MainPageViewController.h; sourceTree = "<group>"; };
 		69393753191F13E00061839C /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPageViewController.m; path = Mobile/MainPageViewController.m; sourceTree = "<group>"; };
 		69400FB318BBE68000238826 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				69715B2118AD39560039D061 /* CoreData.framework in Frameworks */,
 				69715B1F18AD39560039D061 /* UIKit.framework in Frameworks */,
 				69715B1B18AD39560039D061 /* Foundation.framework in Frameworks */,
+				6925E48F19B22F7D00943354 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +603,7 @@
 		69715B1918AD39560039D061 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6925E48E19B22F7D00943354 /* FacebookSDK.framework */,
 				6999CD531908BC04009BD628 /* libPods.a */,
 				6999CD261908BBB2009BD628 /* Pods */,
 				69715B1A18AD39560039D061 /* Foundation.framework */,
@@ -1298,6 +1302,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/spencerneste/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobile/Shnack-Prefix.pch";
 				INFOPLIST_FILE = "Mobile/Shnack-Info.plist";
@@ -1319,6 +1327,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/spencerneste/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobile/Shnack-Prefix.pch";
 				INFOPLIST_FILE = "Mobile/Shnack-Info.plist";

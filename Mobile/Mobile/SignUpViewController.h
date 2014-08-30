@@ -7,29 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
-@interface SignUpViewController : UIViewController<NSURLConnectionDelegate>
+
+@interface SignUpViewController : UIViewController
 
 @property (nonatomic) IBOutlet UIButton *cancelButton;
 @property (nonatomic) IBOutlet UIButton *nextButton;
 @property (nonatomic) IBOutlet UILabel *signUpTitle;
 
-
 @property (nonatomic) IBOutlet UITextView *error_messages;
 -(IBAction)next;
+@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
+
 
 @property (weak, nonatomic) IBOutlet UIView *container;
-
-@property (retain, nonatomic) NSData *receivedData;
-@property (retain, nonatomic) NSMutableData *responseData;
-@property NSMutableDictionary *text_fields;
-
-
-
-@property (nonatomic) bool valid_email;
-@property (nonatomic) bool valid_phone;
-@property (nonatomic) bool valid_password;
-@property (nonatomic) NSString *temp_phone;
 
 
 

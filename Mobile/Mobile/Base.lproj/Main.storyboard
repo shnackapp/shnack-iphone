@@ -340,7 +340,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="rS3-R9-Ivy" kind="modal" identifier="loc" id="MaC-fv-VRW"/>
+                                    <segue destination="rS3-R9-Ivy" kind="modal" id="MaC-fv-VRW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -384,12 +384,24 @@
                                 </connections>
                             </containerView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAo-0y-bhN">
-                                <rect key="frame" x="40" y="251" width="240" height="140"/>
+                                <rect key="frame" x="40" y="370" width="240" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkM-gf-0Y2">
+                                <rect key="frame" x="139" y="237" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6rG-CW-VYv" customClass="FBLoginView">
+                                <rect key="frame" x="20" y="290" width="280" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -421,6 +433,7 @@
                         <outlet property="cancelButton" destination="YNd-w4-PSa" id="kVL-wf-pn1"/>
                         <outlet property="container" destination="kRM-9n-BnI" id="4gj-qo-Mno"/>
                         <outlet property="error_messages" destination="kAo-0y-bhN" id="Zga-ry-DLT"/>
+                        <outlet property="loginView" destination="6rG-CW-VYv" id="t3O-KA-pCl"/>
                         <outlet property="nextButton" destination="dQe-6h-1Cz" id="1xt-jP-EFp"/>
                         <outlet property="signUpTitle" destination="zkE-1c-Y0x" id="lb6-xM-g1q"/>
                         <segue destination="W2X-l6-Zq3" kind="push" identifier="next" id="LWz-df-zsN"/>
@@ -442,7 +455,7 @@
                     <view key="view" contentMode="scaleToFill" id="42z-pL-ana">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.24050790399999999" green="0.78276466840000003" blue="0.74899640109999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wbv-cb-1nc"/>
                 </viewController>
@@ -1610,7 +1623,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FD4-0x-oyD" customClass="BButton">
-                                <rect key="frame" x="40" y="353" width="240" height="47"/>
+                                <rect key="frame" x="40" y="404" width="240" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Do this later">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1620,7 +1633,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-Bq-AiF" customClass="BButton">
                                 <rect key="frame" x="40" y="232" width="240" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Use Paypal Card">
+                                <state key="normal" title="Pay with Paypal">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1695,8 +1708,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ymm-yU-v08"/>
         <segue reference="Dah-7x-nBw"/>
+        <segue reference="ymm-yU-v08"/>
         <segue reference="R1H-bM-kbw"/>
     </inferredMetricsTieBreakers>
 </document>

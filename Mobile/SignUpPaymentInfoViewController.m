@@ -31,7 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.stripeView resignFirstResponder];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.backgroundColor = [UIColor clearColor];
@@ -68,7 +67,7 @@
     
     [self.skipButton setStyle:BButtonStyleBootstrapV3];
     [self.skipButton setType:BButtonTypeDanger];
-    [self.skipButton addTarget:self action:@selector(skip) forControlEvents:UIControlEventTouchUpInside];
+    [self.skipButton addTarget:self action:@selector(payWithSkip) forControlEvents:UIControlEventTouchUpInside];
     
 }
 
@@ -81,19 +80,16 @@
 
 -(BOOL)payWithPaypal
 {
-    //stubbed for now
     return YES;
     
 }
 -(BOOL)payWithVenmo
 {
-    //stubbed for now
     return YES;
     
 }
--(void)skip
+-(void)payWithSkip
 {
-    //stubbed for now
     
 }
 
@@ -282,9 +278,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"order"]) {
-        
         UINavigationController *nav = [[UINavigationController alloc] initWithNibName:@"contentViewController" bundle:nil];
-        
             }
     
     
