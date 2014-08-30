@@ -232,15 +232,15 @@
 		6963E23519085F2700C6885A /* stadium.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stadium.jpeg; sourceTree = "<group>"; };
 		696A455E1983338F0080CB57 /* ReceiptViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReceiptViewController.h; path = Mobile/ReceiptViewController.h; sourceTree = "<group>"; };
 		696A455F1983338F0080CB57 /* ReceiptViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReceiptViewController.m; path = Mobile/ReceiptViewController.m; sourceTree = "<group>"; };
-		69715B1718AD39560039D061 /* Mobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69715B1718AD39560039D061 /* Shnack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shnack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69715B1A18AD39560039D061 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		69715B1C18AD39560039D061 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		69715B1E18AD39560039D061 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		69715B2018AD39560039D061 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		69715B2418AD39560039D061 /* Mobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Mobile-Info.plist"; sourceTree = "<group>"; };
+		69715B2418AD39560039D061 /* Shnack-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Shnack-Info.plist"; sourceTree = "<group>"; };
 		69715B2618AD39560039D061 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69715B2818AD39560039D061 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		69715B2A18AD39560039D061 /* Mobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mobile-Prefix.pch"; sourceTree = "<group>"; };
+		69715B2A18AD39560039D061 /* Shnack-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Shnack-Prefix.pch"; sourceTree = "<group>"; };
 		69715B2B18AD39560039D061 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		69715B2C18AD39560039D061 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		69715B2F18AD39560039D061 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -248,9 +248,9 @@
 		69715B3418AD39560039D061 /* LocationsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LocationsViewController.h; path = Mobile/LocationsViewController.h; sourceTree = "<group>"; };
 		69715B3518AD39560039D061 /* LocationsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LocationsViewController.m; path = Mobile/LocationsViewController.m; sourceTree = "<group>"; };
 		69715B3A18AD39560039D061 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		69715B4018AD39570039D061 /* MobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69715B4018AD39570039D061 /* ShnackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShnackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69715B4118AD39570039D061 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		69715B4A18AD39570039D061 /* MobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MobileTests-Info.plist"; sourceTree = "<group>"; };
+		69715B4A18AD39570039D061 /* ShnackTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShnackTests-Info.plist"; sourceTree = "<group>"; };
 		69715B4C18AD39570039D061 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69715B4E18AD39570039D061 /* MobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MobileTests.m; sourceTree = "<group>"; };
 		69715B5818AD3CB30039D061 /* NSConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSConnectionDelegate.h; sourceTree = "<group>"; };
@@ -400,11 +400,6 @@
 		42459A7318FD212700C5728B /* Scrolling Tutorial Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				695E27BE197E191800B0CA2D /* Sign Up Navigation Controllers */,
-				69F3199619368DC400C501D5 /* LoginContainerViewController.h */,
-				69F3199719368DC400C501D5 /* LoginContainerViewController.m */,
-				6963E21C1908472800C6885A /* LoginViewController.h */,
-				6963E21D1908472800C6885A /* LoginViewController.m */,
 				691E66DC18F3DAD900F67683 /* InitialViewController.h */,
 				691E66DD18F3DAD900F67683 /* InitialViewController.m */,
 				6960ABCA191B21CE001DAF8E /* upArrow.png */,
@@ -456,9 +451,11 @@
 		6935AD1B18AEA38A007CF28F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				69C85C8719AEFC5900D11B80 /* Login Controllers */,
 				6939374E191F13110061839C /* Main Pages */,
 				42459A7318FD212700C5728B /* Scrolling Tutorial Controllers */,
 				42459A7218FD210900C5728B /* Side Menu Controllers */,
+				695E27BE197E191800B0CA2D /* Sign Up Navigation Controllers */,
 				69715B3418AD39560039D061 /* LocationsViewController.h */,
 				69715B3518AD39560039D061 /* LocationsViewController.m */,
 				42E0470519061DC200890447 /* ShnackMenuViewController.h */,
@@ -594,8 +591,8 @@
 		69715B1818AD39560039D061 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				69715B1718AD39560039D061 /* Mobile.app */,
-				69715B4018AD39570039D061 /* MobileTests.xctest */,
+				69715B1718AD39560039D061 /* Shnack.app */,
+				69715B4018AD39570039D061 /* ShnackTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -659,10 +656,10 @@
 				690AAB2819989C6300AF3794 /* Dosis-ExtraBold.otf */,
 				6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */,
 				6999CD551908E37F009BD628 /* Damion-Regular.ttf */,
-				69715B2418AD39560039D061 /* Mobile-Info.plist */,
+				69715B2418AD39560039D061 /* Shnack-Info.plist */,
 				69715B2518AD39560039D061 /* InfoPlist.strings */,
 				69715B2818AD39560039D061 /* main.m */,
-				69715B2A18AD39560039D061 /* Mobile-Prefix.pch */,
+				69715B2A18AD39560039D061 /* Shnack-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -679,7 +676,7 @@
 		69715B4918AD39570039D061 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				69715B4A18AD39570039D061 /* MobileTests-Info.plist */,
+				69715B4A18AD39570039D061 /* ShnackTests-Info.plist */,
 				69715B4B18AD39570039D061 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -790,6 +787,17 @@
 				6999CD511908BBB2009BD628 /* libPods-BButton.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		69C85C8719AEFC5900D11B80 /* Login Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				69F3199619368DC400C501D5 /* LoginContainerViewController.h */,
+				69F3199719368DC400C501D5 /* LoginContainerViewController.m */,
+				6963E21C1908472800C6885A /* LoginViewController.h */,
+				6963E21D1908472800C6885A /* LoginViewController.m */,
+			);
+			name = "Login Controllers";
 			sourceTree = "<group>";
 		};
 		69D7537F1995D8EE00CAD378 /* CWPopup */ = {
@@ -904,9 +912,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		69715B1618AD39560039D061 /* Mobile */ = {
+		69715B1618AD39560039D061 /* Shnack */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 69715B5218AD39570039D061 /* Build configuration list for PBXNativeTarget "Mobile" */;
+			buildConfigurationList = 69715B5218AD39570039D061 /* Build configuration list for PBXNativeTarget "Shnack" */;
 			buildPhases = (
 				E2F25D2FB90D42F9B8BEDE2D /* Check Pods Manifest.lock */,
 				69715B1318AD39560039D061 /* Sources */,
@@ -918,14 +926,14 @@
 			);
 			dependencies = (
 			);
-			name = Mobile;
+			name = Shnack;
 			productName = Mobile;
-			productReference = 69715B1718AD39560039D061 /* Mobile.app */;
+			productReference = 69715B1718AD39560039D061 /* Shnack.app */;
 			productType = "com.apple.product-type.application";
 		};
-		69715B3F18AD39570039D061 /* MobileTests */ = {
+		69715B3F18AD39570039D061 /* ShnackTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 69715B5518AD39570039D061 /* Build configuration list for PBXNativeTarget "MobileTests" */;
+			buildConfigurationList = 69715B5518AD39570039D061 /* Build configuration list for PBXNativeTarget "ShnackTests" */;
 			buildPhases = (
 				69715B3C18AD39570039D061 /* Sources */,
 				69715B3D18AD39570039D061 /* Frameworks */,
@@ -936,9 +944,9 @@
 			dependencies = (
 				69715B4718AD39570039D061 /* PBXTargetDependency */,
 			);
-			name = MobileTests;
+			name = ShnackTests;
 			productName = MobileTests;
-			productReference = 69715B4018AD39570039D061 /* MobileTests.xctest */;
+			productReference = 69715B4018AD39570039D061 /* ShnackTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -958,7 +966,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 69715B1218AD39560039D061 /* Build configuration list for PBXProject "Mobile" */;
+			buildConfigurationList = 69715B1218AD39560039D061 /* Build configuration list for PBXProject "Shnack" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -977,8 +985,8 @@
 			);
 			projectRoot = "";
 			targets = (
-				69715B1618AD39560039D061 /* Mobile */,
-				69715B3F18AD39570039D061 /* MobileTests */,
+				69715B1618AD39560039D061 /* Shnack */,
+				69715B3F18AD39570039D061 /* ShnackTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1179,7 +1187,7 @@
 /* Begin PBXTargetDependency section */
 		69715B4718AD39570039D061 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 69715B1618AD39560039D061 /* Mobile */;
+			target = 69715B1618AD39560039D061 /* Shnack */;
 			targetProxy = 69715B4618AD39570039D061 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1291,13 +1299,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Mobile/Mobile-Prefix.pch";
-				INFOPLIST_FILE = "Mobile/Mobile-Info.plist";
+				GCC_PREFIX_HEADER = "Mobile/Shnack-Prefix.pch";
+				INFOPLIST_FILE = "Mobile/Shnack-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/spencerneste/Desktop/add,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Shnack;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1312,13 +1320,13 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Mobile/Mobile-Prefix.pch";
-				INFOPLIST_FILE = "Mobile/Mobile-Info.plist";
+				GCC_PREFIX_HEADER = "Mobile/Shnack-Prefix.pch";
+				INFOPLIST_FILE = "Mobile/Shnack-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/spencerneste/Desktop/add,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Shnack;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1339,8 +1347,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "MobileTests/MobileTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "MobileTests/ShnackTests-Info.plist";
+				PRODUCT_NAME = ShnackTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1357,8 +1365,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobile/Mobile-Prefix.pch";
-				INFOPLIST_FILE = "MobileTests/MobileTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "MobileTests/ShnackTests-Info.plist";
+				PRODUCT_NAME = ShnackTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1367,7 +1375,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		69715B1218AD39560039D061 /* Build configuration list for PBXProject "Mobile" */ = {
+		69715B1218AD39560039D061 /* Build configuration list for PBXProject "Shnack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				69715B5018AD39570039D061 /* Debug */,
@@ -1376,7 +1384,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		69715B5218AD39570039D061 /* Build configuration list for PBXNativeTarget "Mobile" */ = {
+		69715B5218AD39570039D061 /* Build configuration list for PBXNativeTarget "Shnack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				69715B5318AD39570039D061 /* Debug */,
@@ -1385,7 +1393,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		69715B5518AD39570039D061 /* Build configuration list for PBXNativeTarget "MobileTests" */ = {
+		69715B5518AD39570039D061 /* Build configuration list for PBXNativeTarget "ShnackTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				69715B5618AD39570039D061 /* Debug */,

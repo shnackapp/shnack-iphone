@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SignUpNavController.h"
 
-@interface SignUpContainerViewController : UITableViewController <UITextFieldDelegate>
+@interface SignUpContainerViewController : UITableViewController <UITextFieldDelegate,NSURLConnectionDelegate>
 
 
 @property (retain, nonatomic) IBOutlet UITextField *email;
@@ -20,21 +20,18 @@
 
 @property (retain, nonatomic) IBOutlet UITextField *phone;
 @property (nonatomic) IBOutlet UILabel *phoneLabel;
+@property (nonatomic) NSString  *temp_phone;
+
 
 @property (retain, nonatomic) NSData *receivedData;
-
-
-
-
-
-
+@property (retain, nonatomic) NSMutableData *responseData;
 
 
 
 -(BOOL)checkForContent:(UITextField *)theTextField;
 -(void)presentErrors;
 
--(BOOL)gatherAndCheckForm;
+-(void)gatherFormInfo;
 
 -(BOOL)isValidEmail:(NSString *)email;
 -(BOOL)isValidPhone:(NSString *)phone;

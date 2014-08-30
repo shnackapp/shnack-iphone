@@ -340,7 +340,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="rS3-R9-Ivy" kind="modal" id="MaC-fv-VRW"/>
+                                    <segue destination="rS3-R9-Ivy" kind="modal" identifier="loc" id="MaC-fv-VRW"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -442,7 +442,7 @@
                     <view key="view" contentMode="scaleToFill" id="42z-pL-ana">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.24050790399999999" green="0.78276466840000003" blue="0.74899640109999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wbv-cb-1nc"/>
                 </viewController>
@@ -1610,7 +1610,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FD4-0x-oyD" customClass="BButton">
-                                <rect key="frame" x="40" y="404" width="240" height="47"/>
+                                <rect key="frame" x="40" y="353" width="240" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Do this later">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1620,7 +1620,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RsI-Bq-AiF" customClass="BButton">
                                 <rect key="frame" x="40" y="232" width="240" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Pay with Paypal">
+                                <state key="normal" title="Use Paypal Card">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1695,8 +1695,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Dah-7x-nBw"/>
         <segue reference="ymm-yU-v08"/>
+        <segue reference="Dah-7x-nBw"/>
         <segue reference="R1H-bM-kbw"/>
     </inferredMetricsTieBreakers>
 </document>
