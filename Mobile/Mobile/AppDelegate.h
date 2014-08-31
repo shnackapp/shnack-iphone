@@ -13,7 +13,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic) int currentStadium;
 
-
+extern NSMutableDictionary *fb_user_info;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

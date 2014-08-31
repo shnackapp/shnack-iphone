@@ -23,7 +23,7 @@
 @property (weak,nonatomic) IBOutlet BButton *venmoTouch;
 @property (weak,nonatomic) IBOutlet BButton *skipButton;
 
-
+extern NSMutableDictionary *fb_user_info;
 
 
 
