@@ -18,6 +18,8 @@
 @property (retain, nonatomic) IBOutlet UITextField *password;
 
 extern NSMutableArray *globalCurrentUser;
+@property (nonatomic) NSMutableDictionary *valid_user_info;
+
 
 @property (nonatomic) BOOL successful_login;
 @property (nonatomic) BOOL does_exist;

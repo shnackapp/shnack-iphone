@@ -26,6 +26,33 @@
     }
     return self;
 }
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.valid_user_info = [[NSMutableDictionary alloc] initWithCapacity:2];
+    // Do any additional setup after loading the view.
+    self.email.delegate = self;
+    self.password.delegate = self;
+    
+    self.emailLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
+    self.passwordLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
+    
+    // Do any additional setup after loading the view.
+    [self.email setBorderStyle:UITextBorderStyleNone];
+    [self.password setBorderStyle:UITextBorderStyleNone];
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
+    for (CALayer *subLayer in self.tableView.layer.sublayers)
+    {
+        subLayer.cornerRadius = 5.0f;
+        subLayer.masksToBounds = YES;
+    }
+    
+    [super viewDidLoad];
+    
+}
 //validations
 -(BOOL)isValidEmail:(NSString *)email
 {
@@ -102,13 +129,16 @@
         LoginContainerViewController  *loginViewController = (LoginContainerViewController *) self.parentViewController;
         NSLog(@" parent class%@", loginViewController.class);
         loginViewController.doneButton.enabled = YES;
-        //add action to done button!
-        //[loginViewController.doneButton addTarget:self action: @selector(submit) forControlEvents:UIControlEventTouchUpInside];
-        
+       
         NSMutableArray *login_credentials = [[NSMutableArray alloc] init];
+        
         //currentUser = [[NSMutableArray alloc] init];
         [login_credentials addObject:self.email.text];
         [login_credentials addObject:self.password.text];
+        
+        [self.valid_user_info setObject: self.valid_email ? @YES :@NO forKey:@"valid_email"];
+        [self.valid_user_info setObject: self.valid_password ? @YES :@NO forKey:@"valid_email"];
+
         globalCurrentUser = login_credentials;
         
         
@@ -123,24 +153,6 @@
     [super touchesBegan:touches withEvent:event];
 }
 
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    //[self.email becomeFirstResponder];
-    
-    // Do any additional setup after loading the view.
-    self.email.delegate = self;
-    self.password.delegate = self;
-    
-    [self.email setBorderStyle:UITextBorderStyleNone];
-    [self.password setBorderStyle:UITextBorderStyleNone];
-    
-    self.loginEmailLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
-    self.loginPasswordLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
-    
-}
 
 - (void)didReceiveMemoryWarning
 {

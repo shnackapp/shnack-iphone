@@ -64,7 +64,6 @@
     [self.cancelButton addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     self.nextButton.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:16];
     self.nextButton.enabled = NO;
-    self.signUpTitle.font = [UIFont fontWithName:@"Dosis-Medium" size:26];
     
     SignUpContainerViewController *signUpContainerViewController
     = (SignUpContainerViewController *)  self.childViewControllers[0];

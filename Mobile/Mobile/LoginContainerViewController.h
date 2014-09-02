@@ -12,17 +12,17 @@
 
 @property (nonatomic) IBOutlet UIButton *cancelButton;
 @property (nonatomic) IBOutlet UIButton *doneButton;
-@property (nonatomic) IBOutlet UILabel *loginTitle;
 @property (nonatomic) IBOutlet UIButton *forgotPassword;
 extern NSMutableArray *globalCurrentUser;
-@property (retain, nonatomic) NSData *receivedData;
+@property (retain, nonatomic) NSMutableData *responseData;
+
+
+@property (weak, nonatomic) IBOutlet UIView *container;
 
 @property (nonatomic) BOOL successful_login;
 @property (nonatomic) BOOL does_exist;
 
--(IBAction)home;//this fixes keyboard issue on clear
 -(IBAction)submit;
--(BOOL)login;
 
 
 
