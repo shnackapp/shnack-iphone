@@ -14,6 +14,9 @@
 
 @interface LocationsViewController  : POPDTableViewController < UITableViewDataSource >
 //
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
+
 extern NSMutableArray *globalArrayLocations;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

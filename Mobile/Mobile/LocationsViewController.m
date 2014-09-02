@@ -13,6 +13,8 @@
 #import "POPDCell.h"
 #import "NSObject_Constants.h"
 #import "LeftMenuViewController.h"
+#import "SWRevealViewController.h"
+
 
 @interface LocationsViewController () <POPDDelegate>
 @end
@@ -24,6 +26,18 @@ NSIndexPath *reloadingCategoryIndexPath;
 
 - (void)viewDidLoad
 {
+    
+    // Change button color
+    self.sidebarButton.tintColor = [UIColor whiteColor];
+    
+    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
+    self.sidebarButton.target = self.revealViewController;
+    self.sidebarButton.action = @selector(revealToggle:);
+    
+    // Set the gesture
+    //[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+
+    
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     
@@ -40,10 +54,10 @@ NSIndexPath *reloadingCategoryIndexPath;
     [label sizeToFit];
     
     
-    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-	[infoButton addTarget:self action:@selector(infoButtonAction) forControlEvents:UIControlEventTouchUpInside];
-	UIBarButtonItem *modalButton = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
-	[self.navigationItem setLeftBarButtonItem:modalButton animated:YES];
+//    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
+//	[infoButton addTarget:self action:@selector(infoButtonAction) forControlEvents:UIControlEventTouchUpInside];
+//	UIBarButtonItem *modalButton = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
+//	[self.navigationItem setLeftBarButtonItem:modalButton animated:YES];
 	//[modalButton release];
 
     self.delegate = self;
@@ -56,7 +70,6 @@ NSIndexPath *reloadingCategoryIndexPath;
     NSString *url = [NSString stringWithFormat:@"%@/get_locations",BASE_URL];
     NSString *api_key = [NSString stringWithFormat:API_KEY];
 
-    
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
     [request setHTTPMethod:@"GET"];
     
@@ -68,17 +81,15 @@ NSIndexPath *reloadingCategoryIndexPath;
     
     // important! set whether the user should be able to swipe from the right to reveal the side menu
     
-    
-
     self.sideMenuViewController.panGestureEnabled = YES;
 }
 
 -(void)infoButtonAction
 {
     NSLog(@" pressed the i");
-    //self presentLeftMenuViewController:<#(id)#>
-    //LeftMenuViewController *side = [[LeftMenuViewController alloc] init];
-    //[self presentLeftMenuViewController:side];
+    
+    [self.sideMenuViewController presentLeftMenuViewController];
+
 }
 //////////////
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {

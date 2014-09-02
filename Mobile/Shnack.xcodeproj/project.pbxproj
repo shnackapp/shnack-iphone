@@ -34,6 +34,7 @@
 		69242D0A1996858D0067DFA5 /* CartPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69242D081996858D0067DFA5 /* CartPopViewController.m */; };
 		69242D0B1996858D0067DFA5 /* CartPopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69242D091996858D0067DFA5 /* CartPopViewController.xib */; };
 		69393754191F13E00061839C /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69393753191F13E00061839C /* MainPageViewController.m */; };
+		693A942119B60C7A0069A2D4 /* ShnackNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693A942019B60C7A0069A2D4 /* ShnackNavController.m */; };
 		69400FB518BBE68000238826 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB418BBE68000238826 /* Item.m */; };
 		69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */; };
 		69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */; };
@@ -125,6 +126,8 @@
 		69F95D1F18F200B30011F5DB /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F95CFC18F200B30011F5DB /* textfield.png */; };
 		69F95D2018F200B30011F5DB /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F95CFD18F200B30011F5DB /* textfield@2x.png */; };
 		69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95D2618F2184B0011F5DB /* MBProgressHUD.m */; };
+		69FF4C8519B57CE20032A0BE /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FF4C8419B57CE20032A0BE /* SWRevealViewController.m */; };
+		69FF4C8A19B57FFB0032A0BE /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FF4C8919B57FFB0032A0BE /* SideMenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -195,6 +198,8 @@
 		69242D091996858D0067DFA5 /* CartPopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartPopViewController.xib; sourceTree = "<group>"; };
 		69393752191F13E00061839C /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPageViewController.h; path = Mobile/MainPageViewController.h; sourceTree = "<group>"; };
 		69393753191F13E00061839C /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPageViewController.m; path = Mobile/MainPageViewController.m; sourceTree = "<group>"; };
+		693A941F19B60C7A0069A2D4 /* ShnackNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShnackNavController.h; sourceTree = "<group>"; };
+		693A942019B60C7A0069A2D4 /* ShnackNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShnackNavController.m; sourceTree = "<group>"; };
 		69400FB318BBE68000238826 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		69400FB418BBE68000238826 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		69400FB718BBE6C000238826 /* ShnackOrderTotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShnackOrderTotalCell.h; sourceTree = "<group>"; };
@@ -352,6 +357,10 @@
 		69F95CFD18F200B30011F5DB /* textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield@2x.png"; sourceTree = "<group>"; };
 		69F95D2518F2184B0011F5DB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		69F95D2618F2184B0011F5DB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		69FF4C8319B57CE20032A0BE /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		69FF4C8419B57CE20032A0BE /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		69FF4C8819B57FFB0032A0BE /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		69FF4C8919B57FFB0032A0BE /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		6A546BF48A1243308E94883D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -393,6 +402,8 @@
 				42E9610C18ED494100E5A182 /* RootViewController.m */,
 				42E9610D18ED494100E5A182 /* SecondViewController.h */,
 				42E9610E18ED494100E5A182 /* SecondViewController.m */,
+				69FF4C8819B57FFB0032A0BE /* SideMenuViewController.h */,
+				69FF4C8919B57FFB0032A0BE /* SideMenuViewController.m */,
 			);
 			name = "Side Menu Controllers";
 			sourceTree = "<group>";
@@ -467,6 +478,8 @@
 				69242D071996858D0067DFA5 /* CartPopViewController.h */,
 				69242D081996858D0067DFA5 /* CartPopViewController.m */,
 				69242D091996858D0067DFA5 /* CartPopViewController.xib */,
+				693A941F19B60C7A0069A2D4 /* ShnackNavController.h */,
+				693A942019B60C7A0069A2D4 /* ShnackNavController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -624,6 +637,7 @@
 				69715B2B18AD39560039D061 /* AppDelegate.h */,
 				69F73C2119739B3300361426 /* NSObject_Constants.h */,
 				69715B2C18AD39560039D061 /* AppDelegate.m */,
+				69FF4C8219B57CE20032A0BE /* SWRevealViewController */,
 				69715B2E18AD39560039D061 /* Main.storyboard */,
 				69924C0419790B0B0024E683 /* Screen Shot 2014-06-27 at 4.18.55 PM.jpg */,
 				6963E23519085F2700C6885A /* stadium.jpeg */,
@@ -909,6 +923,15 @@
 			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
+		69FF4C8219B57CE20032A0BE /* SWRevealViewController */ = {
+			isa = PBXGroup;
+			children = (
+				69FF4C8319B57CE20032A0BE /* SWRevealViewController.h */,
+				69FF4C8419B57CE20032A0BE /* SWRevealViewController.m */,
+			);
+			path = SWRevealViewController;
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1129,6 +1152,7 @@
 				42E9611218ED494100E5A182 /* RootViewController.m in Sources */,
 				69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */,
 				69F95D0518F200B30011F5DB /* PKCardCVC.m in Sources */,
+				693A942119B60C7A0069A2D4 /* ShnackNavController.m in Sources */,
 				69F95D0718F200B30011F5DB /* PKCardNumber.m in Sources */,
 				69F73C261973BAAF00361426 /* SignUpContainerViewController.m in Sources */,
 				69715B3618AD39560039D061 /* LocationsViewController.m in Sources */,
@@ -1137,6 +1161,7 @@
 				695E27C3197E195B00B0CA2D /* SignUpProfileViewController.m in Sources */,
 				695E27CD197E325700B0CA2D /* SignUpNavController.m in Sources */,
 				69F95D0318F200B30011F5DB /* PKAddressZip.m in Sources */,
+				69FF4C8A19B57FFB0032A0BE /* SideMenuViewController.m in Sources */,
 				69F95D0018F200B30011F5DB /* STPView.m in Sources */,
 				69F3199819368DC400C501D5 /* LoginContainerViewController.m in Sources */,
 				42E0470719061DC200890447 /* ShnackMenuViewController.m in Sources */,
@@ -1144,6 +1169,7 @@
 				6963E21E1908472800C6885A /* LoginViewController.m in Sources */,
 				696A45601983338F0080CB57 /* ReceiptViewController.m in Sources */,
 				42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */,
+				69FF4C8519B57CE20032A0BE /* SWRevealViewController.m in Sources */,
 				42E0470A1906607400890447 /* ShnackOrderCategoryCell.m in Sources */,
 				69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */,
 				69D753821995D8EF00CAD378 /* UIViewController+CWPopup.m in Sources */,

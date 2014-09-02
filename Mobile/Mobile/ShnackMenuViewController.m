@@ -38,11 +38,6 @@ NSInteger myCount;
 - (void)viewDidLoad
 {
     
-    
-   
-    
-
-    
     globalCurrentVendorName = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] name];
     NSLog(@"top name %@",globalCurrentVendorName);
     //self.navigationItem.title = globalCurrentVendorName;
@@ -64,11 +59,8 @@ NSInteger myCount;
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
     tapRecognizer.numberOfTapsRequired = 1;
     tapRecognizer.delegate = self;
-    //[self.view addGestureRecognizer:tapRecognizer];
-    [self.tableView addGestureRecognizer:tapRecognizer];
-    
-    self.isCartShowing = NO;
-
+    [self.view addGestureRecognizer:tapRecognizer];// so you can dismiss on click!
+    //[self.tableView addGestureRecognizer:tapRecognizer];
     
     self.useBlurForPopup = YES;
 
@@ -265,6 +257,7 @@ NSInteger myCount;
 
 -(IBAction)increaseCountByOne:(id)sender
 {
+
     if (globalOpenOrderMenu != self.menu) {
         globalOpenOrderMenu = self.menu;
         globalOpenOrderVendorID = globalCurrentVendorID;
@@ -279,12 +272,11 @@ NSInteger myCount;
     item.count++;
     categoryItem.count++;
     
-    if(self.isCartShowing == NO){
     NSInteger total = [self calculateOrderTotal];
     self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-    }
+    
 }
 -(IBAction)decreaseCountByOne:(id)sender
 {
@@ -299,18 +291,17 @@ NSInteger myCount;
         categoryItem.count--;
         item.count--;
     }
-    if(self.isCartShowing == NO){
     NSInteger total = [self calculateOrderTotal];
     self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
     [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-    }
+    
 }
 
 -(IBAction)presentCart
 {
     NSLog(@"I PRESSED IT!");
-    self.isCartShowing = YES;
+    self.tableView.userInteractionEnabled = NO;//so the view behind popup is disabled
     
     CartPopViewController *cart = [[CartPopViewController alloc] initWithNibName:@"CartPopViewController" bundle:nil];
 //    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
@@ -332,7 +323,7 @@ NSInteger myCount;
 }
 
 - (void)dismissPopup {
-    self.isCartShowing = NO;
+    self.tableView.userInteractionEnabled = YES;
 //    CartPopViewController *cart = [[CartPopViewController alloc] initWithNibName:@"CartPopViewController" bundle:nil];
 //    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
 //    tapRecognizer.numberOfTapsRequired = 1;

@@ -9,6 +9,11 @@
 #import "AppDelegate.h"
 
 #import "LocationsViewController.h"
+#import "RESideMenu.h"
+#import "LeftMenuViewController.h"
+#import "RightMenuViewController.h"
+#import "SWRevealViewController.h"
+
 
 @implementation AppDelegate
 
@@ -27,10 +32,6 @@
     NSLog(@"appDelegate");
     
   
-    
-
-    
-    
     // Override point for customization after application launch.
     //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     //StadiumViewController *controller = (StadiumViewController *)navigationController.topViewController;
