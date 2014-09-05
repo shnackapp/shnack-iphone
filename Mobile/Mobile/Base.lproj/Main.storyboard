@@ -140,22 +140,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView autoresizesSubviews="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HAk-OA-ET7">
-                                <rect key="frame" x="11" y="86" width="298" height="80"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <connections>
-                                    <segue destination="9xu-R2-DDk" kind="embed" id="PAf-HK-P1E"/>
-                                </connections>
-                            </containerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e1F-0o-sKZ">
-                                <rect key="frame" x="122" y="197" width="168" height="30"/>
+                                <rect key="frame" x="120" y="208" width="168" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="forgot_password" destination="E5Y-WI-H4E" eventType="touchUpInside" id="nTx-xt-3PC"/>
+                                </connections>
                             </button>
+                            <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Usj-Dc-MKU">
+                                <rect key="frame" x="20" y="81" width="280" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="9xu-R2-DDk" kind="embed" id="thO-oe-lJP"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -186,10 +189,11 @@
                     <size key="freeformSize" width="320" height="568"/>
                     <connections>
                         <outlet property="cancelButton" destination="eb5-sU-H6D" id="oG4-xg-XvL"/>
-                        <outlet property="container" destination="HAk-OA-ET7" id="Ebp-nx-fsM"/>
+                        <outlet property="container" destination="Usj-Dc-MKU" id="sq5-g7-pkI"/>
                         <outlet property="doneButton" destination="3LE-Fc-q4a" id="2W5-s1-Uhz"/>
                         <outlet property="forgotPassword" destination="e1F-0o-sKZ" id="bCP-e5-xNX"/>
                         <segue destination="1Xy-SL-FIE" kind="custom" identifier="dismiss" customClass="DismissSegue" id="oax-gY-Sty"/>
+                        <segue destination="rS3-R9-Ivy" kind="modal" identifier="logged_in" id="dTd-jb-fdM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eEu-Zp-tme" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -200,7 +204,7 @@
         <scene sceneID="MpR-Rw-OlW">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="9xu-R2-DDk" customClass="LoginViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" sectionIndexMinimumDisplayRowCount="2" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="pM5-cD-HOt">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" sectionIndexMinimumDisplayRowCount="2" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="40" sectionHeaderHeight="22" sectionFooterHeight="22" id="pM5-cD-HOt">
                         <rect key="frame" x="0.0" y="0.0" width="280" height="80"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -233,6 +237,7 @@
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="40" id="mo7-sV-RjQ">
                                         <rect key="frame" x="0.0" y="40" width="280" height="40"/>
@@ -241,17 +246,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="280" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Biq-gN-Rfh">
-                                                    <rect key="frame" x="0.0" y="171" width="82" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QoW-OM-HmY">
                                                     <rect key="frame" x="97" y="7" width="163" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                     <connections>
                                                         <outlet property="delegate" destination="7Fj-Vi-NzF" id="D2E-Bq-nQG"/>
                                                     </connections>
@@ -264,7 +263,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -279,15 +278,13 @@
                     <connections>
                         <outlet property="email" destination="jOA-my-emh" id="R0q-2F-bL4"/>
                         <outlet property="emailLabel" destination="GzS-wD-OPg" id="t2s-SP-Fbp"/>
-                        <outlet property="loginEmailLabel" destination="GzS-wD-OPg" id="SYg-oj-krG"/>
-                        <outlet property="loginPasswordLabel" destination="qC6-sz-btZ" id="C3F-eq-zjk"/>
                         <outlet property="password" destination="QoW-OM-HmY" id="649-8P-0pC"/>
                         <outlet property="passwordLabel" destination="qC6-sz-btZ" id="bbU-NA-6ro"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wRF-fu-Sfj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-627" y="-848"/>
+            <point key="canvasLocation" x="-607" y="-854"/>
         </scene>
         <!--Login Nav Controller-->
         <scene sceneID="fHi-vA-EQi">
@@ -358,6 +355,7 @@
                         <outlet property="Login" destination="BDg-Mm-QZd" id="Tx2-qK-3Dy"/>
                         <outlet property="orderNow" destination="tIR-Dg-I22" id="hgw-Se-jY7"/>
                         <outlet property="signUp" destination="u5K-Se-hYa" id="2NM-Il-jdJ"/>
+                        <segue destination="rS3-R9-Ivy" kind="modal" identifier="already_logged_in" id="UYF-CN-Yqr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGx-51-zKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1703,7 +1701,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="oax-gY-Sty"/>
-        <segue reference="Dah-7x-nBw"/>
+        <segue reference="MaC-fv-VRW"/>
         <segue reference="R1H-bM-kbw"/>
     </inferredMetricsTieBreakers>
 </document>

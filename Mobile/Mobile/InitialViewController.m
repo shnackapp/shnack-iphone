@@ -7,6 +7,8 @@
 //
 
 #import "InitialViewController.h"
+#import "AppDelegate.h"
+#import "LocationsViewController.h"
 
 @interface InitialViewController ()
 
@@ -27,12 +29,8 @@
 
 - (void)viewDidLoad
 {
-    
+    self.did_skip_initial = NO;
     [super viewDidLoad];
-//    self.signUp.hidden = true;
-//    self.orderNow.hidden = true;
-//    self.Login.hidden = true;
-//    
     
     self.signUp.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
     self.orderNow.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
@@ -61,6 +59,23 @@
     [self.view sendSubviewToBack:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:NO];
+    NSLog(@"view did appear");
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate ];
+    
+    if(appDelegate.uses_keychain )
+    {
+        
+        [self performSegueWithIdentifier:@"already_logged_in" sender:self.orderNow];
+    }
+    
+    self.did_skip_initial = YES;
+
+
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
@@ -96,10 +111,8 @@
 {
     NSUInteger index = ((TutorialContentViewController*) viewController).pageIndex;
     //[self.view addSubview:_dots];
-
-
     
-
+   
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
 

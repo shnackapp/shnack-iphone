@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Security/Security.h>
+
 
 @interface LoginContainerViewController : UIViewController
 
@@ -15,6 +17,7 @@
 @property (nonatomic) IBOutlet UIButton *forgotPassword;
 extern NSMutableArray *globalCurrentUser;
 @property (retain, nonatomic) NSMutableData *responseData;
+-(IBAction)  forgot_password;
 
 
 @property (weak, nonatomic) IBOutlet UIView *container;

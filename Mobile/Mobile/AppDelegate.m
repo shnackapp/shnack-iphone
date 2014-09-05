@@ -26,6 +26,29 @@
     pageControl.backgroundColor = [UIColor lightGrayColor];
     NSLog(@"appDelegate");
     
+    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
+    
+    NSString *tok = [keychain objectForKey:(__bridge id)(kSecValueData)];
+    NSString *pass = [[NSString alloc] initWithData:[keychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding];
+    NSString *acct = [keychain objectForKey:(__bridge id)(kSecAttrAccount)];
+    
+    NSLog(@"TOKEN:%@",tok);
+    NSLog(@"PASS: %@",pass);
+    NSLog(@"USER NAME:%@",acct);
+    
+    if (tok != NULL&& acct != NULL)
+        
+    {
+        NSLog(@"i should segue to login page");
+        self.uses_keychain = YES;
+        
+        
+    }
+    
+    
+    
+    
+    
   
     
 
