@@ -31,7 +31,7 @@
         tableView.backgroundView = nil;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         tableView.bounces = NO;
-        tableView.scrollsToTop = NO;
+        tableView.scrollsToTop = YES;
         tableView;
     });
     [self.view addSubview:self.tableView];

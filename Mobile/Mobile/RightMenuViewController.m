@@ -119,8 +119,7 @@
     self.logout = NO;
     
     
-    
-    
+
     return cell;
 }
 
