@@ -7,7 +7,6 @@
 //
 
 #import "LeftMenuViewController.h"
-#import "SecondViewController.h"
 #import "UIViewController+RESideMenu.h"
 
 @interface LeftMenuViewController ()
@@ -22,7 +21,7 @@
 {
     [super viewDidLoad];
     self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 5) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 4) / 2.0f, self.view.frame.size.width, 54 * 5) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -63,10 +62,6 @@
             [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
-        case 4:
-            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
-                                                         animated:YES];
-            [self.sideMenuViewController hideMenuViewController];
         default:
             break;
 
@@ -88,7 +83,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return 5;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -105,13 +100,9 @@
         cell.textLabel.highlightedTextColor = [UIColor greenColor];
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
-    if (indexPath.row == 4)
-    {
-        cell.textLabel.highlightedTextColor = [UIColor redColor];
-    }
-    
-    NSArray *titles = @[@"Account", @"Settings", @"Past Orders", @"Payment Info", @"Log Out"];
-    NSArray *images = @[@"IconHome", @"IconSettings", @"IconCalendar", @"IconProfile" , @"IconEmpty"];
+   
+    NSArray *titles = @[@"Account", @"Settings", @"Past Orders", @"Payment Info"];
+    NSArray *images = @[@"IconHome", @"IconSettings", @"IconCalendar", @"IconProfile"];
     cell.textLabel.text = titles[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
     

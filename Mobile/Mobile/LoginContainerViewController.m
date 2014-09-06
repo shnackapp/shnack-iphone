@@ -130,7 +130,7 @@
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-    if( [identifier isEqualToString:@"logged_in"])
+    if( [identifier isEqualToString:@"to_root"])
     {
     
     if (self.does_exist )
@@ -207,7 +207,7 @@
         NSLog(@"auth token: %@",[receivedJSON objectForKey:key]);
         self.does_exist = YES;
         self.successful_login = YES;
-        [self performSegueWithIdentifier:@"logged_in" sender:self];
+        [self performSegueWithIdentifier:@"to_root" sender:self];
 
         }
         

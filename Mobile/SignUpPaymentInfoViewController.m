@@ -227,7 +227,7 @@
             
         [nav.user_info setObject:[receivedJSON valueForKey:@"id"] forKey:@"id"];
         [self createUserWithInfo:full_name andEmail:[nav.user_info objectForKey:@"email"] andPhone:[nav.user_info objectForKey:@"phone_number"] andPassword:[nav.user_info objectForKey:@"password"] andStripeCustomerID:[nav.user_info objectForKey:@"id"]];
-        [self performSegueWithIdentifier:@"order" sender:self];
+        [self performSegueWithIdentifier:@"to_root" sender:self];
         }
 }
 
@@ -281,7 +281,7 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"order"]) {
+    if ([[segue identifier] isEqualToString:@"to_root"]) {
         
         UINavigationController *nav = [[UINavigationController alloc] initWithNibName:@"contentViewController" bundle:nil];
         

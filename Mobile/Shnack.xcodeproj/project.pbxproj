@@ -16,13 +16,12 @@
 		42E9611018ED494100E5A182 /* LeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610818ED494100E5A182 /* LeftMenuViewController.m */; };
 		42E9611118ED494100E5A182 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610A18ED494100E5A182 /* RightMenuViewController.m */; };
 		42E9611218ED494100E5A182 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610C18ED494100E5A182 /* RootViewController.m */; };
-		42E9611318ED494100E5A182 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9610E18ED494100E5A182 /* SecondViewController.m */; };
 		42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611518F14B2000E5A182 /* RECommonFunctions.m */; };
 		42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611718F14B2000E5A182 /* RESideMenu.m */; };
 		42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */; };
-		6909335219BAE3B5002CD973 /* menu_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 6909335119BAE3B5002CD973 /* menu_32.png */; };
 		6909332F19BA8E49002CD973 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6909332E19BA8E49002CD973 /* MainNavController.m */; };
 		6909334419BADB02002CD973 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6909334319BADB02002CD973 /* FacebookSDK.framework */; };
+		6909335219BAE3B5002CD973 /* menu_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 6909335119BAE3B5002CD973 /* menu_32.png */; };
 		690AAB2919989C6300AF3794 /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */; };
 		690AAB2A19989C6300AF3794 /* Dosis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2319989C6300AF3794 /* Dosis-Medium.otf */; };
 		690AAB2B19989C6300AF3794 /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2419989C6300AF3794 /* Dosis-Regular.otf */; };
@@ -36,7 +35,6 @@
 		691E66E018F3E2FB00F67683 /* paperplane.svg in Resources */ = {isa = PBXBuildFile; fileRef = 691E66DF18F3E2FB00F67683 /* paperplane.svg */; };
 		69242D0A1996858D0067DFA5 /* CartPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69242D081996858D0067DFA5 /* CartPopViewController.m */; };
 		69242D0B1996858D0067DFA5 /* CartPopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69242D091996858D0067DFA5 /* CartPopViewController.xib */; };
-		6925E48F19B22F7D00943354 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6925E48E19B22F7D00943354 /* FacebookSDK.framework */; };
 		69393754191F13E00061839C /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69393753191F13E00061839C /* MainPageViewController.m */; };
 		693A943119B63DC10069A2D4 /* LoginNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693A943019B63DC10069A2D4 /* LoginNavController.m */; };
 		69400FB518BBE68000238826 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB418BBE68000238826 /* Item.m */; };
@@ -132,7 +130,6 @@
 		69F95D1F18F200B30011F5DB /* textfield.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F95CFC18F200B30011F5DB /* textfield.png */; };
 		69F95D2018F200B30011F5DB /* textfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F95CFD18F200B30011F5DB /* textfield@2x.png */; };
 		69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95D2618F2184B0011F5DB /* MBProgressHUD.m */; };
-		69FF4C8A19B57FFB0032A0BE /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69FF4C8919B57FFB0032A0BE /* SideMenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,18 +174,16 @@
 		42E9610A18ED494100E5A182 /* RightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RightMenuViewController.m; path = Mobile/RightMenuViewController.m; sourceTree = "<group>"; };
 		42E9610B18ED494100E5A182 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RootViewController.h; path = Mobile/RootViewController.h; sourceTree = "<group>"; };
 		42E9610C18ED494100E5A182 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RootViewController.m; path = Mobile/RootViewController.m; sourceTree = "<group>"; };
-		42E9610D18ED494100E5A182 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SecondViewController.h; path = Mobile/SecondViewController.h; sourceTree = "<group>"; };
-		42E9610E18ED494100E5A182 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SecondViewController.m; path = Mobile/SecondViewController.m; sourceTree = "<group>"; };
 		42E9611418F14B2000E5A182 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RECommonFunctions.h; path = Mobile/RECommonFunctions.h; sourceTree = SOURCE_ROOT; };
 		42E9611518F14B2000E5A182 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RECommonFunctions.m; path = Mobile/RECommonFunctions.m; sourceTree = SOURCE_ROOT; };
 		42E9611618F14B2000E5A182 /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RESideMenu.h; path = Mobile/RESideMenu.h; sourceTree = SOURCE_ROOT; };
 		42E9611718F14B2000E5A182 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESideMenu.m; path = Mobile/RESideMenu.m; sourceTree = SOURCE_ROOT; };
 		42E9611818F14B2000E5A182 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+RESideMenu.h"; path = "Mobile/UIViewController+RESideMenu.h"; sourceTree = SOURCE_ROOT; };
 		42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RESideMenu.m"; path = "Mobile/UIViewController+RESideMenu.m"; sourceTree = SOURCE_ROOT; };
-		6909335119BAE3B5002CD973 /* menu_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_32.png; path = ../menu_32.png; sourceTree = "<group>"; };
 		6909332D19BA8E49002CD973 /* MainNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavController.h; sourceTree = "<group>"; };
 		6909332E19BA8E49002CD973 /* MainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavController.m; sourceTree = "<group>"; };
 		6909334319BADB02002CD973 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		6909335119BAE3B5002CD973 /* menu_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_32.png; path = ../menu_32.png; sourceTree = "<group>"; };
 		690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.otf"; path = "../Dosis-SemiBold.otf"; sourceTree = "<group>"; };
 		690AAB2319989C6300AF3794 /* Dosis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Medium.otf"; path = "../Dosis-Medium.otf"; sourceTree = "<group>"; };
 		690AAB2419989C6300AF3794 /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.otf"; path = "../Dosis-Regular.otf"; sourceTree = "<group>"; };
@@ -205,7 +200,6 @@
 		69242D071996858D0067DFA5 /* CartPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartPopViewController.h; sourceTree = "<group>"; };
 		69242D081996858D0067DFA5 /* CartPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartPopViewController.m; sourceTree = "<group>"; };
 		69242D091996858D0067DFA5 /* CartPopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartPopViewController.xib; sourceTree = "<group>"; };
-		6925E48E19B22F7D00943354 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		69393752191F13E00061839C /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPageViewController.h; path = Mobile/MainPageViewController.h; sourceTree = "<group>"; };
 		69393753191F13E00061839C /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPageViewController.m; path = Mobile/MainPageViewController.m; sourceTree = "<group>"; };
 		693A942F19B63DC10069A2D4 /* LoginNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginNavController.h; sourceTree = "<group>"; };
@@ -370,8 +364,6 @@
 		69F95CFD18F200B30011F5DB /* textfield@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield@2x.png"; sourceTree = "<group>"; };
 		69F95D2518F2184B0011F5DB /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		69F95D2618F2184B0011F5DB /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		69FF4C8819B57FFB0032A0BE /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
-		69FF4C8919B57FFB0032A0BE /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		6A546BF48A1243308E94883D /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -413,10 +405,6 @@
 				42E9610A18ED494100E5A182 /* RightMenuViewController.m */,
 				42E9610B18ED494100E5A182 /* RootViewController.h */,
 				42E9610C18ED494100E5A182 /* RootViewController.m */,
-				42E9610D18ED494100E5A182 /* SecondViewController.h */,
-				42E9610E18ED494100E5A182 /* SecondViewController.m */,
-				69FF4C8819B57FFB0032A0BE /* SideMenuViewController.h */,
-				69FF4C8919B57FFB0032A0BE /* SideMenuViewController.m */,
 			);
 			name = "Side Menu Controllers";
 			sourceTree = "<group>";
@@ -1171,7 +1159,6 @@
 				695E27C3197E195B00B0CA2D /* SignUpProfileViewController.m in Sources */,
 				695E27CD197E325700B0CA2D /* SignUpNavController.m in Sources */,
 				69F95D0318F200B30011F5DB /* PKAddressZip.m in Sources */,
-				69FF4C8A19B57FFB0032A0BE /* SideMenuViewController.m in Sources */,
 				69F95D0018F200B30011F5DB /* STPView.m in Sources */,
 				69F3199819368DC400C501D5 /* LoginContainerViewController.m in Sources */,
 				42E0470719061DC200890447 /* ShnackMenuViewController.m in Sources */,
@@ -1194,7 +1181,6 @@
 				69400FB518BBE68000238826 /* Item.m in Sources */,
 				69715B3318AD39560039D061 /* Mobile.xcdatamodeld in Sources */,
 				42E9611118ED494100E5A182 /* RightMenuViewController.m in Sources */,
-				42E9611318ED494100E5A182 /* SecondViewController.m in Sources */,
 				69F95D0118F200B30011F5DB /* Stripe.m in Sources */,
 				69F95D0418F200B30011F5DB /* PKCard.m in Sources */,
 				69F95D0B18F200B30011F5DB /* PKView.m in Sources */,

@@ -7,7 +7,6 @@
 //
 
 #import "RightMenuViewController.h"
-#import "SecondViewController.h"
 #import "LeftMenuViewController.h"
 
 @interface RightMenuViewController ()
