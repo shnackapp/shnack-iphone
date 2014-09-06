@@ -21,6 +21,7 @@
 		42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611718F14B2000E5A182 /* RESideMenu.m */; };
 		42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */; };
 		6909332F19BA8E49002CD973 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6909332E19BA8E49002CD973 /* MainNavController.m */; };
+		6909334419BADB02002CD973 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6909334319BADB02002CD973 /* FacebookSDK.framework */; };
 		690AAB2919989C6300AF3794 /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */; };
 		690AAB2A19989C6300AF3794 /* Dosis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2319989C6300AF3794 /* Dosis-Medium.otf */; };
 		690AAB2B19989C6300AF3794 /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2419989C6300AF3794 /* Dosis-Regular.otf */; };
@@ -183,6 +184,7 @@
 		42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RESideMenu.m"; path = "Mobile/UIViewController+RESideMenu.m"; sourceTree = SOURCE_ROOT; };
 		6909332D19BA8E49002CD973 /* MainNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavController.h; sourceTree = "<group>"; };
 		6909332E19BA8E49002CD973 /* MainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavController.m; sourceTree = "<group>"; };
+		6909334319BADB02002CD973 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.otf"; path = "../Dosis-SemiBold.otf"; sourceTree = "<group>"; };
 		690AAB2319989C6300AF3794 /* Dosis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Medium.otf"; path = "../Dosis-Medium.otf"; sourceTree = "<group>"; };
 		690AAB2419989C6300AF3794 /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.otf"; path = "../Dosis-Regular.otf"; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 				69715B2118AD39560039D061 /* CoreData.framework in Frameworks */,
 				69715B1F18AD39560039D061 /* UIKit.framework in Frameworks */,
 				69715B1B18AD39560039D061 /* Foundation.framework in Frameworks */,
+				6909334419BADB02002CD973 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +617,7 @@
 		69715B1918AD39560039D061 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6909334319BADB02002CD973 /* FacebookSDK.framework */,
 				6983373C19B821E40012072B /* Security.framework */,
 				6999CD531908BC04009BD628 /* libPods.a */,
 				6999CD261908BBB2009BD628 /* Pods */,
@@ -1320,6 +1324,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/spencerneste/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobile/Shnack-Prefix.pch";
 				INFOPLIST_FILE = "Mobile/Shnack-Info.plist";
@@ -1341,6 +1349,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/spencerneste/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobile/Shnack-Prefix.pch";
 				INFOPLIST_FILE = "Mobile/Shnack-Info.plist";
