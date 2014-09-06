@@ -305,6 +305,9 @@
                                     <color key="titleColor" red="0.60066565689999996" green="0.043437299169999999" blue="0.12662702310000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="baj-JZ-fJa" kind="modal" id="UIo-xs-1AV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -313,7 +316,6 @@
                         <outlet property="Login" destination="BDg-Mm-QZd" id="Tx2-qK-3Dy"/>
                         <outlet property="orderNow" destination="tIR-Dg-I22" id="hgw-Se-jY7"/>
                         <outlet property="signUp" destination="u5K-Se-hYa" id="2NM-Il-jdJ"/>
-                        <segue destination="baj-JZ-fJa" kind="modal" id="GiT-bQ-GVd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGx-51-zKi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -421,10 +423,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="rS3-R9-Ivy" kind="modal" identifier="start" id="A8F-mu-p0s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFH-hp-NzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-846" y="112"/>
+            <point key="canvasLocation" x="-846" y="120"/>
         </scene>
         <!--Left Menu View Controller-->
         <scene sceneID="ji8-Ze-pcY">
@@ -1703,7 +1708,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="oax-gY-Sty"/>
-        <segue reference="IVh-Z2-iRQ"/>
+        <segue reference="UIo-xs-1AV"/>
         <segue reference="R1H-bM-kbw"/>
     </inferredMetricsTieBreakers>
 </document>
