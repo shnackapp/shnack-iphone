@@ -13,7 +13,7 @@
 #import "LeftMenuViewController.h"
 #import "RightMenuViewController.h"
 #import "SignUpNavController.h"
-#import "InitialViewController.h"
+#import "RootViewController.h"
 
 @implementation AppDelegate
 
@@ -25,7 +25,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    NSLog(@"didFinishLaunchingWithOptions:(NSDictionary *)launchOptions");
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor blackColor];
     pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:153 green:0 blue:0 alpha:1.0];
@@ -33,7 +32,7 @@
     NSLog(@"appDelegate");
     
   
-    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin1" accessGroup:nil];
+    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
     
     NSString *tok = [keychain objectForKey:(__bridge id)(kSecValueData)];
     NSString *pass = [[NSString alloc] initWithData:[keychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding];
@@ -50,15 +49,14 @@
     NSLog(@"USER NAME:%lu",(unsigned long)[acct length]);
 
     
-    if ([tok length] == 0 && [acct length] == 0)
+    if ([tok length] != 0 && [acct length] != 0)
     {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                                  bundle: nil];
-        LocationsViewController *controller = (LocationsViewController*)[mainStoryboard
-        instantiateViewControllerWithIdentifier: @"locationsViewController"];
-        InitialViewController * init = [[InitialViewController alloc] init ];
-        //self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:controller];
-        self.window.rootViewController = init;
+
+        RootViewController *root =(RootViewController*)[mainStoryboard
+                                                        instantiateViewControllerWithIdentifier: @"root"];
+        self.window.rootViewController = root;
         [self.window makeKeyAndVisible];
 
         NSLog(@"i should segue to login page");
