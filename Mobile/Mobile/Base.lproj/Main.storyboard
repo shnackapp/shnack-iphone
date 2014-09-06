@@ -423,9 +423,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <segue destination="rS3-R9-Ivy" kind="modal" identifier="start" id="A8F-mu-p0s"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RFH-hp-NzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
