@@ -88,12 +88,16 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
         cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
+        cell.textLabel.highlightedTextColor = [UIColor greenColor];
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
+    if (indexPath.row == 4)
+    {
+        cell.textLabel.highlightedTextColor = [UIColor redColor];
+    }
     
-    NSArray *titles = @[@"Home", @"Calendar", @"Profile", @"Settings", @"Log Out"];
-    NSArray *images = @[@"IconHome", @"IconCalendar", @"IconProfile", @"IconSettings", @"IconEmpty"];
+    NSArray *titles = @[@"Account", @"Settings", @"Past Orders", @"Payment Info", @"Log Out"];
+    NSArray *images = @[@"IconHome", @"IconSettings", @"IconCalendar", @"IconProfile" , @"IconEmpty"];
     cell.textLabel.text = titles[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
     

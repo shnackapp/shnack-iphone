@@ -20,6 +20,7 @@
 		42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611518F14B2000E5A182 /* RECommonFunctions.m */; };
 		42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611718F14B2000E5A182 /* RESideMenu.m */; };
 		42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */; };
+		6909335219BAE3B5002CD973 /* menu_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 6909335119BAE3B5002CD973 /* menu_32.png */; };
 		690AAB2919989C6300AF3794 /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */; };
 		690AAB2A19989C6300AF3794 /* Dosis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2319989C6300AF3794 /* Dosis-Medium.otf */; };
 		690AAB2B19989C6300AF3794 /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2419989C6300AF3794 /* Dosis-Regular.otf */; };
@@ -179,6 +180,7 @@
 		42E9611718F14B2000E5A182 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESideMenu.m; path = Mobile/RESideMenu.m; sourceTree = SOURCE_ROOT; };
 		42E9611818F14B2000E5A182 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+RESideMenu.h"; path = "Mobile/UIViewController+RESideMenu.h"; sourceTree = SOURCE_ROOT; };
 		42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RESideMenu.m"; path = "Mobile/UIViewController+RESideMenu.m"; sourceTree = SOURCE_ROOT; };
+		6909335119BAE3B5002CD973 /* menu_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_32.png; path = ../menu_32.png; sourceTree = "<group>"; };
 		690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.otf"; path = "../Dosis-SemiBold.otf"; sourceTree = "<group>"; };
 		690AAB2319989C6300AF3794 /* Dosis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Medium.otf"; path = "../Dosis-Medium.otf"; sourceTree = "<group>"; };
 		690AAB2419989C6300AF3794 /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.otf"; path = "../Dosis-Regular.otf"; sourceTree = "<group>"; };
@@ -635,6 +637,7 @@
 				69F73C2119739B3300361426 /* NSObject_Constants.h */,
 				69715B2C18AD39560039D061 /* AppDelegate.m */,
 				69715B2E18AD39560039D061 /* Main.storyboard */,
+				6909335119BAE3B5002CD973 /* menu_32.png */,
 				69924C0419790B0B0024E683 /* Screen Shot 2014-06-27 at 4.18.55 PM.jpg */,
 				6963E23519085F2700C6885A /* stadium.jpeg */,
 				69715B5818AD3CB30039D061 /* NSConnectionDelegate.h */,
@@ -1038,6 +1041,7 @@
 				69F95D1118F200B30011F5DB /* cvc@2x.png in Resources */,
 				69F95D0E18F200B30011F5DB /* cvc-amex.png in Resources */,
 				690AAB2A19989C6300AF3794 /* Dosis-Medium.otf in Resources */,
+				6909335219BAE3B5002CD973 /* menu_32.png in Resources */,
 				6953817E191429AF00DD91A2 /* launch_image.png in Resources */,
 				690AAB2C19989C6300AF3794 /* Dosis-ExtraLight.otf in Resources */,
 				69F95D1318F200B30011F5DB /* diners@2x.png in Resources */,
