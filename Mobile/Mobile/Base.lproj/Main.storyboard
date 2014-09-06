@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller - Test-->
+        <!--Main Nav Controller - Test-->
         <scene sceneID="cUi-kZ-frf">
             <objects>
-                <navigationController storyboardIdentifier="contentViewController" id="rS3-R9-Ivy" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="contentViewController" id="rS3-R9-Ivy" customClass="MainNavController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Test" id="ohL-KF-i4M"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yXu-0R-QUA">
                         <autoresizingMask key="autoresizingMask"/>
@@ -355,7 +355,6 @@
                         <outlet property="Login" destination="BDg-Mm-QZd" id="Tx2-qK-3Dy"/>
                         <outlet property="orderNow" destination="tIR-Dg-I22" id="hgw-Se-jY7"/>
                         <outlet property="signUp" destination="u5K-Se-hYa" id="2NM-Il-jdJ"/>
-                        <segue destination="rS3-R9-Ivy" kind="modal" identifier="already_logged_in" id="UYF-CN-Yqr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MGx-51-zKi" userLabel="First Responder" sceneMemberID="firstResponder"/>

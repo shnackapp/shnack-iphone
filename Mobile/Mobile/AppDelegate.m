@@ -37,11 +37,17 @@
     NSLog(@"USER NAME:%@",acct);
     
     if (tok != NULL&& acct != NULL)
-        
     {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                                 bundle: nil];
+        LocationsViewController *controller = (LocationsViewController*)[mainStoryboard
+                                instantiateViewControllerWithIdentifier: @"locationsViewController"];
+        
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:controller];
+        [self.window makeKeyAndVisible];
+
         NSLog(@"i should segue to login page");
         self.uses_keychain = YES;
-        
         
     }
     

@@ -61,23 +61,6 @@
     
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-    [super viewDidAppear:NO];
-    NSLog(@"view did appear");
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate ];
-    
-    if(appDelegate.uses_keychain )
-    {
-        
-        [self performSegueWithIdentifier:@"already_logged_in" sender:self.orderNow];
-    }
-    
-    self.did_skip_initial = YES;
-
-
-}
-
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController
 {
     return [self.pageTitles count];

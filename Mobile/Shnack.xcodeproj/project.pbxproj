@@ -20,6 +20,7 @@
 		42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611518F14B2000E5A182 /* RECommonFunctions.m */; };
 		42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611718F14B2000E5A182 /* RESideMenu.m */; };
 		42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */; };
+		6909332F19BA8E49002CD973 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6909332E19BA8E49002CD973 /* MainNavController.m */; };
 		690AAB2919989C6300AF3794 /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */; };
 		690AAB2A19989C6300AF3794 /* Dosis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2319989C6300AF3794 /* Dosis-Medium.otf */; };
 		690AAB2B19989C6300AF3794 /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2419989C6300AF3794 /* Dosis-Regular.otf */; };
@@ -180,6 +181,8 @@
 		42E9611718F14B2000E5A182 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RESideMenu.m; path = Mobile/RESideMenu.m; sourceTree = SOURCE_ROOT; };
 		42E9611818F14B2000E5A182 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+RESideMenu.h"; path = "Mobile/UIViewController+RESideMenu.h"; sourceTree = SOURCE_ROOT; };
 		42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RESideMenu.m"; path = "Mobile/UIViewController+RESideMenu.m"; sourceTree = SOURCE_ROOT; };
+		6909332D19BA8E49002CD973 /* MainNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavController.h; sourceTree = "<group>"; };
+		6909332E19BA8E49002CD973 /* MainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavController.m; sourceTree = "<group>"; };
 		690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.otf"; path = "../Dosis-SemiBold.otf"; sourceTree = "<group>"; };
 		690AAB2319989C6300AF3794 /* Dosis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Medium.otf"; path = "../Dosis-Medium.otf"; sourceTree = "<group>"; };
 		690AAB2419989C6300AF3794 /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.otf"; path = "../Dosis-Regular.otf"; sourceTree = "<group>"; };
@@ -476,6 +479,8 @@
 				69242D071996858D0067DFA5 /* CartPopViewController.h */,
 				69242D081996858D0067DFA5 /* CartPopViewController.m */,
 				69242D091996858D0067DFA5 /* CartPopViewController.xib */,
+				6909332D19BA8E49002CD973 /* MainNavController.h */,
+				6909332E19BA8E49002CD973 /* MainNavController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -1182,6 +1187,7 @@
 				429B5F3F18F7A51B005D1A3C /* POPDCell.m in Sources */,
 				69F95D0618F200B30011F5DB /* PKCardExpiry.m in Sources */,
 				691E66DE18F3DAD900F67683 /* InitialViewController.m in Sources */,
+				6909332F19BA8E49002CD973 /* MainNavController.m in Sources */,
 				69F95CFF18F200B30011F5DB /* STPToken.m in Sources */,
 				42E9611018ED494100E5A182 /* LeftMenuViewController.m in Sources */,
 				69F95D0218F200B30011F5DB /* StripeError.m in Sources */,
