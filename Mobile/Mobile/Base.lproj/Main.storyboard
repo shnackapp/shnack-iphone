@@ -638,12 +638,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Locations" id="j48-uy-gId">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="wJz-sJ-kBg"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="wJz-sJ-kBg">
+                            <connections>
+                                <action selector="presentRightMenuViewController:" destination="ND0-LZ-y5P" id="7YD-uo-m9g"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="320" height="568"/>
-                    <connections>
-                        <outlet property="sidebarButton" destination="wJz-sJ-kBg" id="UWG-QB-QjN"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7j-36-bfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

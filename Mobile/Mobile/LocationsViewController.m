@@ -13,7 +13,6 @@
 #import "POPDCell.h"
 #import "NSObject_Constants.h"
 #import "LeftMenuViewController.h"
-#import "SWRevealViewController.h"
 
 
 @interface LocationsViewController () <POPDDelegate>
@@ -26,18 +25,7 @@ NSIndexPath *reloadingCategoryIndexPath;
 
 - (void)viewDidLoad
 {
-    
-    // Change button color
-    self.sidebarButton.tintColor = [UIColor whiteColor];
-    
-    // Set the side bar button action. When it's tapped, it'll show up the sidebar.
-    self.sidebarButton.target = self.revealViewController;
-    self.sidebarButton.action = @selector(revealToggle:);
-    
-    // Set the gesture
-    //[self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
-
-    
+        
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     

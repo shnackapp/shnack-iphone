@@ -12,7 +12,6 @@
 #import "RESideMenu.h"
 #import "LeftMenuViewController.h"
 #import "RightMenuViewController.h"
-#import "SWRevealViewController.h"
 
 
 @implementation AppDelegate

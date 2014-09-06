@@ -11,4 +11,10 @@
 
 @interface RightMenuViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
+@property bool account_settings;
+@property bool payment_info;
+@property bool past_orders;
+@property bool logout;
+
+
 @end

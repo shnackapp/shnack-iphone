@@ -10,7 +10,6 @@
 #import "SecondViewController.h"
 #import "LeftMenuViewController.h"
 
-#define NUMBER_OF_ITEMS 4
 @interface RightMenuViewController ()
 
 @property (strong, readwrite, nonatomic) UITableView *tableView;
@@ -21,10 +20,9 @@
 
 - (void)viewDidLoad
 {
-    
     [super viewDidLoad];
     self.tableView = ({
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * NUMBER_OF_ITEMS) / 2.0f, self.view.frame.size.width, 54 * NUMBER_OF_ITEMS) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 54 , self.view.frame.size.width, 54 * 4) style:UITableViewStylePlain ];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
         tableView.delegate = self;
         tableView.dataSource = self;
@@ -32,6 +30,8 @@
         tableView.backgroundColor = [UIColor clearColor];
         tableView.backgroundView = nil;
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        // tableView.separatorColor = [UIColor whiteColor];
+        tableView.scrollEnabled = YES;
         tableView.bounces = NO;
         tableView;
     });
@@ -45,31 +45,30 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
-            case 0: {
-            /*[self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"stadiumViewController"]]
-                                                         animated:YES];*/
-            
-            /// use the uinavigationcontroller from our storyboard
+        case 0:
             [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
-            }
-            case 1: {
-            UINavigationController *navController = [[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]];
-                [navController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"menuViewController"] animated:NO];
-                [navController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"myOrderViewController"] animated:NO];
-                [self.sideMenuViewController setContentViewController:navController animated:YES];
-                [self.sideMenuViewController hideMenuViewController];
-                break;
-                    }/*
-                case 2: {[self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"secondViewController"]]
+        case 1:
+            self.payment_info = YES;NSLog(@"payment_info %i",self.payment_info);
+            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
+                                                         animated:YES];
+            [self.sideMenuViewController hideMenuViewController];            break;
+        case 2:
+            self.past_orders = YES;NSLog(@"past %i",self.past_orders);
+            
+            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
+        case 3:
+            self.logout = YES;NSLog(@"logut %i",self.logout);
+            
+            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
+                                                         animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+        default:
             break;
-                      }*/
-        default: { break;
-        }
     }
 }
 
@@ -88,7 +87,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex
 {
-    return NUMBER_OF_ITEMS;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,14 +100,26 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:21];
-        cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.highlightedTextColor = [UIColor lightGrayColor];
+        cell.textLabel.textColor =  [UIColor whiteColor];
+        cell.textLabel.highlightedTextColor = [UIColor greenColor];
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
-    NSArray *titles = @[@"Locations", @"Current Order", @"Past Orders", @"Payment Info"];
+    cell.textLabel.textColor = self.account_settings? [UIColor greenColor] : [UIColor whiteColor];
+    cell.textLabel.textColor = self.payment_info? [UIColor greenColor] : [UIColor whiteColor];
+    cell.textLabel.textColor = self.past_orders? [UIColor greenColor] : [UIColor whiteColor];
+    cell.textLabel.textColor = self.logout? [UIColor greenColor] : [UIColor whiteColor];
+    NSArray *titles = @[@"Account Settings", @"Payment Info", @"Past Orders", @"Logout"];
     cell.textLabel.text = titles[indexPath.row];
     cell.textLabel.textAlignment = NSTextAlignmentRight;
+    
+    self.account_settings = NO;
+    self.payment_info = NO;
+    self.past_orders = NO;
+    self.logout = NO;
+    
+    
+    
     
     return cell;
 }
