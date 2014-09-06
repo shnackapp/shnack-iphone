@@ -21,6 +21,7 @@ NSString *globalOpenOrderVendorName = nil;
 NSString *globalCurrentVendorName = nil;
 NSMutableArray *globalUserInfo = nil;
 NSMutableArray *globalCurrentUser = nil;
+NSMutableDictionary *fb_user_info = nil;
 
 MainPageViewController *mainPages = nil;
 int *globalCurrentOrderAmount = 0;

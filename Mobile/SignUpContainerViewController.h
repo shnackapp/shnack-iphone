@@ -20,6 +20,13 @@
 
 @property (retain, nonatomic) IBOutlet UITextField *phone;
 @property (nonatomic) IBOutlet UILabel *phoneLabel;
+
+@property (retain, nonatomic) IBOutlet UITextField *confirm;
+@property (nonatomic) IBOutlet UILabel *confirmLabel;
+
+
+
+
 @property (nonatomic) NSString  *temp_phone;
 
 
@@ -38,19 +45,11 @@
 -(BOOL)isValidPassword:(NSString *)password;
 -(BOOL)textField:(UITextField *) textField;
 
-
 @property (nonatomic) bool valid_email;
 @property (nonatomic) bool valid_phone;
 @property (nonatomic) bool valid_password;
 @property (nonatomic) bool is_valid;
 @property (nonatomic) bool is_filled;
-
-
-
-
-
-
-
-
+@property (nonatomic) bool passwords_match;
 
 @end

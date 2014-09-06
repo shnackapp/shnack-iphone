@@ -41,7 +41,9 @@
 {
     [super viewDidLoad];
     self.text_fields = [[NSMutableDictionary alloc] initWithCapacity:8];
-
+    
+    self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    self.loginView.delegate = self;
     
     self.container.layer.cornerRadius = 5.0f;
 
@@ -97,12 +99,14 @@
     NSLog(@" this is valid password: %@", [self.text_fields valueForKeyPath:@"valid_password"]);
     NSLog(@" this is valid phone: %@", [self.text_fields valueForKeyPath:@"valid_phone"]);
     NSLog(@" this is valid emil: %@", [self.text_fields valueForKeyPath:@"valid_email"]);
+    NSLog(@" this is valid confirm: %@", [self.text_fields valueForKeyPath:@"passwords_match"]);
 
     
     if([[self.text_fields valueForKeyPath:@"valid_password"] integerValue] == 1)//first check if password is syntactically correct
     {
-        if([[self.text_fields valueForKeyPath:@"valid_email"] integerValue] ==1 && [[self.text_fields valueForKeyPath:@"valid_phone"] integerValue] == 1)//then if correct and phone and email are syntactically correct, then check for uniqueness
+        if([[self.text_fields valueForKeyPath:@"valid_email"] integerValue] ==1 && [[self.text_fields valueForKeyPath:@"valid_phone"] integerValue] == 1 && [[self.text_fields valueForKeyPath:@"passwords_match"] integerValue] ==1 )//then if correct and phone and email are syntactically correct, then check for uniqueness
         {
+            self.error_messages.hidden = YES;
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             hud.labelText = @"Validating";
 
@@ -130,10 +134,11 @@
                                    }];
             
         }
-        else//invalid phone or email
+        else//invalid phone or email or passwords dont match
         {
             NSString *email_error = @"\u2022 Invalid email address.";
             NSString *phone_error = @"\u2022 Invalid phone number.";
+            NSString *password_mismatch =@"\u2022 Passwords do not match.";
 
             //show errors for syntactically incorrect fields
             NSString *error_string = @"";
@@ -149,6 +154,13 @@
                 if([error_string length] == 0) error_string =  phone_error;
                 else error_string = [[error_string stringByAppendingString:@"\n"] stringByAppendingString:phone_error];
                 signUpContainer.phoneLabel.textColor = [UIColor redColor];
+            }
+            if([[self.text_fields valueForKeyPath:@"passwords_match"] integerValue] == 0)
+            {
+                NSLog(@"im in here");
+                signUpContainer.confirmLabel.textColor = [UIColor redColor];
+                if([error_string length] == 0) error_string =  password_mismatch;
+                else error_string = [[error_string stringByAppendingString:@"\n"] stringByAppendingString:password_mismatch];
             }
             self.error_messages.hidden = NO;
             self.error_messages.text = error_string;
@@ -218,7 +230,7 @@
     else phone_exists = false;
     
     
-    if([[self.text_fields valueForKeyPath:@"valid_email"] integerValue] == 1 && [[self.text_fields valueForKeyPath:@"valid_phone"] integerValue] == 1 && [[self.text_fields valueForKeyPath:@"valid_password"] integerValue] == 1 && email_exists == false  && phone_exists == false)
+    if([[self.text_fields valueForKeyPath:@"valid_email"] integerValue] == 1 && [[self.text_fields valueForKeyPath:@"valid_phone"] integerValue] == 1 && [[self.text_fields valueForKeyPath:@"valid_password"] integerValue] == 1 && [[self.text_fields valueForKeyPath:@"passwords_match"] integerValue] == 1 &&email_exists == false  && phone_exists == false)
     {
         NSLog(@"storing info in dictionary");
         self.error_messages.hidden = YES;
@@ -248,6 +260,8 @@
             signUpContainer.phoneLabel.textColor = [UIColor redColor];
             
         }
+        
+        
         self.error_messages.hidden = NO;
         self.error_messages.text = error_string;
         self.error_messages.textColor = [UIColor redColor];
