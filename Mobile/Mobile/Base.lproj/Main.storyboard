@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Shnack Nav Controller - Test-->
+        <!--Navigation Controller - Test-->
         <scene sceneID="cUi-kZ-frf">
             <objects>
-                <navigationController storyboardIdentifier="contentViewController" id="rS3-R9-Ivy" customClass="ShnackNavController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="contentViewController" id="rS3-R9-Ivy" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" title="Test" id="ohL-KF-i4M"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yXu-0R-QUA">
                         <autoresizingMask key="autoresizingMask"/>

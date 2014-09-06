@@ -35,7 +35,6 @@
 		69242D0A1996858D0067DFA5 /* CartPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69242D081996858D0067DFA5 /* CartPopViewController.m */; };
 		69242D0B1996858D0067DFA5 /* CartPopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69242D091996858D0067DFA5 /* CartPopViewController.xib */; };
 		69393754191F13E00061839C /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69393753191F13E00061839C /* MainPageViewController.m */; };
-		693A942119B60C7A0069A2D4 /* ShnackNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693A942019B60C7A0069A2D4 /* ShnackNavController.m */; };
 		69400FB518BBE68000238826 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB418BBE68000238826 /* Item.m */; };
 		69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */; };
 		69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */; };
@@ -199,8 +198,6 @@
 		69242D091996858D0067DFA5 /* CartPopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartPopViewController.xib; sourceTree = "<group>"; };
 		69393752191F13E00061839C /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPageViewController.h; path = Mobile/MainPageViewController.h; sourceTree = "<group>"; };
 		69393753191F13E00061839C /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPageViewController.m; path = Mobile/MainPageViewController.m; sourceTree = "<group>"; };
-		693A941F19B60C7A0069A2D4 /* ShnackNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShnackNavController.h; sourceTree = "<group>"; };
-		693A942019B60C7A0069A2D4 /* ShnackNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShnackNavController.m; sourceTree = "<group>"; };
 		69400FB318BBE68000238826 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		69400FB418BBE68000238826 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		69400FB718BBE6C000238826 /* ShnackOrderTotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShnackOrderTotalCell.h; sourceTree = "<group>"; };
@@ -477,8 +474,6 @@
 				69242D071996858D0067DFA5 /* CartPopViewController.h */,
 				69242D081996858D0067DFA5 /* CartPopViewController.m */,
 				69242D091996858D0067DFA5 /* CartPopViewController.xib */,
-				693A941F19B60C7A0069A2D4 /* ShnackNavController.h */,
-				693A942019B60C7A0069A2D4 /* ShnackNavController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -1143,7 +1138,6 @@
 				42E9611218ED494100E5A182 /* RootViewController.m in Sources */,
 				69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */,
 				69F95D0518F200B30011F5DB /* PKCardCVC.m in Sources */,
-				693A942119B60C7A0069A2D4 /* ShnackNavController.m in Sources */,
 				69F95D0718F200B30011F5DB /* PKCardNumber.m in Sources */,
 				69F73C261973BAAF00361426 /* SignUpContainerViewController.m in Sources */,
 				69715B3618AD39560039D061 /* LocationsViewController.m in Sources */,
