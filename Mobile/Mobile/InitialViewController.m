@@ -47,6 +47,7 @@
     self.pageViewController.dataSource = self;
     
     TutorialContentViewController *startingViewController = [self viewControllerAtIndex:0];
+
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
