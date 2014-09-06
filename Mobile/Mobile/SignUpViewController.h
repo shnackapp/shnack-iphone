@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
+
+
 
 @interface SignUpViewController : UIViewController<NSURLConnectionDelegate>
 
@@ -14,6 +17,7 @@
 @property (nonatomic) IBOutlet UIButton *nextButton;
 @property (nonatomic) IBOutlet UILabel *signUpTitle;
 
+@property (weak, nonatomic) IBOutlet FBLoginView *loginView;
 
 @property (nonatomic) IBOutlet UITextView *error_messages;
 -(IBAction)next;

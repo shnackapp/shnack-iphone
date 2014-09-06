@@ -7,6 +7,8 @@
 //
 
 #import "InitialViewController.h"
+#import "AppDelegate.h"
+#import "LocationsViewController.h"
 
 @interface InitialViewController ()
 
@@ -27,12 +29,8 @@
 
 - (void)viewDidLoad
 {
-    
+    self.did_skip_initial = NO;
     [super viewDidLoad];
-//    self.signUp.hidden = true;
-//    self.orderNow.hidden = true;
-//    self.Login.hidden = true;
-//    
     
     self.signUp.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
     self.orderNow.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
@@ -96,10 +94,8 @@
 {
     NSUInteger index = ((TutorialContentViewController*) viewController).pageIndex;
     //[self.view addSubview:_dots];
-
-
     
-
+   
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
 

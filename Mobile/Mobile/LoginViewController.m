@@ -12,6 +12,11 @@
 #import "NSObject_Constants.h"
 #import "MBProgressHUD.h"
 
+#import "KeychainItemWrapper.h"
+
+
+
+
 @interface LoginViewController ()
 
 @end
@@ -26,6 +31,37 @@
     }
     return self;
 }
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    LoginContainerViewController  *loginView = (LoginContainerViewController *) self.parentViewController;
+    
+    
+    self.valid_user_info = [[NSMutableDictionary alloc] initWithCapacity:2];
+    // Do any additional setup after loading the view.
+    
+    self.emailLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
+    self.passwordLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
+    
+    // Do any additional setup after loading the view.
+    self.email.delegate = self;
+    self.password.delegate = self;
+    
+    [self.email setBorderStyle:UITextBorderStyleNone];
+    [self.password setBorderStyle:UITextBorderStyleNone];
+    
+    self.tableView.backgroundColor = [UIColor clearColor];
+    for (CALayer *subLayer in self.tableView.layer.sublayers)
+    {
+        subLayer.cornerRadius = 5.0f;
+        subLayer.masksToBounds = YES;
+    }
+    
+    [super viewDidLoad];
+    
+}
 //validations
 -(BOOL)isValidEmail:(NSString *)email
 {
@@ -36,86 +72,125 @@
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     if(![emailTest evaluateWithObject:email])
     {
-        
-        self.email.text = @"";
-        NSLog(@"------->Email is invalid");
-        
         return NO;
     }
     else
     {
         [self.email resignFirstResponder];
         [self.password becomeFirstResponder];
-        NSLog(@"------->Email is Valid");
         return YES;
     }
 }
 
 -(BOOL)isValidPassword:(NSString *)password
 {
-    if (password.length < 7) return NO;
+    if (password.length < 7)
+    {
+        return NO;
+    }
     else
     {
-        [self.email resignFirstResponder];
         [self.password resignFirstResponder];
         return YES;
     }
 }
-
-//
-
-- (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
-
-    if (theTextField == self.email)
+-(BOOL)checkForContent:(UITextField *)theTextField
+{
+    LoginContainerViewController  *loginView = (LoginContainerViewController *) self.parentViewController;
+    
+    if(self.valid_email) self.emailLabel.textColor = [UIColor blackColor];
+    if(self.valid_password) self.passwordLabel.textColor = [UIColor blackColor];
+    
+    //if all fields are not empty show next button
+    if (![self.email.text  isEqual: @""] && ![self.password.text  isEqual: @""])
     {
-        NSString *email = self.email.text;
-        NSLog(@"Email: %@",email);
-        self.valid_email = [self isValidEmail:email];
-        if (!self.valid_email)
-        {
-            self.emailLabel.textColor = [UIColor redColor];
-            self.email.text = @"";
-        }
-        else self.emailLabel.textColor = [UIColor blackColor];
+        loginView.doneButton.enabled = YES;
+        return YES;
     }
-    if(theTextField == self.password)
+    else
     {
-        NSString *password = self.password.text;
-        NSLog(@"Password: %@",password);
-        self.valid_password = [self isValidPassword:password];
-        if (!self.valid_password)
-        {
-            self.passwordLabel.textColor = [UIColor redColor];
-            self.password.text = @"";
-        }
-        else
-        {
-            self.passwordLabel.textColor = [UIColor blackColor];
-            LoginContainerViewController  *loginViewController = (LoginContainerViewController *) self.parentViewController;
-            //[loginViewController submit];
-        
-        }
+        loginView.doneButton.enabled = NO;
         
     }
-    if(self.valid_email && self.valid_password)
+    return NO;
+    
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    self.is_filled = [self checkForContent:textField];
+    [textField addTarget:self action:@selector(checkForContent:) forControlEvents:UIControlEventEditingChanged];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)theTextField
+{
+    
+    self.is_filled = [self checkForContent:theTextField];
+}
+//enable check on done button on keybaord
+-(BOOL) textFieldShouldReturn:(UITextField *)theTextField
+{
+    self.is_filled = [self checkForContent:theTextField];
+    LoginContainerViewController *lvc = (LoginContainerViewController *) self.parentViewController;
+    
+    if(theTextField == self.email)
     {
-        LoginContainerViewController  *loginViewController = (LoginContainerViewController *) self.parentViewController;
-        NSLog(@" parent class%@", loginViewController.class);
-        loginViewController.doneButton.enabled = YES;
-        //add action to done button!
-        //[loginViewController.doneButton addTarget:self action: @selector(submit) forControlEvents:UIControlEventTouchUpInside];
-        
-        NSMutableArray *login_credentials = [[NSMutableArray alloc] init];
-        //currentUser = [[NSMutableArray alloc] init];
-        [login_credentials addObject:self.email.text];
-        [login_credentials addObject:self.password.text];
-        globalCurrentUser = login_credentials;
-        
+        [self.email resignFirstResponder];
+        [self.password becomeFirstResponder];
+    }
+    
+    if(theTextField == self.password && self.is_filled)
+    {
+        [self gatherFormInfo];
+        [lvc performSelector:@selector(submit)];
         
         
     }
     return YES;
 }
+
+
+
+
+-(void)gatherFormInfo
+{
+    
+    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
+    
+    [keychainItem setObject:self.password.text forKey:(__bridge id)(kSecValueData)];
+    [keychainItem setObject:self.email.text forKey:(__bridge id)(kSecAttrAccount)];
+
+
+
+    self.valid_email = [self isValidEmail:self.email.text];
+    self.valid_password = [self isValidPassword:self.password.text];
+    
+    [self.valid_user_info setObject: self.valid_email ? @YES :@NO forKey:@"valid_email"];
+    [self.valid_user_info setObject: self.valid_password ? @YES :@NO forKey:@"valid_password"];
+
+    
+    if(self.valid_email && self.valid_password)
+    {
+        LoginContainerViewController  *loginViewController = (LoginContainerViewController *) self.parentViewController;
+        NSLog(@" parent class%@", loginViewController.class);
+        loginViewController.doneButton.enabled = YES;
+        
+        NSMutableArray *login_credentials = [[NSMutableArray alloc] init];
+        
+        //currentUser = [[NSMutableArray alloc] init];
+        [login_credentials addObject:self.email.text];
+        [login_credentials addObject:self.password.text];
+        
+                NSLog(@" %@, %@", [self.valid_user_info valueForKey:@"valid_email"],[self.valid_user_info valueForKey:@"valid_password"]);
+        
+        globalCurrentUser = login_credentials;
+        
+        
+        
+    }
+    
+}
+
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     //hides keyboard when another part of layout was touched
@@ -123,24 +198,6 @@
     [super touchesBegan:touches withEvent:event];
 }
 
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    
-    //[self.email becomeFirstResponder];
-    
-    // Do any additional setup after loading the view.
-    self.email.delegate = self;
-    self.password.delegate = self;
-    
-    [self.email setBorderStyle:UITextBorderStyleNone];
-    [self.password setBorderStyle:UITextBorderStyleNone];
-    
-    self.loginEmailLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
-    self.loginPasswordLabel.font = [UIFont fontWithName:@"Poiret One" size:17];
-    
-}
 
 - (void)didReceiveMemoryWarning
 {

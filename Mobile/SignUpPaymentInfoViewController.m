@@ -12,6 +12,7 @@
 #import "RESideMenu.h"
 #import "NSObject_Constants.h"
 #import "LocationsViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface SignUpPaymentInfoViewController ()
 
@@ -140,10 +141,6 @@
                                                       message:@"Thank you for your order. A receipt has been emailed to you!"delegate:nil
                                             cancelButtonTitle:NSLocalizedString(@"OK", @"OK")otherButtonTitles:nil];[message show];
     
-    
-    //change this ,just tmporary for testing
-//    UINavigationController * navigationController = self.navigationController;
-//    [navigationController popToRootViewControllerAnimated:NO];
 }
 
 - (void)stripeView:(STPView *)view withCard:(PKCard *)card isValid:(BOOL)valid
@@ -166,11 +163,9 @@
 
 - (void)handleToken:(STPToken *)token
 {
-    
     SignUpNavController * nav = (SignUpNavController *) self.navigationController;
     NSLog(@"Received token %@", token.tokenId);
     NSString *url = [NSString stringWithFormat:@"%@/customer",BASE_URL];
-    
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     [request setHTTPMethod:@"POST"];
@@ -221,15 +216,20 @@
         }
         else
         {
+            if (FBSession.activeSession.isOpen) {
+                [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
+                    if (!error) {
+                        NSLog(@"name: %@", user.name);
+                        NSLog(@"name: %@", [user objectForKey:@"email"]);
+                    }
+                }];
+            }
+            
         [nav.user_info setObject:[receivedJSON valueForKey:@"id"] forKey:@"id"];
         [self createUserWithInfo:full_name andEmail:[nav.user_info objectForKey:@"email"] andPhone:[nav.user_info objectForKey:@"phone_number"] andPassword:[nav.user_info objectForKey:@"password"] andStripeCustomerID:[nav.user_info objectForKey:@"id"]];
         [self performSegueWithIdentifier:@"order" sender:self];
         }
-    
-    
 }
-
-
 
 -(void)createUserWithInfo:(NSString *)name andEmail:(NSString *)email andPhone:(NSString *)phone andPassword:(NSString *)password andStripeCustomerID:(NSString *) customer_id;
 {

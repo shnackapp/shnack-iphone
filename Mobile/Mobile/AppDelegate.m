@@ -7,12 +7,14 @@
 //
 
 #import "AppDelegate.h"
-
+#import <FacebookSDK/FacebookSDK.h>
 #import "LocationsViewController.h"
 #import "RESideMenu.h"
 #import "LeftMenuViewController.h"
 #import "RightMenuViewController.h"
 
+
+#import "SignUpNavController.h"
 
 @implementation AppDelegate
 
@@ -31,13 +33,69 @@
     NSLog(@"appDelegate");
     
   
+    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
+    
+    NSString *tok = [keychain objectForKey:(__bridge id)(kSecValueData)];
+    NSString *pass = [[NSString alloc] initWithData:[keychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding];
+    NSString *acct = [keychain objectForKey:(__bridge id)(kSecAttrAccount)];
+    
+    NSLog(@"TOKEN:%@",tok);
+    NSLog(@"PASS: %@",pass);
+    NSLog(@"USER NAME:%@",acct);
+    
+    if (tok == NULL && acct == NULL)
+    {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                                 bundle: nil];
+        LocationsViewController *controller = (LocationsViewController*)[mainStoryboard
+                                instantiateViewControllerWithIdentifier: @"locationsViewController"];
+        
+        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:controller];
+        [self.window makeKeyAndVisible];
+
+        NSLog(@"i should segue to login page");
+        self.uses_keychain = YES;
+        
+    }
+    
+    [FBLoginView class];
+    fb_user_info = [[NSMutableDictionary alloc] initWithCapacity:5];
+
     // Override point for customization after application launch.
     //UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     //StadiumViewController *controller = (StadiumViewController *)navigationController.topViewController;
     //controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }
-							
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    
+    // Call FBAppCall's handleOpenURL:sourceApplication to handle Facebook app responses
+    BOOL wasHandled = [FBAppCall handleOpenURL:url sourceApplication:sourceApplication];
+    
+    // You can add your app-specific url handling code here if needed
+    
+    /* make the API call */
+    [FBRequestConnection startWithGraphPath:@"/me"
+                                 parameters:nil
+                                 HTTPMethod:@"GET"
+                          completionHandler:^(
+                                              FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error
+                                              ) {
+                              /* handle the result */
+                              NSLog(@"THIS IS result %@", result);
+                              [fb_user_info setValue:result forKey:@"result"];
+
+                          }];
+    return wasHandled;
+}
+
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

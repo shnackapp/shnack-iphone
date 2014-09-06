@@ -21,6 +21,8 @@
 		42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611718F14B2000E5A182 /* RESideMenu.m */; };
 		42E9611C18F14B2000E5A182 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */; };
 		6909335219BAE3B5002CD973 /* menu_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 6909335119BAE3B5002CD973 /* menu_32.png */; };
+		6909332F19BA8E49002CD973 /* MainNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6909332E19BA8E49002CD973 /* MainNavController.m */; };
+		6909334419BADB02002CD973 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6909334319BADB02002CD973 /* FacebookSDK.framework */; };
 		690AAB2919989C6300AF3794 /* Dosis-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */; };
 		690AAB2A19989C6300AF3794 /* Dosis-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2319989C6300AF3794 /* Dosis-Medium.otf */; };
 		690AAB2B19989C6300AF3794 /* Dosis-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2419989C6300AF3794 /* Dosis-Regular.otf */; };
@@ -34,7 +36,9 @@
 		691E66E018F3E2FB00F67683 /* paperplane.svg in Resources */ = {isa = PBXBuildFile; fileRef = 691E66DF18F3E2FB00F67683 /* paperplane.svg */; };
 		69242D0A1996858D0067DFA5 /* CartPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69242D081996858D0067DFA5 /* CartPopViewController.m */; };
 		69242D0B1996858D0067DFA5 /* CartPopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69242D091996858D0067DFA5 /* CartPopViewController.xib */; };
+		6925E48F19B22F7D00943354 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6925E48E19B22F7D00943354 /* FacebookSDK.framework */; };
 		69393754191F13E00061839C /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69393753191F13E00061839C /* MainPageViewController.m */; };
+		693A943119B63DC10069A2D4 /* LoginNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693A943019B63DC10069A2D4 /* LoginNavController.m */; };
 		69400FB518BBE68000238826 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB418BBE68000238826 /* Item.m */; };
 		69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */; };
 		69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */; };
@@ -79,6 +83,8 @@
 		69715B4F18AD39570039D061 /* MobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B4E18AD39570039D061 /* MobileTests.m */; };
 		69715B5A18AD3CB30039D061 /* NSConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */; };
 		6977B4B718FD044E00A51871 /* POPDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6977B4B618FD044E00A51871 /* POPDTableViewController.m */; };
+		6983373D19B821E40012072B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6983373C19B821E40012072B /* Security.framework */; };
+		6983374219B82B660012072B /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6983374119B82B660012072B /* KeychainItemWrapper.m */; };
 		698B41B519098E4A00B532C2 /* logoSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = 698B41B419098E4A00B532C2 /* logoSmall.png */; };
 		69924C0519790B0B0024E683 /* Screen Shot 2014-06-27 at 4.18.55 PM.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 69924C0419790B0B0024E683 /* Screen Shot 2014-06-27 at 4.18.55 PM.jpg */; };
 		6999CD541908BC04009BD628 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6999CD531908BC04009BD628 /* libPods.a */; };
@@ -180,6 +186,9 @@
 		42E9611818F14B2000E5A182 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+RESideMenu.h"; path = "Mobile/UIViewController+RESideMenu.h"; sourceTree = SOURCE_ROOT; };
 		42E9611918F14B2000E5A182 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+RESideMenu.m"; path = "Mobile/UIViewController+RESideMenu.m"; sourceTree = SOURCE_ROOT; };
 		6909335119BAE3B5002CD973 /* menu_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = menu_32.png; path = ../menu_32.png; sourceTree = "<group>"; };
+		6909332D19BA8E49002CD973 /* MainNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavController.h; sourceTree = "<group>"; };
+		6909332E19BA8E49002CD973 /* MainNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavController.m; sourceTree = "<group>"; };
+		6909334319BADB02002CD973 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		690AAB2219989C6300AF3794 /* Dosis-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.otf"; path = "../Dosis-SemiBold.otf"; sourceTree = "<group>"; };
 		690AAB2319989C6300AF3794 /* Dosis-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Medium.otf"; path = "../Dosis-Medium.otf"; sourceTree = "<group>"; };
 		690AAB2419989C6300AF3794 /* Dosis-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.otf"; path = "../Dosis-Regular.otf"; sourceTree = "<group>"; };
@@ -196,8 +205,11 @@
 		69242D071996858D0067DFA5 /* CartPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartPopViewController.h; sourceTree = "<group>"; };
 		69242D081996858D0067DFA5 /* CartPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartPopViewController.m; sourceTree = "<group>"; };
 		69242D091996858D0067DFA5 /* CartPopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartPopViewController.xib; sourceTree = "<group>"; };
+		6925E48E19B22F7D00943354 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		69393752191F13E00061839C /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPageViewController.h; path = Mobile/MainPageViewController.h; sourceTree = "<group>"; };
 		69393753191F13E00061839C /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPageViewController.m; path = Mobile/MainPageViewController.m; sourceTree = "<group>"; };
+		693A942F19B63DC10069A2D4 /* LoginNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginNavController.h; sourceTree = "<group>"; };
+		693A943019B63DC10069A2D4 /* LoginNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginNavController.m; sourceTree = "<group>"; };
 		69400FB318BBE68000238826 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		69400FB418BBE68000238826 /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		69400FB718BBE6C000238826 /* ShnackOrderTotalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShnackOrderTotalCell.h; sourceTree = "<group>"; };
@@ -260,6 +272,9 @@
 		69715B5918AD3CB30039D061 /* NSConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSConnectionDelegate.m; sourceTree = "<group>"; };
 		6977B4B518FD044E00A51871 /* POPDTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPDTableViewController.h; sourceTree = "<group>"; };
 		6977B4B618FD044E00A51871 /* POPDTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPDTableViewController.m; sourceTree = "<group>"; };
+		6983373C19B821E40012072B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6983374019B82B660012072B /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		6983374119B82B660012072B /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		698B41B419098E4A00B532C2 /* logoSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logoSmall.png; path = Images.xcassets/logoSmall.png; sourceTree = "<group>"; };
 		69924C0419790B0B0024E683 /* Screen Shot 2014-06-27 at 4.18.55 PM.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Screen Shot 2014-06-27 at 4.18.55 PM.jpg"; sourceTree = "<group>"; };
 		6999CD2A1908BBB2009BD628 /* BButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BButton.h; sourceTree = "<group>"; };
@@ -365,11 +380,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6983373D19B821E40012072B /* Security.framework in Frameworks */,
 				6999CD541908BC04009BD628 /* libPods.a in Frameworks */,
 				69715B1D18AD39560039D061 /* CoreGraphics.framework in Frameworks */,
 				69715B2118AD39560039D061 /* CoreData.framework in Frameworks */,
 				69715B1F18AD39560039D061 /* UIKit.framework in Frameworks */,
 				69715B1B18AD39560039D061 /* Foundation.framework in Frameworks */,
+				6909334419BADB02002CD973 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +491,8 @@
 				69242D071996858D0067DFA5 /* CartPopViewController.h */,
 				69242D081996858D0067DFA5 /* CartPopViewController.m */,
 				69242D091996858D0067DFA5 /* CartPopViewController.xib */,
+				6909332D19BA8E49002CD973 /* MainNavController.h */,
+				6909332E19BA8E49002CD973 /* MainNavController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -607,6 +626,8 @@
 		69715B1918AD39560039D061 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6909334319BADB02002CD973 /* FacebookSDK.framework */,
+				6983373C19B821E40012072B /* Security.framework */,
 				6999CD531908BC04009BD628 /* libPods.a */,
 				6999CD261908BBB2009BD628 /* Pods */,
 				69715B1A18AD39560039D061 /* Foundation.framework */,
@@ -800,10 +821,14 @@
 		69C85C8719AEFC5900D11B80 /* Login Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				69F3199619368DC400C501D5 /* LoginContainerViewController.h */,
-				69F3199719368DC400C501D5 /* LoginContainerViewController.m */,
+				6983374019B82B660012072B /* KeychainItemWrapper.h */,
+				6983374119B82B660012072B /* KeychainItemWrapper.m */,
+				693A942F19B63DC10069A2D4 /* LoginNavController.h */,
+				693A943019B63DC10069A2D4 /* LoginNavController.m */,
 				6963E21C1908472800C6885A /* LoginViewController.h */,
 				6963E21D1908472800C6885A /* LoginViewController.m */,
+				69F3199619368DC400C501D5 /* LoginContainerViewController.h */,
+				69F3199719368DC400C501D5 /* LoginContainerViewController.m */,
 			);
 			name = "Login Controllers";
 			sourceTree = "<group>";
@@ -1160,6 +1185,7 @@
 				6977B4B718FD044E00A51871 /* POPDTableViewController.m in Sources */,
 				69393754191F13E00061839C /* MainPageViewController.m in Sources */,
 				69242D0A1996858D0067DFA5 /* CartPopViewController.m in Sources */,
+				693A943119B63DC10069A2D4 /* LoginNavController.m in Sources */,
 				6963E21B190846FA00C6885A /* SignUpViewController.m in Sources */,
 				69F95CFE18F200B30011F5DB /* STPCard.m in Sources */,
 				42E9611B18F14B2000E5A182 /* RESideMenu.m in Sources */,
@@ -1172,10 +1198,12 @@
 				69F95D0118F200B30011F5DB /* Stripe.m in Sources */,
 				69F95D0418F200B30011F5DB /* PKCard.m in Sources */,
 				69F95D0B18F200B30011F5DB /* PKView.m in Sources */,
+				6983374219B82B660012072B /* KeychainItemWrapper.m in Sources */,
 				69715B2918AD39560039D061 /* main.m in Sources */,
 				429B5F3F18F7A51B005D1A3C /* POPDCell.m in Sources */,
 				69F95D0618F200B30011F5DB /* PKCardExpiry.m in Sources */,
 				691E66DE18F3DAD900F67683 /* InitialViewController.m in Sources */,
+				6909332F19BA8E49002CD973 /* MainNavController.m in Sources */,
 				69F95CFF18F200B30011F5DB /* STPToken.m in Sources */,
 				42E9611018ED494100E5A182 /* LeftMenuViewController.m in Sources */,
 				69F95D0218F200B30011F5DB /* StripeError.m in Sources */,
@@ -1308,6 +1336,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/spencerneste/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobile/Shnack-Prefix.pch";
 				INFOPLIST_FILE = "Mobile/Shnack-Info.plist";
@@ -1329,6 +1361,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/spencerneste/Documents/FacebookSDK,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mobile/Shnack-Prefix.pch";
 				INFOPLIST_FILE = "Mobile/Shnack-Info.plist";

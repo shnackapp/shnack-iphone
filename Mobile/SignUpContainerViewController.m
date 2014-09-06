@@ -36,15 +36,18 @@
     self.emailLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
     self.phoneLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
     self.passwordLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
+    self.confirmLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
 
     self.email.delegate = self;
     self.phone.delegate = self;
     self.password.delegate = self;
+    self.confirm.delegate = self;
     
     // Do any additional setup after loading the view.
     [self.email setBorderStyle:UITextBorderStyleNone];
-    [self.password setBorderStyle:UITextBorderStyleNone];
     [self.phone setBorderStyle:UITextBorderStyleNone];
+    [self.password setBorderStyle:UITextBorderStyleNone];
+    [self.confirm setBorderStyle:UITextBorderStyleNone];
    
     self.tableView.backgroundColor = [UIColor clearColor];
     for (CALayer *subLayer in self.tableView.layer.sublayers)
@@ -82,7 +85,7 @@
     }
     else
     {
-        [self.email resignFirstResponder];
+        [self.phone resignFirstResponder];
         [self.password becomeFirstResponder];
         return YES;
     }
@@ -96,11 +99,26 @@
     }
     else
     {
-    [self.phone resignFirstResponder];
     [self.password resignFirstResponder];
+    [self.confirm becomeFirstResponder];
     return YES;
     }
 }
+
+-(BOOL)isPasswordConfirmed:(NSString *)password andConfirm: (NSString *)confirm
+{
+    if (![password isEqualToString:confirm])
+    {
+        return NO;
+    }
+    else
+    {
+        [self.confirm resignFirstResponder];
+        return YES;
+    }
+}
+
+
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     //hides keyboard when another part of layout was touched
@@ -115,30 +133,23 @@
     self.valid_email = [self isValidEmail:self.email.text];
     self.valid_phone = [self isValidPhone:self.phone.text];
     self.valid_password = [self isValidPassword:self.password.text];
+    self.passwords_match = [self isPasswordConfirmed:self.password.text andConfirm:self.confirm.text];
    
     NSString *temp_phone = self.phone.text ;
     
-    
     self.temp_phone = self.valid_phone ? [temp_phone stringByReplacingCharactersInRange:
                                           NSMakeRange(5, 1) withString:@" "] : @"";
-    
-    if(self.valid_phone && [temp_phone characterAtIndex:5] == '-' )//remove the first dash for storing in db
-    {
-        self.temp_phone = [temp_phone stringByReplacingCharactersInRange:
-                                   NSMakeRange(5, 1) withString:@" "];
-        NSLog(@"Actual phone: %@ \ntemp_phone: %@",self.phone.text,self.temp_phone);
-    }
-   
-            
+    NSLog(@"Actual phone: %@ \ntemp_phone: %@",self.phone.text,self.temp_phone);
+
     [signUpViewController.text_fields setObject:self.email.text forKey:@"email"];
     [signUpViewController.text_fields setObject:self.temp_phone forKey:@"phone_number"];
     [signUpViewController.text_fields setObject:self.password.text forKey:@"password"];
-            //[signUpViewController.text_fields setObject:self.email.text forKey:@"confirm_password"];
-    [signUpViewController.text_fields setObject: self.valid_email ? @YES :@NO forKey:@"valid_email"];
-    [signUpViewController.text_fields setObject:self.valid_phone ? @YES : @NO forKey:@"valid_phone"];
+    [signUpViewController.text_fields setObject: self.valid_email ? @YES :@NO
+        forKey:@"valid_email"];
+    [signUpViewController.text_fields setObject:self.valid_phone ? @YES : @NO
+        forKey:@"valid_phone"];
     [signUpViewController.text_fields setObject:self.valid_password ? @YES : @NO forKey:@"valid_password"];
-            // [signUpViewController.text_fields setObject:self.email.text forKey:@"valid_confirm_password"];
-    
+    [signUpViewController.text_fields setObject:self.passwords_match ? @YES : @NO forKey:@"passwords_match"];
     
 }
 
@@ -149,10 +160,19 @@
     if(self.valid_email) self.emailLabel.textColor = [UIColor blackColor];
     if(self.valid_phone) self.phoneLabel.textColor = [UIColor blackColor];
     if(self.valid_password) self.passwordLabel.textColor = [UIColor blackColor];
+    if(self.passwords_match) self.confirmLabel.textColor = [UIColor blackColor];
+    
+    
+    if([self.email.text  isEqual: @""]) self.emailLabel.textColor = [UIColor blackColor];
+    if([self.phone.text  isEqual: @""]) self.phoneLabel.textColor = [UIColor blackColor];
+    if([self.password.text  isEqual: @""]) self.passwordLabel.textColor = [UIColor blackColor];
+    if([self.confirm.text isEqual:@""]) self.confirmLabel.textColor = [UIColor blackColor];
+    
+    
 
     //if all fields are not empty show next button
     if (![self.email.text  isEqual: @""] && ![self.phone.text  isEqual: @""]
-        && ![self.password.text  isEqual: @""])
+        && ![self.password.text  isEqual: @""] && ![self.confirm.text isEqual:@""])
     {
         signUpViewController.nextButton.enabled = YES;
         return YES;
@@ -189,8 +209,19 @@
         [self.email resignFirstResponder];
         [self.phone becomeFirstResponder];
     }
+    if(theTextField == self.phone)
+    {
+        [self.phone resignFirstResponder];
+        [self.password becomeFirstResponder];
+    }
+    
+    if (theTextField == self.password)
+    {
+        [self.password resignFirstResponder];
+        [self.confirm becomeFirstResponder];
+    }
 
-    if(theTextField == self.password && self.is_filled)
+    if(theTextField == self.confirm && self.is_filled)
     {
         [self gatherFormInfo];
         [suvc performSelector:@selector(next)];

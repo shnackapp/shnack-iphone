@@ -45,17 +45,31 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"firstViewController"]]
+            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 1:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"secondViewController"]]
+            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
+                                                         animated:YES];
+            [self.sideMenuViewController hideMenuViewController];            break;
+        case 2:
+            
+            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
                                                          animated:YES];
             [self.sideMenuViewController hideMenuViewController];
-            break;
+        case 3:
+            
+            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
+                                                         animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
+        case 4:
+            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
+                                                         animated:YES];
+            [self.sideMenuViewController hideMenuViewController];
         default:
             break;
+
     }
 }
 

@@ -24,6 +24,8 @@
 
 @property UIPageControl *dots;
 
+@property bool did_skip_initial;
+
 
 
 

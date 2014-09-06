@@ -31,7 +31,7 @@
 
 
 //Access Token Staging
-//#define ACCESS_TOKEN @"a7a2080c5b517ec0dc57b712a7570e23"
+//#define API_KEY @"Token token=\"dcdc7b24498928485eacf14212e7f85d\""
 
 //#define BASE_URL @"http://0.0.0.0:3000/api"
 

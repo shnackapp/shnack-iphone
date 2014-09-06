@@ -12,7 +12,6 @@
 #import "RESideMenu.h"
 #import "POPDCell.h"
 #import "NSObject_Constants.h"
-#import "LeftMenuViewController.h"
 
 
 @interface LocationsViewController () <POPDDelegate>
@@ -75,8 +74,6 @@ NSIndexPath *reloadingCategoryIndexPath;
 -(void)infoButtonAction
 {
     NSLog(@" pressed the i");
-    
-    [self.sideMenuViewController presentLeftMenuViewController];
 
 }
 //////////////
