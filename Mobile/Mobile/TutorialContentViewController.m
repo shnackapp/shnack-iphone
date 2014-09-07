@@ -35,15 +35,15 @@
     self.blurbLabel.lineBreakMode = UILineBreakModeWordWrap;
     self.blurbLabel.numberOfLines = 0;
     self.blurbLabel.text = self.blurbText;
-    self.blurbLabel.font = [UIFont fontWithName:@"Poiret One" size:18];
+    self.blurbLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:18];
     self.TopLabel.text = self.TopText;
-    self.TopLabel.font = [UIFont fontWithName:@"Damion" size:40];
+    self.TopLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:40];
     
     self.swipeLabel.text = self.swipeLabelText;
-    self.swipeLabel.font = [UIFont fontWithName: @"Damion" size:18];
+    self.swipeLabel.font = [UIFont fontWithName: @"Dosis-Medium" size:18];
     
     self.brandLabel.text = self.brandLabelText;
-    self.brandLabel.font = [UIFont fontWithName: @"Poiret One" size:20];
+    self.brandLabel.font = [UIFont fontWithName: @"Dosis-Medium" size:20];
     
 
 }

@@ -32,17 +32,18 @@
     self.did_skip_initial = NO;
     [super viewDidLoad];
     
-    self.signUp.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
-    self.orderNow.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
-    self.Login.titleLabel.font = [UIFont fontWithName:@"Poiret One" size:20];
+    self.signUp.titleLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:20];
+    self.orderNow.titleLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:20];
+    self.Login.titleLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:20];
+    
+    self.orderNow.hidden = YES;
+    self.orderNow.enabled = NO;
     
     
-    _swipe = @[@"Swipe up",@"",@"",@""];
-    _swipeBlurb = @[@"Shnack. You're Order Is Ready.",@"",@"",@""];
 
-    _pageTitles = @[ @"",@"From your seat, view the menus of vendors. Pay and place your order.", @"Sit back, relax, and enjoy the experience.", @"When your order is ready, a notification will be sent. Pick up and enjoy."];
+    _pageTitles = @[ @"Shnack. You're Order Is Ready.",@"From your seat, view the menus of vendors. Pay and place your order.", @"Sit back, relax, and enjoy the experience.", @"When your order is ready, a notification will be sent. Pick up and enjoy."];
      _TopTitles = @[ @"Shnack",@"Order", @"Relax", @"Pick Up"];
-    _pageImages = @[@"upArrow.png",@"logo.png", @"logo.png", @"logo.png"];    // Create page view controller
+    _pageImages = @[@"logo.png",@"logo.png", @"logo.png", @"logo.png"];    // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
     
@@ -95,7 +96,18 @@
 {
     NSUInteger index = ((TutorialContentViewController*) viewController).pageIndex;
     //[self.view addSubview:_dots];
+    //NSLog(@"index: %lu",(unsigned long)index);
+    if(index != [self.pageTitles count]-1)
+    {
+        self.orderNow.hidden = YES;
+        self.orderNow.enabled = NO;
+    }
+    else{
+        self.orderNow.hidden = NO;
+        self.orderNow.enabled = YES;
+    }
     
+
    
     if ((index == 0) || (index == NSNotFound)) {
         return nil;
@@ -109,12 +121,9 @@
     {
         _dots.hidden = YES;
         _dots.currentPage = 0;
-        NSLog(@"Setting current Page to 0 in before");
-        NSLog(@"Only On Shnack %lu: %@", (unsigned long)index,self.TopTitles[index]);
         self.signUp.hidden = true;
         self.orderNow.hidden = true;
         self.Login.hidden = true;
-        self.topBar.hidden = true;
     }
     if (!result1)
     {
@@ -123,22 +132,9 @@
         self.signUp.hidden = false;
         self.orderNow.hidden = false;
         self.Login.hidden = false;
-        self.topBar.hidden = false;
         
     }
-
-
-    
-    
-//
     index--;
-
-    NSLog(@"B.Current page %lu",(unsigned long)index);
-
-    
-    
-
-
     return [self viewControllerAtIndex:index];
 }
 
@@ -146,21 +142,22 @@
 {
     NSUInteger index = ((TutorialContentViewController*) viewController).pageIndex;
 
-
     if (index == NSNotFound) {
         return nil;
     }
-    //_dots.currentPage = index;
 
-   
     index++;
-    NSLog(@"A.Current page %lu",(unsigned long)index);
 
      //[self.view addSubview:_dots];
-    
-    if (index == [self.pageTitles count]) {
-        NSLog(@"index == 4 At end");
-//        return nil;
+    if(index != [self.pageTitles count] )
+    {
+        self.orderNow.hidden = YES;
+        self.orderNow.enabled = NO;
+    }
+    else{
+        self.orderNow.hidden = NO;
+        self.orderNow.enabled = YES;
+        
     }
 
     return [self viewControllerAtIndex:index];
@@ -176,17 +173,31 @@
     _dots.backgroundColor = [UIColor lightGrayColor];
     _dots.currentPageIndicatorTintColor = [UIColor colorWithRed:153 green:0 blue:0 alpha:1.0];
     _dots.pageIndicatorTintColor = [UIColor blackColor];
-    if(index == 0){NSLog(@"C.cp = 0");_dots.currentPage = index;}
-    else          {_dots.currentPage = index-1;}
+    
+    NSLog(@"index: %lu", (unsigned long)index);
+    if(index != [self.pageTitles count])
+    {
+        
+    self.orderNow.hidden = YES;
+    self.orderNow.enabled = NO;
+    }
+    else{
+        self.orderNow.hidden = NO;
+        self.orderNow.enabled = YES;
+    }
+    
+    
+//   
+//    if(index == 0){NSLog(@"C.cp = 0");_dots.currentPage = index;}
+//    else          {_dots.currentPage = index-1;}
 
-    NSLog(@"C.Current page %lu", (unsigned long)_dots.currentPage);
 
     
 //    if (index == 0){_dots.currentPage = index-1;}
 //    if (index == 1){_dots.currentPage = index-1;}
 //    if (index == 2){_dots.currentPage = index-1;}
 //    if (index == 3){_dots.currentPage = index-1;}
-    [self.view addSubview:_dots];
+    //[self.view addSubview:_dots];
 
 
     
@@ -197,12 +208,11 @@
 
     // Create a new view controller and pass suitable data.
     TutorialContentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"TutorialContentViewController"];
+    
     pageContentViewController.imageFile = self.pageImages[index];
     pageContentViewController.TopText = self.TopTitles[index];
     
     pageContentViewController.blurbText = self.pageTitles[index];
-    pageContentViewController.swipeLabelText = self.swipe[index];
-    pageContentViewController.brandLabelText = self.swipeBlurb[index];
    
     pageContentViewController.pageIndex = index;
     

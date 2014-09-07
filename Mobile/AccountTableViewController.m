@@ -9,6 +9,8 @@
 #import "AccountTableViewController.h"
 #import "KeychainItemWrapper.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "LoginContainerViewController.h"
+#import "LoginViewController.h"
 
 
 
@@ -36,16 +38,31 @@
     UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard)];
     [self.tableView addGestureRecognizer:gestureRecognizer];
     
-    [gestureRecognizer setCancelsTouchesInView:NO];
+    [gestureRecognizer setCancelsTouchesInView:NO];//so we can still select cells
 
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
     NSLog(@"width: %f", headerView.bounds.size.width);
     NSLog(@"height: %f", headerView.bounds.size.height);
     [headerView setBackgroundColor:[UIColor redColor]];
     
+    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
     
+    NSString *tok = [keychain objectForKey:(__bridge id)(kSecValueData)];
+    NSString *pass = [[NSString alloc] initWithData:[keychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding];
+    NSString *acct = [keychain objectForKey:(__bridge id)(kSecAttrAccount)];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(headerView.bounds.size.width/2-(30), 32, headerView.bounds.size.width, 64)];//check if this is right!!!
+    
+    UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake(40, 20, 50, 30)];
+    addButton.titleLabel.text = @"Cancel";
+    addButton.titleLabel.textColor = [UIColor whiteColor];
+    addButton.backgroundColor = [UIColor whiteColor];
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
+    
+    //[headerView addSubview:addButton];
+    //[headerView addSubview:cancelButton];
+
     
     self.emailLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
     self.phoneLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
@@ -64,6 +81,21 @@
     [self.phone setBorderStyle:UITextBorderStyleNone];
     [self.password setBorderStyle:UITextBorderStyleNone];
     [self.name setBorderStyle:UITextBorderStyleNone];
+    
+    self.email.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.phone.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.password.clearButtonMode = UITextFieldViewModeWhileEditing;
+    self.name.clearButtonMode = UITextFieldViewModeWhileEditing;
+    
+    self.email.text = acct;
+    self.password.text = pass;
+    
+    
+    
+    
+
+
+
 
     
     //UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -94,7 +126,10 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
+-(void)cancel
+{
+    NSLog(@"canceled");
+}
 - (void) hideKeyboard {
     [self.name resignFirstResponder];
     [self.email resignFirstResponder];
@@ -200,18 +235,20 @@ replacementString:(NSString *)string {
     switch (indexPath.row) {
         case 0:
         {
+            if (indexPath.section ==1)
+            {
+                
             NSLog(@"selected log out");
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirm", @"Confirm") message:NSLocalizedString(@"Are you sure you want to log out?", @"Are you sure you want to log out?") delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
             
             [alert show];
+            }
             
-            
-            
+            break;
         }
         default:
             break;
-            
             
     }
 }
@@ -229,6 +266,7 @@ replacementString:(NSString *)string {
         KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
         
         [keychainItem resetKeychainItem];
+        [self performSegueWithIdentifier:@"log_out" sender:self];
         
 
     }
@@ -279,15 +317,23 @@ replacementString:(NSString *)string {
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    if([segue.identifier isEqualToString:@"log_out"])
+    {
+//        LoginContainerViewController *lcvc = [[LoginContainerViewController alloc] init];
+//        LoginViewController *lvc = [[LoginViewController alloc] init];
+//        
+//        lvc.email.text = @"";
+//        lvc.password.text = @"";
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

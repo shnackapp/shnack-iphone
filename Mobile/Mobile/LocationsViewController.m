@@ -28,6 +28,11 @@ NSIndexPath *reloadingCategoryIndexPath;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     
+    //disable swipe back in nav controller
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+    
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"Dosis-Medium" size:22];;

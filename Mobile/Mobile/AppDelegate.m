@@ -26,9 +26,16 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor = [UIColor blackColor];
-    pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:153 green:0 blue:0 alpha:1.0];
-    pageControl.backgroundColor = [UIColor lightGrayColor];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1.0];
+    //pageControl.backgroundColor = [UIColor lightGrayColor];
+//    
+//    CGSize navBarSize = self.window.frame.size;
+//    CGPoint origin = CGPointMake( navBarSize.width/2, navBarSize.height/2 );
+//    
+//    pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(origin.x, origin.y,
+//                                                                       0, 0)];
+
     NSLog(@"appDelegate");
     
   

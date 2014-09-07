@@ -38,6 +38,11 @@ NSInteger myCount;
 - (void)viewDidLoad
 {
     
+    //disable swipe back in nav controller
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+    }
+    
     globalCurrentVendorName = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] name];
     NSLog(@"top name %@",globalCurrentVendorName);
     //self.navigationItem.title = globalCurrentVendorName;
