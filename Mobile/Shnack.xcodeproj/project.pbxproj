@@ -41,6 +41,7 @@
 		69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */; };
 		69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */; };
 		69400FBF18BBEBC400238826 /* ObjectWithNameAndID.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FBE18BBEBC400238826 /* ObjectWithNameAndID.m */; };
+		694D33E319BBE42800987016 /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694D33E219BBE42800987016 /* AccountTableViewController.m */; };
 		6953817C191423E900DD91A2 /* app_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6953817B191423E900DD91A2 /* app_logo.png */; };
 		6953817E191429AF00DD91A2 /* launch_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 6953817D191429AF00DD91A2 /* launch_image.png */; };
 		695E27C3197E195B00B0CA2D /* SignUpProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695E27C2197E195B00B0CA2D /* SignUpProfileViewController.m */; };
@@ -212,6 +213,8 @@
 		69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShnackOrderItemCell.m; sourceTree = "<group>"; };
 		69400FBD18BBEBC400238826 /* ObjectWithNameAndID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWithNameAndID.h; sourceTree = "<group>"; };
 		69400FBE18BBEBC400238826 /* ObjectWithNameAndID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectWithNameAndID.m; sourceTree = "<group>"; };
+		694D33E119BBE42800987016 /* AccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewController.h; sourceTree = "<group>"; };
+		694D33E219BBE42800987016 /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
 		6953817B191423E900DD91A2 /* app_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_logo.png; sourceTree = "<group>"; };
 		6953817D191429AF00DD91A2 /* launch_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launch_image.png; sourceTree = "<group>"; };
 		695E27C1197E195B00B0CA2D /* SignUpProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpProfileViewController.h; sourceTree = "<group>"; };
@@ -405,6 +408,8 @@
 				42E9610A18ED494100E5A182 /* RightMenuViewController.m */,
 				42E9610B18ED494100E5A182 /* RootViewController.h */,
 				42E9610C18ED494100E5A182 /* RootViewController.m */,
+				694D33E119BBE42800987016 /* AccountTableViewController.h */,
+				694D33E219BBE42800987016 /* AccountTableViewController.m */,
 			);
 			name = "Side Menu Controllers";
 			sourceTree = "<group>";
@@ -1153,6 +1158,7 @@
 				69F95D0518F200B30011F5DB /* PKCardCVC.m in Sources */,
 				69F95D0718F200B30011F5DB /* PKCardNumber.m in Sources */,
 				69F73C261973BAAF00361426 /* SignUpContainerViewController.m in Sources */,
+				694D33E319BBE42800987016 /* AccountTableViewController.m in Sources */,
 				69715B3618AD39560039D061 /* LocationsViewController.m in Sources */,
 				69715B2D18AD39560039D061 /* AppDelegate.m in Sources */,
 				691E66DB18F3D5C200F67683 /* TutorialContentViewController.m in Sources */,

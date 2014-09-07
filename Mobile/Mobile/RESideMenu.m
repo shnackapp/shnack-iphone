@@ -78,7 +78,7 @@
     _scaleBackgroundImageView = YES;
     _scaleMenuView = YES;
     
-    _parallaxEnabled = YES;
+    _parallaxEnabled = NO;
     _parallaxMenuMinimumRelativeValue = -15;
     _parallaxMenuMaximumRelativeValue = 15;
     _parallaxContentMinimumRelativeValue = -25;
@@ -134,6 +134,30 @@
 }
 
 - (void)setContentViewController:(UIViewController *)contentViewController animated:(BOOL)animated
+{
+    if (!animated) {
+        [self setContentViewController:contentViewController];
+    } else {
+        [self addChildViewController:contentViewController];
+        contentViewController.view.alpha = 0;
+        contentViewController.view.frame = self.contentViewContainer.bounds;
+        [self.contentViewContainer addSubview:contentViewController.view];
+        [UIView animateWithDuration:self.animationDuration animations:^{
+            contentViewController.view.alpha = 1;
+        } completion:^(BOOL finished) {
+            [self __hideViewController:self.contentViewController];
+            [contentViewController didMoveToParentViewController:self];
+            _contentViewController = contentViewController;
+            [self __updateContentViewShadow];
+            
+            if (self.visible) {
+                [self __addContentViewControllerMotionEffects];
+            }
+        }];
+    }
+}
+
+- (void)setContentTableViewController:(AccountTableViewController *)contentViewController animated:(BOOL)animated
 {
     if (!animated) {
         [self setContentViewController:contentViewController];

@@ -8,6 +8,8 @@
 
 #import "LeftMenuViewController.h"
 #import "UIViewController+RESideMenu.h"
+#import "AccountTableViewController.h"
+
 
 @interface LeftMenuViewController ()
 
@@ -44,8 +46,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     switch (indexPath.row) {
         case 0:
-            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"locationsViewController"]]
-                                                         animated:YES];
+//            [self.sideMenuViewController setContentViewController:[[self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"] initWithRootViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"accountViewController"]]
+//                                                         animated:YES];
+//
+            
+//            [self.sideMenuViewController setContentViewController:(AccountViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"test"]  animated:YES];
+            
+            [self.sideMenuViewController setContentTableViewController:(AccountTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"table_test"]  animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 1:

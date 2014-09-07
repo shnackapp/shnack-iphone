@@ -25,6 +25,8 @@
 
 #import <UIKit/UIKit.h>
 #import "UIViewController+RESideMenu.h"
+#import "AccountTableViewController.h"
+
 
 @protocol RESideMenuDelegate;
 
@@ -70,7 +72,7 @@
 - (void)presentRightMenuViewController;
 - (void)hideMenuViewController;
 - (void)setContentViewController:(UIViewController *)contentViewController animated:(BOOL)animated;
-
+- (void)setContentTableViewController:(AccountTableViewController *)contentViewController animated:(BOOL)animated;
 @end
 
 @protocol RESideMenuDelegate <NSObject>
