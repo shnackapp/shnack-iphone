@@ -15,6 +15,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        
     }
     return self;
 }
@@ -24,6 +25,11 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100.0f;
 }
 
 @end

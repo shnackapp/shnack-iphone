@@ -13,8 +13,9 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *name;
 @property (nonatomic, retain) IBOutlet UILabel *price;
-@property (nonatomic, retain) IBOutlet UILabel *count;
-@property (nonatomic, retain) IBOutlet UIButton *plusButton;
-@property (nonatomic, retain) IBOutlet UIButton *minusButton;
+
+@property (nonatomic, retain) IBOutlet UILabel *description;
+
+
 
 @end

@@ -129,12 +129,14 @@
 }
 
 - (void)setLoading:(BOOL)loading {
+    NSLog(@"setLoading");
     self.isLoading = loading;
     [self reloadData];
 }
 
 - (void)setMenuSections:(NSArray *)menuSections{
-    
+    NSLog(@"setMenuSectionsmenuSections");
+
     for (NSDictionary *sec in menuSections) {
         
         NSString *header = [sec objectForKey:POPDCategoryTitleTV];
@@ -160,6 +162,8 @@
 }
 
 - (void)setMenuSections:(NSArray *)menuSections withAllSectionsOpen:(BOOL)open {
+    NSLog(@"setMenuSectionswithAllSectionsOpen");
+
     for (NSDictionary *sec in menuSections) {
         
         NSString *header = [sec objectForKey:POPDCategoryTitleTV];
@@ -185,6 +189,8 @@
 }
 
 - (void)setMenuSection:(NSDictionary *)menuSection atSection:(NSInteger)sectionIndex {
+    NSLog(@"setMenuSectionatSection");
+
     NSString *header = [menuSection objectForKey:POPDCategoryTitleTV];
     NSArray *subSection = [menuSection objectForKey:POPDSubSectionTV];
     
@@ -205,6 +211,8 @@
 }
 
 - (void)setMenuSection:(NSDictionary *)menuSection atSection:(NSInteger)sectionIndex withSectionOpen:(BOOL)open {
+    NSLog(@"setMenuSection");
+
     NSString *header = [menuSection objectForKey:POPDCategoryTitleTV];
     NSArray *subSection = [menuSection objectForKey:POPDSubSectionTV];
     
@@ -226,6 +234,8 @@
 }
 
 - (void)setMenuSectionChildren:(NSArray *)children atSection:(NSInteger)sectionIndex {
+    NSLog(@"setMenuSectionChildren");
+
     NSString *header = [[self.sectionsArray objectAtIndex:sectionIndex] objectAtIndex:0];
     
     NSMutableArray *section;
@@ -247,12 +257,15 @@
 #pragma mark - Table view data source
 
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
+    NSLog(@"scrollViewDidScroll");
+
     if ([self.sectionsArray count] > 0) {
         [self updateHeaderView];
     }
 }
 
 - (void)updateHeaderView {
+     NSLog(@"updateHeaderView");
     if (!self.startingScrollIsSet) {
         self.startingScrollY = self.contentOffset.y;
         self.startingScrollIsSet = YES;
@@ -305,6 +318,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+     NSLog(@"numberOfSectionsInTableView");
     NSInteger numSections = [self.sectionsArray count];
     if ([self.sectionsArray count] == 0 || self.isLoading) {
         return 1;
@@ -315,6 +329,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"numberOfRowsInSection");
+
     if (self.currentHeaderSection == section) {
         if ([self.popDownDelegate respondsToSelector:@selector(willDisplayOpenedCategoryCell:atIndexPath:)]) {
             [self.popDownDelegate willDisplayOpenedCategoryCell:self.headerCell atIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
@@ -334,6 +350,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"cellForRowAtIndexPath");
     POPDCell *cell = nil;
     
     if (self.isLoading) {
@@ -390,6 +407,21 @@
     
     cell.indexPath = indexPath;
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"");
+    POPDCell *cell = nil;
+    if ([cell.reuseIdentifier isEqualToString:@"POPDClosedCategoryCell"] || [cell.reuseIdentifier isEqualToString:@"POPDOpenedCategoryCell"] || [cell.reuseIdentifier isEqualToString:@"POPDLoading"])
+    {
+        return 60.0f;
+        
+    }
+    else{
+        return 120.0f;
+    }
+   
 }
 
 - (void)reloadCategoryAtSection:(NSInteger)sectionIndex {
