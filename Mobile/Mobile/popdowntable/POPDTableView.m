@@ -411,16 +411,29 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //trying to make category cells 60f and item cells 80
+
+    //POPDCell *cell = nil;
+    //POPDCell *closed_cat_cell = [self dequeueReusableCellWithIdentifier:@"POPDClosedCategoryCell" forIndexPath:indexPath];
+
+    //[self configureCell:cell];
+    
+    // edit: Need to call [cell layoutIfNeeded]; otherwise the layout changes wont be applied to the   cell
+    
+    //[cell layoutIfNeeded];
+    
+    
+    //return [cell.contentView systemLayoutSizeFittingSize: UILayoutFittingCompressedSize].height;
     NSLog(@"");
-    POPDCell *cell = nil;
-    if ([cell.reuseIdentifier isEqualToString:@"POPDClosedCategoryCell"] || [cell.reuseIdentifier isEqualToString:@"POPDOpenedCategoryCell"] || [cell.reuseIdentifier isEqualToString:@"POPDLoading"])
-    {
-        return 60.0f;
-        
-    }
-    else{
-        return 120.0f;
-    }
+//    if ([cell.reuseIdentifier isEqualToString:@"POPDClosedCategoryCell"] || [cell.reuseIdentifier isEqualToString:@"POPDOpenedCategoryCell"] || [cell.reuseIdentifier isEqualToString:@"POPDLoading"])
+//    {
+//        return 60.0f;
+//    }
+//    else{
+//        return 80.0f;
+//    }
+    
+    return 70.0f;
    
 }
 
