@@ -55,8 +55,8 @@
         self.name = name;
         self.price = price;
         self.count = 0;
-        self.description = description;
-        self.modifiers = modifiers;
+        self.description = description ;
+        self.modifiers =  modifiers;
         
     }
     return self;
