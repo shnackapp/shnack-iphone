@@ -31,10 +31,7 @@
 
 
 //Access Token Staging
-//#define API_KEY @"Token token=\"dcdc7b24498928485eacf14212e7f85d\""
-
 #define BASE_URL @"http://0.0.0.0:3000/api"
-
 #define API_KEY @"Token token=\"7ea711275bdce706de6f76a021463672\""
 
 #define PURPLE_COLOR [UIColor colorWithRed:0.45f green:0.30f blue:0.75f alpha:1.00f];
