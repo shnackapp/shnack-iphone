@@ -11,6 +11,7 @@
 #import "NSObject_Constants.h"
 #import "MBProgressHUD.h"
 
+
 @interface LoginContainerViewController ()
 
 @end
@@ -29,7 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     
     self.cancelButton.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:16];
     self.doneButton.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:16];
@@ -54,15 +54,12 @@
     [label sizeToFit];
     
     self.forgotPassword.titleLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:16];
-   
-    
 }
 
 -(void)forgot_password
 {
     NSLog(@"IFORGOT");
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://www.shnackapp.com/users/sign_in"]];
-    
 }
 
 
@@ -74,7 +71,6 @@
 
 -(IBAction)submit
 {
-   
     LoginViewController *lvc = (LoginViewController *) self.childViewControllers[0];
     [lvc gatherFormInfo];
     NSLog(@"this is lvc email: %@ password: %@",[lvc.valid_user_info valueForKeyPath:@"valid_email"], [lvc.valid_user_info valueForKeyPath:@"valid_password"]);
@@ -87,12 +83,12 @@
         [request setHTTPMethod:@"POST"];
         [request setValue:API_KEY forHTTPHeaderField:@"Authorization"];
         
-        NSString *body    = [NSString stringWithFormat:@"email=%@&password=%@", globalCurrentUser[0],globalCurrentUser[1]];
+        NSString *body    = [NSString stringWithFormat:@"email=%@&password=%@",
+        globalCurrentUser[0],globalCurrentUser[1]];
         
         request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
         [[NSURLConnection alloc] initWithRequest:request delegate:self];
 
-        
         NSLog(@"this is the url %@",url);
         NSLog(@"this is the body %@",body);
         
@@ -132,8 +128,7 @@
 {
     if( [identifier isEqualToString:@"to_root"])
     {
-    
-    if (self.does_exist )
+    if (self.successful_login )
     {
         return YES;
     }
@@ -169,7 +164,6 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     // The request is complete and data has been received
     // You can parse the stuff in your instance variable now
-    NSLog(@"here");
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     
     NSError *error = nil;
@@ -191,9 +185,10 @@
             [alert show];
             
         }
-        else if([value isEqualToString:@"incorrect_email"])
+         if([value isEqualToString:@"incorrect_email"])
         {
             self.successful_login = NO;
+
             LoginViewController *container = (LoginViewController *) self.childViewControllers[0];
             container.email.text=@"";
             container.password.text=@"";
@@ -204,15 +199,21 @@
         }
         if([key isEqualToString:@"auth_token"])
         {
-        NSLog(@"auth token: %@",[receivedJSON objectForKey:key]);
-        self.does_exist = YES;
-        self.successful_login = YES;
-        [self performSegueWithIdentifier:@"to_root" sender:self];
+            KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
+            //store cred into keychain once we know it is legitimate
+            [keychainItem setObject:globalCurrentUser[0] forKey:(__bridge id)(kSecAttrAccount)];
+            [keychainItem setObject:globalCurrentUser[1] forKey:(__bridge id)(kSecValueData)];
+            [keychainItem setObject: @YES forKey:(__bridge id)(kSecAttrGeneric)];
 
+            NSLog(@"auth token: %@",[receivedJSON objectForKey:key]);
+            self.successful_login = YES;
         }
         
     }
-   
+    if(self.successful_login)
+    {
+        [self performSegueWithIdentifier:@"to_root" sender:self];
+    }
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -226,20 +227,13 @@
 
 }
 
-
-
-
-
-
-/*
 #pragma mark - Navigation
 
- In a storyboard-based application, you will often want to do a little preparation before navigation
+ //In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
+{    // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

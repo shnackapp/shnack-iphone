@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <Security/Security.h>
+#import "KeychainItemWrapper.h"
+
 
 
 @interface LoginContainerViewController : UIViewController
@@ -23,7 +25,6 @@ extern NSMutableArray *globalCurrentUser;
 @property (weak, nonatomic) IBOutlet UIView *container;
 
 @property (nonatomic) BOOL successful_login;
-@property (nonatomic) BOOL does_exist;
 
 -(IBAction)submit;
 

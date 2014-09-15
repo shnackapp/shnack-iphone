@@ -12,6 +12,8 @@
 #import "RESideMenu.h"
 #import "POPDCell.h"
 #import "NSObject_Constants.h"
+#import "LoginContainerViewController.h"
+
 
 
 @interface LocationsViewController () <POPDDelegate>
@@ -32,7 +34,6 @@ NSIndexPath *reloadingCategoryIndexPath;
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
-    
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"Dosis-Medium" size:22];;
@@ -45,13 +46,6 @@ NSIndexPath *reloadingCategoryIndexPath;
     label.text = NSLocalizedString(@"Locations", @"");
     [label sizeToFit];
     
-    
-//    UIButton* infoButton = [UIButton buttonWithType:UIButtonTypeInfoLight];
-//	[infoButton addTarget:self action:@selector(infoButtonAction) forControlEvents:UIControlEventTouchUpInside];
-//	UIBarButtonItem *modalButton = [[UIBarButtonItem alloc] initWithCustomView:infoButton];
-//	[self.navigationItem setLeftBarButtonItem:modalButton animated:YES];
-	//[modalButton release];
-
     self.delegate = self;
     self.tableView.dataSource = self;
     [super viewDidLoad];
