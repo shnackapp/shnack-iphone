@@ -18,6 +18,7 @@
 @property (nonatomic) int currentStadium;
 
 @property BOOL uses_keychain;
+@property BOOL facebook_info;
 extern NSMutableDictionary *fb_user_info;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

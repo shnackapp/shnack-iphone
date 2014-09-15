@@ -102,7 +102,12 @@
     self.password.text = pass;
     }
     
-    //UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+    if(app.facebook_info)
+    {
+        self.email.text =[[fb_user_info valueForKey:@"result"] valueForKey:@"email"];
+        self.name.text = [[fb_user_info valueForKey:@"result"] valueForKey:@"name"];
+    }
+    
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"Dosis-Medium" size:22];;
     
