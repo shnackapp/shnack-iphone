@@ -21,12 +21,12 @@
 //# define API_KEY @"Token token=\"d157b1e177b7ba1e4547a0d6e11aa627\""
 
 
-#define API_KEY @"Token token=\"c512ff893154cfe005b327379e87f1fa\""
-# define BASE_URL @"http://demo.shnackapp.com/api"
+//#define API_KEY @"Token token=\"c512ff893154cfe005b327379e87f1fa\""
+//# define BASE_URL @"http://demo.shnackapp.com/api"
 #define PUBLISHABLE_TEST @"pk_test_AUn823FKTadliNg29onudWm0"
 
-//#define API_KEY @"Token token=\"0e77eae6ad12d7ba88c7c46cf2034d12\""
-//#define BASE_URL @"http://0.0.0.0:3000/api"
+#define API_KEY @"Token token=\"3fd5e6206086ae7cfaefd61af5fecefe\""
+#define BASE_URL @"http://0.0.0.0:3000/api"
 
 
 

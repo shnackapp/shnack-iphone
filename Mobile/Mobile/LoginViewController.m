@@ -155,13 +155,7 @@
 -(void)gatherFormInfo
 {
     
-    KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
     
-    [keychainItem setObject:self.password.text forKey:(__bridge id)(kSecValueData)];
-    [keychainItem setObject:self.email.text forKey:(__bridge id)(kSecAttrAccount)];
-
-
-
     self.valid_email = [self isValidEmail:self.email.text];
     self.valid_password = [self isValidPassword:self.password.text];
     
@@ -180,8 +174,7 @@
         //currentUser = [[NSMutableArray alloc] init];
         [login_credentials addObject:self.email.text];
         [login_credentials addObject:self.password.text];
-        
-                NSLog(@" %@, %@", [self.valid_user_info valueForKey:@"valid_email"],[self.valid_user_info valueForKey:@"valid_password"]);
+        NSLog(@" %@, %@", [self.valid_user_info valueForKey:@"valid_email"],[self.valid_user_info valueForKey:@"valid_password"]);
         
         globalCurrentUser = login_credentials;
         
