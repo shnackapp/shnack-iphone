@@ -317,9 +317,9 @@
 #ifndef NDEBUG
         result =
 #endif
-        SecItemUpdate((__bridge CFDictionaryRef)updateItem, (__bridge CFDictionaryRef)tempCheck);
+         SecItemUpdate((__bridge CFDictionaryRef)updateItem, (__bridge CFDictionaryRef)tempCheck);
         
-		NSAssert( result == noErr, @"Couldn't update the Keychain Item." );
+		//NSAssert( result == noErr, @"Couldn't update the Keychain Item." );
     }
     else
     {

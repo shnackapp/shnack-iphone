@@ -9,8 +9,8 @@
 #import "AccountTableViewController.h"
 #import "KeychainItemWrapper.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import "LoginContainerViewController.h"
-#import "LoginViewController.h"
+#import "AppDelegate.h"
+
 
 
 
@@ -50,7 +50,10 @@
     NSString *tok = [keychain objectForKey:(__bridge id)(kSecValueData)];
     NSString *pass = [[NSString alloc] initWithData:[keychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding];
     NSString *acct = [keychain objectForKey:(__bridge id)(kSecAttrAccount)];
+    NSString *successful_login = [keychain objectForKey:(__bridge id)(kSecAttrGeneric)];
+
     
+        
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(headerView.bounds.size.width/2-(30), 32, headerView.bounds.size.width, 64)];//check if this is right!!!
     
     UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake(40, 20, 50, 30)];
@@ -87,16 +90,17 @@
     self.password.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.name.clearButtonMode = UITextFieldViewModeWhileEditing;
     
+    AppDelegate *app  = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
+    NSLog(@"uses_keychain: %d", app.uses_keychain ? YES:NO);
+    NSLog(@"successful_login: %d",successful_login ? YES: NO);
+
+    
+    if(app.uses_keychain == 1 || successful_login)
+    {
     self.email.text = acct;
     self.password.text = pass;
-    
-    
-    
-    
-
-
-
-
+    }
     
     //UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
     label.backgroundColor = [UIColor clearColor];
@@ -115,10 +119,6 @@
     
     self.tableView.tableHeaderView = headerView;
     self.tableView.scrollEnabled = NO;
-    
-    
-    
-    
     
        // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -265,8 +265,23 @@ replacementString:(NSString *)string {
         NSLog(@"YES");
         KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
         
+        AppDelegate *app  = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+
         [keychainItem resetKeychainItem];
-        [self performSegueWithIdentifier:@"log_out" sender:self];
+        if(app.uses_keychain)
+        {
+            NSLog(@"should present new vc");
+                        app.uses_keychain = NO;
+            [self performSegueWithIdentifier:@"log_out_keychain" sender:self];
+
+        }
+        else
+        {
+            app.uses_keychain = NO;
+            [self performSegueWithIdentifier:@"log_out" sender:self];
+        }
+
+        
         
 
     }
@@ -323,13 +338,13 @@ replacementString:(NSString *)string {
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([segue.identifier isEqualToString:@"log_out"])
+    if([segue.identifier isEqualToString:@"log_out"] || [segue.identifier isEqualToString:@"log_out_keychain"])
     {
-//        LoginContainerViewController *lcvc = [[LoginContainerViewController alloc] init];
-//        LoginViewController *lvc = [[LoginViewController alloc] init];
-//        
-//        lvc.email.text = @"";
-//        lvc.password.text = @"";
+        self.email.text = @"";
+        self.name.text = @"";
+        self.phone.text = @"";
+        self.password.text = @"";
+        
     }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.

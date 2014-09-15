@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "KeychainItemWrapper.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate, FBLoginViewDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic) int currentStadium;
 
-@property bool uses_keychain;
+@property BOOL uses_keychain;
 extern NSMutableDictionary *fb_user_info;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

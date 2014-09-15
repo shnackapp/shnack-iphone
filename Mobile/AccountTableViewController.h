@@ -20,6 +20,4 @@
 @property (weak, nonatomic) IBOutlet UITextField *phone;
 @property (weak, nonatomic) IBOutlet UILabel *logoutLabel;
 
-
-
 @end
