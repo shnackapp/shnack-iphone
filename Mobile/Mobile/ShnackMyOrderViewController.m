@@ -140,10 +140,10 @@
     
     itemCell.name.text = item.name;
     itemCell.price.text = [NSString stringWithFormat:@"$%d.%02d", item.price/100, item.price%100];
-    itemCell.count.text = [NSString stringWithFormat:@"%d", item.count];
-    
-    [itemCell.plusButton addTarget:self action:@selector(increaseCountByOne:) forControlEvents:UIControlEventTouchDown];
-    [itemCell.minusButton addTarget:self action:@selector(decreaseCountByOne:) forControlEvents:UIControlEventTouchDown];
+//    itemCell.count.text = [NSString stringWithFormat:@"%d", item.count];
+//    
+//    [itemCell.plusButton addTarget:self action:@selector(increaseCountByOne:) forControlEvents:UIControlEventTouchDown];
+//    [itemCell.minusButton addTarget:self action:@selector(decreaseCountByOne:) forControlEvents:UIControlEventTouchDown];
     itemCell.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 

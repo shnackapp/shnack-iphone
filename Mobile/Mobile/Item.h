@@ -13,9 +13,21 @@
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic) int price;
 @property (nonatomic) int count; //Quantity Ordered Count -- see bottom
+@property (nonatomic) NSString *description;
+
+@property (nonatomic) NSMutableDictionary *modifiers;
 
 -(id)initWithName:(NSString *)name andPrice:(int)price;
 -(id)initWithName:(NSString *)name andCount:(int)count;
+
+-(id)initWithName:(NSString *)name andPrice:(int)price
+                                   andDescription:(NSString *)description
+                                   andModifiers:(NSMutableDictionary *)modifiers;
+
+
+
+
+
 
 
 

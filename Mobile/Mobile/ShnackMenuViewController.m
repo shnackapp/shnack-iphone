@@ -59,8 +59,6 @@ NSInteger myCount;
     label.text = globalCurrentVendorName;
     [label sizeToFit];
     
-
-    
     UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
     tapRecognizer.numberOfTapsRequired = 1;
     tapRecognizer.delegate = self;
@@ -104,6 +102,7 @@ NSInteger myCount;
             [request setHTTPMethod:@"GET"];
             [request setValue:api_key forHTTPHeaderField:@"Authorization"];
             [[NSURLConnection alloc] initWithRequest:request delegate:self];
+            
         } else {
             self.menu = globalOpenOrderMenu;
             NSMutableArray *tableData = [[NSMutableArray alloc] init];
@@ -122,7 +121,6 @@ NSInteger myCount;
                 [tableData addObject:section];
             }
             [self.tableView setMenuSections:tableData];
-            NSLog(@"11111111111");
 
         }
         
@@ -143,9 +141,21 @@ NSInteger myCount;
         NSInteger total = [self calculateOrderTotal];
         self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
     
-    NSLog(@"555555555");
 
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    if(indexPath.row == 0)
+//    {
+//        return 60.0f;
+//    }
+//    
+//    else
+//    {
+//        return 100.0f;
+//    }
+//}
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     [self.responseData setLength:0];
@@ -166,10 +176,9 @@ NSInteger myCount;
     NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
     NSError *myError = nil;
     
-    NSLog(@"33333333");
-
     NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
-    NSLog(@"my JSON: %@",res);
+    //NSLog(@"my JSON: %@",res);
+    
     NSMutableArray *tableData = [[NSMutableArray alloc] initWithCapacity:[res count]];
     self.menu = [[NSMutableArray alloc] initWithCapacity:[res count]];
     for(NSDictionary *category in res) {
@@ -177,16 +186,62 @@ NSInteger myCount;
         NSString *categoryName = [category objectForKey:@"name"];
         NSMutableArray *menuCategory = [[NSMutableArray alloc] initWithCapacity:[items count]];
         NSMutableArray *tableSection = [[NSMutableArray alloc] initWithCapacity:[items count]];
+
         Item *categoryItem = [[Item alloc] initWithName:categoryName andCount:0];
+        
         [menuCategory addObject:categoryItem];
+        
+        NSLog(@"LOOOOOK HERE! %@",categoryItem);
+        
         for(NSDictionary *item in items)
         {
-            NSInteger price = [[item objectForKey:@"price"] integerValue];
-            NSString *name = [item valueForKey:@"name"];
-            Item *item = [[Item alloc] initWithName:name andPrice:price];
-            NSLog(@"\nMenu : %@", self.menu);
-            [menuCategory addObject:item];
+            //no null check needed for price and name because we prevent that on form
+            NSInteger price = [[[item objectForKey:@"item_details"] objectForKey:@"price"] integerValue];
+            
+            NSString *name = [[item valueForKey:@"item_details"] objectForKey:@"name"];
+            
+            NSString *description = [[[item valueForKeyPath:@"item_details"] objectForKey:@"description" ] isKindOfClass:[NSNull class]] ? @"No Description" : [[item valueForKeyPath:@"item_details"] objectForKey:@"description"];
+            
+            NSLog(@"name %@",name);
+            NSLog(@"price %ld",(long)price);
+            NSLog(@"description1 %@",description);
+            NSLog(@"description2 %@",[[item valueForKeyPath:@"item_details"] objectForKey:@"description"]);
+
+            NSMutableDictionary *mods = [item objectForKey:@"modifiers" ];
+            
+            NSInteger count = [mods count];
+            bool is_empty;
+            if(count == 0) is_empty=true;
+            else is_empty = false;
+            
+            NSLog(@"mods is_empty %@", is_empty ? @YES:@NO);
+            NSMutableDictionary *stored_mods = is_empty ? NULL :
+            [[NSMutableDictionary alloc] initWithCapacity:[mods count]];
+            
+            for(NSDictionary * modifier in mods)
+            {
+                for(id key in modifier)
+                {
+                    if([key isEqualToString:@"modifier"])
+                    {
+                        [stored_mods setObject:[modifier objectForKey:key] forKey:@"modifier"];
+                        //NSLog(@"modifier: %@", [modifier objectForKey:key] );
+                    }
+                    if([key isEqualToString:@"options"])
+                    {
+                         [stored_mods setObject:[modifier objectForKey:key] forKey:@"options"];
+                         //NSLog(@"options: %@", [modifier objectForKey:key]);
+                    }
+                }
+            }
+            if([stored_mods isKindOfClass:[NSNull class]])
+            {
+                NSLog(@"I am inserting a null dictionary into another dictionary");
+            }
+            Item *new_item = [[Item alloc] initWithName:name andPrice:price andDescription:description andModifiers:stored_mods];
+            [menuCategory addObject:new_item];
             [tableSection addObject:name];
+            
         }
         
         NSDictionary *section = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -219,11 +274,15 @@ NSInteger myCount;
     
     itemCell.name.text = item.name;
     itemCell.price.text = [NSString stringWithFormat:@"$%d.%02d", item.price/100, item.price%100];
-    itemCell.count.text = [NSString stringWithFormat:@"%d", item.count];
+    itemCell.description.text =item.description;
+    itemCell.description.textColor = [UIColor darkGrayColor];
+
     
-    [itemCell.plusButton addTarget:self action:@selector(increaseCountByOne:) forControlEvents:UIControlEventTouchDown];
-    [itemCell.minusButton addTarget:self action:@selector(decreaseCountByOne:) forControlEvents:UIControlEventTouchDown];
-    itemCell.selectionStyle = UITableViewCellSelectionStyleNone;
+//    itemCell.count.text = [NSString stringWithFormat:@"%d", item.count];
+//    
+//    [itemCell.plusButton addTarget:self action:@selector(increaseCountByOne:) forControlEvents:UIControlEventTouchDown];
+//    [itemCell.minusButton addTarget:self action:@selector(decreaseCountByOne:) forControlEvents:UIControlEventTouchDown];
+    itemCell.selectionStyle = UITableViewCellSelectionStyleGray;
 }
 
 -(void) willDisplayClosedCategoryCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath {

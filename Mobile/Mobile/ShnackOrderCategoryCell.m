@@ -22,12 +22,12 @@
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    }
+    
+}
 
 -(void)layoutSubviews
 {
-    
-    self.backgroundColor = [UIColor darkGrayColor];
+    self.backgroundColor =[UIColor colorWithRed:0.25f green:0.60f blue:1.00f alpha:1.00f];
 }
 
 /*

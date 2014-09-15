@@ -9,7 +9,7 @@
 #import "POPDTableView.h"
 #import "BButton.h"
 
-@interface ShnackMenuViewController : UIViewController
+@interface ShnackMenuViewController : UIViewController <UITableViewDelegate>
 extern NSMutableArray *globalArrayLocations;
 extern NSIndexPath *selectedIndexPath;
 extern NSMutableArray *globalOpenOrderMenu;

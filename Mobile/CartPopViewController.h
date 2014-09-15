@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BButton.h"
 
-@interface CartPopViewController : UIViewController
+@interface CartPopViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic) IBOutlet BButton *closeCart;
 @property (nonatomic) IBOutlet BButton *checkoutButton;

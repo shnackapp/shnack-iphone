@@ -37,12 +37,12 @@
     self.blurbLabel.text = self.blurbText;
     self.blurbLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:18];
     self.TopLabel.text = self.TopText;
-    self.TopLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:40];
+    self.TopLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:40];
     
     self.swipeLabel.text = self.swipeLabelText;
     self.swipeLabel.font = [UIFont fontWithName: @"Dosis-Medium" size:18];
     
-    self.brandLabel.text = self.brandLabelText;
+    //self.brandLabel.text = self.brandLabelText;
     self.brandLabel.font = [UIFont fontWithName: @"Dosis-Medium" size:20];
     
 

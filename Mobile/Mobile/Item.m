@@ -31,6 +31,7 @@
     {
         [copy setName:[self.name copyWithZone:zone]];
         [copy setPrice:self.price];
+        [copy setDescription:self.description];
     }
     return copy;
 }
@@ -45,6 +46,20 @@
         
             }
         return self;
+}
+-(id)initWithName:(NSString *)name  andPrice:(int)price andDescription:(NSString *)description andModifiers:(NSMutableDictionary *)modifiers
+{
+    self = [super init];
+    if(self) {
+        //Initialize
+        self.name = name;
+        self.price = price;
+        self.count = 0;
+        self.description = description ;
+        self.modifiers =  modifiers;
+        
+    }
+    return self;
 }
 
 @end
