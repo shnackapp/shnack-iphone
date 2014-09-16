@@ -111,7 +111,8 @@
                               /* handle the result */
                               NSLog(@"THIS IS result %@", result);
                               [fb_user_info setValue:result forKey:@"result"];
-
+                              self.facebook_info = YES;
+                              self.uses_keychain = NO;
                           }];
     return wasHandled;
 }
@@ -187,7 +188,23 @@
 - (void)userLoggedIn
 {
     // Welcome message
+    [FBRequestConnection startWithGraphPath:@"/me"
+                                 parameters:nil
+                                 HTTPMethod:@"GET"
+                          completionHandler:^(
+                                              FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error
+                                              ) {
+                              /* handle the result */
+                              NSLog(@"THIS IS result %@", result);
+                              [fb_user_info setValue:result forKey:@"result"];
+                              self.facebook_info = YES;
+                              self.uses_keychain = NO;
+                          }];
+
     [self showMessage:@"You're now logged in" withTitle:@"Welcome!"];
+    
     
 }
 
