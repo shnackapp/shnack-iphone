@@ -52,7 +52,7 @@
             
 //            [self.sideMenuViewController setContentViewController:(AccountViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"test"]  animated:YES];
             
-            [self.sideMenuViewController setContentTableViewController:(AccountTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"table_test"]  animated:YES];
+            [self.sideMenuViewController setContentTableViewController:(AccountTableViewController*)[self.storyboard instantiateViewControllerWithIdentifier:@"account"]  animated:YES];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 1:

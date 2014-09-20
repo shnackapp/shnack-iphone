@@ -24,6 +24,7 @@
 @property (weak,nonatomic) IBOutlet BButton *skipButton;
 
 extern NSMutableDictionary *fb_user_info;
+extern NSMutableDictionary *user_info;
 
 -(IBAction)done;
 -(void)createUserWithInfo:(NSString *)name andEmail:(NSString *)email andPhone:(NSString *)phone andPassword:(NSString *)password andStripeCustomerID:(NSString *) customer_id;

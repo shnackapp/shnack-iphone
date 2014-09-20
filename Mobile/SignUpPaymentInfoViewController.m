@@ -216,17 +216,27 @@
         }
         else
         {
-            if (FBSession.activeSession.isOpen) {
-                [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
-                    if (!error) {
-                        NSLog(@"name: %@", user.name);
-                        NSLog(@"name: %@", [user objectForKey:@"email"]);
-                    }
-                }];
-            }
+//            if (FBSession.activeSession.isOpen) {
+//                [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser> *user, NSError *error) {
+//                    if (!error) {
+//                        NSLog(@"name: %@", user.name);
+//                        NSLog(@"name: %@", [user objectForKey:@"email"]);
+//                    }
+//                }];
+//            }
             
-        [nav.user_info setObject:[receivedJSON valueForKey:@"id"] forKey:@"id"];
-        [self createUserWithInfo:full_name andEmail:[nav.user_info objectForKey:@"email"] andPhone:[nav.user_info objectForKey:@"phone_number"] andPassword:[nav.user_info objectForKey:@"password"] andStripeCustomerID:[nav.user_info objectForKey:@"id"]];
+            
+//        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+//            
+//        AccountTableViewController *account = (AccountTableViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"account"];
+//            
+//        account.user_info = nav.user_info;
+
+        [nav.user_info setObject:[receivedJSON valueForKey:@"id"] forKey:@"customer_id"];
+            
+        user_info = nav.user_info;
+
+        [self createUserWithInfo:full_name andEmail:[nav.user_info objectForKey:@"email"] andPhone:[nav.user_info objectForKey:@"phone_number"] andPassword:[nav.user_info objectForKey:@"password"] andStripeCustomerID:[nav.user_info objectForKey:@"customer_id"]];
         [self performSegueWithIdentifier:@"to_root" sender:self];
         }
 }

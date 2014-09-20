@@ -52,7 +52,7 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     for (CALayer *subLayer in self.tableView.layer.sublayers)
     {
-        subLayer.cornerRadius = 5.0f;
+        subLayer.cornerRadius = 10.0f;
         subLayer.masksToBounds = YES;
     }
 }

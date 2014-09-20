@@ -203,7 +203,6 @@
             //store cred into keychain once we know it is legitimate
             [keychainItem setObject:globalCurrentUser[0] forKey:(__bridge id)(kSecAttrAccount)];
             [keychainItem setObject:globalCurrentUser[1] forKey:(__bridge id)(kSecValueData)];
-            [keychainItem setObject: @YES forKey:(__bridge id)(kSecAttrGeneric)];
 
             NSLog(@"auth token: %@",[receivedJSON objectForKey:key]);
             self.successful_login = YES;

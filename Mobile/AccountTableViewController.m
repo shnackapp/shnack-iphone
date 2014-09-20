@@ -10,9 +10,7 @@
 #import "KeychainItemWrapper.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "AppDelegate.h"
-
-
-
+#import "SignUpNavController.h"
 
 @interface AccountTableViewController ()
 
@@ -50,7 +48,6 @@
     NSString *tok = [keychain objectForKey:(__bridge id)(kSecValueData)];
     NSString *pass = [[NSString alloc] initWithData:[keychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding];
     NSString *acct = [keychain objectForKey:(__bridge id)(kSecAttrAccount)];
-    NSString *successful_login = [keychain objectForKey:(__bridge id)(kSecAttrGeneric)];
 
     
         
@@ -93,20 +90,26 @@
     AppDelegate *app  = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     NSLog(@"uses_keychain: %d", app.uses_keychain ? YES:NO);
-    NSLog(@"successful_login: %d",successful_login ? YES: NO);
 
-    
-    if(app.uses_keychain == 1 || successful_login)
-    {
-    self.email.text = acct;
-    self.password.text = pass;
-    }
-    
     if(app.facebook_info)
     {
         self.email.text =[[fb_user_info valueForKey:@"result"] valueForKey:@"email"];
         self.name.text = [[fb_user_info valueForKey:@"result"] valueForKey:@"name"];
     }
+    else if(app.uses_keychain)
+    {
+    self.email.text = acct;
+    self.password.text = pass;
+    }
+    else//get new sign up info
+    {
+        NSString *full_name = [[[user_info objectForKey:@"first"] stringByAppendingString:@" "] stringByAppendingString:[user_info objectForKey:@"last"]];
+        self.email.text = [user_info objectForKey:@"email"];
+        self.phone.text = [user_info objectForKey:@"phone_number"];
+        self.password.text = [user_info objectForKey:@"password"];
+        self.name.text =full_name;
+    }
+    
     
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont fontWithName:@"Dosis-Medium" size:22];;
@@ -272,26 +275,40 @@ replacementString:(NSString *)string {
         
         AppDelegate *app  = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 
-        [keychainItem resetKeychainItem];
         if(app.uses_keychain)
         {
             NSLog(@"should present new vc");
-                        app.uses_keychain = NO;
+            [keychainItem resetKeychainItem];
+            app.uses_keychain = NO;
+            [self showMessage:@"You're now logged out" withTitle:@""];
             [self performSegueWithIdentifier:@"log_out_keychain" sender:self];
+            //update server with log out time
 
+        }
+        else if (FBSessionStateOpen)
+        {
+            app.facebook_info = NO;
+            [FBSession.activeSession closeAndClearTokenInformation];
+            [self showMessage:@"You're now logged out" withTitle:@""];
+
+            [self performSegueWithIdentifier:@"log_out" sender:self];
         }
         else
         {
-            app.uses_keychain = NO;
-            [self performSegueWithIdentifier:@"log_out" sender:self];
+            
         }
-
-        
-        
-
     }
 }
 
+
+- (void)showMessage:(NSString *)text withTitle:(NSString *)title
+{
+    [[[UIAlertView alloc] initWithTitle:title
+                                message:text
+                               delegate:self
+                      cancelButtonTitle:@"OK!"
+                      otherButtonTitles:nil] show];
+}
 
 
 

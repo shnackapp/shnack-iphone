@@ -24,46 +24,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    NSLog(@"appDelegate");
+
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1.0];
     
-    //when user logins without facebook
-    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
-    
-    NSString *tok = [keychain objectForKey:(__bridge id)(kSecValueData)];
-    NSString *pass = [[NSString alloc] initWithData:[keychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding];
-    NSString *acct = [keychain objectForKey:(__bridge id)(kSecAttrAccount)];
-    
-    NSLog(@"TOKEN:%@",tok);
-    NSLog(@"TOKEN:%lu",(unsigned long)[tok length]);
-    
-    NSLog(@"PASS: %@",pass);
-    
-    NSLog(@"PASS:%lu",(unsigned long)[pass length]);
-    
-    NSLog(@"USER NAME:%@",acct);
-    NSLog(@"USER NAME:%lu",(unsigned long)[acct length]);
-    
-    if ([tok length] != 0 && [acct length] != 0)
-    {
-        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
-                                                                 bundle: nil];
-        
-        RootViewController *root =(RootViewController*)[mainStoryboard
-                                                        instantiateViewControllerWithIdentifier: @"root"];
-        self.window.rootViewController = root;
-        [self.window makeKeyAndVisible];
-        
-        NSLog(@"i should segue to menu page");
-        self.uses_keychain = YES;
-        
-        
-    }
-    
     [FBLoginView class];
     fb_user_info = [[NSMutableDictionary alloc] initWithCapacity:1];
-
+    
+    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
+    
     // Whenever a person opens the app, check for a cached FACEBOOK session
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         
@@ -78,8 +50,44 @@
                                           [self sessionStateChanged:session state:state error:error];
                                       }];
     }
+    //otherwise check the keychain for credentials
+    else if ([ [keychain objectForKey:(__bridge id)(kSecValueData)] length] != 0 && [[keychain objectForKey:(__bridge id)(kSecAttrAccount)] length] != 0)
+    {
+        
+        NSString *tok = [keychain objectForKey:(__bridge id)(kSecValueData)];
+        NSString *pass = [[NSString alloc] initWithData:[keychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding];
+        NSString *acct = [keychain objectForKey:(__bridge id)(kSecAttrAccount)];
+        
+        NSLog(@"TOKEN:%@",tok);
+        NSLog(@"TOKEN:%lu",(unsigned long)[tok length]);
+        
+        NSLog(@"PASS: %@",pass);
+        
+        NSLog(@"PASS:%lu",(unsigned long)[pass length]);
+        
+        NSLog(@"USER NAME:%@",acct);
+        NSLog(@"USER NAME:%lu",(unsigned long)[acct length]);
+        
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                                 bundle: nil];
+        
+        RootViewController *root =(RootViewController*)[mainStoryboard
+                                                        instantiateViewControllerWithIdentifier: @"root"];
+        self.window.rootViewController = root;
+        [self.window makeKeyAndVisible];
+        
+        NSLog(@"i should segue to menu page");
+        self.uses_keychain = YES;
+        self.facebook_info = NO;
+        
 
-    NSLog(@"appDelegate");
+    }
+    //if none are populated, then segue normally to initial (do nothing)
+    else
+    {
+        NSLog(@"no fb or keychain");
+    }
+    
     
   
     // Override point for customization after application launch.
@@ -181,7 +189,7 @@
 {
     
     // Confirm logout message
-    [self showMessage:@"You're now logged out" withTitle:@""];
+   // [self showMessage:@"You're now logged out" withTitle:@""];
 }
 
 // Show the user the logged-in UI
@@ -202,6 +210,15 @@
                               self.facebook_info = YES;
                               self.uses_keychain = NO;
                           }];
+    
+    
+    //maybe here instead present the verify page because we need phone number
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    
+    RootViewController *root =(RootViewController*)[mainStoryboard
+                                                    instantiateViewControllerWithIdentifier: @"root"];
+    self.window.rootViewController = root;
+    [self.window makeKeyAndVisible];
 
     [self showMessage:@"You're now logged in" withTitle:@"Welcome!"];
     

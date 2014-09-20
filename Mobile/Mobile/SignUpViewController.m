@@ -45,7 +45,7 @@
     self.loginView.readPermissions = @[@"public_profile", @"email", @"user_friends"];
     self.loginView.delegate = self;
     
-    self.container.layer.cornerRadius = 5.0f;
+    self.container.layer.cornerRadius = 10.0f;
 
     self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     

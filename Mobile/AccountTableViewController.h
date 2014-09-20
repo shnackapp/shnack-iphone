@@ -20,4 +20,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *phone;
 @property (weak, nonatomic) IBOutlet UILabel *logoutLabel;
 
+extern NSMutableDictionary *user_info;
+
 @end
