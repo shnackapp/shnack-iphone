@@ -172,7 +172,7 @@
     [request setValue:API_KEY forHTTPHeaderField:@"Authorization"];
     
     
-    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@&stripeEmail=%@", token.tokenId,[nav.user_info objectForKey:@"email"]];
+    NSString *body     = [NSString stringWithFormat:@"stripeToken=%@&stripeEmail=%@", token.tokenId,[shnack_user_info objectForKey:@"email"]];
     request.HTTPBody   = [body dataUsingEncoding:NSUTF8StringEncoding];
     
     NSLog(@"this is the url %@",url);
@@ -201,7 +201,7 @@
     NSLog(@"Received JSON is %@", receivedJSON);
     
     
-    NSString *full_name = [[[nav.user_info objectForKey:@"first"] stringByAppendingString:@" "] stringByAppendingString:[nav.user_info objectForKey:@"last"]];
+    NSString *full_name = [[[shnack_user_info objectForKey:@"first"] stringByAppendingString:@" "] stringByAppendingString:[shnack_user_info objectForKey:@"last"]];
     
         //change this eventuslly, currently just checks if json is null but we want to check json for error code and display message based on code
         if(!receivedJSON)
@@ -232,12 +232,18 @@
 //            
 //        account.user_info = nav.user_info;
 
-        [nav.user_info setObject:[receivedJSON valueForKey:@"id"] forKey:@"customer_id"];
-            
-        user_info = nav.user_info;
-
-        [self createUserWithInfo:full_name andEmail:[nav.user_info objectForKey:@"email"] andPhone:[nav.user_info objectForKey:@"phone_number"] andPassword:[nav.user_info objectForKey:@"password"] andStripeCustomerID:[nav.user_info objectForKey:@"customer_id"]];
-        [self performSegueWithIdentifier:@"to_root" sender:self];
+        [shnack_user_info setObject:[receivedJSON valueForKey:@"id"] forKey:@"customer_id"];
+        [shnack_user_info setObject:full_name forKey:@"name"];
+          
+        [self createUserWithInfo:[shnack_user_info objectForKey:@"name"]
+                        andEmail:[shnack_user_info objectForKey:@"email"]
+                        andPhone:[shnack_user_info objectForKey:@"phone_number"]
+                        andPassword:[shnack_user_info objectForKey:@"password"]
+                        andStripeCustomerID:[shnack_user_info objectForKey:@"customer_id"]];
+          
+        [self performSegueWithIdentifier:@"dismiss" sender:self];
+        [self.presentingViewController performSegueWithIdentifier:@"to_root" sender:self];
+          
         }
 }
 

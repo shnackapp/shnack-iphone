@@ -71,13 +71,13 @@
     = (SignUpContainerViewController *)  self.childViewControllers[0];
     NSLog(@"container class %@",signUpContainerViewController.class);
     
-    self.error_messages.hidden = YES;
 
     
 }
 
 -(void) dismiss
 {
+    [self.view endEditing:YES];//dismiss keyboard before cancel
     [self performSegueWithIdentifier:@"dismiss" sender:self];
     
 }
@@ -106,7 +106,6 @@
     {
         if([[self.text_fields valueForKeyPath:@"valid_email"] integerValue] ==1 && [[self.text_fields valueForKeyPath:@"valid_phone"] integerValue] == 1 && [[self.text_fields valueForKeyPath:@"passwords_match"] integerValue] ==1 )//then if correct and phone and email are syntactically correct, then check for uniqueness
         {
-            self.error_messages.hidden = YES;
             MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             hud.labelText = @"Validating";
 
@@ -162,10 +161,13 @@
                 if([error_string length] == 0) error_string =  password_mismatch;
                 else error_string = [[error_string stringByAppendingString:@"\n"] stringByAppendingString:password_mismatch];
             }
-            self.error_messages.hidden = NO;
-            self.error_messages.text = error_string;
-            self.error_messages.textColor = [UIColor redColor];
-            self.error_messages.layer.cornerRadius = 5.0f;
+          // textveiw errors or alert view below
+//
+          
+          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error") message:NSLocalizedString(error_string,error_string) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+          [alert show];
+          
+          
         }
     }
     else{
@@ -233,11 +235,10 @@
     if([[self.text_fields valueForKeyPath:@"valid_email"] integerValue] == 1 && [[self.text_fields valueForKeyPath:@"valid_phone"] integerValue] == 1 && [[self.text_fields valueForKeyPath:@"valid_password"] integerValue] == 1 && [[self.text_fields valueForKeyPath:@"passwords_match"] integerValue] == 1 &&email_exists == false  && phone_exists == false)
     {
         NSLog(@"storing info in dictionary");
-        self.error_messages.hidden = YES;
         SignUpNavController *signUpNav = [(SignUpNavController *) self navigationController];
-        [signUpNav.user_info setObject:signUpContainer.email.text forKey:@"email"];
-        [signUpNav.user_info setObject:[self.text_fields valueForKeyPath:@"phone_number"] forKey:@"phone_number"];
-        [signUpNav.user_info setObject:signUpContainer.password.text forKey:@"password"];
+        [shnack_user_info setObject:signUpContainer.email.text forKey:@"email"];
+        [shnack_user_info setObject:[self.text_fields valueForKeyPath:@"phone_number"] forKey:@"phone_number"];
+        [shnack_user_info setObject:signUpContainer.password.text forKey:@"password"];
         [self performSegueWithIdentifier:@"next" sender:self];
         
     }
@@ -261,11 +262,11 @@
             
         }
         
-        
-        self.error_messages.hidden = NO;
-        self.error_messages.text = error_string;
-        self.error_messages.textColor = [UIColor redColor];
-        self.error_messages.layer.cornerRadius = 5.0f;
+//        we can either show a text view with errors or the alertview below
+//        
+      
+      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error") message:NSLocalizedString(error_string,error_string) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+      [alert show];
     }
 }
 

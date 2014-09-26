@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
+
 
 @interface AccountTableViewController : UITableViewController <UITableViewDelegate, UITextFieldDelegate>
 
@@ -20,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *phone;
 @property (weak, nonatomic) IBOutlet UILabel *logoutLabel;
 
-extern NSMutableDictionary *user_info;
+extern NSMutableDictionary *shnack_user_info;
+extern BOOL uses_keychain;
+extern BOOL uses_facebook;
 
 @end

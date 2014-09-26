@@ -51,17 +51,73 @@
     
     [self.email setBorderStyle:UITextBorderStyleNone];
     [self.password setBorderStyle:UITextBorderStyleNone];
-    
+  
+    self.tableView.sectionHeaderHeight = 10;
+    self.tableView.sectionFooterHeight = 1;
+  
+  
     self.tableView.backgroundColor = [UIColor clearColor];
     for (CALayer *subLayer in self.tableView.layer.sublayers)
     {
         subLayer.cornerRadius = 5.0f;
         subLayer.masksToBounds = YES;
     }
+  
+  
     
     [super viewDidLoad];
     
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+  return 10;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+  return 1;
+}
+
+//- (UIView *) tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//  
+//  // Create the path (with only the top-left corner rounded)
+//  
+//  UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 10)] ;
+//  if (section == 0)
+//  {
+//    [headerView setBackgroundColor:[UIColor darkGrayColor]];
+//  }
+//  
+//  UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:headerView.bounds byRoundingCorners:UIRectCornerTopLeft| UIRectCornerTopRight                                                         cornerRadii:CGSizeMake(10.0, 10.0)];
+//  // Create the shape layer and set its path
+//  CAShapeLayer *maskLayer = [CAShapeLayer layer];
+//  maskLayer.frame = headerView.bounds;
+//  maskLayer.path = maskPath.CGPath;
+//  // Set the newly created shape layer as the mask for the image view's layer
+//  headerView.layer.mask = maskLayer;
+//  return headerView;
+//}
+//
+//- (UIView *) tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+//{
+//  // Create the path (with only the top-left corner rounded)
+//  
+//  UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 10)] ;
+//  if (section == 0)
+//  {
+//    [footerView setBackgroundColor:[UIColor darkGrayColor]];
+//  }
+//  
+//  UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:footerView.bounds byRoundingCorners:UIRectCornerBottomLeft| UIRectCornerBottomRight                                                         cornerRadii:CGSizeMake(10.0, 10.0)];
+//  // Create the shape layer and set its path
+//  CAShapeLayer *maskLayer = [CAShapeLayer layer];
+//  maskLayer.frame = footerView.bounds;
+//  maskLayer.path = maskPath.CGPath;
+//  // Set the newly created shape layer as the mask for the image view's layer
+//  footerView.layer.mask = maskLayer;
+//  return footerView;
+//  
+//}
+
+
 //validations
 -(BOOL)isValidEmail:(NSString *)email
 {

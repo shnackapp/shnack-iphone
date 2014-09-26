@@ -175,70 +175,60 @@ NSInteger myCount;
     NSLog(@"connectionDidFinishLoading");
     NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
     NSError *myError = nil;
-    
+  ////////
+  
     NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
     //NSLog(@"my JSON: %@",res);
-    
     NSMutableArray *tableData = [[NSMutableArray alloc] initWithCapacity:[res count]];
     self.menu = [[NSMutableArray alloc] initWithCapacity:[res count]];
-    for(NSDictionary *category in res) {
-        NSArray *items = [category objectForKey:@"items"];
-        NSString *categoryName = [category objectForKey:@"name"];
-        NSMutableArray *menuCategory = [[NSMutableArray alloc] initWithCapacity:[items count]];
-        NSMutableArray *tableSection = [[NSMutableArray alloc] initWithCapacity:[items count]];
-
-        Item *categoryItem = [[Item alloc] initWithName:categoryName andCount:0];
-        
-        [menuCategory addObject:categoryItem];
-        
-        NSLog(@"LOOOOOK HERE! %@",categoryItem);
+  
+  for(NSDictionary *category in [res valueForKey:@"categories"])
+    {
+      NSArray *items = [category objectForKey:@"items"];
+      NSString *categoryName = [category objectForKey:@"name"];
+      
+      NSMutableArray *menuCategory = [[NSMutableArray alloc] initWithCapacity:[items count]];
+      NSMutableArray *tableSection = [[NSMutableArray alloc] initWithCapacity:[items count]];
+      
+      NSLog(@"cat_name: %@", categoryName);
+      NSLog(@"menu_category: %lu", (unsigned long)[items count]);
+      Item *categoryItem = [[Item alloc] initWithName:categoryName andCount:0];
+      [menuCategory addObject:categoryItem];
+      NSLog(@"LOOOOOK HERE! %@",categoryItem.name);
         
         for(NSDictionary *item in items)
         {
-            //no null check needed for price and name because we prevent that on form
-            NSInteger price = [[[item objectForKey:@"item_details"] objectForKey:@"price"] integerValue];
-            
-            NSString *name = [[item valueForKey:@"item_details"] objectForKey:@"name"];
-            
-            NSString *description = [[[item valueForKeyPath:@"item_details"] objectForKey:@"description" ] isKindOfClass:[NSNull class]] ? @"No Description" : [[item valueForKeyPath:@"item_details"] objectForKey:@"description"];
-            
+            NSInteger price = [[item objectForKey:@"price"] integerValue];
+            NSString *name = [item  objectForKey:@"name"];
+            NSString *description = [[item objectForKey:@"description" ] isKindOfClass:[NSNull class]] ? @"No Description" : [item objectForKey:@"description"];
             NSLog(@"name %@",name);
             NSLog(@"price %ld",(long)price);
             NSLog(@"description1 %@",description);
-            NSLog(@"description2 %@",[[item valueForKeyPath:@"item_details"] objectForKey:@"description"]);
-
+            NSLog(@"description2 %@",[item objectForKey:@"description"]);
             NSMutableDictionary *mods = [item objectForKey:@"modifiers" ];
-            
+            NSLog(@"mods: %@", mods);
             NSInteger count = [mods count];
             bool is_empty;
             if(count == 0) is_empty=true;
             else is_empty = false;
-            
             NSLog(@"mods is_empty %@", is_empty ? @YES:@NO);
-            NSMutableDictionary *stored_mods = is_empty ? NULL :
-            [[NSMutableDictionary alloc] initWithCapacity:[mods count]];
-            
-            for(NSDictionary * modifier in mods)
-            {
-                for(id key in modifier)
-                {
-                    if([key isEqualToString:@"modifier"])
-                    {
-                        [stored_mods setObject:[modifier objectForKey:key] forKey:@"modifier"];
-                        //NSLog(@"modifier: %@", [modifier objectForKey:key] );
-                    }
-                    if([key isEqualToString:@"options"])
-                    {
-                         [stored_mods setObject:[modifier objectForKey:key] forKey:@"options"];
-                         //NSLog(@"options: %@", [modifier objectForKey:key]);
-                    }
-                }
-            }
-            if([stored_mods isKindOfClass:[NSNull class]])
-            {
-                NSLog(@"I am inserting a null dictionary into another dictionary");
-            }
-            Item *new_item = [[Item alloc] initWithName:name andPrice:price andDescription:description andModifiers:stored_mods];
+//            NSMutableDictionary *stored_mods = is_empty ? NULL :
+//            [[NSMutableDictionary alloc] initWithCapacity:[mods count]];
+//            for(NSDictionary * modifier in mods)
+//            {
+//              NSInteger mod_type = [[modifier objectForKey:@"mod_type"] integerValue];
+//              NSString *name = [modifier objectForKey:@"name"];
+//              NSDictionary *options = [modifier objectForKey:@"options"];
+//              for(NSDictionary *option in options)
+//              {
+//                NSString *option_name = [option objectForKey:@"name"];
+//                NSInteger option_price = [option objectForKey:@"price"];
+//              }
+//
+//              
+//            }
+          
+            Item *new_item = [[Item alloc] initWithName:name andPrice:price andDescription:description andModifiers:mods];
             [menuCategory addObject:new_item];
             [tableSection addObject:name];
             
@@ -255,7 +245,7 @@ NSInteger myCount;
     
     [self.tableView setMenuSections:tableData];
     [self.tableView reloadData];
-
+////////
 }
 
 

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface SignUpNavController : UINavigationController
-@property NSMutableDictionary *user_info;
+extern NSMutableDictionary *shnack_user_info;
 
 @end

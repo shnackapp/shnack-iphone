@@ -10,6 +10,8 @@
 
 @implementation Item
 
+@synthesize description;
+
 -(id)initWithName:(NSString *)name andPrice:(int)price
 {
     self = [super init];

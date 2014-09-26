@@ -117,10 +117,10 @@
 
 -(void)gatherInfo
 {
-    SignUpNavController *signUpNav = [(SignUpNavController *) self navigationController];
-    [signUpNav.user_info setObject:self.first.text forKey:@"first"];
-    [signUpNav.user_info setObject:self.last.text forKey:@"last"];
-    NSLog(@"first: %@, last: %@",[signUpNav.user_info objectForKey:@"first"],[signUpNav.user_info objectForKey:@"last"]);
+    
+    [shnack_user_info setObject:self.first.text forKey:@"first"];
+    [shnack_user_info setObject:self.last.text forKey:@"last"];
+    NSLog(@"first: %@, last: %@",[shnack_user_info objectForKey:@"first"],[shnack_user_info objectForKey:@"last"]);
     [self.parentViewController performSegueWithIdentifier:@"next" sender:self];
 
 }

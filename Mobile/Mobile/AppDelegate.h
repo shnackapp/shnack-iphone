@@ -17,8 +17,8 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic) int currentStadium;
 
-@property BOOL uses_keychain;
-@property BOOL facebook_info;
+extern BOOL uses_keychain;
+extern BOOL uses_facebook;
 extern NSMutableDictionary *fb_user_info;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

@@ -19,7 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet FBLoginView *loginView;
 
-@property (nonatomic) IBOutlet UITextView *error_messages;
 -(IBAction)next;
 
 @property (weak, nonatomic) IBOutlet UIView *container;

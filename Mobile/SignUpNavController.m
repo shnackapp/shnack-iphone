@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     self.navigationItem.title = @"Nav";
-    self.user_info  = [[NSMutableDictionary alloc] initWithCapacity:6];
+    shnack_user_info  = [[NSMutableDictionary alloc] initWithCapacity:6];
     // Do any additional setup after loading the view.
 }
 

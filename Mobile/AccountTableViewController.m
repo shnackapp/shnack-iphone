@@ -8,7 +8,6 @@
 
 #import "AccountTableViewController.h"
 #import "KeychainItemWrapper.h"
-#import <FacebookSDK/FacebookSDK.h>
 #import "AppDelegate.h"
 #import "SignUpNavController.h"
 
@@ -42,15 +41,24 @@
     NSLog(@"width: %f", headerView.bounds.size.width);
     NSLog(@"height: %f", headerView.bounds.size.height);
     [headerView setBackgroundColor:[UIColor redColor]];
-    
-    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
-    
-    NSString *tok = [keychain objectForKey:(__bridge id)(kSecValueData)];
-    NSString *pass = [[NSString alloc] initWithData:[keychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding];
-    NSString *acct = [keychain objectForKey:(__bridge id)(kSecAttrAccount)];
-
-    
-        
+  
+  KeychainItemWrapper *password = [[KeychainItemWrapper alloc] initWithIdentifier:@"password" accessGroup:nil];
+  [password setObject:@"password" forKey: (__bridge id)kSecAttrService];
+  [password setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked) forKey:(__bridge id)(kSecAttrAccessible)];
+  KeychainItemWrapper *email = [[KeychainItemWrapper alloc] initWithIdentifier:@"email" accessGroup:nil];
+  [email setObject:@"email" forKey: (__bridge id)kSecAttrService];
+  [email setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked) forKey:(__bridge id)(kSecAttrAccessible)];
+  KeychainItemWrapper *name = [[KeychainItemWrapper alloc] initWithIdentifier:@"name" accessGroup:nil];
+  [name setObject:@"name" forKey: (__bridge id)kSecAttrService];
+  [name setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked) forKey:(__bridge id)(kSecAttrAccessible)];
+  KeychainItemWrapper *phone = [[KeychainItemWrapper alloc] initWithIdentifier:@"phone" accessGroup:nil];
+  [phone setObject:@"phone" forKey: (__bridge id)kSecAttrService];
+  [phone setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked) forKey:(__bridge id)(kSecAttrAccessible)];
+  KeychainItemWrapper *token = [[KeychainItemWrapper alloc] initWithIdentifier:@"token" accessGroup:nil];
+  [token setObject:@"token" forKey: (__bridge id)kSecAttrService];
+  [token setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked) forKey:(__bridge id)(kSecAttrAccessible)];
+  
+  
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(headerView.bounds.size.width/2-(30), 32, headerView.bounds.size.width, 64)];//check if this is right!!!
     
     UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake(40, 20, 50, 30)];
@@ -86,28 +94,33 @@
     self.phone.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.password.clearButtonMode = UITextFieldViewModeWhileEditing;
     self.name.clearButtonMode = UITextFieldViewModeWhileEditing;
-    
-    AppDelegate *app  = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    
-    NSLog(@"uses_keychain: %d", app.uses_keychain ? YES:NO);
+        
+    NSLog(@"uses_keychain: %d", uses_keychain ? YES:NO);
+    NSLog(@"uses_fb: %d", uses_facebook ? YES:NO);
 
-    if(app.facebook_info)
+  
+    if(uses_facebook)
     {
         self.email.text =[[fb_user_info valueForKey:@"result"] valueForKey:@"email"];
         self.name.text = [[fb_user_info valueForKey:@"result"] valueForKey:@"name"];
+      
+    
     }
-    else if(app.uses_keychain)
+    else if(uses_keychain)
     {
-    self.email.text = acct;
-    self.password.text = pass;
+      //change this to all keychain
+      self.email.text =[email objectForKey:(__bridge id)(kSecValueData)];
+      self.name.text = [name objectForKey:(__bridge id)(kSecValueData)];
+      self.phone.text = [phone objectForKey:(__bridge id)(kSecValueData)];
+      self.password.text = [password objectForKey:(__bridge id)(kSecValueData)];
     }
-    else//get new sign up info
+    else//get new sign up info or login info from server
     {
-        NSString *full_name = [[[user_info objectForKey:@"first"] stringByAppendingString:@" "] stringByAppendingString:[user_info objectForKey:@"last"]];
-        self.email.text = [user_info objectForKey:@"email"];
-        self.phone.text = [user_info objectForKey:@"phone_number"];
-        self.password.text = [user_info objectForKey:@"password"];
-        self.name.text =full_name;
+      
+        self.email.text = [shnack_user_info objectForKey:@"email"];
+        self.phone.text = [shnack_user_info objectForKey:@"phone_number"];
+        self.password.text = [shnack_user_info objectForKey:@"password"];
+        self.name.text =[shnack_user_info objectForKey:@"name"] ;
     }
     
     
@@ -134,6 +147,8 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
+
+
 -(void)cancel
 {
     NSLog(@"canceled");
@@ -185,7 +200,7 @@
     {
         return 28.0f;
     }
- return 64.0f;
+    else return 64.0f;
 }
 
 - (BOOL)textField:(UITextField *) textField
@@ -271,25 +286,34 @@ replacementString:(NSString *)string {
     else if (buttonIndex == 1)
     {
         NSLog(@"YES");
-        KeychainItemWrapper *keychainItem = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
-        
+      KeychainItemWrapper *password = [[KeychainItemWrapper alloc] initWithIdentifier:@"password" accessGroup:nil];
+      KeychainItemWrapper *email = [[KeychainItemWrapper alloc] initWithIdentifier:@"email" accessGroup:nil];
+      KeychainItemWrapper *name = [[KeychainItemWrapper alloc] initWithIdentifier:@"name" accessGroup:nil];
+      KeychainItemWrapper *phone = [[KeychainItemWrapper alloc] initWithIdentifier:@"phone" accessGroup:nil];
+      KeychainItemWrapper *token = [[KeychainItemWrapper alloc] initWithIdentifier:@"token" accessGroup:nil];
+     
         AppDelegate *app  = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 
-        if(app.uses_keychain)
+        if(uses_keychain)
         {
-            NSLog(@"should present new vc");
-            [keychainItem resetKeychainItem];
-            app.uses_keychain = NO;
-            [self showMessage:@"You're now logged out" withTitle:@""];
-            [self performSegueWithIdentifier:@"log_out_keychain" sender:self];
-            //update server with log out time
+          NSLog(@"should present new vc RESET KEYCHAIN");
+          [password resetKeychainItem];
+          [email resetKeychainItem];
+          [name resetKeychainItem];
+          [phone resetKeychainItem];
+
+          uses_keychain = NO;
+          //[self showMessage:@"You're now logged out" withTitle:@""];
+          [self performSegueWithIdentifier:@"log_out_keychain" sender:self];
+          //update server with log out time
 
         }
         else if (FBSessionStateOpen)
         {
-            app.facebook_info = NO;
+            uses_facebook = NO;
+          NSLog(@"CLOSE FACEBOOK SESSION");
             [FBSession.activeSession closeAndClearTokenInformation];
-            [self showMessage:@"You're now logged out" withTitle:@""];
+            //[self showMessage:@"You're now logged out" withTitle:@""];
 
             [self performSegueWithIdentifier:@"log_out" sender:self];
         }

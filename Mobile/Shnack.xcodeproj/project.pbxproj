@@ -605,7 +605,9 @@
 				69715B1818AD39560039D061 /* Products */,
 				6A546BF48A1243308E94883D /* Pods.xcconfig */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
+			tabWidth = 2;
 		};
 		69715B1818AD39560039D061 /* Products */ = {
 			isa = PBXGroup;

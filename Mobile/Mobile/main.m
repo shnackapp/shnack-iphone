@@ -22,7 +22,10 @@ NSString *globalCurrentVendorName = nil;
 NSMutableArray *globalUserInfo = nil;
 NSMutableArray *globalCurrentUser = nil;
 NSMutableDictionary *fb_user_info = nil;
-NSMutableDictionary *user_info = nil;
+NSMutableDictionary *shnack_user_info = nil;
+
+BOOL uses_keychain = NO;
+BOOL uses_facebook = NO;
 
 
 MainPageViewController *mainPages = nil;

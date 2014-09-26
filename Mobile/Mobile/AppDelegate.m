@@ -33,10 +33,37 @@
     
     [FBLoginView class];
     fb_user_info = [[NSMutableDictionary alloc] initWithCapacity:1];
-    
-    KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"YourAppLogin" accessGroup:nil];
-    
-    // Whenever a person opens the app, check for a cached FACEBOOK session
+    shnack_user_info = [[NSMutableDictionary alloc] initWithCapacity:8];
+  
+    KeychainItemWrapper *password = [[KeychainItemWrapper alloc] initWithIdentifier:@"password" accessGroup:nil];
+    [password setObject:@"password" forKey: (__bridge id)kSecAttrService];
+    [password setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked) forKey:(__bridge id)(kSecAttrAccessible)];
+    KeychainItemWrapper *email = [[KeychainItemWrapper alloc] initWithIdentifier:@"email" accessGroup:nil];
+    [email setObject:@"email" forKey: (__bridge id)kSecAttrService];
+    [email setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked) forKey:(__bridge id)(kSecAttrAccessible)];
+    KeychainItemWrapper *name = [[KeychainItemWrapper alloc] initWithIdentifier:@"name" accessGroup:nil];
+    [name setObject:@"name" forKey: (__bridge id)kSecAttrService];
+    [name setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked) forKey:(__bridge id)(kSecAttrAccessible)];
+    KeychainItemWrapper *phone = [[KeychainItemWrapper alloc] initWithIdentifier:@"phone" accessGroup:nil];
+    [phone setObject:@"phone" forKey: (__bridge id)kSecAttrService];
+    [phone setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked) forKey:(__bridge id)(kSecAttrAccessible)];
+    KeychainItemWrapper *token = [[KeychainItemWrapper alloc] initWithIdentifier:@"token" accessGroup:nil];
+    [token setObject:@"token" forKey: (__bridge id)kSecAttrService];
+    [token setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked) forKey:(__bridge id)(kSecAttrAccessible)];
+  
+  NSInteger l1 = [[password objectForKey:(__bridge id)(kSecValueData)] length];
+  NSInteger l2 = [[email objectForKey:(__bridge id)(kSecValueData)] length];
+  NSInteger l3 = [[name objectForKey:(__bridge id)(kSecValueData)] length];
+  NSInteger l4 = [[phone objectForKey:(__bridge id)(kSecValueData)] length];
+  NSInteger l5 = [[token objectForKey:(__bridge id)(kSecValueData)] length];
+
+  
+  
+  
+  
+  
+
+      // Whenever a person opens the app, check for a cached FACEBOOK session
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         
         // If there's one, just open the session silently, without showing the user the login UI
@@ -49,25 +76,20 @@
                                           
                                           [self sessionStateChanged:session state:state error:error];
                                       }];
+      uses_keychain = NO;
+      uses_facebook = YES;
+
     }
     //otherwise check the keychain for credentials
-    else if ([ [keychain objectForKey:(__bridge id)(kSecValueData)] length] != 0 && [[keychain objectForKey:(__bridge id)(kSecAttrAccount)] length] != 0)
+    else if (l1 != 0 && l2 != 0 && l3 != 0 && l4 != 0 &&l5 != 0)
     {
-        
-        NSString *tok = [keychain objectForKey:(__bridge id)(kSecValueData)];
-        NSString *pass = [[NSString alloc] initWithData:[keychain objectForKey:(__bridge id)(kSecValueData)] encoding:NSUTF8StringEncoding];
-        NSString *acct = [keychain objectForKey:(__bridge id)(kSecAttrAccount)];
-        
-        NSLog(@"TOKEN:%@",tok);
-        NSLog(@"TOKEN:%lu",(unsigned long)[tok length]);
-        
-        NSLog(@"PASS: %@",pass);
-        
-        NSLog(@"PASS:%lu",(unsigned long)[pass length]);
-        
-        NSLog(@"USER NAME:%@",acct);
-        NSLog(@"USER NAME:%lu",(unsigned long)[acct length]);
-        
+      
+        NSLog(@"PASSWORD: %@",password);
+        NSLog(@"EMAIL: %@", email );
+        NSLog(@"NAME: %@",name);
+        NSLog(@"PHONE: %@",phone);
+        NSLog(@"TOKEN: %@", token);
+      
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                                  bundle: nil];
         
@@ -77,8 +99,8 @@
         [self.window makeKeyAndVisible];
         
         NSLog(@"i should segue to menu page");
-        self.uses_keychain = YES;
-        self.facebook_info = NO;
+        uses_keychain = YES;
+        uses_facebook = NO;
         
 
     }
@@ -86,6 +108,8 @@
     else
     {
         NSLog(@"no fb or keychain");
+      uses_facebook = NO;
+      uses_keychain = NO;
     }
     
     
@@ -96,6 +120,8 @@
     //controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }
+
+
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
@@ -108,21 +134,25 @@
     // You can add your app-specific url handling code here if needed
     
     /* make the API call */
-    [FBRequestConnection startWithGraphPath:@"/me"
-                                 parameters:nil
-                                 HTTPMethod:@"GET"
-                          completionHandler:^(
-                                              FBRequestConnection *connection,
-                                              id result,
-                                              NSError *error
-                                              ) {
-                              /* handle the result */
-                              NSLog(@"THIS IS result %@", result);
-                              [fb_user_info setValue:result forKey:@"result"];
-                              self.facebook_info = YES;
-                              self.uses_keychain = NO;
-                          }];
-    return wasHandled;
+//    [FBRequestConnection startWithGraphPath:@"/me"
+//                                 parameters:nil
+//                                 HTTPMethod:@"GET"
+//                          completionHandler:^(
+//                                              FBRequestConnection *connection,
+//                                              id result,
+//                                              NSError *error
+//                                              ) {
+//                              /* handle the result */
+//                              NSLog(@"THIS IS result %@", result);
+//                              [fb_user_info setValue:result forKey:@"result"];
+//                              uses_facebook = YES;
+//                              uses_keychain = NO;
+//                          }];
+  NSLog(@"login with facebook button clicked!");
+  
+  
+  
+  return wasHandled;
 }
 
 // This method will handle ALL the session state changes in the app
@@ -207,22 +237,30 @@
                               /* handle the result */
                               NSLog(@"THIS IS result %@", result);
                               [fb_user_info setValue:result forKey:@"result"];
-                              self.facebook_info = YES;
-                              self.uses_keychain = NO;
+                              uses_facebook = YES;
+                              uses_keychain = NO;
                           }];
     
-    
+  NSLog(@"im in here2");
     //maybe here instead present the verify page because we need phone number
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    
-    RootViewController *root =(RootViewController*)[mainStoryboard
-                                                    instantiateViewControllerWithIdentifier: @"root"];
-    self.window.rootViewController = root;
+  
+  RootViewController *root =(RootViewController*)[mainStoryboard
+                  instantiateViewControllerWithIdentifier: @"root"];
+  
+  
+  AccountTableViewController *account =(AccountTableViewController*)[mainStoryboard
+                  instantiateViewControllerWithIdentifier: @"account"];
+  account.email.text = [[fb_user_info valueForKey:@"result"] valueForKey:@"email"];
+  account.name.text = [[fb_user_info valueForKey:@"result"] valueForKey:@"name"];
+
+  
+    self.window.rootViewController = account;
     [self.window makeKeyAndVisible];
 
-    [self showMessage:@"You're now logged in" withTitle:@"Welcome!"];
-    
-    
+    [self showMessage:@"You're now logged in, but first we need you to verify some info!" withTitle:@"Welcome!"];
+  
+  
 }
 
 // Show an alert message
@@ -256,6 +294,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+  
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
