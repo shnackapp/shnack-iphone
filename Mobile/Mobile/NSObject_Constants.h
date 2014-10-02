@@ -24,12 +24,12 @@
 //# define API_KEY @"Token token=\"d157b1e177b7ba1e4547a0d6e11aa627\""
 
 //demo server
-//#define API_KEY @"Token token=\"c512ff893154cfe005b327379e87f1fa\""
-//#define BASE_URL @"http://demo.shnackapp.com/api"
+#define API_KEY @"Token token=\"c512ff893154cfe005b327379e87f1fa\""
+#define BASE_URL @"http://demo.shnackapp.com/api"
 
 //localhost server
-#define API_KEY @"Token token=\"3fd5e6206086ae7cfaefd61af5fecefe\""
-#define BASE_URL @"http://0.0.0.0:3000/api"
+//#define API_KEY @"Token token=\"3fd5e6206086ae7cfaefd61af5fecefe\""
+//#define BASE_URL @"http://0.0.0.0:3000/api"
 
 
 //Access Token Staging
