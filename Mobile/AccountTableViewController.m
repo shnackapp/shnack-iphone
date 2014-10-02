@@ -10,6 +10,8 @@
 #import "KeychainItemWrapper.h"
 #import "AppDelegate.h"
 #import "SignUpNavController.h"
+#import "MBProgressHUD.h"
+#import "RootViewController.h"
 
 @interface AccountTableViewController ()
 
@@ -59,19 +61,17 @@
   [token setObject:(__bridge id)(kSecAttrAccessibleWhenUnlocked) forKey:(__bridge id)(kSecAttrAccessible)];
   
   
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(headerView.bounds.size.width/2-(30), 32, headerView.bounds.size.width, 64)];//check if this is right!!!
-    
-    UIButton *addButton = [[UIButton alloc] initWithFrame:CGRectMake(40, 20, 50, 30)];
-    addButton.titleLabel.text = @"Cancel";
-    addButton.titleLabel.textColor = [UIColor whiteColor];
-    addButton.backgroundColor = [UIColor whiteColor];
-    
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel)];
-    
-    //[headerView addSubview:addButton];
-    //[headerView addSubview:cancelButton];
-
-    
+  UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(headerView.bounds.size.width/2-(30), 32, headerView.bounds.size.width, 64)];//check if this is right!!!
+  
+  UIButton *saveButton = [[UIButton alloc] initWithFrame:CGRectMake(headerView.bounds.size.width-60, 20, 60, headerView.bounds.size.height-20)];
+  
+  saveButton.titleLabel.text = @"Save";
+  saveButton.titleLabel.textColor = [UIColor whiteColor];
+  saveButton.backgroundColor = [UIColor lightGrayColor];
+  
+  [headerView addSubview:saveButton];
+  [saveButton addTarget:self action:@selector(save_info) forControlEvents:UIControlEventTouchUpInside];
+  
     self.emailLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
     self.phoneLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
     self.passwordLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
@@ -101,8 +101,13 @@
   
     if(uses_facebook)
     {
-        self.email.text =[[fb_user_info valueForKey:@"result"] valueForKey:@"email"];
-        self.name.text = [[fb_user_info valueForKey:@"result"] valueForKey:@"name"];
+      self.email.text =[[fb_user_info valueForKey:@"result"] valueForKey:@"email"];
+      self.name.text = [[fb_user_info valueForKey:@"result"] valueForKey:@"name"];
+      //from update
+      self.phone.text = [shnack_user_info objectForKey:@"phone_number"];
+      self.password.text = [shnack_user_info objectForKey:@"password"];
+
+      
       
     
     }
@@ -149,9 +154,30 @@
 }
 
 
--(void)cancel
+-(void)save_info
 {
-    NSLog(@"canceled");
+  NSLog(@"saving");
+  
+  if([self.password.text length] == 0 || [self.phone.text length] == 0)
+  {
+    [self showMessage:@"It looks like you left some fields blank! Please make sure you have the correct credentials and phone number" withTitle:@""];
+
+  }
+  else
+  {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Updating";
+
+  [shnack_user_info setObject:self.email.text forKey:@"email"];
+  [shnack_user_info setObject:self.phone.text forKey:@"phone_number"];
+  [shnack_user_info setObject:self.name.text forKey:@"name"];
+  [shnack_user_info setObject:self.password.text forKey:@"password"];
+    
+    
+
+  [self performSegueWithIdentifier:@"update" sender:self];
+  }
+  
 }
 - (void) hideKeyboard {
     [self.name resignFirstResponder];
@@ -189,10 +215,6 @@
     else return 1;
     
 }
-
-
-
-
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
    
@@ -292,7 +314,6 @@ replacementString:(NSString *)string {
       KeychainItemWrapper *phone = [[KeychainItemWrapper alloc] initWithIdentifier:@"phone" accessGroup:nil];
       KeychainItemWrapper *token = [[KeychainItemWrapper alloc] initWithIdentifier:@"token" accessGroup:nil];
      
-        AppDelegate *app  = (AppDelegate*)[[UIApplication sharedApplication] delegate];
 
         if(uses_keychain)
         {
@@ -315,7 +336,7 @@ replacementString:(NSString *)string {
             [FBSession.activeSession closeAndClearTokenInformation];
             //[self showMessage:@"You're now logged out" withTitle:@""];
 
-            [self performSegueWithIdentifier:@"log_out" sender:self];
+          [self performSegueWithIdentifier:@"log_out_keychain" sender:self];
         }
         else
         {

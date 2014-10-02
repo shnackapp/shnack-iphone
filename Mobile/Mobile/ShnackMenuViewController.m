@@ -88,11 +88,6 @@ NSInteger myCount;
         self.checkoutButton.enabled = YES;
         
         globalCurrentVendorID = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] object_id];
-//        globalCurrentVendorName = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] name];
-//        self.navigationController.navigationBar.topItem.title = globalCurrentVendorName;
-//       
-//        self.vendorName.text = globalCurrentVendorName;
-//        
 
         if (globalCurrentVendorID != globalOpenOrderVendorID) {
             self.responseData = [NSMutableData data];
@@ -143,6 +138,8 @@ NSInteger myCount;
     
 
 }
+
+
 
 //- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
 //    
@@ -261,6 +258,7 @@ NSInteger myCount;
 -(void) willDisplayLeafSubCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     ShnackOrderItemCell *itemCell = (ShnackOrderItemCell *)cell;
     Item *item = self.menu[indexPath.section][indexPath.row];
+    NSLog(@"identifier: %@",itemCell.reuseIdentifier);
     
     itemCell.name.text = item.name;
     itemCell.price.text = [NSString stringWithFormat:@"$%d.%02d", item.price/100, item.price%100];
@@ -275,6 +273,8 @@ NSInteger myCount;
     itemCell.selectionStyle = UITableViewCellSelectionStyleGray;
 }
 
+
+
 -(void) willDisplayClosedCategoryCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     [self willDisplayCategoryCell:cell atIndexPath:indexPath];
 }
@@ -284,6 +284,7 @@ NSInteger myCount;
 }
 
 -(void) willDisplayCategoryCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+  NSLog(@"index path section %ld", (long)indexPath.section);
     NSInteger categoryCount = ((Item *)self.menu[indexPath.section][0]).count;
     ShnackOrderCategoryCell *categoryCell = (ShnackOrderCategoryCell *)cell;
     if (categoryCount == 0) {
@@ -309,48 +310,48 @@ NSInteger myCount;
 }
 
 
--(IBAction)increaseCountByOne:(id)sender
-{
-
-    if (globalOpenOrderMenu != self.menu) {
-        globalOpenOrderMenu = self.menu;
-        globalOpenOrderVendorID = globalCurrentVendorID;
-        globalOpenOrderVendorName = globalCurrentVendorName;
-    }
-    
-    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-    NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-    Item *categoryItem = self.menu[indexPath.section][0];
-    Item *item = self.menu[indexPath.section][indexPath.row];
-    item.count++;
-    categoryItem.count++;
-    
-    NSInteger total = [self calculateOrderTotal];
-    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-    
-}
--(IBAction)decreaseCountByOne:(id)sender
-{
-    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-    NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-    
-    Item *categoryItem = self.menu[indexPath.section][0];
-    Item *item = self.menu[indexPath.section][indexPath.row];
-    if(item.count > 0)
-    {
-        categoryItem.count--;
-        item.count--;
-    }
-    NSInteger total = [self calculateOrderTotal];
-    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-    
-}
+//-(IBAction)increaseCountByOne:(id)sender
+//{
+//
+//    if (globalOpenOrderMenu != self.menu) {
+//        globalOpenOrderMenu = self.menu;
+//        globalOpenOrderVendorID = globalCurrentVendorID;
+//        globalOpenOrderVendorName = globalCurrentVendorName;
+//    }
+//    
+//    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+//    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+//    NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
+//    Item *categoryItem = self.menu[indexPath.section][0];
+//    Item *item = self.menu[indexPath.section][indexPath.row];
+//    item.count++;
+//    categoryItem.count++;
+//    
+//    NSInteger total = [self calculateOrderTotal];
+//    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
+//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    
+//}
+//-(IBAction)decreaseCountByOne:(id)sender
+//{
+//    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
+//    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
+//    NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
+//    
+//    Item *categoryItem = self.menu[indexPath.section][0];
+//    Item *item = self.menu[indexPath.section][indexPath.row];
+//    if(item.count > 0)
+//    {
+//        categoryItem.count--;
+//        item.count--;
+//    }
+//    NSInteger total = [self calculateOrderTotal];
+//    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
+//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
+//    
+//}
 
 -(IBAction)presentCart
 {

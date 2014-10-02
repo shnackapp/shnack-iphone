@@ -95,6 +95,7 @@
 		69F3199819368DC400C501D5 /* LoginContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F3199719368DC400C501D5 /* LoginContainerViewController.m */; };
 		69F3199C1936A3BB00C501D5 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F3199B1936A3BB00C501D5 /* navBar.png */; };
 		69F73C261973BAAF00361426 /* SignUpContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F73C251973BAAF00361426 /* SignUpContainerViewController.m */; };
+		69F7E32119DCA6D6006D9D47 /* ModifierTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F7E32019DCA6D6006D9D47 /* ModifierTableViewController.m */; };
 		69F95CFE18F200B30011F5DB /* STPCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CC818F200B30011F5DB /* STPCard.m */; };
 		69F95CFF18F200B30011F5DB /* STPToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CCA18F200B30011F5DB /* STPToken.m */; };
 		69F95D0018F200B30011F5DB /* STPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CCC18F200B30011F5DB /* STPView.m */; };
@@ -314,6 +315,8 @@
 		69F73C2119739B3300361426 /* NSObject_Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Constants.h; sourceTree = "<group>"; };
 		69F73C241973BAAF00361426 /* SignUpContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpContainerViewController.h; sourceTree = "<group>"; };
 		69F73C251973BAAF00361426 /* SignUpContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpContainerViewController.m; sourceTree = "<group>"; };
+		69F7E31F19DCA6D6006D9D47 /* ModifierTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifierTableViewController.h; sourceTree = "<group>"; };
+		69F7E32019DCA6D6006D9D47 /* ModifierTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifierTableViewController.m; sourceTree = "<group>"; };
 		69F95CC718F200B30011F5DB /* STPCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPCard.h; sourceTree = "<group>"; };
 		69F95CC818F200B30011F5DB /* STPCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPCard.m; sourceTree = "<group>"; };
 		69F95CC918F200B30011F5DB /* STPToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPToken.h; sourceTree = "<group>"; };
@@ -468,24 +471,12 @@
 		6935AD1B18AEA38A007CF28F /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				695E27BE197E191800B0CA2D /* Sign Up Navigation Controllers */,
+				69F7E31C19DCA637006D9D47 /* OrderControllers */,
 				69C85C8719AEFC5900D11B80 /* Login Controllers */,
 				6939374E191F13110061839C /* Main Pages */,
 				42459A7318FD212700C5728B /* Scrolling Tutorial Controllers */,
 				42459A7218FD210900C5728B /* Side Menu Controllers */,
-				695E27BE197E191800B0CA2D /* Sign Up Navigation Controllers */,
-				69715B3418AD39560039D061 /* LocationsViewController.h */,
-				69715B3518AD39560039D061 /* LocationsViewController.m */,
-				42E0470519061DC200890447 /* ShnackMenuViewController.h */,
-				42E0470619061DC200890447 /* ShnackMenuViewController.m */,
-				42E0470B190741F500890447 /* ShnackMyOrderViewController.h */,
-				42E0470C190741F500890447 /* ShnackMyOrderViewController.m */,
-				696A455E1983338F0080CB57 /* ReceiptViewController.h */,
-				696A455F1983338F0080CB57 /* ReceiptViewController.m */,
-				69242D071996858D0067DFA5 /* CartPopViewController.h */,
-				69242D081996858D0067DFA5 /* CartPopViewController.m */,
-				69242D091996858D0067DFA5 /* CartPopViewController.xib */,
-				6909332D19BA8E49002CD973 /* MainNavController.h */,
-				6909332E19BA8E49002CD973 /* MainNavController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -838,6 +829,28 @@
 			path = ../CWPopup;
 			sourceTree = "<group>";
 		};
+		69F7E31C19DCA637006D9D47 /* OrderControllers */ = {
+			isa = PBXGroup;
+			children = (
+				69715B3418AD39560039D061 /* LocationsViewController.h */,
+				69715B3518AD39560039D061 /* LocationsViewController.m */,
+				42E0470519061DC200890447 /* ShnackMenuViewController.h */,
+				42E0470619061DC200890447 /* ShnackMenuViewController.m */,
+				42E0470B190741F500890447 /* ShnackMyOrderViewController.h */,
+				42E0470C190741F500890447 /* ShnackMyOrderViewController.m */,
+				696A455E1983338F0080CB57 /* ReceiptViewController.h */,
+				696A455F1983338F0080CB57 /* ReceiptViewController.m */,
+				69242D071996858D0067DFA5 /* CartPopViewController.h */,
+				69242D081996858D0067DFA5 /* CartPopViewController.m */,
+				69242D091996858D0067DFA5 /* CartPopViewController.xib */,
+				6909332D19BA8E49002CD973 /* MainNavController.h */,
+				6909332E19BA8E49002CD973 /* MainNavController.m */,
+				69F7E31F19DCA6D6006D9D47 /* ModifierTableViewController.h */,
+				69F7E32019DCA6D6006D9D47 /* ModifierTableViewController.m */,
+			);
+			name = OrderControllers;
+			sourceTree = "<group>";
+		};
 		69F95CC618F200B30011F5DB /* Stripe */ = {
 			isa = PBXGroup;
 			children = (
@@ -1178,6 +1191,7 @@
 				69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */,
 				69D753821995D8EF00CAD378 /* UIViewController+CWPopup.m in Sources */,
 				6977B4B718FD044E00A51871 /* POPDTableViewController.m in Sources */,
+				69F7E32119DCA6D6006D9D47 /* ModifierTableViewController.m in Sources */,
 				69393754191F13E00061839C /* MainPageViewController.m in Sources */,
 				69242D0A1996858D0067DFA5 /* CartPopViewController.m in Sources */,
 				693A943119B63DC10069A2D4 /* LoginNavController.m in Sources */,

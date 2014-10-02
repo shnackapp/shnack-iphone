@@ -57,12 +57,6 @@
   NSInteger l4 = [[phone objectForKey:(__bridge id)(kSecValueData)] length];
   NSInteger l5 = [[token objectForKey:(__bridge id)(kSecValueData)] length];
 
-  
-  
-  
-  
-  
-
       // Whenever a person opens the app, check for a cached FACEBOOK session
     if (FBSession.activeSession.state == FBSessionStateCreatedTokenLoaded) {
         
@@ -78,10 +72,18 @@
                                       }];
       uses_keychain = NO;
       uses_facebook = YES;
+      
+      UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                               bundle: nil];
+      RootViewController *root =(RootViewController*)[mainStoryboard
+                                                      instantiateViewControllerWithIdentifier: @"root"];
+      self.window.rootViewController = root;
+      [self.window makeKeyAndVisible];
+
 
     }
     //otherwise check the keychain for credentials
-    else if (l1 != 0 && l2 != 0 && l3 != 0 && l4 != 0 &&l5 != 0)
+    else if (l1 != 0 && l2 != 0 && l3 != 0 && l4 != 0 && l5 != 0)
     {
       
         NSLog(@"PASSWORD: %@",password);
@@ -92,17 +94,14 @@
       
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
                                                                  bundle: nil];
-        
         RootViewController *root =(RootViewController*)[mainStoryboard
                                                         instantiateViewControllerWithIdentifier: @"root"];
         self.window.rootViewController = root;
         [self.window makeKeyAndVisible];
-        
         NSLog(@"i should segue to menu page");
         uses_keychain = YES;
         uses_facebook = NO;
         
-
     }
     //if none are populated, then segue normally to initial (do nothing)
     else
@@ -134,24 +133,30 @@
     // You can add your app-specific url handling code here if needed
     
     /* make the API call */
-//    [FBRequestConnection startWithGraphPath:@"/me"
-//                                 parameters:nil
-//                                 HTTPMethod:@"GET"
-//                          completionHandler:^(
-//                                              FBRequestConnection *connection,
-//                                              id result,
-//                                              NSError *error
-//                                              ) {
-//                              /* handle the result */
-//                              NSLog(@"THIS IS result %@", result);
-//                              [fb_user_info setValue:result forKey:@"result"];
-//                              uses_facebook = YES;
-//                              uses_keychain = NO;
-//                          }];
+    [FBRequestConnection startWithGraphPath:@"/me"
+                                 parameters:nil
+                                 HTTPMethod:@"GET"
+                          completionHandler:^(
+                                              FBRequestConnection *connection,
+                                              id result,
+                                              NSError *error
+                                              )
+  {
+  /* handle the result */
+  NSLog(@"THIS IS result %@", result);
+  [fb_user_info setValue:result forKey:@"result"];
+  UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+  AccountTableViewController *account =(AccountTableViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"account"];
+  account.email.text = [[fb_user_info valueForKey:@"result"] valueForKey:@"email"];
+  account.name.text = [[fb_user_info valueForKey:@"result"] valueForKey:@"name"];
+  self.window.rootViewController = account;
+  [self.window makeKeyAndVisible];
+  [self showMessage:@"You're now logged in, but first we need you to verify some info!" withTitle:@"Welcome!"];
+  uses_facebook = YES;
+  uses_keychain = NO;
+  }];
   NSLog(@"login with facebook button clicked!");
-  
-  
-  
+
   return wasHandled;
 }
 
@@ -229,38 +234,16 @@
     [FBRequestConnection startWithGraphPath:@"/me"
                                  parameters:nil
                                  HTTPMethod:@"GET"
-                          completionHandler:^(
-                                              FBRequestConnection *connection,
+                          completionHandler:^( FBRequestConnection *connection,
                                               id result,
-                                              NSError *error
-                                              ) {
-                              /* handle the result */
-                              NSLog(@"THIS IS result %@", result);
-                              [fb_user_info setValue:result forKey:@"result"];
-                              uses_facebook = YES;
-                              uses_keychain = NO;
-                          }];
+                                              NSError *error)
+  {
+     /* handle the result */
+     NSLog(@"THIS IS result %@", result);
+     [fb_user_info setValue:result forKey:@"result"];
+  }];
     
   NSLog(@"im in here2");
-    //maybe here instead present the verify page because we need phone number
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-  
-  RootViewController *root =(RootViewController*)[mainStoryboard
-                  instantiateViewControllerWithIdentifier: @"root"];
-  
-  
-  AccountTableViewController *account =(AccountTableViewController*)[mainStoryboard
-                  instantiateViewControllerWithIdentifier: @"account"];
-  account.email.text = [[fb_user_info valueForKey:@"result"] valueForKey:@"email"];
-  account.name.text = [[fb_user_info valueForKey:@"result"] valueForKey:@"name"];
-
-  
-    self.window.rootViewController = account;
-    [self.window makeKeyAndVisible];
-
-    [self showMessage:@"You're now logged in, but first we need you to verify some info!" withTitle:@"Welcome!"];
-  
-  
 }
 
 // Show an alert message
