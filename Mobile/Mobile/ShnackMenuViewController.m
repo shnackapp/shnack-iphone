@@ -17,6 +17,8 @@
 #import "NSObject_Constants.h"
 #import "UIViewController+CWPopup.h"
 #import "CartPopViewController.h"
+#import "Modifier.h"
+#import "Option.h"
 
 
 @interface ShnackMenuViewController ()  <POPDDelegate>
@@ -66,12 +68,13 @@ NSInteger myCount;
     //[self.tableView addGestureRecognizer:tapRecognizer];
     
     self.useBlurForPopup = YES;
-
+  
     [super viewDidLoad];
+  
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
-    //self.tableView.delegate = self;
+   // self.tableView.delegate = self;
     self.tableView.popDownDelegate = self;
     //self.tableView.dataSource = self;
     
@@ -169,17 +172,17 @@ NSInteger myCount;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    NSLog(@"connectionDidFinishLoading");
     NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
     NSError *myError = nil;
-  ////////
   
-    NSArray *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
-    //NSLog(@"my JSON: %@",res);
-    NSMutableArray *tableData = [[NSMutableArray alloc] initWithCapacity:[res count]];
-    self.menu = [[NSMutableArray alloc] initWithCapacity:[res count]];
+    NSArray *menu = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+    NSMutableDictionary *modifiers = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+    NSMutableArray *tableData = [[NSMutableArray alloc] initWithCapacity:[menu count]];
+    self.menu = [[NSMutableArray alloc] initWithCapacity:[menu count]];
+    global_menu = modifiers;
+    NSLog(@"globalopenordermenu %@", global_menu);
   
-  for(NSDictionary *category in [res valueForKey:@"categories"])
+  for(NSDictionary *category in [menu valueForKey:@"categories"])
     {
       NSArray *items = [category objectForKey:@"items"];
       NSString *categoryName = [category objectForKey:@"name"];
@@ -187,45 +190,43 @@ NSInteger myCount;
       NSMutableArray *menuCategory = [[NSMutableArray alloc] initWithCapacity:[items count]];
       NSMutableArray *tableSection = [[NSMutableArray alloc] initWithCapacity:[items count]];
       
-      NSLog(@"cat_name: %@", categoryName);
-      NSLog(@"menu_category: %lu", (unsigned long)[items count]);
+      NSLog(@"items in category: %lu", (unsigned long)[items count]);
       Item *categoryItem = [[Item alloc] initWithName:categoryName andCount:0];
       [menuCategory addObject:categoryItem];
       NSLog(@"LOOOOOK HERE! %@",categoryItem.name);
-        
+      
+      self.modifiers = [[NSMutableArray alloc] init];
+      self.options = [[NSMutableArray alloc] init];
+      
+
         for(NSDictionary *item in items)
         {
             NSInteger price = [[item objectForKey:@"price"] integerValue];
             NSString *name = [item  objectForKey:@"name"];
             NSString *description = [[item objectForKey:@"description" ] isKindOfClass:[NSNull class]] ? @"No Description" : [item objectForKey:@"description"];
-            NSLog(@"name %@",name);
-            NSLog(@"price %ld",(long)price);
-            NSLog(@"description1 %@",description);
-            NSLog(@"description2 %@",[item objectForKey:@"description"]);
-            NSMutableDictionary *mods = [item objectForKey:@"modifiers" ];
-            NSLog(@"mods: %@", mods);
-            NSInteger count = [mods count];
-            bool is_empty;
-            if(count == 0) is_empty=true;
-            else is_empty = false;
-            NSLog(@"mods is_empty %@", is_empty ? @YES:@NO);
-//            NSMutableDictionary *stored_mods = is_empty ? NULL :
-//            [[NSMutableDictionary alloc] initWithCapacity:[mods count]];
-//            for(NSDictionary * modifier in mods)
-//            {
-//              NSInteger mod_type = [[modifier objectForKey:@"mod_type"] integerValue];
-//              NSString *name = [modifier objectForKey:@"name"];
-//              NSDictionary *options = [modifier objectForKey:@"options"];
-//              for(NSDictionary *option in options)
-//              {
-//                NSString *option_name = [option objectForKey:@"name"];
-//                NSInteger option_price = [option objectForKey:@"price"];
-//              }
-//
-//              
-//            }
+            //NSArray *item_mods = [item objectForKey:@"modifiers"];
+            for(NSDictionary * mod in [item objectForKey:@"modifiers" ])
+            {
+              [self.options removeAllObjects];
+              NSInteger mod_type = [[mod objectForKey:@"mod_type"] integerValue];
+              NSString *name = [mod objectForKey:@"name"];
+              for(NSDictionary *option in [mod objectForKey:@"options"])
+              {
+                NSString *name = [option objectForKey:@"name"];
+                NSInteger price = [[option objectForKey:@"price"] integerValue];
+                Option *option = [[Option alloc] initWithName:name andPrice:price ];
+                
+                [self.options addObject:option];
+                
+              }
+              Modifier *modifier = [[Modifier alloc] initWithName:name andModType:mod_type andOptions:self.options];
+              
+              [self.modifiers  addObject:modifier];
+
+              //[self.modifiers removeAllObjects];
+            }
           
-            Item *new_item = [[Item alloc] initWithName:name andPrice:price andDescription:description andModifiers:mods];
+            Item *new_item = [[Item alloc] initWithName:name andPrice:price andDescription:description andModifiers:self.modifiers];
             [menuCategory addObject:new_item];
             [tableSection addObject:name];
             
@@ -238,10 +239,12 @@ NSInteger myCount;
 
         [tableData addObject:section];
         [self.menu addObject:menuCategory];
+      
     }
-    
-    [self.tableView setMenuSections:tableData];
-    [self.tableView reloadData];
+
+  globalOpenOrderMenu = self.menu;
+  [self.tableView setMenuSections:tableData];
+  [self.tableView reloadData];
 ////////
 }
 
@@ -285,7 +288,9 @@ NSInteger myCount;
 
 -(void) willDisplayCategoryCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath {
   NSLog(@"index path section %ld", (long)indexPath.section);
-    NSInteger categoryCount = ((Item *)self.menu[indexPath.section][0]).count;
+    //NSInteger categoryCount = ((Item *)self.menu[indexPath.section][0]).count;
+  NSInteger categoryCount = [self calculateCategoryCount:indexPath.section];
+
     ShnackOrderCategoryCell *categoryCell = (ShnackOrderCategoryCell *)cell;
     if (categoryCount == 0) {
         categoryCell.count.hidden = YES;
@@ -294,6 +299,15 @@ NSInteger myCount;
         categoryCell.count.text = [NSString stringWithFormat:@"%ld", (long)categoryCount];
     }
     categoryCell.labelText.text = ((Item *)self.menu[indexPath.section][0]).name;
+}
+
+-(NSInteger)calculateCategoryCount:(NSInteger)section {
+  NSInteger count = 0;
+  NSInteger numItems = [((NSArray *)self.menu[section]) count];
+  for (NSInteger i = 1; i < numItems; i++) {
+    count += ((Item *)self.menu[section][i]).count;
+  }
+  return count;
 }
 
 
@@ -309,81 +323,18 @@ NSInteger myCount;
     return total;
 }
 
-
-//-(IBAction)increaseCountByOne:(id)sender
-//{
-//
-//    if (globalOpenOrderMenu != self.menu) {
-//        globalOpenOrderMenu = self.menu;
-//        globalOpenOrderVendorID = globalCurrentVendorID;
-//        globalOpenOrderVendorName = globalCurrentVendorName;
-//    }
-//    
-//    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-//    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-//    NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-//    Item *categoryItem = self.menu[indexPath.section][0];
-//    Item *item = self.menu[indexPath.section][indexPath.row];
-//    item.count++;
-//    categoryItem.count++;
-//    
-//    NSInteger total = [self calculateOrderTotal];
-//    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
-//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-//    
-//}
-//-(IBAction)decreaseCountByOne:(id)sender
-//{
-//    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
-//    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
-//    NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-//    
-//    Item *categoryItem = self.menu[indexPath.section][0];
-//    Item *item = self.menu[indexPath.section][indexPath.row];
-//    if(item.count > 0)
-//    {
-//        categoryItem.count--;
-//        item.count--;
-//    }
-//    NSInteger total = [self calculateOrderTotal];
-//    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
-//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//    [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];
-//    
-//}
-
 -(IBAction)presentCart
 {
     NSLog(@"I PRESSED IT!");
     self.tableView.userInteractionEnabled = NO;//so the view behind popup is disabled
-    
     CartPopViewController *cart = [[CartPopViewController alloc] initWithNibName:@"CartPopViewController" bundle:nil];
-//    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
-//    tapRecognizer.numberOfTapsRequired = 1;
-    
     [self presentPopupViewController:cart animated:YES completion:nil];
-    //tap tableview to dismiss
-    //tapRecognizer.delegate = self.tableView;
-    //[self.tableView addGestureRecognizer:tapRecognizer];
-    
-    
-
-    //this dismisses popup!!
-    //[((CartPopViewController *)self.popupViewController).closeCart addGestureRecognizer:tapRecognizer];
     [((CartPopViewController *)self.popupViewController).closeCart addTarget:self action:@selector(dismissPopup) forControlEvents:UIControlEventTouchUpInside];
-    
     self.checkoutButton.enabled = NO;
-    
 }
 
 - (void)dismissPopup {
     self.tableView.userInteractionEnabled = YES;
-//    CartPopViewController *cart = [[CartPopViewController alloc] initWithNibName:@"CartPopViewController" bundle:nil];
-//    UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissPopup)];
-//    tapRecognizer.numberOfTapsRequired = 1;
-//    tapRecognizer.delegate = self;
-    
     if (self.popupViewController != nil) {
         [self dismissPopupViewControllerAnimated:YES completion:^{
             NSLog(@"popup view dismissed");
@@ -395,9 +346,5 @@ NSInteger myCount;
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     return touch.view == self.view;
 }
-
-
-
-
 
 @end

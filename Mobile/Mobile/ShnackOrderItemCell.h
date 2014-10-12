@@ -13,7 +13,6 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *name;
 @property (nonatomic, retain) IBOutlet UILabel *price;
-
 @property (nonatomic, retain) IBOutlet UILabel *description;
 
 

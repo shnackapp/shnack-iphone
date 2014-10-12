@@ -1,16 +1,21 @@
 //
-//  ModifierTableViewController.h
+//  ModifierViewController.h
 //  Shnack
 //
-//  Created by Spencer Neste on 10/1/14.
+//  Created by Spencer Neste on 10/6/14.
 //  Copyright (c) 2014 shnack. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import "BButton.h"
 
-@interface ModifierTableViewController : UITableViewController <UITableViewDelegate>
+@interface ModifierViewController : UIViewController <UITableViewDelegate>
 
 @property (nonatomic, retain) NSMutableArray *menu;
+@property (nonatomic, retain) NSMutableArray *modifiers;
+@property (nonatomic, retain) NSMutableArray *items;
+
+
 
 extern NSMutableArray *globalArrayLocations;
 extern NSIndexPath *selectedIndexPath;
@@ -20,6 +25,12 @@ extern NSInteger globalCurrentVendorID;
 extern NSString *globalOpenOrderVendorName;
 extern NSString *globalCurrentVendorName;
 extern UIPageViewController *mainPages;
+extern NSMutableDictionary *global_menu;
+extern NSMutableArray *global_item_menu;
+
+
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) IBOutlet BButton *apply_button;
 
 
 @end

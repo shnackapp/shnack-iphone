@@ -185,17 +185,17 @@ NSIndexPath *reloadingCategoryIndexPath;
         POPDCell *cell = (POPDCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         [cell.indicator startAnimating];
         
-        
-        NSString *url = [NSString stringWithFormat:@"%@/get_vendor_for_location?object_id=%d",BASE_URL,[globalArrayLocations[indexPath.section] object_id]];
-    
-        NSString *api_key = [NSString stringWithFormat:API_KEY];
-        
-        
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
-        [request setHTTPMethod:@"GET"];
-        [request setValue:api_key forHTTPHeaderField:@"Authorization"];
-        [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        
+//        
+//        NSString *url = [NSString stringWithFormat:@"%@/get_vendor_for_location?object_id=%d",BASE_URL,[globalArrayLocations[indexPath.section] object_id]];
+//    
+//        NSString *api_key = [NSString stringWithFormat:API_KEY];
+//        
+//        
+//        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];//
+//        [request setHTTPMethod:@"GET"];
+//        [request setValue:api_key forHTTPHeaderField:@"Authorization"];
+//        [[NSURLConnection alloc] initWithRequest:request delegate:self];
+      
     }
 }
 

@@ -28,7 +28,7 @@
 #define BASE_URL @"http://demo.shnackapp.com/api"
 
 //localhost server
-//#define API_KEY @"Token token=\"3fd5e6206086ae7cfaefd61af5fecefe\""
+//#define API_KEY @"Token token=\"3fea5826f597903570a4fdbb24bee0e7\""
 //#define BASE_URL @"http://0.0.0.0:3000/api"
 
 

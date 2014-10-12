@@ -433,7 +433,7 @@
 //        return 80.0f;
 //    }
     
-    return 70.0f;
+    return 60.0f;
    
 }
 

@@ -48,13 +48,23 @@
     [self.phone setBorderStyle:UITextBorderStyleNone];
     [self.password setBorderStyle:UITextBorderStyleNone];
     [self.confirm setBorderStyle:UITextBorderStyleNone];
-   
+  
+  self.tableView.sectionHeaderHeight = 10;
+  self.tableView.sectionFooterHeight = 1;
+  
     self.tableView.backgroundColor = [UIColor clearColor];
     for (CALayer *subLayer in self.tableView.layer.sublayers)
     {
         subLayer.cornerRadius = 10.0f;
         subLayer.masksToBounds = YES;
     }
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+  return 10;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+  return 1;
 }
 
 -(BOOL)isValidEmail:(NSString *)email
@@ -232,7 +242,7 @@
 }
 
 // Restrict phone textField to format 123-456-7890
-- (BOOL)textField:(UITextField *) textField
+- (BOOL)textField:(UITextField *)textField
 shouldChangeCharactersInRange:(NSRange)range
 replacementString:(NSString *)string {
     if (textField==self.phone){

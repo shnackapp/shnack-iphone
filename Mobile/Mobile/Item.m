@@ -49,7 +49,7 @@
             }
         return self;
 }
--(id)initWithName:(NSString *)name  andPrice:(int)price andDescription:(NSString *)description andModifiers:(NSMutableDictionary *)modifiers
+-(id)initWithName:(NSString *)name  andPrice:(int)price andDescription:(NSString *)description andModifiers:(NSArray *)modifiers
 {
     self = [super init];
     if(self) {

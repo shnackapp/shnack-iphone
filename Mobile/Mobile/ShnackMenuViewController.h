@@ -18,6 +18,10 @@ extern NSInteger globalCurrentVendorID;
 extern NSString *globalOpenOrderVendorName;
 extern NSString *globalCurrentVendorName;
 extern UIPageViewController *mainPages;
+extern NSMutableDictionary *global_menu;
+extern NSMutableArray *global_item_menu;
+
+
 
 @property (nonatomic, retain) NSMutableArray *menu;
 @property (nonatomic, retain) NSMutableData *responseData;
@@ -25,6 +29,11 @@ extern UIPageViewController *mainPages;
 @property (weak, nonatomic) IBOutlet BButton *checkoutButton;
 @property (weak, nonatomic) IBOutlet UILabel *vendorName;
 @property (nonatomic) BOOL isCartShowing;
+
+@property (nonatomic,retain) NSMutableArray *modifiers;
+@property (nonatomic,retain) NSMutableArray *options;
+
+
 
 
 -(IBAction)increaseCountByOne:(id)sender;

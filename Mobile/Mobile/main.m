@@ -23,6 +23,9 @@ NSMutableArray *globalUserInfo = nil;
 NSMutableArray *globalCurrentUser = nil;
 NSMutableDictionary *fb_user_info = nil;
 NSMutableDictionary *shnack_user_info = nil;
+NSMutableDictionary *global_menu = nil;
+NSMutableArray *global_item_menu = nil;
+
 
 BOOL uses_keychain = NO;
 BOOL uses_facebook = NO;

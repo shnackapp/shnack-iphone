@@ -30,6 +30,8 @@
 		690AAB2E19989C6300AF3794 /* Dosis-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2719989C6300AF3794 /* Dosis-Bold.otf */; };
 		690AAB2F19989C6300AF3794 /* Dosis-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 690AAB2819989C6300AF3794 /* Dosis-ExtraBold.otf */; };
 		690AE029190D76EC0053461B /* Check_mark .png in Resources */ = {isa = PBXBuildFile; fileRef = 690AE028190D76EC0053461B /* Check_mark .png */; };
+		69171C1519E877B500062877 /* Modifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 69171C1419E877B500062877 /* Modifier.m */; };
+		69171C1A19E8789200062877 /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = 69171C1919E8789200062877 /* Option.m */; };
 		691E66DB18F3D5C200F67683 /* TutorialContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691E66DA18F3D5C200F67683 /* TutorialContentViewController.m */; };
 		691E66DE18F3DAD900F67683 /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 691E66DD18F3DAD900F67683 /* InitialViewController.m */; };
 		691E66E018F3E2FB00F67683 /* paperplane.svg in Resources */ = {isa = PBXBuildFile; fileRef = 691E66DF18F3E2FB00F67683 /* paperplane.svg */; };
@@ -41,6 +43,7 @@
 		69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB818BBE6C000238826 /* ShnackOrderTotalCell.m */; };
 		69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */; };
 		69400FBF18BBEBC400238826 /* ObjectWithNameAndID.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FBE18BBEBC400238826 /* ObjectWithNameAndID.m */; };
+		694BF2BE19E39F33005720E3 /* ModifierViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694BF2BD19E39F33005720E3 /* ModifierViewController.m */; };
 		694D33E319BBE42800987016 /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 694D33E219BBE42800987016 /* AccountTableViewController.m */; };
 		6953817C191423E900DD91A2 /* app_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6953817B191423E900DD91A2 /* app_logo.png */; };
 		6953817E191429AF00DD91A2 /* launch_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 6953817D191429AF00DD91A2 /* launch_image.png */; };
@@ -50,6 +53,8 @@
 		695E27CD197E325700B0CA2D /* SignUpNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695E27CC197E325700B0CA2D /* SignUpNavController.m */; };
 		695E27D0197E3CBD00B0CA2D /* SignUpPaymentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695E27CF197E3CBD00B0CA2D /* SignUpPaymentInfoViewController.m */; };
 		6960ABCB191B21CE001DAF8E /* upArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 6960ABCA191B21CE001DAF8E /* upArrow.png */; };
+		6961C4B419DDB4AB00B2761D /* QuantityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6961C4B319DDB4AB00B2761D /* QuantityTableViewCell.m */; };
+		6961C4B919DDB73F00B2761D /* ModifierTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6961C4B819DDB73F00B2761D /* ModifierTableViewCell.m */; };
 		6963E21B190846FA00C6885A /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963E21A190846FA00C6885A /* SignUpViewController.m */; };
 		6963E21E1908472800C6885A /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6963E21D1908472800C6885A /* LoginViewController.m */; };
 		6963E22C1908481800C6885A /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = 6963E2201908481800C6885A /* Contents.json */; };
@@ -95,7 +100,6 @@
 		69F3199819368DC400C501D5 /* LoginContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F3199719368DC400C501D5 /* LoginContainerViewController.m */; };
 		69F3199C1936A3BB00C501D5 /* navBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 69F3199B1936A3BB00C501D5 /* navBar.png */; };
 		69F73C261973BAAF00361426 /* SignUpContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F73C251973BAAF00361426 /* SignUpContainerViewController.m */; };
-		69F7E32119DCA6D6006D9D47 /* ModifierTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F7E32019DCA6D6006D9D47 /* ModifierTableViewController.m */; };
 		69F95CFE18F200B30011F5DB /* STPCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CC818F200B30011F5DB /* STPCard.m */; };
 		69F95CFF18F200B30011F5DB /* STPToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CCA18F200B30011F5DB /* STPToken.m */; };
 		69F95D0018F200B30011F5DB /* STPView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69F95CCC18F200B30011F5DB /* STPView.m */; };
@@ -194,6 +198,10 @@
 		690AAB2719989C6300AF3794 /* Dosis-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Bold.otf"; path = "../Dosis-Bold.otf"; sourceTree = "<group>"; };
 		690AAB2819989C6300AF3794 /* Dosis-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-ExtraBold.otf"; path = "../Dosis-ExtraBold.otf"; sourceTree = "<group>"; };
 		690AE028190D76EC0053461B /* Check_mark .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Check_mark .png"; sourceTree = "<group>"; };
+		69171C1319E877B500062877 /* Modifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Modifier.h; sourceTree = "<group>"; };
+		69171C1419E877B500062877 /* Modifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Modifier.m; sourceTree = "<group>"; };
+		69171C1819E8789200062877 /* Option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Option.h; sourceTree = "<group>"; };
+		69171C1919E8789200062877 /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Option.m; sourceTree = "<group>"; };
 		691E66D918F3D5C200F67683 /* TutorialContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TutorialContentViewController.h; path = Mobile/TutorialContentViewController.h; sourceTree = "<group>"; };
 		691E66DA18F3D5C200F67683 /* TutorialContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TutorialContentViewController.m; path = Mobile/TutorialContentViewController.m; sourceTree = "<group>"; };
 		691E66DC18F3DAD900F67683 /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = InitialViewController.h; path = Mobile/InitialViewController.h; sourceTree = "<group>"; };
@@ -214,6 +222,8 @@
 		69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShnackOrderItemCell.m; sourceTree = "<group>"; };
 		69400FBD18BBEBC400238826 /* ObjectWithNameAndID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWithNameAndID.h; sourceTree = "<group>"; };
 		69400FBE18BBEBC400238826 /* ObjectWithNameAndID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjectWithNameAndID.m; sourceTree = "<group>"; };
+		694BF2BC19E39F33005720E3 /* ModifierViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifierViewController.h; sourceTree = "<group>"; };
+		694BF2BD19E39F33005720E3 /* ModifierViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifierViewController.m; sourceTree = "<group>"; };
 		694D33E119BBE42800987016 /* AccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewController.h; sourceTree = "<group>"; };
 		694D33E219BBE42800987016 /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
 		6953817B191423E900DD91A2 /* app_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = app_logo.png; sourceTree = "<group>"; };
@@ -229,6 +239,10 @@
 		695E27CE197E3CBD00B0CA2D /* SignUpPaymentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpPaymentInfoViewController.h; sourceTree = "<group>"; };
 		695E27CF197E3CBD00B0CA2D /* SignUpPaymentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpPaymentInfoViewController.m; sourceTree = "<group>"; };
 		6960ABCA191B21CE001DAF8E /* upArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = upArrow.png; path = Mobile/upArrow.png; sourceTree = "<group>"; };
+		6961C4B219DDB4AB00B2761D /* QuantityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuantityTableViewCell.h; sourceTree = "<group>"; };
+		6961C4B319DDB4AB00B2761D /* QuantityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuantityTableViewCell.m; sourceTree = "<group>"; };
+		6961C4B719DDB73F00B2761D /* ModifierTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifierTableViewCell.h; sourceTree = "<group>"; };
+		6961C4B819DDB73F00B2761D /* ModifierTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifierTableViewCell.m; sourceTree = "<group>"; };
 		6963E219190846FA00C6885A /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignUpViewController.h; path = Mobile/SignUpViewController.h; sourceTree = "<group>"; };
 		6963E21A190846FA00C6885A /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignUpViewController.m; path = Mobile/SignUpViewController.m; sourceTree = "<group>"; };
 		6963E21C1908472800C6885A /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoginViewController.h; path = Mobile/LoginViewController.h; sourceTree = "<group>"; };
@@ -315,8 +329,6 @@
 		69F73C2119739B3300361426 /* NSObject_Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSObject_Constants.h; sourceTree = "<group>"; };
 		69F73C241973BAAF00361426 /* SignUpContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpContainerViewController.h; sourceTree = "<group>"; };
 		69F73C251973BAAF00361426 /* SignUpContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpContainerViewController.m; sourceTree = "<group>"; };
-		69F7E31F19DCA6D6006D9D47 /* ModifierTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModifierTableViewController.h; sourceTree = "<group>"; };
-		69F7E32019DCA6D6006D9D47 /* ModifierTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ModifierTableViewController.m; sourceTree = "<group>"; };
 		69F95CC718F200B30011F5DB /* STPCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPCard.h; sourceTree = "<group>"; };
 		69F95CC818F200B30011F5DB /* STPCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STPCard.m; sourceTree = "<group>"; };
 		69F95CC918F200B30011F5DB /* STPToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STPToken.h; sourceTree = "<group>"; };
@@ -464,6 +476,10 @@
 				69400FBE18BBEBC400238826 /* ObjectWithNameAndID.m */,
 				69400FB318BBE68000238826 /* Item.h */,
 				69400FB418BBE68000238826 /* Item.m */,
+				69171C1319E877B500062877 /* Modifier.h */,
+				69171C1419E877B500062877 /* Modifier.m */,
+				69171C1819E8789200062877 /* Option.h */,
+				69171C1919E8789200062877 /* Option.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -501,6 +517,10 @@
 				69400FBA18BBE6C000238826 /* ShnackOrderItemCell.m */,
 				42E047081906607400890447 /* ShnackOrderCategoryCell.h */,
 				42E047091906607400890447 /* ShnackOrderCategoryCell.m */,
+				6961C4B219DDB4AB00B2761D /* QuantityTableViewCell.h */,
+				6961C4B319DDB4AB00B2761D /* QuantityTableViewCell.m */,
+				6961C4B719DDB73F00B2761D /* ModifierTableViewCell.h */,
+				6961C4B819DDB73F00B2761D /* ModifierTableViewCell.m */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -845,8 +865,8 @@
 				69242D091996858D0067DFA5 /* CartPopViewController.xib */,
 				6909332D19BA8E49002CD973 /* MainNavController.h */,
 				6909332E19BA8E49002CD973 /* MainNavController.m */,
-				69F7E31F19DCA6D6006D9D47 /* ModifierTableViewController.h */,
-				69F7E32019DCA6D6006D9D47 /* ModifierTableViewController.m */,
+				694BF2BC19E39F33005720E3 /* ModifierViewController.h */,
+				694BF2BD19E39F33005720E3 /* ModifierViewController.m */,
 			);
 			name = OrderControllers;
 			sourceTree = "<group>";
@@ -1163,6 +1183,7 @@
 			files = (
 				42E0470D190741F500890447 /* ShnackMyOrderViewController.m in Sources */,
 				695E27D0197E3CBD00B0CA2D /* SignUpPaymentInfoViewController.m in Sources */,
+				6961C4B919DDB73F00B2761D /* ModifierTableViewCell.m in Sources */,
 				69F95D0A18F200B30011F5DB /* PKUSAddressZip.m in Sources */,
 				69400FBB18BBE6C000238826 /* ShnackOrderTotalCell.m in Sources */,
 				69F95D0818F200B30011F5DB /* PKComponent.m in Sources */,
@@ -1171,6 +1192,8 @@
 				42E9611218ED494100E5A182 /* RootViewController.m in Sources */,
 				69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */,
 				69F95D0518F200B30011F5DB /* PKCardCVC.m in Sources */,
+				694BF2BE19E39F33005720E3 /* ModifierViewController.m in Sources */,
+				69171C1A19E8789200062877 /* Option.m in Sources */,
 				69F95D0718F200B30011F5DB /* PKCardNumber.m in Sources */,
 				69F73C261973BAAF00361426 /* SignUpContainerViewController.m in Sources */,
 				694D33E319BBE42800987016 /* AccountTableViewController.m in Sources */,
@@ -1184,14 +1207,15 @@
 				69F3199819368DC400C501D5 /* LoginContainerViewController.m in Sources */,
 				42E0470719061DC200890447 /* ShnackMenuViewController.m in Sources */,
 				69400FBF18BBEBC400238826 /* ObjectWithNameAndID.m in Sources */,
+				69171C1519E877B500062877 /* Modifier.m in Sources */,
 				6963E21E1908472800C6885A /* LoginViewController.m in Sources */,
 				696A45601983338F0080CB57 /* ReceiptViewController.m in Sources */,
+				6961C4B419DDB4AB00B2761D /* QuantityTableViewCell.m in Sources */,
 				42E9611A18F14B2000E5A182 /* RECommonFunctions.m in Sources */,
 				42E0470A1906607400890447 /* ShnackOrderCategoryCell.m in Sources */,
 				69400FBC18BBE6C000238826 /* ShnackOrderItemCell.m in Sources */,
 				69D753821995D8EF00CAD378 /* UIViewController+CWPopup.m in Sources */,
 				6977B4B718FD044E00A51871 /* POPDTableViewController.m in Sources */,
-				69F7E32119DCA6D6006D9D47 /* ModifierTableViewController.m in Sources */,
 				69393754191F13E00061839C /* MainPageViewController.m in Sources */,
 				69242D0A1996858D0067DFA5 /* CartPopViewController.m in Sources */,
 				693A943119B63DC10069A2D4 /* LoginNavController.m in Sources */,

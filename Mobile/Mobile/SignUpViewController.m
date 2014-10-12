@@ -179,6 +179,17 @@
 
 }
 
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+  // The request has failed for some reason!
+  // Check the error var
+  NSLog(@"here?");
+  
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", @"Error") message:NSLocalizedString(@"It looks like our servers are down! Please try again later", @"It looks like our servers are down! Please try again later") delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+  [alert show];
+  
+  
+}
+
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     // A response has been received, this is where we initialize the instance var you created
@@ -270,10 +281,7 @@
     }
 }
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    // The request has failed for some reason!
-    // Check the error var
-}
+
 
 
 

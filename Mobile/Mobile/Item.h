@@ -15,14 +15,16 @@
 @property (nonatomic) int count; //Quantity Ordered Count -- see bottom
 @property (nonatomic) NSString *description;
 
-@property (nonatomic) NSMutableDictionary *modifiers;
+@property (nonatomic) NSArray *modifiers;
+
+
 
 -(id)initWithName:(NSString *)name andPrice:(int)price;
 -(id)initWithName:(NSString *)name andCount:(int)count;
 
 -(id)initWithName:(NSString *)name andPrice:(int)price
                                    andDescription:(NSString *)description
-                                   andModifiers:(NSMutableDictionary *)modifiers;
+                                   andModifiers:(NSArray *)modifiers;
 
 
 
