@@ -24,6 +24,8 @@ extern NSInteger globalOpenOrderVendorID;
 extern NSInteger globalCurrentVendorID;
 extern NSString *globalOpenOrderVendorName;
 extern NSString *globalCurrentVendorName;
+extern NSString *globalCurrentItem;
+
 extern UIPageViewController *mainPages;
 extern NSMutableDictionary *global_menu;
 extern NSMutableArray *global_item_menu;

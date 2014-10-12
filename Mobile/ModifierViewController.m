@@ -57,9 +57,9 @@
     }
 //    [self.modifiers removeAllObjects];
   }
+  
+  globalCurrentItem = [self.items[selectedIndexPath.row-1] name];
 
-  
-  
 //  for(NSDictionary *category in [global_menu valueForKey:@"categories"])
 //  {
 //    NSArray *items = [category objectForKey:@"items"];
@@ -74,12 +74,19 @@
 //    }
 //  }
   [self.tableView reloadData];
- // NSLog(@"here is modifiers in the in mod table %@",self.modifiers);
-  //we dont want to do it this way
-//  for(NSDictionary *mod in self.modifiers)
-//  {
-//    NSLog(@" mod: %@",[mod objectForKey:@"name"]);
-//  }
+  
+  UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
+  label.backgroundColor = [UIColor clearColor];
+  label.font = [UIFont fontWithName:@"Dosis-Medium" size:22];;
+  
+  label.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+  label.textAlignment = NSTextAlignmentCenter;
+  // ^-Use UITextAlignmentCenter for older SDKs.
+  label.textColor = [UIColor whiteColor]; // change this color
+  self.navigationItem.titleView = label;
+  label.text = globalCurrentItem;
+  [label sizeToFit];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -87,16 +94,28 @@
     // Dispose of any resources that can be recreated.
 }
 
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//  CGRect footerFrame = CGRectMake(0.0, self.tableView.bounds.size.height - 44, self.tableView.bounds.size.width, 44);
+//  UIView *footerView = [[UIView alloc] initWithFrame:footerFrame];
+//  footerView.backgroundColor = [UIColor redColor];
+//  return footerView;
+//}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
   // Return the number of sections.
-  return 1;
+  return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
   // Return the number of rows in the section.
-  return [self.modifiers count]+1;
+  if(section == 0)
+  {
+    return 1;
+  }
+  else return [self.modifiers count]+1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -108,7 +127,7 @@
   NSLog(@"indexPath Section: %ld %ld", (long)indexPath.section,(long)indexPath.row);
   if(indexPath.row == 0 && indexPath.section == 0)
   {
-    Item *item = self.menu[indexPath.section][indexPath.row];
+    Item *item = self.items[selectedIndexPath.row-1];
     QuantityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"quantity" forIndexPath:indexPath];
     cell.quantity.text = [NSString stringWithFormat:@"%d", item.count];
 
@@ -128,7 +147,8 @@
     
     ModifierTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"modifiers" forIndexPath:indexPath];
     Modifier *modifier = self.modifiers[indexPath.section][indexPath.row];
-    cell.modifier.text = modifier.name;
+    NSString *label = [[NSString stringWithFormat:@"Choose Your %@", modifier.name] capitalizedString];
+    cell.modifier.text = label;
     return cell;
   }
 }
@@ -145,7 +165,7 @@
   CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
   NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
   NSIndexPath *quantityIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-  Item *item = globalOpenOrderMenu[indexPath.section][indexPath.row];
+  Item *item = self.items[selectedIndexPath.row-1];
   item.count++;
   [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:quantityIndexPath] withRowAnimation:UITableViewRowAnimationNone];
   
@@ -156,7 +176,7 @@
   NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
   NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
   
-  Item *item = globalOpenOrderMenu[indexPath.section][indexPath.row];
+  Item *item = self.items[selectedIndexPath.row-1];
   if(item.count > 0)
   {
     item.count--;

@@ -347,4 +347,15 @@ NSInteger myCount;
     return touch.view == self.view;
 }
 
+- (void)didSelectLeafRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  NSLog(@"trying to get the index of the item");
+  selectedIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+  //move the page view controller to next page..
+
+}
+
+
+
+
 @end

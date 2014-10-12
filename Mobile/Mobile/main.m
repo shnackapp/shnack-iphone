@@ -19,6 +19,8 @@ NSInteger globalOpenOrderVendorID = -1;
 NSInteger globalCurrentVendorID = -1;
 NSString *globalOpenOrderVendorName = nil;
 NSString *globalCurrentVendorName = nil;
+NSString *globalCurrentItem = nil;
+
 NSMutableArray *globalUserInfo = nil;
 NSMutableArray *globalCurrentUser = nil;
 NSMutableDictionary *fb_user_info = nil;
