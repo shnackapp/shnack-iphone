@@ -28,7 +28,7 @@ NSIndexPath *reloadingCategoryIndexPath;
 {
         
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    self.navigationController.navigationBar.barTintColor = RED_COLOR;
     
     //disable swipe back in nav controller
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
@@ -202,7 +202,7 @@ NSIndexPath *reloadingCategoryIndexPath;
 - (void)didSelectLeafRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"SELECTED LEAF ROW!@@!!");
-    selectedIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+    selectedLocationIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
     //move the page view controller to next page..
     
 

@@ -27,7 +27,9 @@
 
 -(void)layoutSubviews
 {
-    self.backgroundColor =[UIColor colorWithRed:0.25f green:0.60f blue:1.00f alpha:1.00f];
+    //self.backgroundColor =[UIColor colorWithRed:0.25f green:0.60f blue:1.00f alpha:1.00f];
+    self.backgroundColor = [UIColor groupTableViewBackgroundColor];
+
 }
 
 /*

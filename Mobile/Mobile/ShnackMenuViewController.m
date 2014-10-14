@@ -44,8 +44,7 @@ NSInteger myCount;
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     }
-    
-    globalCurrentVendorName = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] name];
+    globalCurrentVendorName = [globalArrayLocations[selectedLocationIndexPath.section][selectedLocationIndexPath.row] name];
     NSLog(@"top name %@",globalCurrentVendorName);
     //self.navigationItem.title = globalCurrentVendorName;
     
@@ -85,12 +84,12 @@ NSInteger myCount;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    if (selectedIndexPath == nil) {
+    if (selectedLocationIndexPath == nil) {
         self.checkoutButton.enabled = NO;
     } else {
         self.checkoutButton.enabled = YES;
         
-        globalCurrentVendorID = [globalArrayLocations[selectedIndexPath.section][selectedIndexPath.row] object_id];
+        globalCurrentVendorID = [globalArrayLocations[selectedLocationIndexPath.section][selectedLocationIndexPath.row] object_id];
 
         if (globalCurrentVendorID != globalOpenOrderVendorID) {
             self.responseData = [NSMutableData data];
@@ -262,7 +261,6 @@ NSInteger myCount;
     ShnackOrderItemCell *itemCell = (ShnackOrderItemCell *)cell;
     Item *item = self.menu[indexPath.section][indexPath.row];
     NSLog(@"identifier: %@",itemCell.reuseIdentifier);
-    
     itemCell.name.text = item.name;
     itemCell.price.text = [NSString stringWithFormat:@"$%d.%02d", item.price/100, item.price%100];
     itemCell.description.text =item.description;
@@ -350,7 +348,7 @@ NSInteger myCount;
 - (void)didSelectLeafRowAtIndexPath:(NSIndexPath *)indexPath
 {
   NSLog(@"trying to get the index of the item");
-  selectedIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+  selectedLocationIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
   //move the page view controller to next page..
 
 }

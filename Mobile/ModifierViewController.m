@@ -58,7 +58,7 @@
 //    [self.modifiers removeAllObjects];
   }
   
-  globalCurrentItem = [self.items[selectedIndexPath.row-1] name];
+  globalCurrentItem = self.items[selectedLocationIndexPath.row-1];
 
 //  for(NSDictionary *category in [global_menu valueForKey:@"categories"])
 //  {
@@ -84,7 +84,7 @@
   // ^-Use UITextAlignmentCenter for older SDKs.
   label.textColor = [UIColor whiteColor]; // change this color
   self.navigationItem.titleView = label;
-  label.text = globalCurrentItem;
+  label.text = globalCurrentItem.name;
   [label sizeToFit];
 
 }
@@ -127,7 +127,7 @@
   NSLog(@"indexPath Section: %ld %ld", (long)indexPath.section,(long)indexPath.row);
   if(indexPath.row == 0 && indexPath.section == 0)
   {
-    Item *item = self.items[selectedIndexPath.row-1];
+    Item *item = self.items[selectedLocationIndexPath.row-1];
     QuantityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"quantity" forIndexPath:indexPath];
     cell.quantity.text = [NSString stringWithFormat:@"%d", item.count];
 
@@ -149,23 +149,30 @@
     Modifier *modifier = self.modifiers[indexPath.section][indexPath.row];
     NSString *label = [[NSString stringWithFormat:@"Choose Your %@", modifier.name] capitalizedString];
     cell.modifier.text = label;
+    cell.options.text = @"";//remove this eventually, actually need to set htis when options are chosen from next view
     return cell;
   }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  
+  selectedLocationIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
 }
 
 -(IBAction)increaseCountByOne:(id)sender
 {
   
-//  if (globalOpenOrderMenu != self.menu) {
-//    globalOpenOrderMenu = self.menu;
-//    globalOpenOrderVendorID = globalCurrentVendorID;
-//    globalOpenOrderVendorName = globalCurrentVendorName;
-//  }
-//  
+  if (globalOpenOrderMenu != self.menu) {
+    globalOpenOrderMenu = self.menu;
+    globalOpenOrderVendorID = globalCurrentVendorID;
+    globalOpenOrderVendorName = globalCurrentVendorName;
+  }
+  
   CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
   NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
   NSIndexPath *quantityIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-  Item *item = self.items[selectedIndexPath.row-1];
+  Item *item = self.items[selectedLocationIndexPath.row-1];
   item.count++;
   [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:quantityIndexPath] withRowAnimation:UITableViewRowAnimationNone];
   
@@ -176,7 +183,7 @@
   NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
   NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
   
-  Item *item = self.items[selectedIndexPath.row-1];
+  Item *item = self.items[selectedLocationIndexPath.row-1];
   if(item.count > 0)
   {
     item.count--;

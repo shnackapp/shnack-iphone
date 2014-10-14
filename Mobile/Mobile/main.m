@@ -10,16 +10,20 @@
 
 #import "AppDelegate.h"
 #import "MainPageViewController.h"
-
+#import "Item.h"
 
 NSMutableArray *globalArrayLocations = nil;
-NSIndexPath *selectedIndexPath = nil;
+NSIndexPath *selectedLocationIndexPath = nil;
+NSIndexPath *selectedItemIndexPath = nil;
+NSIndexPath *selectedModiferIndexPath = nil;
+
 NSMutableArray *globalOpenOrderMenu = nil;
 NSInteger globalOpenOrderVendorID = -1;
 NSInteger globalCurrentVendorID = -1;
 NSString *globalOpenOrderVendorName = nil;
 NSString *globalCurrentVendorName = nil;
-NSString *globalCurrentItem = nil;
+Item *globalCurrentItem = nil;
+NSString *globalCurrentModifier = nil;
 
 NSMutableArray *globalUserInfo = nil;
 NSMutableArray *globalCurrentUser = nil;
@@ -27,7 +31,6 @@ NSMutableDictionary *fb_user_info = nil;
 NSMutableDictionary *shnack_user_info = nil;
 NSMutableDictionary *global_menu = nil;
 NSMutableArray *global_item_menu = nil;
-
 
 BOOL uses_keychain = NO;
 BOOL uses_facebook = NO;

@@ -26,7 +26,7 @@ extern NSMutableArray *globalArrayLocations;
 
 
 @property (nonatomic, retain) NSMutableData *responseData;
-extern NSIndexPath *selectedIndexPath;
+extern NSIndexPath *selectedLocationIndexPath;
 extern NSString *globalCurrentVendorName;
 extern MainPageViewController *mainPages;
 

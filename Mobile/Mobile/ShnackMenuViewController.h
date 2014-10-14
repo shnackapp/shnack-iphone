@@ -9,9 +9,11 @@
 #import "POPDTableView.h"
 #import "BButton.h"
 
-@interface ShnackMenuViewController : UIViewController <UITableViewDelegate>
+@interface ShnackMenuViewController : UIViewController <UITableViewDelegate, UIGestureRecognizerDelegate>
 extern NSMutableArray *globalArrayLocations;
-extern NSIndexPath *selectedIndexPath;
+extern NSIndexPath *selectedLocationIndexPath;
+extern NSIndexPath *selectedItemIndexPath;
+
 extern NSMutableArray *globalOpenOrderMenu;
 extern NSInteger globalOpenOrderVendorID;
 extern NSInteger globalCurrentVendorID;
@@ -32,12 +34,5 @@ extern NSMutableArray *global_item_menu;
 
 @property (nonatomic,retain) NSMutableArray *modifiers;
 @property (nonatomic,retain) NSMutableArray *options;
-
-
-
-
--(IBAction)increaseCountByOne:(id)sender;
--(IBAction)decreaseCountByOne:(id)sender;
--(int)calculateOrderTotal;
 
 @end

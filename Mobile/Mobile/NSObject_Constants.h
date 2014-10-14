@@ -37,6 +37,9 @@
 //#define API_KEY @"Token token=\"7ea711275bdce706de6f76a021463672\""
 
 #define PURPLE_COLOR [UIColor colorWithRed:0.45f green:0.30f blue:0.75f alpha:1.00f];
+#define RED_COLOR [UIColor colorWithRed:219/255.0f green:21/255.0f blue:12/255.0f alpha:1.0f];
+#define SHNACK_RED_COLOR [UIColor colorWithRed:139.0f green:0.0f blue:0.0f alpha:1.0f];
+
 
 
 
