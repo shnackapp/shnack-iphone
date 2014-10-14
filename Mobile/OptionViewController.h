@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BButton.h"
 #import "Item.h"
+#import "Modifier.h"
 
 @interface OptionViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -26,7 +27,7 @@ extern NSInteger globalCurrentVendorID;
 extern NSString *globalOpenOrderVendorName;
 extern NSString *globalCurrentVendorName;
 extern Item *globalCurrentItem;
-extern NSString *globalCurrentModifier;
+extern Modifier *globalCurrentModifier;
 
 extern UIPageViewController *mainPages;
 extern NSMutableDictionary *global_menu;

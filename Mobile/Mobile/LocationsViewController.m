@@ -209,11 +209,6 @@ NSIndexPath *reloadingCategoryIndexPath;
 
 }
 
-
-
-
-
-
 #pragma mark - Fetched results controller
 
 

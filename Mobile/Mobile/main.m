@@ -11,8 +11,12 @@
 #import "AppDelegate.h"
 #import "MainPageViewController.h"
 #import "Item.h"
+#import "Modifier.h"
+
 
 NSMutableArray *globalArrayLocations = nil;
+NSMutableArray *globalArrayModifiers = nil;
+
 NSIndexPath *selectedLocationIndexPath = nil;
 NSIndexPath *selectedItemIndexPath = nil;
 NSIndexPath *selectedModiferIndexPath = nil;
@@ -23,7 +27,7 @@ NSInteger globalCurrentVendorID = -1;
 NSString *globalOpenOrderVendorName = nil;
 NSString *globalCurrentVendorName = nil;
 Item *globalCurrentItem = nil;
-NSString *globalCurrentModifier = nil;
+Modifier *globalCurrentModifier = nil;
 
 NSMutableArray *globalUserInfo = nil;
 NSMutableArray *globalCurrentUser = nil;

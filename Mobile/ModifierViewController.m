@@ -35,7 +35,9 @@
   self.tableView.dataSource = self;
   self.modifiers = [[NSMutableArray alloc] init];
   self.items = [[NSMutableArray alloc] init];
-
+  
+  [self.add_to_cart_button setStyle:BButtonStyleBootstrapV3];
+  [self.add_to_cart_button setType:BButtonTypeFacebook];
   
   for (NSInteger i = 0; i < [globalOpenOrderMenu count]; i++)
   {
@@ -84,7 +86,7 @@
   // ^-Use UITextAlignmentCenter for older SDKs.
   label.textColor = [UIColor whiteColor]; // change this color
   self.navigationItem.titleView = label;
-  label.text = globalCurrentItem.name;
+  label.text = [globalCurrentItem.name capitalizedString] ;
   [label sizeToFit];
 
 }
@@ -153,6 +155,11 @@
     return cell;
   }
 }
+
+//- (void) refreshTableView:(NSString) option_label
+//{
+//  
+//}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
