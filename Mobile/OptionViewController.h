@@ -19,7 +19,7 @@
 @property (nonatomic, retain) NSMutableArray *options;
 
 extern NSMutableArray *globalArrayLocations;
-extern NSIndexPath *selectedModifierIndexPath;
+extern NSIndexPath *selectedModIndexPath;
 extern NSMutableArray *globalOpenOrderMenu;
 
 extern NSInteger globalOpenOrderVendorID;

@@ -19,7 +19,7 @@ NSMutableArray *globalArrayModifiers = nil;
 
 NSIndexPath *selectedLocationIndexPath = nil;
 NSIndexPath *selectedItemIndexPath = nil;
-NSIndexPath *selectedModiferIndexPath = nil;
+NSIndexPath *selectedModIndexPath = nil;
 
 NSMutableArray *globalOpenOrderMenu = nil;
 NSInteger globalOpenOrderVendorID = -1;

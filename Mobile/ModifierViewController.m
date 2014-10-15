@@ -39,42 +39,11 @@
   [self.add_to_cart_button setStyle:BButtonStyleBootstrapV3];
   [self.add_to_cart_button setType:BButtonTypeFacebook];
   
-  for (NSInteger i = 0; i < [globalOpenOrderMenu count]; i++)
+  for(NSInteger i = 0; i< [globalCurrentItem.modifiers count]; i++)
   {
-    NSArray *category = globalOpenOrderMenu[i];
-    NSLog(@"category %@", globalOpenOrderMenu[i]);
-    
-    for (NSInteger j = 1; j < [category count]; j++)
-    {
-      Item *item = category[j];
-      [self.modifiers addObject:item.modifiers];
-      [self.items addObject:category[j]];
-      
-//      self.modifiers = item.modifiers;
-//      NSLog(@"number of modifiers for item: %lu", (unsigned long)[item.modifiers count]);
-//      for(NSInteger k = 0; k < [self.modifiers count]; k++)
-//      {
-//        NSLog(@"item_mods name: %@", items[j]);
-//      }
-    }
-//    [self.modifiers removeAllObjects];
+    [self.modifiers addObject:[globalCurrentItem.modifiers objectAtIndex:i]];
   }
   
-  globalCurrentItem = self.items[selectedLocationIndexPath.row-1];
-
-//  for(NSDictionary *category in [global_menu valueForKey:@"categories"])
-//  {
-//    NSArray *items = [category objectForKey:@"items"];
-//    for(NSDictionary *item in items)
-//    {
-//      self.modifiers = [item objectForKey:@"modifiers"];
-//      NSInteger count = [self.modifiers count];
-//      bool is_empty;
-//      if(count == 0) is_empty=true;
-//      else is_empty = false;
-//      NSLog(@"mods is_empty %@", is_empty ? @YES:@NO);
-//    }
-//  }
   [self.tableView reloadData];
   
   UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -96,14 +65,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//  CGRect footerFrame = CGRectMake(0.0, self.tableView.bounds.size.height - 44, self.tableView.bounds.size.width, 44);
-//  UIView *footerView = [[UIView alloc] initWithFrame:footerFrame];
-//  footerView.backgroundColor = [UIColor redColor];
-//  return footerView;
-//}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Potentially incomplete method implementation.
   // Return the number of sections.
@@ -117,7 +78,7 @@
   {
     return 1;
   }
-  else return [self.modifiers count]+1;
+  else return [globalCurrentItem.modifiers count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -127,11 +88,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   NSLog(@"indexPath Section: %ld %ld", (long)indexPath.section,(long)indexPath.row);
+
   if(indexPath.row == 0 && indexPath.section == 0)
   {
-    Item *item = self.items[selectedLocationIndexPath.row-1];
     QuantityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"quantity" forIndexPath:indexPath];
-    cell.quantity.text = [NSString stringWithFormat:@"%d", item.count];
+    cell.quantity.text = [NSString stringWithFormat:@"%d", globalCurrentItem.count];
 
     [cell.minusButton setStyle:BButtonStyleBootstrapV3];
     [cell.plusButton setStyle:BButtonStyleBootstrapV3];
@@ -148,10 +109,12 @@
   {
     
     ModifierTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"modifiers" forIndexPath:indexPath];
-    Modifier *modifier = self.modifiers[indexPath.section][indexPath.row];
-    NSString *label = [[NSString stringWithFormat:@"Choose Your %@", modifier.name] capitalizedString];
+    //Modifier *modifier = self.modifiers[indexPath.section][indexPath.row];
+    //NSString *label = [[NSString stringWithFormat:@"Choose Your %@", modifier.name] capitalizedString];
+    NSString * mod_name = [globalCurrentItem.modifiers[indexPath.row] objectForKey:@"name"];
+    NSString *label = [[NSString stringWithFormat:@"Choose Your %@", mod_name] capitalizedString];
     cell.modifier.text = label;
-    cell.options.text = @"";//remove this eventually, actually need to set htis when options are chosen from next view
+    cell.options.text = @"";//remove this eventually, actually need to set this when options are chosen from next view
     return cell;
   }
 }
@@ -163,37 +126,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  selectedModIndexPath = [self.tableView indexPathForSelectedRow];
+  globalCurrentModifier = self.modifiers[indexPath.row];
   
-  selectedLocationIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
 }
 
 -(IBAction)increaseCountByOne:(id)sender
 {
-  
-  if (globalOpenOrderMenu != self.menu) {
-    globalOpenOrderMenu = self.menu;
-    globalOpenOrderVendorID = globalCurrentVendorID;
-    globalOpenOrderVendorName = globalCurrentVendorName;
-  }
-  
+
   CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
   NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
   NSIndexPath *quantityIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-  Item *item = self.items[selectedLocationIndexPath.row-1];
-  item.count++;
+  globalCurrentItem.count++;
   [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:quantityIndexPath] withRowAnimation:UITableViewRowAnimationNone];
   
 }
 -(IBAction)decreaseCountByOne:(id)sender
 {
+
   CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.tableView];
   NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:buttonPosition];
   NSIndexPath *categoryIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
   
-  Item *item = self.items[selectedLocationIndexPath.row-1];
-  if(item.count > 0)
+  if(globalCurrentItem.count > 0)
   {
-    item.count--;
+    globalCurrentItem.count--;
   }
   [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
   [self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:categoryIndexPath] withRowAnimation:UITableViewRowAnimationNone];

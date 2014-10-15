@@ -158,16 +158,8 @@
         NSInteger price = [[item objectForKey:@"price"] integerValue];
         NSString *name = [item  objectForKey:@"name"];
         NSString *description = [[item objectForKey:@"description" ] isKindOfClass:[NSNull class]] ? @"No Description" : [item objectForKey:@"description"];
-        for(NSDictionary * mod in [item objectForKey:@"modifiers" ])
-        {
-          NSInteger mod_type = [[mod objectForKey:@"mod_type"] integerValue];
-          NSString *name = [mod objectForKey:@"name"];
-          NSMutableArray *options = [mod objectForKey:@"options"];
-          Modifier *modifier = [[Modifier alloc] initWithName:name andModType:mod_type andOptions:options];
-          [self.modifiers  addObject:modifier];
-        }
-        globalArrayModifiers = self.modifiers;
-        Item *new_item = [[Item alloc] initWithName:name andPrice:price andDescription:description andModifiers:globalArrayModifiers];
+        NSMutableArray *modifiers = [item objectForKey:@"modifiers"];
+        Item *new_item = [[Item alloc] initWithName:name andPrice:price andDescription:description andModifiers:modifiers];
         [menuCategory addObject:new_item];
         [tableSection addObject:name];
     }
@@ -225,6 +217,10 @@
 
 -(NSInteger)calculateCategoryCount:(NSInteger)section {
   NSInteger count = 0;
+  if(section - 1 < 0)
+  {
+    section = 0;
+  }
   NSInteger numItems = [((NSArray *)self.menu[section]) count];
   for (NSInteger i = 1; i < numItems; i++) {
     count += ((Item *)self.menu[section][i]).count;
@@ -270,6 +266,11 @@
 
 - (void)didSelectLeafRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  selectedLocationIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+  //selectedLocationIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
+  
+  
+  selectedItemIndexPath =[self.tableView indexPathForSelectedRow];
+  globalCurrentItem = self.menu[selectedItemIndexPath.section][selectedItemIndexPath.row];
+
 }
 @end

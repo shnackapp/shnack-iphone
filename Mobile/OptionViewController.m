@@ -45,32 +45,17 @@
   self.modifiers = [[NSMutableArray alloc] init];
   self.items = [[NSMutableArray alloc] init];
   self.options = [[NSMutableArray alloc] init];
-  
+
   [self.apply_button setStyle:BButtonStyleBootstrapV3];
   [self.apply_button setType:BButtonTypeFacebook];
   
-  for (NSInteger i = 0; i < [globalOpenOrderMenu count]; i++)
+  NSArray *options = [globalCurrentModifier valueForKey:@"options"];
+  
+  for(NSInteger i = 0; i< [options count]; i++)
   {
-    NSArray *category = globalOpenOrderMenu[i];
-    NSLog(@"category %@", globalOpenOrderMenu[i]);
-    for (NSInteger j = 1; j < [category count]; j++)
-    {
-      Item *item = category[j];
-      [self.modifiers addObject:item.modifiers];
-      [self.items addObject:category[j]];
-      NSLog(@"number of modifiers for item: %lu", (unsigned long)[item.modifiers count]);
-      for(NSInteger k = 0; k < [item.modifiers count]; k++)
-      {
-        Modifier *modifier = item.modifiers[k];
-        NSLog(@"modifier_name: %@", [item.modifiers[k] name]);
-        for(NSInteger l = 0; l < [modifier.options count]; l++)
-        {
-          [self.options addObject:modifier.options[l]];
-        }
-      }
-      globalCurrentModifier = self.modifiers[selectedLocationIndexPath.section-1][selectedLocationIndexPath.row];
-    }
+    [self.options addObject:[options objectAtIndex:i]];
   }
+
   UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
   label.backgroundColor = [UIColor clearColor];
   label.font = [UIFont fontWithName:@"Dosis-Medium" size:22];;
@@ -78,7 +63,7 @@
   label.textAlignment = NSTextAlignmentCenter;
   label.textColor = [UIColor whiteColor]; // change this color
   self.navigationItem.titleView = label;
-  label.text = [globalCurrentModifier.name capitalizedString];
+  label.text = [[globalCurrentModifier valueForKey:@"name" ] capitalizedString];
   [label sizeToFit];
 }
 
@@ -96,7 +81,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete method implementation.
   // Return the number of rows in the section.
-     return [globalCurrentModifier.options count];
+  return [self.options count];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,8 +91,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   NSLog(@"indexPath Section: %ld %ld", (long)indexPath.section,(long)indexPath.row);
-  Option *option = globalCurrentModifier.options[indexPath.row];
-  if(globalCurrentModifier.mod_type == 0)
+  Option *option = self.options[indexPath.row];
+  if([[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 0)
   {
     SizeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"size" forIndexPath:indexPath];
     cell.option.text = [NSString stringWithFormat:@"%@", [option valueForKey:@"name"]];
@@ -116,7 +101,7 @@
     
     return cell;
   }
-  else if(globalCurrentModifier.mod_type == 1)
+  else if([[globalCurrentModifier valueForKey:@"mod_type"]integerValue] == 1)
   {
     SingleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"single_select" forIndexPath:indexPath];
     cell.option.text = [NSString stringWithFormat:@"%@", [option valueForKey:@"name"]];

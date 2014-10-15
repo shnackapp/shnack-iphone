@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BButton.h"
 #import "Item.h"
+#import "Modifier.h"
 
 @interface ModifierViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -18,7 +19,8 @@
 
 extern NSMutableArray *globalArrayLocations;
 extern NSIndexPath *selectedItemIndexPath;
-extern NSIndexPath *selectedModifierIndexPath;
+extern NSIndexPath *selectedModIndexPath;
+
 
 
 extern NSMutableArray *globalOpenOrderMenu;
@@ -26,6 +28,7 @@ extern NSInteger globalOpenOrderVendorID;
 extern NSInteger globalCurrentVendorID;
 extern NSString *globalOpenOrderVendorName;
 extern NSString *globalCurrentVendorName;
+extern Modifier *globalCurrentModifier;
 extern Item *globalCurrentItem;
 
 extern UIPageViewController *mainPages;
