@@ -217,10 +217,7 @@
 
 -(NSInteger)calculateCategoryCount:(NSInteger)section {
   NSInteger count = 0;
-  if(section - 1 < 0)
-  {
-    section = 0;
-  }
+ 
   NSInteger numItems = [((NSArray *)self.menu[section]) count];
   for (NSInteger i = 1; i < numItems; i++) {
     count += ((Item *)self.menu[section][i]).count;
