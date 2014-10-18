@@ -95,6 +95,8 @@
   if([[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 0)
   {
     SizeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"size" forIndexPath:indexPath];
+    cell.picker.tag = indexPath.row;
+    [cell.picker addTarget:self action:@selector(singleSelectSwitchAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.option.text = [NSString stringWithFormat:@"%@", [option valueForKey:@"name"]];
     cell.picker.on = NO;
         
@@ -104,6 +106,8 @@
   else if([[globalCurrentModifier valueForKey:@"mod_type"]integerValue] == 1)
   {
     SingleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"single_select" forIndexPath:indexPath];
+    cell.picker.tag = indexPath.row;
+    [cell.picker addTarget:self action:@selector(singleSelectSwitchAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.option.text = [NSString stringWithFormat:@"%@", [option valueForKey:@"name"]];
     cell.picker.on = NO;
 
@@ -116,6 +120,34 @@
     cell.picker.on = NO;
 
     return cell;
+  }
+}
+-(void) singleSelectSwitchAction:(id)sender
+{
+  NSLog(@"here is sender: %@", sender);
+  UISwitch * cell_switch =  (UISwitch *)sender;
+  if(cell_switch.on)
+  {
+    NSLog(@"my switch is on and here is row %ld", (long)cell_switch.tag);
+    [self turnOffOtherSwitches:cell_switch.tag];
+  }
+}
+
+-(void) turnOffOtherSwitches:(NSInteger ) rowToStayOn
+{
+  NSInteger number_of_cells = [self.tableView numberOfRowsInSection:0];
+  for(NSInteger i = 0; i<number_of_cells; i++)
+  {
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+    SizeTableViewCell *single = (SizeTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    if(i == rowToStayOn)
+    {
+      single.picker.on = YES;
+    }
+    else
+    {
+      single.picker.on = NO;
+    }
   }
 }
 
