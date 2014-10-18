@@ -18,6 +18,8 @@
 @property (nonatomic, retain) NSMutableArray *items;
 @property (nonatomic, retain) NSMutableArray *options;
 
+@property (nonatomic, retain) NSString *option_name_for_mod;
+
 extern NSMutableArray *globalArrayLocations;
 extern NSIndexPath *selectedModIndexPath;
 extern NSMutableArray *globalOpenOrderMenu;

@@ -45,6 +45,7 @@
   self.modifiers = [[NSMutableArray alloc] init];
   self.items = [[NSMutableArray alloc] init];
   self.options = [[NSMutableArray alloc] init];
+  self.option_name_for_mod = @"";
 
   [self.apply_button setStyle:BButtonStyleBootstrapV3];
   [self.apply_button setType:BButtonTypeFacebook];
@@ -116,21 +117,40 @@
   else
   {
     MultipleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"multiple_select" forIndexPath:indexPath];
+    cell.picker.tag = indexPath.row;
+    [cell.picker addTarget:self action:@selector(multipleSelectSwitchAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.option.text = [NSString stringWithFormat:@"%@", [option valueForKey:@"name"]];
     cell.picker.on = NO;
-
+    
     return cell;
   }
 }
+
 -(void) singleSelectSwitchAction:(id)sender
 {
   NSLog(@"here is sender: %@", sender);
   UISwitch * cell_switch =  (UISwitch *)sender;
   if(cell_switch.on)
   {
+    Option *option = self.options[cell_switch.tag];
     NSLog(@"my switch is on and here is row %ld", (long)cell_switch.tag);
     [self turnOffOtherSwitches:cell_switch.tag];
+    [self setDetailTextOnModifier:[option valueForKey:@"name"]];
   }
+}
+
+-(void) multipleSelectSwitchAction:(id)sender
+{
+  UISwitch * cell_switch =  (UISwitch *)sender;
+  if(cell_switch.on)
+  {
+    Option *option = self.options[cell_switch.tag];
+    NSString *option_name = [[option valueForKey:@"name"] stringByAppendingString:@" "];
+    self.option_name_for_mod = [self.option_name_for_mod stringByAppendingString:option_name];
+    NSLog(@"my switch is on and here is row %ld", (long)cell_switch.tag);
+    [self setDetailTextOnModifier:(NSString *)self.option_name_for_mod];
+  }
+  
 }
 
 -(void) turnOffOtherSwitches:(NSInteger ) rowToStayOn
@@ -148,6 +168,22 @@
     {
       single.picker.on = NO;
     }
+  }
+}
+
+-(void)setDetailTextOnModifier:(NSString *)option_name
+{
+  
+  for (int i =0; i < [[self.navigationController viewControllers] count]; i++)
+  {
+    UIViewController *aController = [[self.navigationController viewControllers] objectAtIndex:i];
+    
+    if ([aController isKindOfClass:[ModifierViewController class]])
+    {
+      ModifierViewController *mods = (ModifierViewController *)aController;
+      [mods refreshTableToSetDetailText:option_name andIndex:(NSIndexPath *) selectedModIndexPath];
+    }
+    
   }
 }
 

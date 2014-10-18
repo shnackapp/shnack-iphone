@@ -114,15 +114,16 @@
     NSString * mod_name = [globalCurrentItem.modifiers[indexPath.row] objectForKey:@"name"];
     NSString *label = [[NSString stringWithFormat:@"Choose Your %@", mod_name] capitalizedString];
     cell.modifier.text = label;
-    cell.options.text = @"";//remove this eventually, actually need to set this when options are chosen from next view
+    cell.options.text = @"";
     return cell;
   }
 }
 
-//- (void) refreshTableView:(NSString) option_label
-//{
-//  
-//}
+- (void) refreshTableToSetDetailText:(NSString*) option_label andIndex:(NSIndexPath *)indexPath
+{
+  ModifierTableViewCell *cell = (ModifierTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+  cell.options.text = option_label;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

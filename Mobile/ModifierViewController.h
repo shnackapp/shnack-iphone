@@ -21,7 +21,7 @@ extern NSMutableArray *globalArrayLocations;
 extern NSIndexPath *selectedItemIndexPath;
 extern NSIndexPath *selectedModIndexPath;
 
-
+-(void) refreshTableToSetDetailText:(NSString*) option_label andIndex: (NSIndexPath *)index;
 
 extern NSMutableArray *globalOpenOrderMenu;
 extern NSInteger globalOpenOrderVendorID;
