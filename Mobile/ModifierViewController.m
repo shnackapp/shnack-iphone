@@ -36,6 +36,8 @@
   self.modifiers = [[NSMutableArray alloc] init];
   self.items = [[NSMutableArray alloc] init];
   
+  globalOpenOrderVendorID = globalCurrentVendorID;
+  
   [self.add_to_cart_button setStyle:BButtonStyleBootstrapV3];
   [self.add_to_cart_button setType:BButtonTypeFacebook];
   
@@ -43,7 +45,7 @@
   {
     [self.modifiers addObject:[globalCurrentItem.modifiers objectAtIndex:i]];
   }
-  
+
   [self.tableView reloadData];
   
   UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -88,6 +90,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   NSLog(@"indexPath Section: %ld %ld", (long)indexPath.section,(long)indexPath.row);
+  if (globalCurrentItem.count == 0)
+  {
+    self.add_to_cart_button.enabled = NO;
+  }
+  else
+  {
+    self.add_to_cart_button.enabled = YES;
+  }
+  
 
   if(indexPath.row == 0 && indexPath.section == 0)
   {
@@ -109,8 +120,6 @@
   {
     
     ModifierTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"modifiers" forIndexPath:indexPath];
-    //Modifier *modifier = self.modifiers[indexPath.section][indexPath.row];
-    //NSString *label = [[NSString stringWithFormat:@"Choose Your %@", modifier.name] capitalizedString];
     NSString * mod_name = [globalCurrentItem.modifiers[indexPath.row] objectForKey:@"name"];
     NSString *label = [[NSString stringWithFormat:@"Choose Your %@", mod_name] capitalizedString];
     cell.modifier.text = label;
@@ -130,7 +139,27 @@
   selectedModIndexPath = [self.tableView indexPathForSelectedRow];
   globalCurrentModifier = self.modifiers[indexPath.row];
   
+  [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+-(IBAction)addToCart:(id)sender
+{
+  
+  for (int i =0; i < [[self.navigationController viewControllers] count]; i++)
+  {
+    ShnackMenuViewController *menu = [[self.navigationController viewControllers] objectAtIndex:i];
+    
+    if ([menu isKindOfClass:[ShnackMenuViewController class]])
+    {
+      [self.navigationController popToViewController:menu animated:YES];
+      [menu.tableView reloadData];
+
+    }
+    
+  }
+  
+}
+
 
 -(IBAction)increaseCountByOne:(id)sender
 {

@@ -100,7 +100,6 @@
     [cell.picker addTarget:self action:@selector(singleSelectSwitchAction:) forControlEvents:UIControlEventTouchUpInside];
     cell.option.text = [NSString stringWithFormat:@"%@", [option valueForKey:@"name"]];
     cell.picker.on = NO;
-        
     
     return cell;
   }
@@ -150,7 +149,6 @@
     NSLog(@"my switch is on and here is row %ld", (long)cell_switch.tag);
     [self setDetailTextOnModifier:(NSString *)self.option_name_for_mod];
   }
-  
 }
 
 -(void) turnOffOtherSwitches:(NSInteger ) rowToStayOn
@@ -173,7 +171,6 @@
 
 -(void)setDetailTextOnModifier:(NSString *)option_name
 {
-  
   for (int i =0; i < [[self.navigationController viewControllers] count]; i++)
   {
     UIViewController *aController = [[self.navigationController viewControllers] objectAtIndex:i];
@@ -183,7 +180,6 @@
       ModifierViewController *mods = (ModifierViewController *)aController;
       [mods refreshTableToSetDetailText:option_name andIndex:(NSIndexPath *) selectedModIndexPath];
     }
-    
   }
 }
 

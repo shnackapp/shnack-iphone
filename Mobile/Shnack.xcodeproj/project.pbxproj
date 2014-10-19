@@ -98,6 +98,7 @@
 		6999CD541908BC04009BD628 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6999CD531908BC04009BD628 /* libPods.a */; };
 		6999CD561908E37F009BD628 /* Damion-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6999CD551908E37F009BD628 /* Damion-Regular.ttf */; };
 		6999CD581908E398009BD628 /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */; };
+		69A6294819F3263000F08097 /* Order.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A6294719F3263000F08097 /* Order.m */; };
 		69D7537C1995D19900CAD378 /* red_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 69D7537B1995D19900CAD378 /* red_background.png */; };
 		69D753821995D8EF00CAD378 /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D753811995D8EF00CAD378 /* UIViewController+CWPopup.m */; };
 		69E0F09318BC5977008C1543 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E0F09218BC5977008C1543 /* logo.png */; };
@@ -331,6 +332,8 @@
 		6999CD531908BC04009BD628 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = ../../add/libPods.a; sourceTree = "<group>"; };
 		6999CD551908E37F009BD628 /* Damion-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Damion-Regular.ttf"; sourceTree = "<group>"; };
 		6999CD571908E398009BD628 /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
+		69A6294619F3263000F08097 /* Order.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Order.h; sourceTree = "<group>"; };
+		69A6294719F3263000F08097 /* Order.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Order.m; sourceTree = "<group>"; };
 		69D7537B1995D19900CAD378 /* red_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_background.png; sourceTree = "<group>"; };
 		69D753801995D8EF00CAD378 /* UIViewController+CWPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWPopup.h"; sourceTree = "<group>"; };
 		69D753811995D8EF00CAD378 /* UIViewController+CWPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWPopup.m"; sourceTree = "<group>"; };
@@ -492,6 +495,8 @@
 				69171C1419E877B500062877 /* Modifier.m */,
 				69171C1819E8789200062877 /* Option.h */,
 				69171C1919E8789200062877 /* Option.m */,
+				69A6294619F3263000F08097 /* Order.h */,
+				69A6294719F3263000F08097 /* Order.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -1222,6 +1227,7 @@
 				69715B2D18AD39560039D061 /* AppDelegate.m in Sources */,
 				691E66DB18F3D5C200F67683 /* TutorialContentViewController.m in Sources */,
 				695E27C3197E195B00B0CA2D /* SignUpProfileViewController.m in Sources */,
+				69A6294819F3263000F08097 /* Order.m in Sources */,
 				695E27CD197E325700B0CA2D /* SignUpNavController.m in Sources */,
 				69F95D0318F200B30011F5DB /* PKAddressZip.m in Sources */,
 				69F95D0018F200B30011F5DB /* STPView.m in Sources */,

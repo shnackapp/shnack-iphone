@@ -12,6 +12,7 @@
 #import "MainPageViewController.h"
 #import "Item.h"
 #import "Modifier.h"
+#import "Order.h"
 
 
 NSMutableArray *globalArrayLocations = nil;
@@ -28,6 +29,7 @@ NSString *globalOpenOrderVendorName = nil;
 NSString *globalCurrentVendorName = nil;
 Item *globalCurrentItem = nil;
 Modifier *globalCurrentModifier = nil;
+Order *globalCurrentOrder = nil;
 
 NSMutableArray *globalUserInfo = nil;
 NSMutableArray *globalCurrentUser = nil;
@@ -39,11 +41,8 @@ NSMutableArray *global_item_menu = nil;
 BOOL uses_keychain = NO;
 BOOL uses_facebook = NO;
 
-
 MainPageViewController *mainPages = nil;
 int *globalCurrentOrderAmount = 0;
-
-
 
 int main(int argc, char * argv[])
 {

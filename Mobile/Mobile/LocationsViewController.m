@@ -26,7 +26,6 @@ NSIndexPath *reloadingCategoryIndexPath;
 
 - (void)viewDidLoad
 {
-        
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = RED_COLOR;
     
@@ -68,6 +67,11 @@ NSIndexPath *reloadingCategoryIndexPath;
     // important! set whether the user should be able to swipe from the right to reveal the side menu
     
     self.sideMenuViewController.panGestureEnabled = YES;
+}
+-(void) viewWillAppear:(BOOL)animated
+{
+  globalOpenOrderVendorID = -1;
+
 }
 
 -(void)infoButtonAction
@@ -184,7 +188,9 @@ NSIndexPath *reloadingCategoryIndexPath;
         
         POPDCell *cell = (POPDCell *)[self.tableView cellForRowAtIndexPath:indexPath];
         [cell.indicator startAnimating];
-        
+      
+
+      
 //        
 //        NSString *url = [NSString stringWithFormat:@"%@/get_vendor_for_location?object_id=%d",BASE_URL,[globalArrayLocations[indexPath.section] object_id]];
 //    
@@ -202,6 +208,8 @@ NSIndexPath *reloadingCategoryIndexPath;
 - (void)didSelectLeafRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"SELECTED LEAF ROW!@@!!");
+  [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+
     selectedLocationIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
     //move the page view controller to next page..
     

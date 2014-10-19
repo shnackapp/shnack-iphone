@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 
 extern NSMutableArray *globalArrayLocations;
+extern NSInteger globalOpenOrderVendorID;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 

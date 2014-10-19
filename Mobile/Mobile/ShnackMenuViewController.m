@@ -34,9 +34,12 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
   //disable swipe back in nav controller
+  [self.tableView setLoading:YES];
+
   if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
       self.navigationController.interactivePopGestureRecognizer.enabled = NO;
   }
@@ -67,12 +70,6 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-  if (selectedLocationIndexPath == nil)
-  {
-    self.checkoutButton.enabled = NO;
-  }
-  else
-  {
     self.checkoutButton.enabled = YES;
     globalCurrentVendorID = [globalArrayLocations[selectedLocationIndexPath.section][selectedLocationIndexPath.row] object_id];
     if (globalCurrentVendorID != globalOpenOrderVendorID)
@@ -84,30 +81,10 @@
       [request setHTTPMethod:@"GET"];
       [request setValue:api_key forHTTPHeaderField:@"Authorization"];
       [[NSURLConnection alloc] initWithRequest:request delegate:self];
-        }
-    else
-    {
-      self.menu = globalOpenOrderMenu;
-      NSMutableArray *tableData = [[NSMutableArray alloc] init];
-      for (NSInteger i = 0; i < [self.menu count]; i++)
-      {
-        NSArray *category = self.menu[i];
-        Item *categoryItem = category[0];
-        NSString *categoryName = categoryItem.name;
-        NSMutableArray *tableSection = [[NSMutableArray alloc] init];
-        for (NSInteger j = 1; j < [category count]; j++)
-        {
-          Item *item = category[j];
-          [tableSection addObject:item.name];
-        }
-        NSDictionary *section = [NSDictionary dictionaryWithObjectsAndKeys:categoryName,POPDCategoryTitleTV,tableSection, POPDSubSectionTV,nil];
-        [tableData addObject:section];
-      }
-      [self.tableView setMenuSections:tableData];
+
     }
   NSInteger total = [self calculateOrderTotal];
   self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
-  }
   self.sideMenuViewController.panGestureEnabled = YES;
 }
 
@@ -133,6 +110,7 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+  [self.tableView setLoading:NO];
   NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
   NSError *myError = nil;
   NSArray *menu = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
@@ -204,16 +182,24 @@
 
 -(void) willDisplayCategoryCell:(POPDCell *)cell atIndexPath:(NSIndexPath *)indexPath {
   NSLog(@"index path section %ld", (long)indexPath.section);
-  NSInteger categoryCount = [self calculateCategoryCount:indexPath.section];
+
   ShnackOrderCategoryCell *categoryCell = (ShnackOrderCategoryCell *)cell;
-  if (categoryCount == 0) {
+  if(indexPath.section >= [self.menu count])
+  {
+    NSLog(@"im doing nothing");
+  }
+  else
+  {
+    NSInteger categoryCount = [self calculateCategoryCount:indexPath.section];
+    categoryCell.labelText.text = ((Item *)self.menu[indexPath.section][0]).name;
+    if (categoryCount == 0) {
       categoryCell.count.hidden = YES;
-  } else {
+    } else {
       categoryCell.count.hidden = NO;
       categoryCell.count.text = [NSString stringWithFormat:@"%ld", (long)categoryCount];
+    }
   }
-  categoryCell.labelText.text = ((Item *)self.menu[indexPath.section][0]).name;
-}
+  }
 
 -(NSInteger)calculateCategoryCount:(NSInteger)section {
   NSInteger count = 0;
