@@ -12,6 +12,7 @@
 #import "SignUpNavController.h"
 #import "MBProgressHUD.h"
 #import "RootViewController.h"
+#import "NSObject_Constants.h"
 
 @interface AccountTableViewController ()
 
@@ -42,7 +43,7 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 64)];
     NSLog(@"width: %f", headerView.bounds.size.width);
     NSLog(@"height: %f", headerView.bounds.size.height);
-    [headerView setBackgroundColor:[UIColor redColor]];
+    headerView.backgroundColor = RED_COLOR;
   
   KeychainItemWrapper *password = [[KeychainItemWrapper alloc] initWithIdentifier:@"password" accessGroup:nil];
   [password setObject:@"password" forKey: (__bridge id)kSecAttrService];
@@ -67,7 +68,7 @@
   
   saveButton.titleLabel.text = @"Save";
   saveButton.titleLabel.textColor = [UIColor whiteColor];
-  saveButton.backgroundColor = [UIColor lightGrayColor];
+  saveButton.backgroundColor = RED_COLOR;
   
   [headerView addSubview:saveButton];
   [saveButton addTarget:self action:@selector(save_info) forControlEvents:UIControlEventTouchUpInside];
@@ -77,6 +78,7 @@
     self.passwordLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
     self.name.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
     self.logoutLabel.font = [UIFont fontWithName:@"Dosis-Medium" size:17];
+    self.logoutLabel.textColor = RED_COLOR;
 
     
     self.email.delegate = self;

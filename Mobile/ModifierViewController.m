@@ -136,10 +136,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  if(indexPath.section > 0)
+  {
   selectedModIndexPath = [self.tableView indexPathForSelectedRow];
   globalCurrentModifier = self.modifiers[indexPath.row];
-  
   [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+  }
 }
 
 -(IBAction)addToCart:(id)sender
