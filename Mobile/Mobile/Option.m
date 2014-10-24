@@ -10,7 +10,7 @@
 
 @implementation Option
 
--(id)initWithName:(NSString *)name andPrice:(int)price
+-(id)initWithName:(NSString *)name andPrice:(NSInteger)price
 {
   self = [super init];
   

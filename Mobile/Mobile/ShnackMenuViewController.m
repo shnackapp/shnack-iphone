@@ -19,6 +19,7 @@
 #import "CartPopViewController.h"
 #import "Modifier.h"
 #import "Option.h"
+#import "NSString+FontAwesome.h"
 
 @interface ShnackMenuViewController ()  <POPDDelegate>
 @end
@@ -43,6 +44,10 @@
   if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
       self.navigationController.interactivePopGestureRecognizer.enabled = NO;
   }
+  
+  UIBarButtonItem *back_button = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(clearCurrentOrder)];
+  self.navigationItem.leftBarButtonItem = back_button;
+
   globalCurrentVendorName = [globalArrayLocations[selectedLocationIndexPath.section][selectedLocationIndexPath.row] name];
   NSLog(@"top name %@",globalCurrentVendorName);
   UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -59,23 +64,24 @@
   tapRecognizer.numberOfTapsRequired = 1;
   tapRecognizer.delegate = self;
   [self.view addGestureRecognizer:tapRecognizer];// so you can dismiss on click!
-  self.useBlurForPopup = YES;
+  self.useBlurForPopup = NO;
 
   [super viewDidLoad];
   self.tableView.popDownDelegate = self;
   [[BButton appearance] setButtonCornerRadius:[NSNumber numberWithFloat:0.0f]];
   [self.checkoutButton setStyle:BButtonStyleBootstrapV3];
   [self.checkoutButton setType:BButtonTypeFacebook];
+  [self.checkoutButton addAwesomeIcon:FAIconShoppingCart beforeTitle:YES];
   [self.checkoutButton addTarget:self action:@selector(presentCart) forControlEvents:UIControlEventTouchUpInside];
+  self.checkoutButton.enabled = NO;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    self.checkoutButton.enabled = YES;
     globalCurrentVendorID = [globalArrayLocations[selectedLocationIndexPath.section][selectedLocationIndexPath.row] object_id];
     if (globalCurrentVendorID != globalOpenOrderVendorID)
     {
       self.responseData = [NSMutableData data];
-      NSString *url = [NSString stringWithFormat:@"%@/get_menu_for_vendor?object_id=%d", BASE_URL,globalCurrentVendorID];
+      NSString *url = [NSString stringWithFormat:@"%@/get_menu_for_vendor?object_id=%ld", BASE_URL,(long)globalCurrentVendorID];
       NSString *api_key = [NSString stringWithFormat:API_KEY];
       NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
       [request setHTTPMethod:@"GET"];
@@ -91,8 +97,12 @@
 - (void)viewWillAppear:(BOOL)animated {
         [super viewWillAppear:animated];
         [self.tableView reloadData];
+  if(globalCurrentItem.count == 0)
+  {
+    self.checkoutButton.enabled = YES;
+  }
         NSInteger total = [self calculateOrderTotal];
-        self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
+      self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -243,17 +253,41 @@
     }
 }
 
+-(void)clearCurrentOrder
+{
+  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Cancel Order", @"Cancel Order") message:NSLocalizedString(@"Are you sure you want to cancel your order?", @"Are you sure you want to cancel your order?") delegate:self cancelButtonTitle:@"NO" otherButtonTitles:@"YES", nil];
+  [alert show];
+  NSLog(@"should present a popup");
+  alert.tag = 100;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  if(alertView.tag == 100)
+  {
+    if(buttonIndex == 0)
+    {
+      NSLog(@"User wants to stay");
+      [alertView dismissWithClickedButtonIndex:0 animated:YES];
+    }
+    else
+    {
+      NSLog(@"user clicked yes and wants to return to locations");
+      [alertView dismissWithClickedButtonIndex:1 animated:YES];
+      [self.navigationController popViewControllerAnimated:YES];
+    }
+  }
+  
+}
+
+
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
     return touch.view == self.view;
 }
 
 - (void)didSelectLeafRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  //selectedLocationIndexPath = [NSIndexPath indexPathForRow:indexPath.row inSection:indexPath.section];
-  
-  
   selectedItemIndexPath =[self.tableView indexPathForSelectedRow];
   globalCurrentItem = self.menu[selectedItemIndexPath.section][selectedItemIndexPath.row];
-
 }
 @end

@@ -10,18 +10,22 @@
 #import "BButton.h"
 #import "Item.h"
 #import "Modifier.h"
+#import "Option.h"
 
 @interface ModifierViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, retain) NSMutableArray *menu;
 @property (nonatomic, retain) NSMutableArray *modifiers;
 @property (nonatomic, retain) NSMutableArray *items;
+@property (nonatomic, retain) NSMutableArray *options;
 
 extern NSMutableArray *globalArrayLocations;
+extern NSMutableArray *globalArrayModifiers;
+
 extern NSIndexPath *selectedItemIndexPath;
 extern NSIndexPath *selectedModIndexPath;
 
--(void) refreshTableToSetDetailText:(NSString*) option_label andIndex: (NSIndexPath *)index;
+-(void) refreshTableToSetDetailText:(NSString*) option_label andPrice:(NSInteger)price andIndex: (NSIndexPath *)index;
 
 extern NSMutableArray *globalOpenOrderMenu;
 extern NSInteger globalOpenOrderVendorID;
@@ -30,6 +34,7 @@ extern NSString *globalOpenOrderVendorName;
 extern NSString *globalCurrentVendorName;
 extern Modifier *globalCurrentModifier;
 extern Item *globalCurrentItem;
+extern Option *globalCurrentOption;
 
 extern UIPageViewController *mainPages;
 extern NSMutableDictionary *global_menu;

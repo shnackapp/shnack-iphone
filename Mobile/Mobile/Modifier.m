@@ -10,7 +10,7 @@
 
 @implementation Modifier
 
--(id)initWithName:(NSString *)name andModType:(int)mod_type
+-(id)initWithName:(NSString *)name andModType:(NSInteger)mod_type
        andOptions:(NSMutableArray *)options
 {
   self = [super init];
@@ -20,6 +20,19 @@
   self.options = options;
   return self;
 }
+
+//-(id)copyWithZone:(NSZone *)zone
+//{
+//  id copy = [[[self class] alloc] init];
+//  
+//  if(copy)
+//  {
+//    [copy setName:[self.name copyWithZone:zone]];
+//    [copy setType:self.mod_type];
+//    [copy setOptions:self.description];
+//  }
+//  return copy;
+//}
 
 
 @end

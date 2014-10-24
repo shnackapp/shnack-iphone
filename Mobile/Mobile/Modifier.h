@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Modifier : NSObject
+@interface Modifier : NSObject <NSCopying>
 
 @property (nonatomic, retain) NSString *name;
-@property (nonatomic) int mod_type;
+@property (nonatomic) NSInteger mod_type;
 @property (nonatomic) NSMutableArray *options;
 
--(id)initWithName:(NSString *)name andModType:(int)mod_type
+-(id)initWithName:(NSString *)name andModType:(NSInteger)mod_type
      andOptions:(NSMutableArray *)options;
 @end

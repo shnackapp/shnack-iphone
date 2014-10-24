@@ -11,5 +11,6 @@
 @interface SizeTableViewCell : UITableViewCell
 @property (nonatomic,retain) IBOutlet UILabel *option;
 @property (nonatomic,retain) IBOutlet UISwitch *picker;
+@property (nonatomic,retain) IBOutlet UILabel *price_label;
 
 @end

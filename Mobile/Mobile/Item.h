@@ -19,10 +19,11 @@
 
 
 
--(id)initWithName:(NSString *)name andPrice:(int)price;
+-(id)initWithName:(NSString *)name andPrice:(NSInteger)price;
 -(id)initWithName:(NSString *)name andCount:(int)count;
 
--(id)initWithName:(NSString *)name andPrice:(int)price
+-(id)initWithName:(NSString *)name andPrice:(NSInteger)price
+
                                    andDescription:(NSString *)description
                                    andModifiers:(NSArray *)modifiers;
 

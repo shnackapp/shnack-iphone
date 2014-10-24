@@ -10,6 +10,7 @@
 #import "BButton.h"
 #import "Item.h"
 #import "Modifier.h"
+#import "Option.h"
 
 @interface OptionViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
@@ -22,6 +23,7 @@
 
 extern NSMutableArray *globalArrayLocations;
 extern NSIndexPath *selectedModIndexPath;
+extern NSInteger selectedOptionIndexPathRow;
 extern NSMutableArray *globalOpenOrderMenu;
 
 extern NSInteger globalOpenOrderVendorID;
@@ -30,6 +32,7 @@ extern NSString *globalOpenOrderVendorName;
 extern NSString *globalCurrentVendorName;
 extern Item *globalCurrentItem;
 extern Modifier *globalCurrentModifier;
+extern Option *globalCurrentOption;
 
 extern UIPageViewController *mainPages;
 extern NSMutableDictionary *global_menu;

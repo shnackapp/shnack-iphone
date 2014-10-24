@@ -10,4 +10,19 @@
 
 @implementation Order
 
+-(id)initWithName:(NSInteger)total
+        andUserID:(NSInteger)user_id
+        andVendorID:(NSInteger)vendor_id
+        andItems:(NSMutableDictionary *)items {
+  
+  self = [super init];
+  self.user_id = user_id;
+  self.total = total;
+  self.items = items;
+  self.vendor_id = vendor_id;
+  
+  return self;
+}
+
+
 @end

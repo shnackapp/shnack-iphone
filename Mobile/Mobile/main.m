@@ -13,7 +13,7 @@
 #import "Item.h"
 #import "Modifier.h"
 #import "Order.h"
-
+#import "Option.h"
 
 NSMutableArray *globalArrayLocations = nil;
 NSMutableArray *globalArrayModifiers = nil;
@@ -21,6 +21,7 @@ NSMutableArray *globalArrayModifiers = nil;
 NSIndexPath *selectedLocationIndexPath = nil;
 NSIndexPath *selectedItemIndexPath = nil;
 NSIndexPath *selectedModIndexPath = nil;
+NSInteger selectedOptionIndexPathRow = -1;
 
 NSMutableArray *globalOpenOrderMenu = nil;
 NSInteger globalOpenOrderVendorID = -1;
@@ -29,6 +30,7 @@ NSString *globalOpenOrderVendorName = nil;
 NSString *globalCurrentVendorName = nil;
 Item *globalCurrentItem = nil;
 Modifier *globalCurrentModifier = nil;
+Option *globalCurrentOption;
 Order *globalCurrentOrder = nil;
 
 NSMutableArray *globalUserInfo = nil;

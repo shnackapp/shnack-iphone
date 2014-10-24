@@ -11,8 +11,10 @@
 @interface Option : NSObject
 
 @property (nonatomic, retain) NSString *name;
-@property (nonatomic) int price;
+@property (nonatomic) NSInteger price;
 
--(id)initWithName:(NSString *)name andPrice:(int)price;
+@property (nonatomic) BOOL isOn;
+
+-(id)initWithName:(NSString *)name andPrice:(NSInteger)price;
 
 @end

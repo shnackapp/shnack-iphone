@@ -21,6 +21,7 @@
 #import "CartPopViewController.h"
 #import "ShnackMenuViewController.h"
 #import "Modifier.h"
+#import "Option.h"
 
 @interface ModifierViewController ()
 
@@ -35,11 +36,13 @@
   self.tableView.dataSource = self;
   self.modifiers = [[NSMutableArray alloc] init];
   self.items = [[NSMutableArray alloc] init];
+  self.options = [[NSMutableArray alloc] init];
   
   globalOpenOrderVendorID = globalCurrentVendorID;
   
   [self.add_to_cart_button setStyle:BButtonStyleBootstrapV3];
   [self.add_to_cart_button setType:BButtonTypeFacebook];
+  [[BButton appearance] setButtonCornerRadius:[NSNumber numberWithFloat:0.0f]];
   
   for(NSInteger i = 0; i< [globalCurrentItem.modifiers count]; i++)
   {
@@ -123,15 +126,36 @@
     NSString * mod_name = [globalCurrentItem.modifiers[indexPath.row] objectForKey:@"name"];
     NSString *label = [[NSString stringWithFormat:@"Choose Your %@", mod_name] capitalizedString];
     cell.modifier.text = label;
+    cell.modifier.adjustsFontSizeToFitWidth = YES;
     cell.options.text = @"";
     return cell;
   }
 }
 
-- (void) refreshTableToSetDetailText:(NSString*) option_label andIndex:(NSIndexPath *)indexPath
+- (void) refreshTableToSetDetailText:(NSString*) option_label andPrice:(NSInteger) price andIndex:(NSIndexPath *)indexPath
 {
   ModifierTableViewCell *cell = (ModifierTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
   cell.options.text = option_label;
+  Option *option = [[Option alloc] initWithName:option_label andPrice:price];
+  
+  if(globalCurrentModifier != nil)
+  {
+    if([[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 0 || [[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 1)
+    {//single select we only have one option
+      NSMutableArray * single_option = [[NSMutableArray alloc] initWithCapacity:1];
+      [single_option addObject:globalCurrentOption];
+      Modifier *order_mod = [[Modifier alloc] initWithName:
+                [globalCurrentModifier valueForKey:@"name"] andModType:
+                [[globalCurrentModifier valueForKey:@"mod_type"] integerValue] andOptions:
+                single_option];
+      [self.options addObject:order_mod];
+    }
+    else
+    {//store the options selected and create a mod with all of those options instead of just one
+      
+    }
+  }
+  
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -146,6 +170,13 @@
 
 -(IBAction)addToCart:(id)sender
 {
+  globalArrayModifiers = self.options;
+  Item *order_item = [[Item alloc] initWithName:
+                      globalCurrentItem.name andPrice:
+                      globalCurrentItem.price andDescription:
+                      globalCurrentItem.description andModifiers:
+                      globalArrayModifiers];
+  
   
   for (int i =0; i < [[self.navigationController viewControllers] count]; i++)
   {

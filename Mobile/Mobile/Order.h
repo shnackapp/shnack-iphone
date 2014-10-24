@@ -10,16 +10,14 @@
 
 @interface Order : NSObject
 
-@property (nonatomic) NSInteger order_number;
 @property (nonatomic) NSInteger user_id;
 @property (nonatomic) NSInteger subtotal;
 @property (nonatomic) NSInteger total;
 @property (nonatomic) NSInteger vendor_id;
 
 @property (nonatomic,retain) NSMutableDictionary *items;
--(id)initWithName:(NSString *)order_number
-         andTotal:(NSInteger)total
-         andUserID:(NSInteger *)user_id
+-(id)initWithName:(NSInteger)total
+         andUserID:(NSInteger)user_id
          andVendorID:(NSInteger)vendor_id
          andItems:(NSMutableDictionary *)items;
 @end
