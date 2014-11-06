@@ -17,6 +17,7 @@
 
 NSMutableArray *globalArrayLocations = nil;
 NSMutableArray *globalArrayModifiers = nil;
+NSMutableArray *globalArrayOrderItems = nil;
 
 NSIndexPath *selectedLocationIndexPath = nil;
 NSIndexPath *selectedItemIndexPath = nil;
@@ -32,6 +33,7 @@ Item *globalCurrentItem = nil;
 Modifier *globalCurrentModifier = nil;
 Option *globalCurrentOption;
 Order *globalCurrentOrder = nil;
+
 
 NSMutableArray *globalUserInfo = nil;
 NSMutableArray *globalCurrentUser = nil;

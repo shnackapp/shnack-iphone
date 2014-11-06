@@ -19,7 +19,15 @@
 @property (nonatomic, retain) NSMutableArray *items;
 @property (nonatomic, retain) NSMutableArray *options;
 
-@property (nonatomic, retain) NSString *option_name_for_mod;
+@property (nonatomic, retain) NSMutableArray *option_name_for_mod;
+@property(nonatomic,retain) NSMutableArray *option_price_for_mod;
+
+@property (nonatomic, retain) NSMutableArray *single_option_name_for_mod;
+@property(nonatomic,retain) NSMutableArray *single_option_price_for_mod;
+
+@property (nonatomic) BOOL DEFAULT_OPTION;
+@property (nonatomic,retain) NSMutableArray *default_option_price;
+@property (nonatomic,retain) NSMutableArray *default_option_name;
 
 extern NSMutableArray *globalArrayLocations;
 extern NSIndexPath *selectedModIndexPath;

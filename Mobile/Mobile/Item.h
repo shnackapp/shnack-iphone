@@ -11,8 +11,8 @@
 @interface Item : NSObject <NSCopying>
 
 @property (nonatomic, retain) NSString *name;
-@property (nonatomic) int price;
-@property (nonatomic) int count; //Quantity Ordered Count -- see bottom
+@property (nonatomic) NSInteger price;
+@property (nonatomic) NSInteger count; //Quantity Ordered Count -- see bottom
 @property (nonatomic) NSString *description;
 
 @property (nonatomic) NSArray *modifiers;
@@ -20,10 +20,10 @@
 
 
 -(id)initWithName:(NSString *)name andPrice:(NSInteger)price;
--(id)initWithName:(NSString *)name andCount:(int)count;
+-(id)initWithName:(NSString *)name andCount:(NSInteger)count;
 
 -(id)initWithName:(NSString *)name andPrice:(NSInteger)price
-
+                                   andCount:(NSInteger)count
                                    andDescription:(NSString *)description
                                    andModifiers:(NSArray *)modifiers;
 

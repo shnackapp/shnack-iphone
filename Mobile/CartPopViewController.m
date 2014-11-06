@@ -10,6 +10,7 @@
 #import "UIViewController+CWPopup.h"
 #import "BButton.h"
 #import "NSString+FontAwesome.h"
+#import "OpenOrderTableViewCell.h"
 
 @interface CartPopViewController ()
 
@@ -57,7 +58,8 @@
     self.checkoutButton.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:18];
     self.checkoutButton.titleLabel.text = @"Checkout";
 
-    
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 
 
     [super viewDidLoad];
@@ -65,6 +67,36 @@
     
     // Do any additional setup after loading the view from its nib.
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Potentially incomplete method implementation.
+  // Return the number of sections.
+  return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete method implementation.
+  // Return the number of rows in the section.
+  
+  return [globalArrayOrderItems count];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  return 54;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  OpenOrderTableViewCell *cell = [[OpenOrderTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"order"];
+  cell.item_name.text = @"testing_name";
+  cell.item_price.text = @"$1.23";
+  cell.modifier_name.text = @"modnejcnekjc";
+  cell.quantity.text = @"100";
+  
+  return cell;
+}
+
 
 
 -(IBAction)checkout

@@ -45,7 +45,14 @@
   self.modifiers = [[NSMutableArray alloc] init];
   self.items = [[NSMutableArray alloc] init];
   self.options = [[NSMutableArray alloc] init];
-  self.option_name_for_mod = @"";
+  self.option_name_for_mod = [[NSMutableArray alloc] init];
+  self.option_price_for_mod = [[NSMutableArray alloc] init];
+  
+  self.single_option_name_for_mod = [[NSMutableArray alloc] initWithCapacity:1];
+  self.single_option_price_for_mod = [[NSMutableArray alloc] initWithCapacity:1];
+  
+  self.default_option_name = [[NSMutableArray alloc] init];
+  self.default_option_price = [[NSMutableArray alloc] init];
 
   [self.apply_button setStyle:BButtonStyleBootstrapV3];
   [self.apply_button setType:BButtonTypeFacebook];
@@ -116,26 +123,38 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   NSLog(@"indexPath Section: %ld %ld", (long)indexPath.section,(long)indexPath.row);
-  Option *option = self.options[indexPath.row];
+  NSString *name = [self.options[indexPath.row] objectForKey:@"name"];
+  NSInteger price;
+  if([self.options[indexPath.row] objectForKey:@"price"] == [NSNull null] )
+  {
+    price = 0;
+  }
+  else
+  {
+    price = [[self.options[indexPath.row] objectForKey:@"price"] integerValue];
+  }
+  Option *option = [[Option alloc] initWithName:name andPrice:price];
+  
   if([[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 0)
   {
     SizeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"size" forIndexPath:indexPath];
     cell.picker.tag = indexPath.row;
     [cell.picker addTarget:self action:@selector(singleSelectSwitchAction:) forControlEvents:UIControlEventTouchUpInside];
-    cell.option.text = [NSString stringWithFormat:@"%@", [option valueForKey:@"name"]];
-    cell.picker.on = NO;
-    
-    NSString *price = [NSString stringWithFormat:@"$%@", [option valueForKey:@"price"]];
-    if([[option valueForKey:@"price"] integerValue] == 0 )
-    {
-    cell.price_label.text = @"";
+    cell.option.text = [NSString stringWithFormat:@"%@", option.name];
+    if(indexPath.row == 0)
+    {//default
+    cell.picker.on = YES;
+    self.DEFAULT_OPTION = YES;
+    [self.default_option_name addObject:option.name];
+    [self.default_option_price addObject:@(0)];
+    globalCurrentOption = option;
     }
     else
     {
-    cell.price_label.text = price;
+    cell.picker.on = NO;
     }
-
-    
+    NSString *price = [NSString stringWithFormat:@"+$%d.%02d", option.price/100, option.price%100];
+    cell.price_label.text = price;
     return cell;
   }
   else if([[globalCurrentModifier valueForKey:@"mod_type"]integerValue] == 1)
@@ -143,17 +162,21 @@
     SingleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"single_select" forIndexPath:indexPath];
     cell.picker.tag = indexPath.row;
     [cell.picker addTarget:self action:@selector(singleSelectSwitchAction:) forControlEvents:UIControlEventTouchUpInside];
-    cell.option.text = [NSString stringWithFormat:@"%@", [option valueForKey:@"name"]];
-    cell.picker.on = NO;
-    NSString *price = [NSString stringWithFormat:@"$%@", [option valueForKey:@"price"]];
-    if([[option valueForKey:@"price"] integerValue] == 0  )
-    {
-      cell.price_label.text = @"";
+    cell.option.text = [NSString stringWithFormat:@"%@", option.name];
+    if(indexPath.row == 0)
+    {//default
+      cell.picker.on = YES;
+      self.DEFAULT_OPTION = YES;
+      [self.default_option_name addObject: option.name];
+      [self.default_option_price addObject:@(0)];
+      globalCurrentOption = option;
     }
     else
     {
-      cell.price_label.text = price;
+      cell.picker.on = NO;
     }
+    NSString *price = [NSString stringWithFormat:@"+$%d.%02d", option.price/100, option.price%100];
+    cell.price_label.text = price;
     return cell;
   }
   else
@@ -161,17 +184,10 @@
     MultipleTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"multiple_select" forIndexPath:indexPath];
     cell.picker.tag = indexPath.row;
     [cell.picker addTarget:self action:@selector(multipleSelectSwitchAction:) forControlEvents:UIControlEventTouchUpInside];
-    cell.option.text = [NSString stringWithFormat:@"%@", [option valueForKey:@"name"]];
+    cell.option.text = [NSString stringWithFormat:@"%@", option.name];
     cell.picker.on = NO;
-    NSString *price = [NSString stringWithFormat:@"$%@", [option valueForKey:@"price"]];
-    if([[option valueForKey:@"price"] integerValue] == 0)
-    {
-      cell.price_label.text = @"";
-    }
-    else
-    {
-      cell.price_label.text = price;
-    }
+    NSString *price = [NSString stringWithFormat:@"+$%d.%02d", option.price/100, option.price%100];
+    cell.price_label.text = price;
     return cell;
   }
 }
@@ -182,19 +198,25 @@
   UISwitch * cell_switch =  (UISwitch *)sender;
   if(cell_switch.on)
   {
+    self.DEFAULT_OPTION = NO;
     selectedOptionIndexPathRow = cell_switch .tag;
-    Option *option = self.options[cell_switch.tag];
-    globalCurrentOption = option;
-    NSLog(@"my switch is on and here is row %ld", (long)cell_switch.tag);
-    [self turnOffOtherSwitches:cell_switch.tag];
-    if([[[option valueForKey:@"price"] stringValue]  isEqual: @""])
+    NSInteger price;
+    if([self.options[cell_switch.tag] valueForKey:@"price"] == [NSNull null])
     {
-      [self setDetailTextOnModifier:[option valueForKey:@"name"] andPrice:0];
+      price = 0;
     }
     else
     {
-    [self setDetailTextOnModifier:[option valueForKey:@"name"] andPrice:[[option valueForKey:@"price"] integerValue]];
+      price = [[self.options[cell_switch.tag] valueForKey:@"price"] integerValue];
     }
+    NSString *name = [self.options[cell_switch.tag] valueForKey:@"name"];
+    Option *option = [[Option alloc] initWithName:name andPrice:price];
+    globalCurrentOption = option;
+    [self.single_option_name_for_mod addObject:option.name];
+    NSNumber *num = [NSNumber numberWithInteger:option.price];
+    [self.single_option_price_for_mod addObject:num];
+    NSLog(@"my switch is on and here is row %ld", (long)cell_switch.tag);
+    [self turnOffOtherSwitches:cell_switch.tag];
   }
 }
 
@@ -203,11 +225,72 @@
   UISwitch * cell_switch =  (UISwitch *)sender;
   if(cell_switch.on)
   {
-    Option *option = self.options[cell_switch.tag];
-    NSString *option_name = [[option valueForKey:@"name"] stringByAppendingString:@" "];
-    self.option_name_for_mod = [self.option_name_for_mod stringByAppendingString:option_name];
+    NSInteger price;
+    self.DEFAULT_OPTION = NO;
+    NSString *name = [self.options[cell_switch.tag] valueForKey:@"name"];
+    if([self.options[cell_switch.tag] valueForKey:@"price"] == [NSNull null])
+    {
+      price = 0;
+    }
+    else
+    {
+      price = [[self.options[cell_switch.tag] valueForKey:@"price"] integerValue];
+    }
+    Option *option = [[Option alloc] initWithName:name andPrice:price];
+    [self.option_name_for_mod addObject:option.name];
+    NSNumber *num = [NSNumber numberWithInteger:option.price];
+    [self.option_price_for_mod addObject:num];
     NSLog(@"my switch is on and here is row %ld", (long)cell_switch.tag);
-    [self setDetailTextOnModifier:(NSString *)self.option_name_for_mod andPrice:[[option valueForKey:@"price"] integerValue]];
+  }
+  if(!cell_switch.on)
+  {
+    if([self.option_name_for_mod count] <= 1)
+    {
+      [self.option_name_for_mod removeLastObject];
+      [self.option_price_for_mod removeLastObject];
+    }
+    else if(cell_switch.tag >= [self.option_name_for_mod count])
+    {
+      [self.option_name_for_mod removeLastObject];
+      [self.option_price_for_mod removeLastObject];
+    }
+    else
+    {
+      [self.option_name_for_mod removeObjectAtIndex:cell_switch.tag];
+      [self.option_price_for_mod removeObjectAtIndex:cell_switch.tag];
+    }
+  }
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+  NSLog(@"please am i in here");
+  if(self.DEFAULT_OPTION == YES)
+  {
+    [self setDetailTextOnModifier:self.default_option_name andPrice:self.default_option_price];
+  }
+  if(self.DEFAULT_OPTION == NO)
+  {
+    
+    if([[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 0 || [[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 1)
+    {
+      //this is to remove the switches that could be toggled when a user is deciding which option
+      NSInteger num_elements = [self.single_option_name_for_mod count];
+      for(NSInteger j = 0; j < num_elements; j++)
+      {
+        if(j != [self.single_option_name_for_mod count] - 1)
+        {
+          [self.single_option_price_for_mod removeObjectAtIndex:0];
+          [self.single_option_name_for_mod removeObjectAtIndex:0];
+        }
+      }
+    [self setDetailTextOnModifier:self.single_option_name_for_mod andPrice:self.single_option_price_for_mod];
+    }
+    if([[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 2)
+    {
+      [self setDetailTextOnModifier:self.option_name_for_mod andPrice:self.option_price_for_mod];
+    }
   }
 }
 
@@ -229,7 +312,7 @@
   }
 }
 
--(void)setDetailTextOnModifier:(NSString *)option_name andPrice:(NSInteger)price
+-(void)setDetailTextOnModifier:(NSMutableArray *)options andPrice:(NSMutableArray *)prices
 {
   for (int i =0; i < [[self.navigationController viewControllers] count]; i++)
   {
@@ -237,7 +320,7 @@
     if ([aController isKindOfClass:[ModifierViewController class]])
     {
       ModifierViewController *mods = (ModifierViewController *)aController;
-      [mods refreshTableToSetDetailText:option_name andPrice:price andIndex:(NSIndexPath *) selectedModIndexPath];
+      [mods refreshTableToSetDetailText:options andPrice:prices andIndex:(NSIndexPath *) selectedModIndexPath];
     }
   }
 }

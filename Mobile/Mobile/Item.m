@@ -12,7 +12,7 @@
 
 @synthesize description;
 
--(id)initWithName:(NSString *)name andPrice:(int)price
+-(id)initWithName:(NSString *)name andPrice:(NSInteger)price
 {
     self = [super init];
     if(self) {
@@ -37,7 +37,7 @@
     }
     return copy;
 }
--(id)initWithName:(NSString *)name andCount:(int)count
+-(id)initWithName:(NSString *)name andCount:(NSInteger)count
 {
         self = [super init];
         if(self) {
@@ -49,14 +49,14 @@
             }
         return self;
 }
--(id)initWithName:(NSString *)name  andPrice:(int)price andDescription:(NSString *)description andModifiers:(NSArray *)modifiers
+-(id)initWithName:(NSString *)name  andPrice:(NSInteger)price andCount:(NSInteger)count andDescription:(NSString *)description andModifiers:(NSArray *)modifiers
 {
     self = [super init];
     if(self) {
         //Initialize
         self.name = name;
         self.price = price;
-        self.count = 0;
+        self.count = count;
         self.description = description ;
         self.modifiers =  modifiers;
         

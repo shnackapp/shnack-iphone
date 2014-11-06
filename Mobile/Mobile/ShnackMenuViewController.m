@@ -40,6 +40,8 @@
 {
   //disable swipe back in nav controller
   [self.tableView setLoading:YES];
+  globalArrayOrderItems = [[NSMutableArray alloc] init];
+
 
   if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
       self.navigationController.interactivePopGestureRecognizer.enabled = NO;
@@ -95,14 +97,18 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-        [super viewWillAppear:animated];
-        [self.tableView reloadData];
+  [super viewWillAppear:animated];
+  [self.tableView reloadData];
   if(globalCurrentItem.count == 0)
+  {
+    self.checkoutButton.enabled = NO;
+  }
+  else
   {
     self.checkoutButton.enabled = YES;
   }
-        NSInteger total = [self calculateOrderTotal];
-      self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
+    NSInteger total = [self calculateOrderTotal];
+    self.navigationItem.rightBarButtonItem.title = [NSString stringWithFormat:@"$%d.%02d", total/100, total%100];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -147,7 +153,7 @@
         NSString *name = [item  objectForKey:@"name"];
         NSString *description = [[item objectForKey:@"description" ] isKindOfClass:[NSNull class]] ? @"No Description" : [item objectForKey:@"description"];
         NSMutableArray *modifiers = [item objectForKey:@"modifiers"];
-        Item *new_item = [[Item alloc] initWithName:name andPrice:price andDescription:description andModifiers:modifiers];
+      Item *new_item = [[Item alloc] initWithName:name andPrice:price andCount:0 andDescription:description andModifiers:modifiers];
         [menuCategory addObject:new_item];
         [tableSection addObject:name];
     }
@@ -231,6 +237,34 @@
       total += ((Item *)category[i]).price * ((Item *)category[i]).count;
     }
   }
+  if(globalArrayOrderItems != nil)
+  {
+    for(NSInteger i=0; i<[globalArrayOrderItems count]; i++)
+    {
+      NSMutableArray *modifiers = [globalArrayOrderItems[i] valueForKey:@"modifiers"];
+      for(NSInteger j=0; j<[modifiers count]; j++)
+      {
+        NSMutableArray *options = [modifiers valueForKey:@"options"];
+        for(NSInteger k=0; k<[options count]; k++)
+        {
+          NSString *name = [[options objectAtIndex:k][0] valueForKey:@"name"];
+          NSInteger price = [[[options objectAtIndex:k][0] valueForKey:@"price"] integerValue];
+          Option *option = [[Option alloc] initWithName:name andPrice:price];
+          NSLog(@"option.price %ld", (long)option.price);
+          if([option valueForKey:@"price"] != [NSNull null])
+          {
+          NSLog(@"here is my order option name and price %@ %@", [option valueForKey:@"name"], [option valueForKey:@"price"]);
+          total += option.price;
+            NSLog(@"total %ld", (long)total);
+          }
+        }
+
+      }
+
+    }
+    
+  } 
+  
   return total;
 }
 
@@ -241,6 +275,8 @@
     [self presentPopupViewController:cart animated:YES completion:nil];
     [((CartPopViewController *)self.popupViewController).closeCart addTarget:self action:@selector(dismissPopup) forControlEvents:UIControlEventTouchUpInside];
     self.checkoutButton.enabled = NO;
+  
+  
 }
 
 - (void)dismissPopup {
@@ -273,6 +309,10 @@
     else
     {
       NSLog(@"user clicked yes and wants to return to locations");
+      [globalArrayOrderItems removeAllObjects];
+      [globalArrayModifiers removeAllObjects];
+      globalCurrentItem  = nil;
+      
       [alertView dismissWithClickedButtonIndex:1 animated:YES];
       [self.navigationController popViewControllerAnimated:YES];
     }

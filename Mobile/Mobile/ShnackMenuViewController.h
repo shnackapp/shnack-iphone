@@ -16,9 +16,7 @@ extern NSMutableArray *globalArrayModifiers;
 extern NSIndexPath *selectedLocationIndexPath;
 extern NSIndexPath *selectedItemIndexPath;
 
-//@property (weak, nonatomic) NSIndexPath *selectedItemIndexPath;
-
-
+extern NSMutableArray *globalArrayOrderItems;
 extern NSMutableArray *globalOpenOrderMenu;
 extern NSInteger globalOpenOrderVendorID;
 extern NSInteger globalCurrentVendorID;
@@ -28,6 +26,7 @@ extern Item *globalCurrentItem;
 extern UIPageViewController *mainPages;
 extern NSMutableDictionary *global_menu;
 extern NSMutableArray *global_item_menu;
+
 
 @property (nonatomic, retain) NSMutableArray *menu;
 @property (nonatomic, retain) NSMutableData *responseData;

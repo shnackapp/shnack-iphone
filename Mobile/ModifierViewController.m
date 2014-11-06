@@ -34,15 +34,22 @@
     // Do any additional setup after loading the view.
   self.tableView.delegate = self;
   self.tableView.dataSource = self;
+  self.tableView.estimatedRowHeight = 70;
+  self.tableView.rowHeight = UITableViewAutomaticDimension;
+  
+  self.option_names = [[NSMutableArray alloc] init];
+  self.option_prices = [[NSMutableArray alloc] init];
   self.modifiers = [[NSMutableArray alloc] init];
   self.items = [[NSMutableArray alloc] init];
-  self.options = [[NSMutableArray alloc] init];
-  
+  self.multi_options = [[NSMutableArray alloc] init];
+  globalArrayModifiers = [[NSMutableArray alloc] init];
+
   globalOpenOrderVendorID = globalCurrentVendorID;
+  [[BButton appearance] setButtonCornerRadius:[NSNumber numberWithFloat:0.0f]];
+
   
   [self.add_to_cart_button setStyle:BButtonStyleBootstrapV3];
   [self.add_to_cart_button setType:BButtonTypeFacebook];
-  [[BButton appearance] setButtonCornerRadius:[NSNumber numberWithFloat:0.0f]];
   
   for(NSInteger i = 0; i< [globalCurrentItem.modifiers count]; i++)
   {
@@ -88,7 +95,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return 54;
+  
+   return 65;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -106,11 +114,14 @@
   if(indexPath.row == 0 && indexPath.section == 0)
   {
     QuantityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"quantity" forIndexPath:indexPath];
-    cell.quantity.text = [NSString stringWithFormat:@"%d", globalCurrentItem.count];
+    cell.quantity.text = [NSString stringWithFormat:@"%ld", (long)globalCurrentItem.count];
 
     [cell.minusButton setStyle:BButtonStyleBootstrapV3];
     [cell.plusButton setStyle:BButtonStyleBootstrapV3];
     
+    [cell.plusButton setButtonCornerRadius:[NSNumber numberWithFloat:5.0f]];
+    [cell.minusButton setButtonCornerRadius:[NSNumber numberWithFloat:5.0f]];
+
     [cell.minusButton setType:BButtonTypeDanger];
     [cell.plusButton setType:BButtonTypeSuccess];
     
@@ -132,30 +143,95 @@
   }
 }
 
-- (void) refreshTableToSetDetailText:(NSString*) option_label andPrice:(NSInteger) price andIndex:(NSIndexPath *)indexPath
+- (void) refreshTableToSetDetailText:(NSMutableArray*) option_labels andPrice:(NSMutableArray*) price_or_prices andIndex:(NSIndexPath *)indexPath
 {
   ModifierTableViewCell *cell = (ModifierTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-  cell.options.text = option_label;
-  Option *option = [[Option alloc] initWithName:option_label andPrice:price];
+  [self.option_prices  addObject: price_or_prices];
+  [self.option_names addObject:option_labels];
   
-  if(globalCurrentModifier != nil)
+  NSString *price = @"";
+  NSString *option = @"";
+  NSString *formatted_subtitle = @"";
+  
+  if([[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 0 || [[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 1)
   {
-    if([[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 0 || [[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 1)
-    {//single select we only have one option
-      NSMutableArray * single_option = [[NSMutableArray alloc] initWithCapacity:1];
-      [single_option addObject:globalCurrentOption];
-      Modifier *order_mod = [[Modifier alloc] initWithName:
-                [globalCurrentModifier valueForKey:@"name"] andModType:
-                [[globalCurrentModifier valueForKey:@"mod_type"] integerValue] andOptions:
-                single_option];
-      [self.options addObject:order_mod];
-    }
-    else
-    {//store the options selected and create a mod with all of those options instead of just one
-      
-    }
+    NSMutableArray * single_option = [[NSMutableArray alloc] initWithCapacity:1];
+    [single_option addObject:globalCurrentOption];
+    Modifier *order_mod = [[Modifier alloc] initWithName:
+                           [globalCurrentModifier valueForKey:@"name"] andModType:
+                           [[globalCurrentModifier valueForKey:@"mod_type"] integerValue] andOptions:
+                           single_option];
+    
+    [globalArrayModifiers addObject:order_mod];
   }
   
+  if([[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 2)
+  {//store the options selected and create a mod with all of those options instead of just one
+    NSLog(@"options: %@", self .option_names);
+    for(NSInteger i=0; i<[self.option_names count];i++)
+    {
+      if([[self.option_names objectAtIndex:i][0] isEqualToString:@""])
+      {
+        NSLog(@"DONothing");
+      }
+      else {
+        if(self.option_prices == nil)
+        {
+          Option *op = [[Option alloc] initWithName:[self.option_prices objectAtIndex:i][0] andPrice:0];
+          [self.multi_options addObject:op];
+          
+        }
+        else
+        {
+          Option *op = [[Option alloc] initWithName:[self.option_names objectAtIndex:i][0] andPrice:[[self.option_prices objectAtIndex:i][0] integerValue]];
+          [self.multi_options addObject:op];
+          
+        }
+      }
+    }
+    if([self.multi_options count] != 0)
+    {
+      Modifier *order_mod = [[Modifier alloc] initWithName:
+                              [globalCurrentModifier valueForKey:@"name"] andModType:
+                              [[globalCurrentModifier valueForKey:@"mod_type"] integerValue] andOptions:
+                              self.multi_options];
+      [globalArrayModifiers addObject:order_mod];
+    }
+  }
+
+
+  if([price_or_prices count] >1 && [option_labels count] > 1)//if multi_select
+  {
+    for(NSInteger i = 0; i < [price_or_prices count]; i++)//length of each array should match
+    {
+      price = [NSString stringWithFormat:@"+$%ld.%02ld",
+               [[price_or_prices objectAtIndex:i] integerValue]/100,
+               [price_or_prices[i] integerValue] %100];
+      option = [NSString stringWithFormat:[option_labels objectAtIndex:i]];
+      
+      NSString *formatted_price = [NSString stringWithFormat:@" ( %@ )", price];
+
+      NSString *option_and_price = [option stringByAppendingString:formatted_price];
+      formatted_subtitle = [[formatted_subtitle stringByAppendingString: option_and_price] stringByAppendingString:@", "];
+    }
+    cell.options.text = formatted_subtitle;
+  }
+  else if ([price_or_prices count] == 1 && [option_labels count] == 1)//if single select or only one multi_select
+  {
+    price = [NSString stringWithFormat:@"+$%ld.%02ld",
+            [[price_or_prices objectAtIndex:0] integerValue]/100,
+            [price_or_prices[0] integerValue] %100];
+    
+    option = option_labels[0];
+    NSString *formatted_price = [NSString stringWithFormat:@" ( %@ )", price];
+    NSString *option_and_price = [option stringByAppendingString:formatted_price];
+    formatted_subtitle = [formatted_subtitle stringByAppendingString: option_and_price];
+    cell.options.text = formatted_subtitle;
+  }
+  else//if none chosen, i dont think it will ever get here because i send default rather than empty
+  {
+    cell.options.text = @"";
+  }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -170,12 +246,14 @@
 
 -(IBAction)addToCart:(id)sender
 {
-  globalArrayModifiers = self.options;
   Item *order_item = [[Item alloc] initWithName:
                       globalCurrentItem.name andPrice:
-                      globalCurrentItem.price andDescription:
+                      globalCurrentItem.price andCount:
+                      globalCurrentItem.count andDescription:
                       globalCurrentItem.description andModifiers:
                       globalArrayModifiers];
+  
+  [globalArrayOrderItems addObject:order_item];
   
   
   for (int i =0; i < [[self.navigationController viewControllers] count]; i++)
