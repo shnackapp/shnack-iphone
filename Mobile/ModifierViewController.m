@@ -139,6 +139,7 @@
     cell.modifier.text = label;
     cell.modifier.adjustsFontSizeToFitWidth = YES;
     cell.options.text = @"";
+    cell.tag = [[globalCurrentItem.modifiers[indexPath.row] objectForKey:@"mod_type"] integerValue];
     return cell;
   }
 }
@@ -146,59 +147,10 @@
 - (void) refreshTableToSetDetailText:(NSMutableArray*) option_labels andPrice:(NSMutableArray*) price_or_prices andIndex:(NSIndexPath *)indexPath
 {
   ModifierTableViewCell *cell = (ModifierTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-  [self.option_prices  addObject: price_or_prices];
-  [self.option_names addObject:option_labels];
   
   NSString *price = @"";
   NSString *option = @"";
   NSString *formatted_subtitle = @"";
-  
-  if([[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 0 || [[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 1)
-  {
-    NSMutableArray * single_option = [[NSMutableArray alloc] initWithCapacity:1];
-    [single_option addObject:globalCurrentOption];
-    Modifier *order_mod = [[Modifier alloc] initWithName:
-                           [globalCurrentModifier valueForKey:@"name"] andModType:
-                           [[globalCurrentModifier valueForKey:@"mod_type"] integerValue] andOptions:
-                           single_option];
-    
-    [globalArrayModifiers addObject:order_mod];
-  }
-  
-  if([[globalCurrentModifier valueForKey:@"mod_type"] integerValue] == 2)
-  {//store the options selected and create a mod with all of those options instead of just one
-    NSLog(@"options: %@", self .option_names);
-    for(NSInteger i=0; i<[self.option_names count];i++)
-    {
-      if([[self.option_names objectAtIndex:i][0] isEqualToString:@""])
-      {
-        NSLog(@"DONothing");
-      }
-      else {
-        if(self.option_prices == nil)
-        {
-          Option *op = [[Option alloc] initWithName:[self.option_prices objectAtIndex:i][0] andPrice:0];
-          [self.multi_options addObject:op];
-          
-        }
-        else
-        {
-          Option *op = [[Option alloc] initWithName:[self.option_names objectAtIndex:i][0] andPrice:[[self.option_prices objectAtIndex:i][0] integerValue]];
-          [self.multi_options addObject:op];
-          
-        }
-      }
-    }
-    if([self.multi_options count] != 0)
-    {
-      Modifier *order_mod = [[Modifier alloc] initWithName:
-                              [globalCurrentModifier valueForKey:@"name"] andModType:
-                              [[globalCurrentModifier valueForKey:@"mod_type"] integerValue] andOptions:
-                              self.multi_options];
-      [globalArrayModifiers addObject:order_mod];
-    }
-  }
-
 
   if([price_or_prices count] >1 && [option_labels count] > 1)//if multi_select
   {
@@ -228,9 +180,9 @@
     formatted_subtitle = [formatted_subtitle stringByAppendingString: option_and_price];
     cell.options.text = formatted_subtitle;
   }
-  else//if none chosen, i dont think it will ever get here because i send default rather than empty
+  else//no options selected for multi select!
   {
-    cell.options.text = @"";
+    cell.options.text = @"No options selected";
   }
 }
 
@@ -244,8 +196,123 @@
   }
 }
 
+-(void)createModifiers
+{
+  NSLog(@"Number of mods: %ld", (long)[self.tableView numberOfRowsInSection:1]);
+  NSIndexPath *indexPath;
+  for(NSInteger i = 0; i < [self.tableView numberOfRowsInSection:1]; i++)
+  {
+    indexPath = [NSIndexPath indexPathForRow:i inSection:1];
+    ModifierTableViewCell *cell = (ModifierTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+    
+    if([cell.options.text isEqualToString:@""])
+    {
+      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Alert", @"Alert") message:NSLocalizedString(@"You have not selected some important information about your order! Please finish your order.", @"You have not selected some important information about your order! Please finish your order.") delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+      [alert show];
+      NSLog(@"should present a popup");
+      alert.tag = 100;
+      self.COMPLETE_ORDER = NO;
+      break;
+      
+    }
+    else
+    {
+      self.COMPLETE_ORDER = YES;
+    if(cell.tag == 0 || cell.tag == 1) //if single select
+    {
+      NSMutableArray *single_select_option = [[NSMutableArray alloc] init];
+      NSArray *deconstructed_option = [cell.options.text componentsSeparatedByString:@"("];
+      NSString *formatted_price = [deconstructed_option[1] stringByReplacingOccurrencesOfString:@"+" withString:@""];
+      formatted_price = [formatted_price stringByReplacingOccurrencesOfString:@"$" withString:@""];
+      formatted_price = [formatted_price stringByReplacingOccurrencesOfString:@")" withString:@""];
+      NSInteger price = [formatted_price floatValue] * 100;
+      NSString * name = deconstructed_option[0];
+      NSLog(@"HERE IS LABEL_ARRAY: %@ and PRICE: %ld", deconstructed_option,price);
+      Option *option = [[Option alloc] initWithName:name andPrice:price];
+      [single_select_option addObject:option];
+      Modifier *order_mod = [[Modifier alloc] initWithName:[self.modifiers[indexPath.row] valueForKey:@"name"] andModType:[[self.modifiers[indexPath.row] valueForKey:@"mod_type"] integerValue] andOptions:single_select_option];
+      [globalArrayModifiers addObject:order_mod];
+      
+    }
+    if(cell.tag == 2)
+    {
+      NSArray *deconstructed_options = [cell.options.text componentsSeparatedByString:@","];
+      if([deconstructed_options[0] isEqualToString:@"No options selected"])//either no selected options or just one(no comma)
+      {
+        NSLog(@"Dont make a mod if no options selected!");
+      }
+      if([deconstructed_options count] == 1 && ![deconstructed_options[0] isEqualToString:@"No options selected"])
+      {
+        NSMutableArray *single_multi_select_option = [[NSMutableArray alloc] init];
+        NSArray *deconstructed_option = [cell.options.text componentsSeparatedByString:@"("];
+        NSString *formatted_price = [deconstructed_option[1] stringByReplacingOccurrencesOfString:@"+" withString:@""];
+        formatted_price = [formatted_price stringByReplacingOccurrencesOfString:@"$" withString:@""];
+        formatted_price = [formatted_price stringByReplacingOccurrencesOfString:@")" withString:@""];
+        NSInteger price = [formatted_price floatValue]*100 ;
+        NSString *name = deconstructed_option[0];
+        NSLog(@"HERE IS LABEL_ARRAY: %@ and PRICE: %ld", deconstructed_option,price);
+        Option *option = [[Option alloc] initWithName:name andPrice:price];
+        [single_multi_select_option addObject:option];
+        Modifier *order_mod = [[Modifier alloc] initWithName:
+                 [self.modifiers[indexPath.row] valueForKey:@"name"] andModType:
+                [[self.modifiers[indexPath.row] valueForKey:@"mod_type"] integerValue] andOptions: single_multi_select_option];
+        [globalArrayModifiers addObject:order_mod];
+
+      }
+      if([deconstructed_options count] > 1)
+      {
+        for(NSInteger j = 0; j < [deconstructed_options count]; j++)
+        {
+          NSInteger price;
+          NSString *name;
+          NSArray *deconstructed_option = [deconstructed_options[j] componentsSeparatedByString:@"("];
+          if([deconstructed_option count] == 1)
+          {
+            NSLog(@"false - there is no option just a space");
+          }
+          else
+          {
+            NSString *formatted_price = [deconstructed_option[1] stringByReplacingOccurrencesOfString:@"+" withString:@""];
+            formatted_price = [formatted_price stringByReplacingOccurrencesOfString:@"$" withString:@""];
+            formatted_price = [formatted_price stringByReplacingOccurrencesOfString:@")" withString:@""];
+            price = [formatted_price floatValue] *100;
+            name = deconstructed_option[0];
+            NSLog(@"HERE IS LABEL_ARRAY: %@ and PRICE: %ld", deconstructed_option,price);
+            Option *option= [[Option alloc] initWithName:name andPrice:price];
+            [self.multi_options addObject:option];
+          }
+        }
+        Modifier *order_mod = [[Modifier alloc] initWithName:
+                  [self.modifiers[indexPath.row] valueForKey:@"name"] andModType:
+                  [[self.modifiers[indexPath.row] valueForKey:@"mod_type"] integerValue] andOptions:
+                  self.multi_options];
+        [globalArrayModifiers addObject:order_mod];
+      }
+    }
+   }
+  }
+}
+
 -(IBAction)addToCart:(id)sender
 {
+  
+  //make sure they have selected all modifiers before adding to cart
+ // ModifierTableViewCell *cell = (ModifierTableViewCell*)[self.tableView cellForRowAtIndexPath:indexPath];
+[self createModifiers];
+
+if(self.COMPLETE_ORDER == NO)
+{
+  NSLog(@"incomplete order!");
+}
+else
+{
+
+  for(NSInteger k = 0; k < [globalArrayModifiers count]; k++)
+  {
+    NSLog(@"@@@@@item: %@ and modifer %ld: %@", globalCurrentItem.name, k+1 ,[globalArrayModifiers[k] name]);
+    NSLog(@"@@@@@options: %@, %@ ", [[globalArrayModifiers[k] valueForKey:@"options"] valueForKey:@"name"],[[globalArrayModifiers[k] valueForKey:@"options"] valueForKey:@"price"]);
+
+  }
   Item *order_item = [[Item alloc] initWithName:
                       globalCurrentItem.name andPrice:
                       globalCurrentItem.price andCount:
@@ -254,8 +321,7 @@
                       globalArrayModifiers];
   
   [globalArrayOrderItems addObject:order_item];
-  
-  
+
   for (int i =0; i < [[self.navigationController viewControllers] count]; i++)
   {
     ShnackMenuViewController *menu = [[self.navigationController viewControllers] objectAtIndex:i];
@@ -264,10 +330,10 @@
     {
       [self.navigationController popToViewController:menu animated:YES];
       [menu.tableView reloadData];
-
     }
     
   }
+}
   
 }
 

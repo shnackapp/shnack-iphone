@@ -21,7 +21,7 @@
 //@property (nonatomic, retain) NSMutableArray *options;
 @property (nonatomic, retain) NSMutableArray *multi_options;
 
-
+@property (nonatomic) BOOL COMPLETE_ORDER;
 
 extern NSMutableArray *globalArrayLocations;
 extern NSMutableArray *globalArrayModifiers;

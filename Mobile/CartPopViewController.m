@@ -11,6 +11,8 @@
 #import "BButton.h"
 #import "NSString+FontAwesome.h"
 #import "OpenOrderTableViewCell.h"
+#import "Item.h"
+#import "SubtotalTableViewCell.h"
 
 @interface CartPopViewController ()
 
@@ -78,23 +80,56 @@
 #warning Incomplete method implementation.
   // Return the number of rows in the section.
   
-  return [globalArrayOrderItems count];
+  return [globalArrayOrderItems count]+1;//+1 for the subtotal cell
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return 54;
+  return 90;
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+  return @"Item                           Qty.       Price";
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  OpenOrderTableViewCell *cell = [[OpenOrderTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"order"];
-  cell.item_name.text = @"testing_name";
-  cell.item_price.text = @"$1.23";
-  cell.modifier_name.text = @"modnejcnekjc";
-  cell.quantity.text = @"100";
-  
+  if(indexPath.row != [globalArrayOrderItems count])
+  {
+    
+  OpenOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"order"];
+  if(!cell)
+  {
+    [tableView registerNib:[UINib nibWithNibName:@"OpenOrderTableViewCell" bundle:nil] forCellReuseIdentifier:@"order"];
+    cell = [tableView dequeueReusableCellWithIdentifier:@"order"];
+  }
+  Item *item = globalArrayOrderItems[indexPath.row];
+  cell.item_name.text = item.name;
+  NSString * price = [NSString stringWithFormat:@"$%ld.%02ld", item.price/100 ,item.price  %100];
+  cell.item_price.text = price;
+  //cell.modifier_name.text = item.modifiers[0];
+  cell.quantity.text = [NSString stringWithFormat:@"%ld",(long)item.count];
   return cell;
+  }
+  else
+  {
+    //make this the subtotal and ttoal cell
+    SubtotalTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"subtotal"];
+    if(!cell)
+    {
+      [tableView registerNib:[UINib nibWithNibName:@"SubtotalTableViewCell" bundle:nil] forCellReuseIdentifier:@"subtotal"];
+      cell = [tableView dequeueReusableCellWithIdentifier:@"subtotal"];
+    }
+    cell.subtotal.text = @"$1.99";
+    cell.tax.text = @"$0.01";
+    cell.total.text= @"$2.00";
+    
+    return cell;
+  }
+  
+  
 }
 
 

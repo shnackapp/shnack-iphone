@@ -42,6 +42,8 @@
 		691E66E018F3E2FB00F67683 /* paperplane.svg in Resources */ = {isa = PBXBuildFile; fileRef = 691E66DF18F3E2FB00F67683 /* paperplane.svg */; };
 		69242D0A1996858D0067DFA5 /* CartPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69242D081996858D0067DFA5 /* CartPopViewController.m */; };
 		69242D0B1996858D0067DFA5 /* CartPopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69242D091996858D0067DFA5 /* CartPopViewController.xib */; };
+		693376E81A0E110C006367C1 /* SubtotalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693376E71A0E110C006367C1 /* SubtotalTableViewCell.xib */; };
+		693376ED1A0E1130006367C1 /* SubtotalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 693376EC1A0E1130006367C1 /* SubtotalTableViewCell.m */; };
 		69393754191F13E00061839C /* MainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69393753191F13E00061839C /* MainPageViewController.m */; };
 		693A943119B63DC10069A2D4 /* LoginNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693A943019B63DC10069A2D4 /* LoginNavController.m */; };
 		69400FB518BBE68000238826 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 69400FB418BBE68000238826 /* Item.m */; };
@@ -226,6 +228,9 @@
 		69242D071996858D0067DFA5 /* CartPopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartPopViewController.h; sourceTree = "<group>"; };
 		69242D081996858D0067DFA5 /* CartPopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartPopViewController.m; sourceTree = "<group>"; };
 		69242D091996858D0067DFA5 /* CartPopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CartPopViewController.xib; sourceTree = "<group>"; };
+		693376E71A0E110C006367C1 /* SubtotalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubtotalTableViewCell.xib; sourceTree = "<group>"; };
+		693376EB1A0E1130006367C1 /* SubtotalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtotalTableViewCell.h; sourceTree = "<group>"; };
+		693376EC1A0E1130006367C1 /* SubtotalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtotalTableViewCell.m; sourceTree = "<group>"; };
 		69393752191F13E00061839C /* MainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainPageViewController.h; path = Mobile/MainPageViewController.h; sourceTree = "<group>"; };
 		69393753191F13E00061839C /* MainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainPageViewController.m; path = Mobile/MainPageViewController.m; sourceTree = "<group>"; };
 		693A942F19B63DC10069A2D4 /* LoginNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginNavController.h; sourceTree = "<group>"; };
@@ -552,6 +557,9 @@
 				69FD401B1A035DCE008960A2 /* OpenOrderTableViewCell.h */,
 				69FD401C1A035DCE008960A2 /* OpenOrderTableViewCell.m */,
 				6904A0B21A041F1F0090A3C4 /* OpenOrderTableViewCell.xib */,
+				693376E71A0E110C006367C1 /* SubtotalTableViewCell.xib */,
+				693376EB1A0E1130006367C1 /* SubtotalTableViewCell.h */,
+				693376EC1A0E1130006367C1 /* SubtotalTableViewCell.m */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -1136,6 +1144,7 @@
 				691E66E018F3E2FB00F67683 /* paperplane.svg in Resources */,
 				69F95D1818F200B30011F5DB /* mastercard.png in Resources */,
 				69F95D1D18F200B30011F5DB /* visa@2x.png in Resources */,
+				693376E81A0E110C006367C1 /* SubtotalTableViewCell.xib in Resources */,
 				69F95D1618F200B30011F5DB /* jcb.png in Resources */,
 				6953817C191423E900DD91A2 /* app_logo.png in Resources */,
 				69F95D1B18F200B30011F5DB /* placeholder@2x.png in Resources */,
@@ -1227,6 +1236,7 @@
 				42E9611218ED494100E5A182 /* RootViewController.m in Sources */,
 				69F95D2718F2184B0011F5DB /* MBProgressHUD.m in Sources */,
 				69F95D0518F200B30011F5DB /* PKCardCVC.m in Sources */,
+				693376ED1A0E1130006367C1 /* SubtotalTableViewCell.m in Sources */,
 				694BF2BE19E39F33005720E3 /* ModifierViewController.m in Sources */,
 				69171C1A19E8789200062877 /* Option.m in Sources */,
 				69F95D0718F200B30011F5DB /* PKCardNumber.m in Sources */,
