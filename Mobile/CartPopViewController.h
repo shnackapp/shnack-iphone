@@ -17,9 +17,9 @@
 @property (nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) IBOutlet UILabel *cart;
 
--(IBAction)checkout;
 
-@property (nonatomic,retain) IBOutlet OpenOrderTableViewCell *item;
+-(IBAction)checkout;
+@property (nonatomic) NSInteger order_total;
 
 extern NSMutableArray *globalArrayOrderItems;
 

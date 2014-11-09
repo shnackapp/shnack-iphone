@@ -12,6 +12,8 @@
 #import "NSString+FontAwesome.h"
 #import "OpenOrderTableViewCell.h"
 #import "Item.h"
+#import "Modifier.h"
+#import "Option.h"
 #import "SubtotalTableViewCell.h"
 
 @interface CartPopViewController ()
@@ -31,42 +33,33 @@
 
 - (void)viewDidLoad
 {
-    self.cart.text = @"My Cart";
-    self.cart.font =[UIFont fontWithName:@"Dosis-Bold" size:20];
-    self.cart.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
-    self.cart.textAlignment = NSTextAlignmentCenter;
-    self.cart.textColor = [UIColor colorWithRed:0.32f green:0.64f blue:0.32f alpha:1.00f]; // change this color
+  self.cart.text = @"My Order";
+  self.cart.font =[UIFont fontWithName:@"Dosis-Bold" size:20];
+  self.cart.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+  self.cart.textAlignment = NSTextAlignmentCenter;
+  self.cart.textColor = [UIColor colorWithRed:0.32f green:0.64f blue:0.32f alpha:1.00f]; // change this color
     [self.cart sizeToFit];
-    
     [[BButton appearance] setButtonCornerRadius:[NSNumber numberWithFloat:5.0f]];
+  self.order_total = 0;
+ 
+  [self.closeCart setStyle:BButtonStyleBootstrapV3];
+  [self.closeCart setType:BButtonTypeDefault];
+  self.closeCart.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:16];
+  self.closeCart.titleLabel.text = @"X";
+  self.closeCart.titleLabel.textColor = [UIColor redColor];
     
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 20, 100, 44)];
-    label.font = [UIFont fontWithName:@"FontAwesome" size:20];
-    label.text =  [NSString awesomeIcon:FAIconCheck];
-    NSLog(@"icon %@",label.text);
-    
-    
-    [self.closeCart setStyle:BButtonStyleBootstrapV3];
-    [self.closeCart setType:BButtonTypeDefault];
-    
-    self.closeCart.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:16];
-    self.closeCart.titleLabel.text = @"X";
-    self.closeCart.titleLabel.textColor = [UIColor redColor];
-    
-    [self.checkoutButton setStyle:BButtonStyleBootstrapV3];
-    [self.checkoutButton setType:BButtonTypeSuccess];
-    
-    self.checkoutButton.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:18];
-    self.checkoutButton.titleLabel.text = @"Checkout";
+  [self.checkoutButton setStyle:BButtonStyleBootstrapV3];
+  [self.checkoutButton setType:BButtonTypeSuccess];
+  [self.checkoutButton addAwesomeIcon:FAIconMoney beforeTitle:YES];
 
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+  
+  self.checkoutButton.titleLabel.font = [UIFont fontWithName:@"Dosis-Bold" size:18];
+  self.checkoutButton.titleLabel.text = @"Checkout";
 
-
-    [super viewDidLoad];
-    
-    
+  self.tableView.delegate = self;
+  self.tableView.dataSource = self;
+  [super viewDidLoad];
+  
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -85,7 +78,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  return 90;
+  if(indexPath.row == [globalArrayOrderItems count])
+  {
+    return 60;
+  }
+  else return 100;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -93,25 +90,53 @@
   return @"Item                           Qty.       Price";
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+  return 30;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+  return 30;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   if(indexPath.row != [globalArrayOrderItems count])
   {
+    OpenOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"order"];
+    if(!cell)
+    {
+      [tableView registerNib:[UINib nibWithNibName:@"OpenOrderTableViewCell" bundle:nil] forCellReuseIdentifier:@"order"];
+      cell = [tableView dequeueReusableCellWithIdentifier:@"order"];
+    }
+    Item *item = globalArrayOrderItems[indexPath.row];
+    cell.item_name.text = item.name;
+    NSString * price = [NSString stringWithFormat:@"$%ld.%02ld", (item.count *item.price)/100 ,(item.count *item.price )%100];
+    cell.item_price.text = price;
+    self.order_total += (item.count * item.price);
+    NSString *all_info = @"";
+    for(NSInteger i = 0; i < [item.modifiers count]; i++)
+    {
+      NSString *mod_name = [((Modifier*)item.modifiers[i]).name capitalizedString];
+      NSMutableArray *options = ((Modifier*)item.modifiers[i]).options;
+      NSString *options_string = @"";
+      for(NSInteger j =0; j < [options count]; j++)
+      {
+        NSString *option = ((Option*)options[j]).name;
+        options_string = [options_string stringByAppendingString:option];
+      }
+      NSString *mod_and_options = [[NSString stringWithFormat:@" %@:",mod_name]
+               stringByAppendingString:[NSString stringWithFormat:@" %@",options_string]];
+      all_info = [[all_info stringByAppendingString:mod_and_options]stringByAppendingString:@", \n"];
+    }
+    cell.modifier_name.text = all_info;
+    cell.modifier_name.font = [UIFont fontWithName:@"Dosis-Bold" size:9];
+    cell.modifier_name.adjustsFontSizeToFitWidth = YES;
+    cell.quantity.text = [NSString stringWithFormat:@"%ld",(long)item.count];
     
-  OpenOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"order"];
-  if(!cell)
-  {
-    [tableView registerNib:[UINib nibWithNibName:@"OpenOrderTableViewCell" bundle:nil] forCellReuseIdentifier:@"order"];
-    cell = [tableView dequeueReusableCellWithIdentifier:@"order"];
-  }
-  Item *item = globalArrayOrderItems[indexPath.row];
-  cell.item_name.text = item.name;
-  NSString * price = [NSString stringWithFormat:@"$%ld.%02ld", item.price/100 ,item.price  %100];
-  cell.item_price.text = price;
-  //cell.modifier_name.text = item.modifiers[0];
-  cell.quantity.text = [NSString stringWithFormat:@"%ld",(long)item.count];
-  return cell;
+    return cell;
   }
   else
   {
@@ -122,21 +147,21 @@
       [tableView registerNib:[UINib nibWithNibName:@"SubtotalTableViewCell" bundle:nil] forCellReuseIdentifier:@"subtotal"];
       cell = [tableView dequeueReusableCellWithIdentifier:@"subtotal"];
     }
-    cell.subtotal.text = @"$1.99";
-    cell.tax.text = @"$0.01";
-    cell.total.text= @"$2.00";
-    
+    NSString * price = [NSString stringWithFormat:@"$%ld.%02ld", self.order_total/100,self.order_total%100];
+    cell.subtotal.text = [NSString stringWithFormat:@" Subtotal: %@",price];
+    cell.total.text= [NSString stringWithFormat:@" Total: %@",price];
+    cell.subtotal.font = [UIFont fontWithName:@"Dosis-Bold" size:12];
+    cell.total.font = [UIFont fontWithName:@"Dosis-Bold" size:12];
+
     return cell;
   }
-  
-  
 }
-
-
 
 -(IBAction)checkout
 {
     NSLog(@"checking out & button text %@", self.checkoutButton.titleLabel.text);
+  
+  
     
 }
 

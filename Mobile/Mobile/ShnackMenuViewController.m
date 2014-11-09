@@ -20,6 +20,7 @@
 #import "Modifier.h"
 #import "Option.h"
 #import "NSString+FontAwesome.h"
+#import "SignUpNavController.h"
 
 @interface ShnackMenuViewController ()  <POPDDelegate>
 @end
@@ -219,7 +220,10 @@
 
 -(NSInteger)calculateCategoryCount:(NSInteger)section {
   NSInteger count = 0;
- 
+ if([globalArrayOrderItems count] == 0)
+ {
+   globalCurrentItem.count = 0;
+ }
   NSInteger numItems = [((NSArray *)self.menu[section]) count];
   for (NSInteger i = 1; i < numItems; i++) {
     count += ((Item *)self.menu[section][i]).count;
@@ -230,39 +234,19 @@
 -(NSInteger)calculateOrderTotal
 {
   NSInteger total = 0;
-  for (NSArray *category in self.menu)
-  {
-    for (NSInteger i = 1; i < [category count]; i++)
-    {
-      total += ((Item *)category[i]).price * ((Item *)category[i]).count;
-    }
-  }
+//  for (NSArray *category in self.menu)
+//  {
+//    for (NSInteger i = 1; i < [category count]; i++)
+//    {
+//      total += ((Item *)category[i]).price * ((Item *)category[i]).count;
+//    }
+//  }
   if(globalArrayOrderItems != nil)
   {
     for(NSInteger i=0; i<[globalArrayOrderItems count]; i++)
     {
-      NSMutableArray *modifiers = [globalArrayOrderItems[i] valueForKey:@"modifiers"];
-      for(NSInteger j=0; j<[modifiers count]; j++)
-      {
-        NSMutableArray *options = [modifiers valueForKey:@"options"];
-        for(NSInteger k=0; k<[options count]; k++)
-        {
-          NSString *name = [[options objectAtIndex:k][0] valueForKey:@"name"];
-          NSInteger price = [[[options objectAtIndex:k][0] valueForKey:@"price"] integerValue];
-          Option *option = [[Option alloc] initWithName:name andPrice:price];
-          NSLog(@"option.price %ld", (long)option.price);
-          if([option valueForKey:@"price"] != [NSNull null])
-          {
-          NSLog(@"here is my order option name and price %@ %@", [option valueForKey:@"name"], [option valueForKey:@"price"]);
-          total += option.price;
-            NSLog(@"total %ld", (long)total);
-          }
-        }
-
-      }
-
+      total += ((Item *)globalArrayOrderItems[i]).count*((Item *)globalArrayOrderItems[i]).price;
     }
-    
   } 
   
   return total;
@@ -275,6 +259,8 @@
     [self presentPopupViewController:cart animated:YES completion:nil];
     [((CartPopViewController *)self.popupViewController).closeCart addTarget:self action:@selector(dismissPopup) forControlEvents:UIControlEventTouchUpInside];
     self.checkoutButton.enabled = NO;
+  [((CartPopViewController *)self.popupViewController).checkoutButton addTarget:self action:@selector(cardProcessing) forControlEvents:UIControlEventTouchUpInside];
+  
   
   
 }
@@ -287,6 +273,23 @@
         }];
         self.checkoutButton.enabled = YES;
     }
+}
+
+-(void)cardProcessing
+{
+  if (self.popupViewController != nil) {
+    [self dismissPopupViewControllerAnimated:YES completion:^{
+      NSLog(@"popup view dismissed");
+      UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main"
+                                                               bundle: nil];
+      
+      SignUpNavController *signup =(SignUpNavController*)[mainStoryboard
+                                                      instantiateViewControllerWithIdentifier: @"sign_up_nav"];
+      [self presentViewController:signup animated:YES completion:nil];
+    }];
+  }
+  
+  
 }
 
 -(void)clearCurrentOrder

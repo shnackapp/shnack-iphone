@@ -11,7 +11,6 @@
 @interface SubtotalTableViewCell : UITableViewCell
 
 @property (nonatomic) IBOutlet UILabel *subtotal;
-@property (nonatomic) IBOutlet UILabel *tax;
 @property (nonatomic) IBOutlet UILabel *total;
 
 

@@ -99,6 +99,7 @@
    return 65;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   NSLog(@"indexPath Section: %ld %ld", (long)indexPath.section,(long)indexPath.row);
   if (globalCurrentItem.count == 0)
@@ -218,21 +219,20 @@
     else
     {
       self.COMPLETE_ORDER = YES;
-    if(cell.tag == 0 || cell.tag == 1) //if single select
-    {
-      NSMutableArray *single_select_option = [[NSMutableArray alloc] init];
-      NSArray *deconstructed_option = [cell.options.text componentsSeparatedByString:@"("];
-      NSString *formatted_price = [deconstructed_option[1] stringByReplacingOccurrencesOfString:@"+" withString:@""];
-      formatted_price = [formatted_price stringByReplacingOccurrencesOfString:@"$" withString:@""];
-      formatted_price = [formatted_price stringByReplacingOccurrencesOfString:@")" withString:@""];
-      NSInteger price = [formatted_price floatValue] * 100;
-      NSString * name = deconstructed_option[0];
-      NSLog(@"HERE IS LABEL_ARRAY: %@ and PRICE: %ld", deconstructed_option,price);
-      Option *option = [[Option alloc] initWithName:name andPrice:price];
-      [single_select_option addObject:option];
-      Modifier *order_mod = [[Modifier alloc] initWithName:[self.modifiers[indexPath.row] valueForKey:@"name"] andModType:[[self.modifiers[indexPath.row] valueForKey:@"mod_type"] integerValue] andOptions:single_select_option];
-      [globalArrayModifiers addObject:order_mod];
-      
+      if(cell.tag == 0 || cell.tag == 1) //if single select
+      {
+        NSMutableArray *single_select_option = [[NSMutableArray alloc] init];
+        NSArray *deconstructed_option = [cell.options.text componentsSeparatedByString:@"("];
+        NSString *formatted_price = [deconstructed_option[1] stringByReplacingOccurrencesOfString:@"+" withString:@""];
+        formatted_price = [formatted_price stringByReplacingOccurrencesOfString:@"$" withString:@""];
+        formatted_price = [formatted_price stringByReplacingOccurrencesOfString:@")" withString:@""];
+        NSInteger price = [formatted_price floatValue] * 100;
+        NSString * name = deconstructed_option[0];
+        NSLog(@"HERE IS LABEL_ARRAY: %@ and PRICE: %ld", name,price);
+        Option *option = [[Option alloc] initWithName:name andPrice:price];
+        [single_select_option addObject:option];
+        Modifier *order_mod = [[Modifier alloc] initWithName:[self.modifiers[indexPath.row] valueForKey:@"name"] andModType:[[self.modifiers[indexPath.row] valueForKey:@"mod_type"] integerValue] andOptions:single_select_option];
+        [globalArrayModifiers addObject:order_mod];
     }
     if(cell.tag == 2)
     {
@@ -306,37 +306,42 @@ if(self.COMPLETE_ORDER == NO)
 }
 else
 {
-
-  for(NSInteger k = 0; k < [globalArrayModifiers count]; k++)
+   NSInteger total = globalCurrentItem.price;
+  for(NSInteger j=0; j<[globalArrayModifiers count]; j++)
   {
-    NSLog(@"@@@@@item: %@ and modifer %ld: %@", globalCurrentItem.name, k+1 ,[globalArrayModifiers[k] name]);
-    NSLog(@"@@@@@options: %@, %@ ", [[globalArrayModifiers[k] valueForKey:@"options"] valueForKey:@"name"],[[globalArrayModifiers[k] valueForKey:@"options"] valueForKey:@"price"]);
-
+    NSLog(@"@@@@@item: %@ and modifer %ld: %@", globalCurrentItem.name, j+1 ,[globalArrayModifiers[j] name]);
+    NSLog(@"@@@@@options: %@, %@ ", [[globalArrayModifiers[j] valueForKey:@"options"] valueForKey:@"name"],[[globalArrayModifiers[j] valueForKey:@"options"] valueForKey:@"price"]);
+    NSMutableArray *options = [globalArrayModifiers[j] valueForKey:@"options"];
+    for(NSInteger k=0; k<[options count]; k++)
+    {
+      NSString *name = [[options objectAtIndex:k] valueForKey:@"name"];
+      NSInteger price = [[[options objectAtIndex:k] valueForKey:@"price"] floatValue];
+      Option *option = [[Option alloc] initWithName:name andPrice:price];
+      if([option valueForKey:@"price"] != [NSNull null])
+      {
+        NSLog(@"here is my order option name and price %@ %@", [option valueForKey:@"name"], [option valueForKey:@"price"]);
+        total += option.price;
+      }
+    }
   }
   Item *order_item = [[Item alloc] initWithName:
                       globalCurrentItem.name andPrice:
-                      globalCurrentItem.price andCount:
+                      total  andCount:
                       globalCurrentItem.count andDescription:
                       globalCurrentItem.description andModifiers:
                       globalArrayModifiers];
-  
-  [globalArrayOrderItems addObject:order_item];
-
-  for (int i =0; i < [[self.navigationController viewControllers] count]; i++)
-  {
-    ShnackMenuViewController *menu = [[self.navigationController viewControllers] objectAtIndex:i];
-    
-    if ([menu isKindOfClass:[ShnackMenuViewController class]])
+    [globalArrayOrderItems addObject:order_item];
+    for (int i =0; i < [[self.navigationController viewControllers] count]; i++)
     {
-      [self.navigationController popToViewController:menu animated:YES];
-      [menu.tableView reloadData];
+      ShnackMenuViewController *menu = [[self.navigationController viewControllers] objectAtIndex:i];
+      if ([menu isKindOfClass:[ShnackMenuViewController class]])
+      {
+        [self.navigationController popToViewController:menu animated:YES];
+        [menu.tableView reloadData];
+      }
     }
-    
   }
 }
-  
-}
-
 
 -(IBAction)increaseCountByOne:(id)sender
 {
